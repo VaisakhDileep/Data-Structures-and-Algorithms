@@ -10,7 +10,7 @@ using namespace std;
 
 struct Matrix
 {
-	int **A;
+	int **M;
 
 	int size;
 
@@ -43,7 +43,7 @@ int ** created_dynamic_matrix(int rows, int columns, int initial_value = 0)
 
 void display_matrix(Matrix *M)
 {
-	if(M->A == nullptr)
+	if(M->M == nullptr)
 	{
 		cout<<"[\n]";
 
@@ -56,7 +56,7 @@ void display_matrix(Matrix *M)
 		cout<<" [ ";
 		for(int j {0}; j < M->columns; j++)
 		{
-			cout<<M->A[i][j]<<" ";
+			cout<<M->M[i][j]<<" ";
 		}
 		cout<<"]\n";
 	}

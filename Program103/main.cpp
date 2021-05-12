@@ -8,7 +8,32 @@ Description : This program creates a square matrix.
 
 using namespace std;
 
+struct Square_Matrix
+{
+	int **M; // pointer to a dynamically created matrix.
+
+	int size; // maximum number of elements supported by the matrix.
+
+	int n; // number of rows or columns.
+};
+
+int ** created_dynamic_matrix(int n, int initial_value = 0)
+{
+	int **p;
+
+	p = new int*[n];
+
+	for(int i {0}; i < n; i++)
+	{
+		p[i] = new int[n];
+	}
+
+	return p;
+}
+
 int main()
 {
+	Square_Matrix M {created_dynamic_matrix(2, 3), 3 * 3, 3};
+
 	return 0;
 }

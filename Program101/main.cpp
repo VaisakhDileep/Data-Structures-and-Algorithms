@@ -10,7 +10,7 @@ using namespace std;
 
 struct Matrix
 {
-	int **A; // pointer to a dynamically created matrix.
+	int **M; // pointer to a dynamically created matrix.
 
 	int size; // maximum number of elements supported by the matrix.
 
@@ -28,6 +28,14 @@ int ** created_dynamic_matrix(int rows, int columns, int initial_value = 0)
 	for(int i {0}; i < rows; i++)
 	{
 		p[i] = new int[columns];
+	}
+
+	for(int i {0}; i < rows; i++)
+	{
+		for(int j {0}; j < columns; j++)
+		{
+			p[i][j] = initial_value;
+		}
 	}
 
 	return p;
