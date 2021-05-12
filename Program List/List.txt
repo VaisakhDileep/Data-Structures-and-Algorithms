@@ -125,3 +125,9 @@ Square Matrices(N X N):
 -----------------------
 
 Program103: This program creates a square matrix.
+Program104: This program displays a square matrix.
+
+Special Square Matrices:
+------------------------
+
+Program105: This program optimizes a diagonal matrix.
