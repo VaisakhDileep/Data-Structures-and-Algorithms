@@ -1,0 +1,127 @@
+Program001:[c++] This program helps to understand how to declare an array.
+Program002:[c++] This program helps to understand how to declare a structure.
+Program003:[c++] This program helps to understand how to declare a pointer.
+Program004:[c++] This program helps to understand how to allocate memory dynamically in the heap.
+Program005:[c++] This program helps to understand pointer to a structure.
+Program006:[c++] This program helps to understand pass-by-value in parameter passing.
+Program007:[c++] This program helps to understand pass-by-reference in parameter passing.
+Program008:[c++] This program helps to understand pass-by-address in parameter passing.
+Program009:[c++] This program helps to understand how to return an array as return-type.
+
+Recursion:
+----------
+
+Program010:[c++] This program helps to understand ascending phase and descending phase in recursive functions.
+Program011:[c++] This program helps to understand how static variables work in recursive functions.
+Program012:[c++] This program helps to understand how global variables work in recursive functions.
+Program013:[c++] This program helps to understand tail recursion.
+Program014:[c++] This program helps to understand head recursion.
+Program015:[c++] This program helps to understand tree recursion.
+Program016:[c++] This program helps to understand indirect recursion.
+Program017:[c++] This program helps to understand nested recursion.
+
+Special Recursive Problems:
+---------------------------
+
+Program018:[c++] This program finds the sum of the first 'n' natural numbers.
+Program019:[c++] This program finds the factorial of a number.
+Program020:[c++] This program finds the power(m, n).
+Program021:[c++] This program optimized power(m, n).
+Program022:[c++] This program finds the value of power(e, x) using taylor series.
+Program023:[c++] This program finds the value of power(e, x) using taylor series(horner's rule).
+Program024:[c++] This program finds the 'n'th element of the fibonacci series.
+Program025:[c++] This program finds the 'n'th element of the fibonacci series(memoization).
+Program026:[c++] This program finds the number of combinations.
+Program027:[c++] This program finds the number of combinations(pascal's triangle).
+Program028:[c++] This program finds the solution for the Tower of Hanoi problem.
+
+ARRAY [ADT]:
+------------
+
+Program029:[c++] This program creates an array.
+Program030:[c++] This program displays an array.
+Program031:[c++] This program extends the size of an array.
+Program032:[c++] This program appends an element at the end of an array.
+Program033:[c++] This program inserts an element to an array.
+Program034:[c++] This program deletes an element from an array.
+Program035:[c++] This program performs linear search on an array.
+Program036:[c++] This program performs binary search on a sorted array.
+Program037:[c++] This program gets an element from an array.
+Program038:[c++] This program sets an element in an array.
+Program039:[c++] This program finds the max element in an array.
+Program040:[c++] This program finds the min element in an array.
+Program041:[c++] This program finds the sum of all the elements in an array.
+Program042:[c++] This program finds the average of all the elements in an array.
+Program043:[c++] This program reverses an array(using auxiliary array).
+Program044:[c++] This program reverses an array(using swap function).
+Program045:[c++] This program left shifts an array.
+Program046:[c++] This program left rotates an array.
+Program047:[c++] This program right shifts an array.
+Program048:[c++] This program right rotates an array.
+Program049:[c++] This program inserts an element to a sorted array.
+Program050:[c++] This program checks if an array is sorted.
+Program051:[c++] This program moves all the negative elements to the beginning of the array.
+Program052:[c++] This program merges two sorted arrays.
+Program053:[c++] This program concatenates two arrays.
+Program054:[c++] This program checks if an element is present in an array.
+Program055:[c++] This program performs union operation on two arrays.
+Program056:[c++] This program performs union operation on two sorted arrays.
+Program057:[c++] This program performs intersection operation on two arrays.
+Program058:[c++] This program performs intersection operation on two sorted arrays.
+Program059:[c++] This program performs difference operation on two arrays.
+Program060:[c++] This program performs difference operation on two sorted arrays.
+Program061:[c++] This program finds the single missing element in a sorted array.
+Program062:[c++] This program finds multiple missing elements in a sorted array.
+Program063:[c++] This program finds all the missing elements in an array.
+Program064:[c++] This program finds all the duplicate elements in a sorted array.
+Program065:[c++] This program counts the number of duplicate elements in a sorted array.
+Program066:[c++] This program counts the number of duplicate elements in a sorted array(using hash table).
+Program067:[c++] This program counts the number of duplicate elements in an array.
+Program068:[c++] This program counts the number of duplicate elements in an array(using hash table).
+Program069:[c++] This program removes all the duplicate elements in an array.
+Program070:[c++] This program copies an array.
+Program071:[c++] This program finds all the pairs whose sum is 'k'(A[i] + A[j] = k) in an array.
+Program072:[c++] This program finds all the pairs whose sum is 'k'(A[i] + A[j] = k) in an array(using hash table).
+Program073:[c++] This program finds all the pairs whose sum is 'k'(A[i] + A[j] = k) in a sorted array.
+Program074:[c++] This program finds min and max element of an array simultaneously.
+
+Strings:
+--------
+
+Program075:[c++] This program helps to understand how to create a string.
+Program076:[c++] This program finds the length of a string.
+Program077:[c++] This program copies a string.
+Program078:[c++] This program converts all the upper-case characters to lower-case in a string.
+Program079:[c++] This program converts all the lower-case characters to upper-case in a string.
+Program080:[c++] This program toggles the characters(upper-case->lower-case and lower-case->upper-case) in a string.
+Program081:[c++] This program counts the number of vowels in a string.
+Program082:[c++] This program counts the number of consonants in a string.
+Program083:[c++] This program counts the number of words in a string.
+Program084:[c++] This program validates a string with only alphabets.
+Program085:[c++] This program validates a string with only numbers.
+Program086:[c++] This program validates a string with only alphabets and numbers.
+Program087:[c++] This program reverses a string.
+Program088:[c++] This program reverses a string(using swap function).
+Program089:[c++] This program compares two strings lexicographically.
+Program090:[c++] This program checks if a word is a palindrome.
+Program091:[c++] This program checks if a sentence is a palindrome.
+Program092:[c++] This program counts the number of duplicate characters in a string.
+Program093:[c++] This program counts the number of duplicate characters in a string(using hash table).
+Program094:[c++] This program helps to understand masking.
+Program095:[c++] This program helps to understand merging.
+Program096:[c++] This program identifies duplicate characters in a string.
+Program097:[c++] This program extracts all the alphabets in their lower-case representation in a string.
+Program098:[c++] This program checks if two strings are anagrams.
+Program099:[c++] This program finds all the permutations of a string(using brute-force).
+Program100:[c++] This program finds all the permutations of a string(using swap function).
+
+Matrices(N X M):
+----------------
+
+Program101: This program creates a matrix.
+Program102: This program displays a matrix.
+
+Square Matrices(N X N):
+-----------------------
+
+Program103: This program creates a square matrix.
