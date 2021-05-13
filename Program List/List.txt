@@ -120,14 +120,13 @@ Matrices(N X M):
 
 Program101: This program creates a matrix.
 Program102: This program displays a matrix.
+Program103: This program represents a matrix in the row-major form.
 
 Square Matrices(N X N):
 -----------------------
 
-Program103: This program creates a square matrix.
-Program104: This program displays a square matrix.
+Program105: This program creates a square matrix.
+Program106: This program displays a square matrix.
 
 Special Square Matrices:
 ------------------------
-
-Program105: This program optimizes a diagonal matrix.

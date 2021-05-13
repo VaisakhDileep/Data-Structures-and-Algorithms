@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 12, May, 2021
-Description : This program optimizes a diagonal matrix.
+Description : This program creates a square matrix.
 */
 
 #include<iostream>
@@ -10,37 +10,38 @@ using namespace std;
 
 struct Square_Matrix
 {
-	int **M;
+	int **M; // pointer to a dynamically created matrix.
 
-	int size;
+	int size; // maximum number of elements supported by the matrix.
 
-	int n;
+	int n; // number of rows or columns.
 };
 
-void display_square_matrix(Square_Matrix *M)
+int ** created_dynamic_square_matrix(int n, int initial_value = 0)
 {
-	if(M->M == nullptr)
-	{
-		cout<<"[\n]";
+	int **p;
 
-		return ;
+	p = new int*[n];
+
+	for(int i {0}; i < n; i++)
+	{
+		p[i] = new int[n];
 	}
 
-	cout<<"[\n";
-	for(int i {0}; i < M->n; i++)
+	for(int i {0}; i < n; i++)
 	{
-		cout<<" [ ";
-		for(int j {0}; j < M->n; j++)
+		for(int j {0}; j < n; j++)
 		{
-			cout<<M->M[i][j]<<" ";
+			p[i][j] = initial_value;
 		}
-		cout<<"]\n";
 	}
-	cout<<"]";
-}
 
+	return p;
+}
 
 int main()
 {
+	Square_Matrix M {created_dynamic_square_matrix(2, 3), 3 * 3, 3};
+
 	return 0;
 }
