@@ -55,6 +55,8 @@ double handle_average_array(Array *A)
 	catch(string &ex)
 	{
 		cout<<ex;
+
+		return -1;
 	}
 }
 

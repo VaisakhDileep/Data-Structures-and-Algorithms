@@ -109,6 +109,8 @@ Array handle_duplicate_elements_sorted_array(Array *A)
 	catch(string &ex)
 	{
 		cout<<ex;
+
+		return Array {};
 	}
 }
 

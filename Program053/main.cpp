@@ -100,6 +100,8 @@ Array handle_concatenate_array(Array *A, Array *B)
 	catch(string &ex)
 	{
 		cout<<ex;
+
+		return Array {};
 	}
 }
 

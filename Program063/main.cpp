@@ -160,6 +160,8 @@ Array handle_missing_elements_array(Array *A)
 	catch(string &ex)
 	{
 		cout<<ex;
+
+		return Array {};
 	}
 }
 

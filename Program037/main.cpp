@@ -47,6 +47,8 @@ int handle_get_element_array(const Array *A, int index)
 	catch(string &ex)
 	{
 		cout<<ex;
+
+		return -1;
 	}
 }
 

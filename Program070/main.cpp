@@ -74,6 +74,8 @@ Array handle_copy_array(Array *A)
 	catch(string &ex)
 	{
 		cout<<ex;
+
+		return Array {};
 	}
 }
 

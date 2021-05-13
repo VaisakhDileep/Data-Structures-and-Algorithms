@@ -131,3 +131,5 @@ Program106: This program displays a square matrix.
 
 Special Square Matrices:
 ------------------------
+
+Program107: This program optimizes a diagonal matrix.

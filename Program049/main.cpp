@@ -64,13 +64,30 @@ void insert_sorted_array(Array *A, int value)
 	}
 }
 
+void handle_insert_sorted_array(Array *A, int value)
+{
+	try
+	{
+		insert_sorted_array(A, value);
+	}
+	catch(string &ex)
+	{
+		cout<<ex;
+	}
+}
+
 int main()
 {
-	Array A {nullptr, 10, 0};
+	Array A {nullptr, 5, 0};
 
-	insert_sorted_array(&A, 2);
-	insert_sorted_array(&A, 5);
-	insert_sorted_array(&A, 3);
+	handle_insert_sorted_array(&A, 2);
+	handle_insert_sorted_array(&A, 5);
+	handle_insert_sorted_array(&A, 3);
+	handle_insert_sorted_array(&A, 4);
+	handle_insert_sorted_array(&A, 1);
+	handle_insert_sorted_array(&A, 0);
+
+	cout<<"\n";
 
 	cout<<"A: ";
 	display_array(&A);

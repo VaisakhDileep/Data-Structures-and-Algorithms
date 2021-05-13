@@ -63,6 +63,8 @@ bool handle_is_sorted_array(const Array *A, int flag = 0)
 	catch(string &ex)
 	{
 		cout<<ex;
+
+		return false;
 	}
 }
 

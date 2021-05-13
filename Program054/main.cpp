@@ -44,6 +44,8 @@ bool handle_check_element_array(const Array *A, int value)
 	catch(string &ex)
 	{
 		cout<<ex;
+
+		return false;
 	}
 }
 

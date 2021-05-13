@@ -116,6 +116,8 @@ Array handle_multiple_missing_elements_sorted_array(Array *A)
 	catch(string &ex)
 	{
 		cout<<ex;
+
+		return Array {};
 	}
 }
 

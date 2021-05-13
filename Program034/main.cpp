@@ -75,6 +75,8 @@ int handle_delete_array(Array *A, int index)
 	catch(string &ex)
 	{
 		cout<<ex;
+
+		return -1;
 	}
 }
 

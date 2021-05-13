@@ -50,6 +50,8 @@ int handle_single_missing_element_sorted_array(Array *A)
 	catch(string &ex)
 	{
 		cout<<ex;
+
+		return -1;
 	}
 }
 

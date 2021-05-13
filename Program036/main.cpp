@@ -60,6 +60,8 @@ namespace recursion
 		catch(string &ex)
 		{
 			cout<<ex;
+
+			return -1;
 		}
 	}
 }
@@ -108,6 +110,8 @@ namespace iteration
 		catch(string &ex)
 		{
 			cout<<ex;
+
+			return -1;
 		}
 	}
 }

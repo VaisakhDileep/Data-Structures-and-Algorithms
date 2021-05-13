@@ -127,6 +127,8 @@ Array handle_intersection_array(const Array *A, const Array *B)
 	catch(string &ex)
 	{
 		cout<<ex;
+
+		return Array {};
 	}
 }
 

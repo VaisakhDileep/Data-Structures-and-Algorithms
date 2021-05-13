@@ -162,6 +162,8 @@ Array_with_dimension handle_create_row_major_matrix(Matrix *M)
 	catch(string &ex)
 	{
 		cout<<ex;
+
+		return Array_with_dimension {};
 	}
 }
 
