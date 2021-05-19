@@ -130,6 +130,8 @@ int handle_get_column_major_matrix(Array_with_dimension *A, int i, int j)
 	catch(string &ex)
 	{
 		cout<<ex;
+
+		return -1;
 	}
 }
 
@@ -191,7 +193,7 @@ void display_column_major_matrix(Array_with_dimension *A)
 
 int main()
 {
-	Matrix M {new int*[3] {new int[2] {1, 2}, new int[2] {3, 4}, new int[3] {5, 6}}, 3 * 2, 3, 2};
+	Matrix M {new int*[3] {new int[2] {1, 2}, new int[2] {3, 4}, new int[2] {5, 6}}, 3 * 2, 3, 2};
 
 	cout<<"M: \n";
 	display_matrix(&M);

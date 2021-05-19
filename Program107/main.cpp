@@ -48,7 +48,7 @@ void display_square_matrix(Square_Matrix *M)
 {
 	if(M->M == nullptr)
 	{
-		cout<<"[ n]";
+		cout<<"[\n]";
 
 		return ;
 	}
@@ -136,6 +136,8 @@ int handle_get_optimized_diagonal_matrix(Array_with_dimension *A, int i, int j)
 	catch(string &ex)
 	{
 		cout<<ex;
+
+		return -1;
 	}
 }
 

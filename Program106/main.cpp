@@ -43,7 +43,7 @@ void display_square_matrix(Square_Matrix *M)
 {
 	if(M->M == nullptr)
 	{
-		cout<<"[ n]";
+		cout<<"[\n]";
 
 		return ;
 	}
