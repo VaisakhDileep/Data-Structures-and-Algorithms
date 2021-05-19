@@ -111,7 +111,7 @@ void handle_set_optimized_symmetric_matrix(Array_with_dimension *A, int i, int j
 {
 	try
 	{
-		return set_optimized_symmetric_matrix(A, i, j, value);
+		set_optimized_symmetric_matrix(A, i, j, value);
 	}
 	catch(string &ex)
 	{

@@ -138,4 +138,5 @@ Program109: This program optimizes a lower-triangular matrix in column-major for
 Program110: This program optimizes a upper-triangular matrix in row-major form.
 Program111: This program optimizes a upper-triangular matrix in column-major form.
 Program112: This program optimizes a symmetric matrix.
-Program113:
+Program113: This program optimizes a tridiagonal matrix.
+Program114: This program optimizes a toeplitz matrix.
