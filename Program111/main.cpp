@@ -199,7 +199,7 @@ void display_column_major_optimized_upper_triangular_matrix(Array_with_dimension
 	cout<<"[\n";
 	for(int i {0}; i < A->rows; i++)
 	{
-		cout<<"[ ";
+		cout<<" [ ";
 		for(int j {0}; j < A->columns; j++)
 		{
 			cout<<get_column_major_optimized_upper_triangular_matrix(A, i, j)<<" ";

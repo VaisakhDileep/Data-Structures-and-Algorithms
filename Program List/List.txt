@@ -140,3 +140,13 @@ Program111: This program optimizes a upper-triangular matrix in column-major for
 Program112: This program optimizes a symmetric matrix.
 Program113: This program optimizes a tridiagonal matrix.
 Program114: This program optimizes a toeplitz matrix.
+
+Sparse Matrix:
+--------------
+Program115: This program optimizes a sparse matrix using 3-column representation.
+Program116: This program adds two sparse matrices using 3-column representation.
+
+Polynomial Representation:
+--------------------------
+Program117: This program represents a polynomial using arrays.
+Program118: This program displays a polynomial.

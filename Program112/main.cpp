@@ -207,7 +207,7 @@ void display_optimized_symmetric_matrix(Array_with_dimension *A)
 	cout<<"[\n";
 	for(int i {0}; i < A->rows; i++)
 	{
-		cout<<"[ ";
+		cout<<"  ";
 		for(int j {0}; j < A->columns; j++)
 		{
 			cout<<get_optimized_symmetric_matrix(A, i, j)<<" ";
