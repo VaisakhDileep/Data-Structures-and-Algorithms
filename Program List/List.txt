@@ -10,7 +10,6 @@ Program009:[c++] This program helps to understand how to return an array as retu
 
 Recursion:
 ----------
-
 Program010:[c++] This program helps to understand ascending phase and descending phase in recursive functions.
 Program011:[c++] This program helps to understand how static variables work in recursive functions.
 Program012:[c++] This program helps to understand how global variables work in recursive functions.
@@ -22,7 +21,6 @@ Program017:[c++] This program helps to understand nested recursion.
 
 Special Recursive Problems:
 ---------------------------
-
 Program018:[c++] This program finds the sum of the first 'n' natural numbers.
 Program019:[c++] This program finds the factorial of a number.
 Program020:[c++] This program finds the power(m, n).
@@ -37,7 +35,6 @@ Program028:[c++] This program finds the solution for the Tower of Hanoi problem.
 
 ARRAY [ADT]:
 ------------
-
 Program029:[c++] This program creates an array.
 Program030:[c++] This program displays an array.
 Program031:[c++] This program extends the size of an array.
@@ -87,7 +84,6 @@ Program074:[c++] This program finds min and max element of an array simultaneous
 
 Strings:
 --------
-
 Program075:[c++] This program helps to understand how to create a string.
 Program076:[c++] This program finds the length of a string.
 Program077:[c++] This program copies a string.
@@ -117,7 +113,6 @@ Program100:[c++] This program finds all the permutations of a string(using swap 
 
 Matrices(N X M):
 ----------------
-
 Program101: This program creates a matrix.
 Program102: This program displays a matrix.
 Program103: This program represents a matrix in row-major form.
@@ -125,13 +120,11 @@ Program104: This program represents a matrix in column-major form.
 
 Square Matrices(N X N):
 -----------------------
-
 Program105: This program creates a square matrix.
 Program106: This program displays a square matrix.
 
 Special Square Matrices:
 ------------------------
-
 Program107: This program optimizes a diagonal matrix.
 Program108: This program optimizes a lower-triangular matrix in row-major form.
 Program109: This program optimizes a lower-triangular matrix in column-major form.
@@ -150,3 +143,13 @@ Polynomial Representation:
 --------------------------
 Program117: This program represents a polynomial using arrays.
 Program118: This program displays a polynomial.
+Program119: This program makes the polynomial ascending.
+Program120: This program evaluates a polynomial.
+Program121: This program adds two polynomials.
+
+Linked List:
+------------
+Program122: This program creates a linked list.
+Program123: This program creates a linked list from an array.
+Program124: This program displays a linked list.
+Program125: This program displays a linked list in reverse order.
