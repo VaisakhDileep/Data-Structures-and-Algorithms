@@ -45,16 +45,9 @@ namespace iteration
 	{
 		Node *last = L->head;
 
-		if(last != nullptr)
-		{
-			cout<<last->data;
-
-			last = last->next;
-		}
-
 		while(last != nullptr)
 		{
-			cout<<"->"<<last->data;
+			cout<<last->data<<(last->next != nullptr ? "->" : "");
 
 			last = last->next;
 		}
@@ -67,7 +60,7 @@ namespace recursion
 	{
 		if(node != nullptr)
 		{
-			cout<<"->"<<node->data;
+			cout<<node->data<<(node->next != nullptr ? "->": "");
 
 			display_linked_list(node->next);
 		}
@@ -75,12 +68,7 @@ namespace recursion
 
 	void handle_display_linked_list(Linked_list *L)
 	{
-		if(L->head != nullptr)
-		{
-			cout<<L->head->data;
-		}
-
-		display_linked_list(L->head->next);
+		display_linked_list(L->head);
 	}
 }
 

@@ -153,3 +153,14 @@ Program122: This program creates a linked list.
 Program123: This program creates a linked list from an array.
 Program124: This program displays a linked list.
 Program125: This program displays a linked list in reverse order.
+Program126: This program counts the number of nodes in a linked list.
+Program127: This program finds the sum of all the elements in a linked list.
+Program128: This program finds the max element in a linked list.
+Program129: This program finds the min element in a linked list.
+Program130: This program finds the average of all the elements in a linked list.
+Program131: This program performs linear search in a linked list.
+Program132: This program appends an element at the end of a linked list.
+Program133: This program inserts an element in a linked list.
+Program134: This program inserts an element in a sorted linked list.
+Program135: This program deletes an element from a linked list.
+Program136: This program checks if a linked list is sorted.
