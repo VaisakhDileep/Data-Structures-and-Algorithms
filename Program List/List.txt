@@ -164,3 +164,5 @@ Program133: This program inserts an element in a linked list.
 Program134: This program inserts an element in a sorted linked list.
 Program135: This program deletes an element from a linked list.
 Program136: This program checks if a linked list is sorted.
+Program137: This program removes all the duplicate elements in a sorted linked list.
+Program138: This program reverses a linked list by reversing the data elements.

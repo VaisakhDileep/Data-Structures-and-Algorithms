@@ -59,7 +59,7 @@ bool is_sorted_linked_list(Linked_list *L, int flag = 0) // flag = 0, for ascend
 	{
 		while(last != nullptr)
 		{
-			if(last->data > x)
+			if(last->data < x)
 			{
 				return false;
 			}
@@ -73,7 +73,7 @@ bool is_sorted_linked_list(Linked_list *L, int flag = 0) // flag = 0, for ascend
 	{
 		while(last != nullptr)
 		{
-			if(last->data < x)
+			if(last->data > x)
 			{
 				return false;
 			}
@@ -88,10 +88,10 @@ bool is_sorted_linked_list(Linked_list *L, int flag = 0) // flag = 0, for ascend
 		throw string {"ERROR - Invalid flag, flag should be either 0 or 1 ....."};
 	}
 
-	return false;
+	return true;
 }
 
-bool handle_is_sorted_array(Linked_list *L, int flag = 0)
+bool handle_is_sorted_linked_list(Linked_list *L, int flag = 0)
 {
 	try
 	{
@@ -110,8 +110,25 @@ int main()
 	Linked_list L1 {};
 	Linked_list L2 {};
 	Linked_list L3 {};
+	Linked_list L4 {};
 
-	create_linked_list()
+	create_linked_list(&L1, new int[6] {1, 2, 3, 4, 5, 6}, 6);
+	create_linked_list(&L2, new int[6] {6, 5, 4, 3, 2, 1}, 6);
+	create_linked_list(&L3, new int[6] {2, 2, 1, 6, 5, 4}, 6);
+
+	cout<<"is_sorted_linked_list(L1): "<<handle_is_sorted_linked_list(&L1)<<"\n";
+	cout<<"is_sorted_linked_list(L2): "<<handle_is_sorted_linked_list(&L2)<<"\n";
+	cout<<"is_sorted_linked_list(L3): "<<handle_is_sorted_linked_list(&L3)<<"\n\n";
+
+	cout<<"is_sorted_linked_list(L1, 1): "<<handle_is_sorted_linked_list(&L1, 1)<<"\n";
+	cout<<"is_sorted_linked_list(L2, 1): "<<handle_is_sorted_linked_list(&L2, 1)<<"\n";
+	cout<<"is_sorted_linked_list(L3, 1): "<<handle_is_sorted_linked_list(&L3, 1)<<"\n\n";
+
+	cout<<"is_sorted_linked_list(L1, 3): "<<handle_is_sorted_linked_list(&L1, 2)<<"\n\n";
+
+	cout<<"is_sorted_linked_list(nullptr): "<<handle_is_sorted_linked_list(nullptr)<<"\n\n";
+
+	cout<<"is_sorted_linked_list(L4): "<<handle_is_sorted_linked_list(&L4)<<"\n";
 
 	return 0;
 }
