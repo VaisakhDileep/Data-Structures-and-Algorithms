@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 22, May, 2021
-Description : This program inserts an element in a linked list.
+Description : This program inserts an element to a linked list.
 */
 
 #include<iostream>

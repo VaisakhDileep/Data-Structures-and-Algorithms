@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 23, May, 2021
-Description : This program inserts an element in a sorted linked list.
+Description : This program inserts an element to a sorted linked list.
 */
 
 // sorted here means ascending order.

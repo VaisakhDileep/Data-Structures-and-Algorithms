@@ -160,9 +160,22 @@ Program129: This program finds the min element in a linked list.
 Program130: This program finds the average of all the elements in a linked list.
 Program131: This program performs linear search in a linked list.
 Program132: This program appends an element at the end of a linked list.
-Program133: This program inserts an element in a linked list.
-Program134: This program inserts an element in a sorted linked list.
+Program133: This program inserts an element to a linked list.
+Program134: This program inserts an element to a sorted linked list.
 Program135: This program deletes an element from a linked list.
 Program136: This program checks if a linked list is sorted.
 Program137: This program removes all the duplicate elements in a sorted linked list.
 Program138: This program reverses a linked list by reversing the data elements.
+Program139: This program reverses a linked list by reversing the links.
+Program140: This program concatenates two linked lists.
+Program141: This program merges two sorted linked lists.
+Program142: This program checks if a linked list contains loops.
+Program143: This program finds the middle node in a linked list.
+
+Circular Linked List:
+---------------------
+
+Program144: This program creates a circular linked list.
+Program145: This program creates a circular linked list from an array.
+Program146: This program displays a circular linked list.
+Program147: This program inserts an element to a circular linked list.
