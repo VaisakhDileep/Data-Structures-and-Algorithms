@@ -29,7 +29,7 @@ void create_circular_linked_list(Linked_list *L, int *A, int size)
 
 	L->head = new Node {A[0], L->head};
 
-	Node *last {L->head}; // "last" is the iterator.
+	Node *last {L->head};
 
 	for(int i {1}; i < size; i++)
 	{

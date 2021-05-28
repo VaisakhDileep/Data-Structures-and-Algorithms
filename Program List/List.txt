@@ -179,3 +179,14 @@ Program144: This program creates a circular linked list.
 Program145: This program creates a circular linked list from an array.
 Program146: This program displays a circular linked list.
 Program147: This program inserts an element to a circular linked list.
+Program148: This program deletes an element in a circular linked list.
+Program149: This program counts the number of nodes in a circular linked list.
+
+Doubly Linked List:
+-------------------
+
+Program150: This program creates a doubly linked list.
+Program151: This program creates a doubly linked list from an array.
+Program152: This program counts the number of nodes in a doubly linked list.
+Program153: This program displays a doubly linked list.
+Program154: This program inserts an element to a doubly linked list.

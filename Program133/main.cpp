@@ -93,6 +93,7 @@ int main()
 	handle_insert_linked_list(&L, 1, 3);
 	handle_insert_linked_list(&L, 0, 4);
 	handle_insert_linked_list(&L, 4, 5);
+	handle_insert_linked_list(&L, 2, 6);
 
 	cout<<"L: ";
 	display_linked_list(&L);
