@@ -190,3 +190,5 @@ Program151: This program creates a doubly linked list from an array.
 Program152: This program counts the number of nodes in a doubly linked list.
 Program153: This program displays a doubly linked list.
 Program154: This program inserts an element to a doubly linked list.
+Program155: This program deletes an element in a doubly linked list.
+Program156: This program reverses a doubly linked list.

@@ -52,7 +52,7 @@ void display_doubly_linked_list(Linked_list *L)
 
 	while(last != nullptr)
 	{
-		cout<<last->data<<(last->next == nullptr ? "" : " <=> ");
+		cout<<last->data<<(last->next == nullptr ? "" : " <-> ");
 
 		last = last->next;
 	}
