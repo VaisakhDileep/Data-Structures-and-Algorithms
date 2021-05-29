@@ -24,7 +24,9 @@ int main()
 {
 	Linked_list L {};
 
-	L.head = new Node {1, L.head};
+	L.head = new Node {1, nullptr};
+
+	L.head->next = L.head;
 
 	L.head->next = new Node {2, L.head};
 

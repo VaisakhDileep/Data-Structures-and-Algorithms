@@ -192,3 +192,12 @@ Program153: This program displays a doubly linked list.
 Program154: This program inserts an element to a doubly linked list.
 Program155: This program deletes an element in a doubly linked list.
 Program156: This program reverses a doubly linked list.
+
+Circular Doubly Linked List:
+----------------------------
+
+Program157: This program creates a circular doubly linked list.
+Program158: This program creates a circular doubly linked list from an array.
+Program159: This program counts the number of nodes in a circular doubly linked list.
+Program160: This program displays a circular doubly linked list.
+Program161: This program inserts an element to a circular doubly linked list.
