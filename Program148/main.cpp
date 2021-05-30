@@ -106,9 +106,7 @@ int delete_circular_linked_list(Linked_list *L, int index)
 	{
 		Node *target {L->head};
 
-		int i {0};
-
-		for(; (i < index - 1) and (target->next != L->head); i++)
+		for(int i {0}; (i < index - 1) and (target->next != L->head); i++)
 		{
 			target = target->next;
 		}

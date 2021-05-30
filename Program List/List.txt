@@ -33,7 +33,7 @@ Program026:[c++] This program finds the number of combinations.
 Program027:[c++] This program finds the number of combinations(pascal's triangle).
 Program028:[c++] This program finds the solution for the Tower of Hanoi problem.
 
-ARRAY [ADT]:
+ARRAY ADT:
 ------------
 Program029:[c++] This program creates an array.
 Program030:[c++] This program displays an array.
@@ -103,8 +103,6 @@ Program090:[c++] This program checks if a word is a palindrome.
 Program091:[c++] This program checks if a sentence is a palindrome.
 Program092:[c++] This program counts the number of duplicate characters in a string.
 Program093:[c++] This program counts the number of duplicate characters in a string(using hash table).
-Program094:[c++] This program helps to understand masking.
-Program095:[c++] This program helps to understand merging.
 Program096:[c++] This program identifies duplicate characters in a string.
 Program097:[c++] This program extracts all the alphabets in their lower-case representation in a string.
 Program098:[c++] This program checks if two strings are anagrams.
@@ -201,3 +199,24 @@ Program158: This program creates a circular doubly linked list from an array.
 Program159: This program counts the number of nodes in a circular doubly linked list.
 Program160: This program displays a circular doubly linked list.
 Program161: This program inserts an element to a circular doubly linked list.
+Program162: This program deletes an element in a circular doubly linked list.
+
+Bit Manipulation:
+-----------------
+
+Program094:[c++] This program helps to understand masking.
+Program095:[c++] This program helps to understand merging.
+Program163:[c++] This program finds the index of the first set bit of a number.
+Program164:[c++] This program finds the index of the first different bit of two numbers.
+
+Stack ADT Using Arrays:
+-----------------------
+
+Program165:[c++] This program creates a stack.
+Program166:[c++] This program checks if a stack is empty.
+Program167:[c++] This program checks if a stack is full.
+Program168:[c++] This program displays a stack.
+Program169:[c++] This program pushes an element into a stack.
+Program170:[c++] This program pops an element from a stack.
+Program171:[c++] This program returns the top element of a stack.
+Program172:[c++] This program peeks through a stack.

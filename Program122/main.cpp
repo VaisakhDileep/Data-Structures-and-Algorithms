@@ -35,7 +35,7 @@ int main()
 		cout<<"The Linked List is empty.\n";
 	}
 
-	if(!L.head) // Procedure 3
+	if(!(L.head)) // Procedure 3
 	{
 		cout<<"The Linked List is empty.\n";
 	}

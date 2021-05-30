@@ -75,6 +75,8 @@ namespace iteration
 		catch(string &ex)
 		{
 			cout<<ex;
+
+			return -1;
 		}
 	}
 }

@@ -70,6 +70,11 @@ void insert_doubly_linked_list(Linked_list *L, int index, int value)
 	}
 	else
 	{
+		if(L->head == nullptr)
+		{
+			throw string {"ERROR - Invalid index, index exceeds the size of the doubly linked list ....."};
+		}
+
 		Node *target {L->head};
 
 		for(int i {0}; (i < (index - 1)) and (target != nullptr); i++)

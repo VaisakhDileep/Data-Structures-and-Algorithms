@@ -78,6 +78,11 @@ void insert_circular_linked_list(Linked_list *L, int index, int value)
 	}
 	else
 	{
+		if(L->head == nullptr)
+		{
+			throw string {"ERROR - Invalid index, index exceeds the size of the circular linked list ....."};
+		}
+
 		Node *target {L->head};
 
 		int i {0};
