@@ -220,3 +220,11 @@ Program169:[c++] This program pushes an element into a stack.
 Program170:[c++] This program pops an element from a stack.
 Program171:[c++] This program returns the top element of a stack.
 Program172:[c++] This program peeks through a stack.
+
+Queue ADT Using Arrays:
+-----------------------
+
+Program173:[c++] This program creates a queue.
+Program174:[c++] This program checks if a queue is empty.
+Program175:[c++] This program checks if a queue is full.
+Program176:[c++] This program displays a queue.
