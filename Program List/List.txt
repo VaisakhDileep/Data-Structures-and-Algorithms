@@ -115,11 +115,13 @@ Program101: This program creates a matrix.
 Program102: This program displays a matrix.
 Program103: This program represents a matrix in row-major form.
 Program104: This program represents a matrix in column-major form.
+Program180: This program finds the transpose of a matrix.
 
 Square Matrices(N X N):
 -----------------------
 Program105: This program creates a square matrix.
 Program106: This program displays a square matrix.
+Program181: This program finds the transpose of a square matrix.
 
 Special Square Matrices:
 ------------------------
@@ -231,4 +233,7 @@ Program176:[c++] This program displays a queue.
 Program177:[c++] This program inserts an element to a queue.
 Program178:[c++] This program deletes an element from a queue.
 Program179:[c++] This program resets a queue.
+
+Queue ADT Using Linked List:
+----------------------------
 
