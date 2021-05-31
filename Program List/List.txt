@@ -228,3 +228,7 @@ Program173:[c++] This program creates a queue.
 Program174:[c++] This program checks if a queue is empty.
 Program175:[c++] This program checks if a queue is full.
 Program176:[c++] This program displays a queue.
+Program177:[c++] This program inserts an element to a queue.
+Program178:[c++] This program deletes an element from a queue.
+Program179:[c++] This program resets a queue.
+

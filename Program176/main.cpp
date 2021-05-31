@@ -23,7 +23,7 @@ void display_queue(Queue *Q)
 {
 	if(Q == nullptr)
 	{
-		throw string {"ERROR - Invalid operation, queue is not valid ....."};
+		return ;
 	}
 
 	for(int i {Q->front + 1}; i <= Q->rear; i++)
