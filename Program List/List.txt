@@ -223,6 +223,11 @@ Program170:[c++] This program pops an element from a stack.
 Program171:[c++] This program returns the top element of a stack.
 Program172:[c++] This program peeks through a stack.
 
+Stack ADT Using Linked List:
+----------------------------
+
+Program189:[c++] This program creates a stack.
+
 Queue ADT Using Arrays:
 -----------------------
 
@@ -237,3 +242,10 @@ Program179:[c++] This program resets a queue.
 Queue ADT Using Linked List:
 ----------------------------
 
+Program182:[c++] This program creates a queue.
+Program183:[c++] This program creates a queue from an array.
+Program184:[c++] This program checks if a queue is empty.
+Program185:[c++] This program checks if a queue is full.
+Program186:[c++] This program displays a queue.
+Program187:[c++] This program inserts an element to a queue.
+Program188:[c++] This program deletes an element from a queue.
