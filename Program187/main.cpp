@@ -41,18 +41,17 @@ void display_queue(Queue *Q)
 
 bool is_full_queue(Queue *Q)
 {
-	Node *temp = new Node;
-	{
-		if(temp == NULL)
-		{
-			return true;
-		}
-		else
-		{
-			delete temp;
+	Node *temp = new Node {0, nullptr};
 
-			return false;
-		}
+	if(temp == NULL)
+	{
+		return true;
+	}
+	else
+	{
+		delete temp;
+
+		return false;
 	}
 }
 

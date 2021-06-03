@@ -24,18 +24,17 @@ struct Queue
 
 bool is_full_queue(Queue *Q) // The only case when the queue is full is when we run out of stack memory.
 {
-	Node *temp = new Node;
-	{
-		if(temp == NULL)
-		{
-			return true;
-		}
-		else
-		{
-			delete temp;
+	Node *temp = new Node {0, nullptr};
 
-			return false;
-		}
+	if(temp == NULL)
+	{
+		return true;
+	}
+	else
+	{
+		delete temp;
+
+		return false;
 	}
 }
 

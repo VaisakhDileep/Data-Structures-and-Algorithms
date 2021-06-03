@@ -227,6 +227,9 @@ Stack ADT Using Linked List:
 ----------------------------
 
 Program189:[c++] This program creates a stack.
+Program190:[c++] This program creates a stack from an array.
+Program191:[c++] This program checks if a stack is empty.
+Program192:[c++] This program checks if a stack is full.
 
 Queue ADT Using Arrays:
 -----------------------
