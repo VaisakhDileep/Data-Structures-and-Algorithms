@@ -230,6 +230,9 @@ Program189:[c++] This program creates a stack.
 Program190:[c++] This program creates a stack from an array.
 Program191:[c++] This program checks if a stack is empty.
 Program192:[c++] This program checks if a stack is full.
+Program193:[c++] This program displays a stack.
+Program194:[c++] This program inserts an element into a stack.
+Program195:[c++] This program deletes an element from a queue.
 
 Queue ADT Using Arrays:
 -----------------------
@@ -252,3 +255,9 @@ Program185:[c++] This program checks if a queue is full.
 Program186:[c++] This program displays a queue.
 Program187:[c++] This program inserts an element to a queue.
 Program188:[c++] This program deletes an element from a queue.
+
+Circular Queue ADT
+------------------
+
+Program196:[c++] This program creates a circular queue.
+Program197:[c++] This program checks if a circular queue is empty.
