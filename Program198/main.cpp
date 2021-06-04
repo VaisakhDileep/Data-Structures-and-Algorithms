@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 4, June, 2021
-Description : This program checks if a circular queue is empty.
+Description : This program checks if a circular queue is full.
 */
 
 #include<iostream>
@@ -19,14 +19,19 @@ struct Circular_Queue
 	int size {0};
 };
 
-bool is_empty_circular_queue(Circular_Queue *Q)
+bool is_full_circular_queue(Circular_Queue *Q)
 {
 	if(Q == nullptr)
 	{
 		throw string {"ERROR - Invalid operation, circular queue is not valid ....."};
 	}
 
-	if((Q->A == nullptr) or (Q->front == Q->rear))
+	if(Q->A == nullptr)
+	{
+		return false;
+	}
+
+	if(((Q->rear + 1) % Q->size) == Q->front)
 	{
 		return true;
 	}
@@ -36,11 +41,11 @@ bool is_empty_circular_queue(Circular_Queue *Q)
 	}
 }
 
-bool handle_is_empty_circular_queue(Circular_Queue *Q)
+bool handle_is_full_circular_queue(Circular_Queue *Q)
 {
 	try
 	{
-		return is_empty_circular_queue(Q);
+		return is_full_circular_queue(Q);
 	}
 	catch(string &ex)
 	{
@@ -54,17 +59,17 @@ int main()
 {
 	Circular_Queue Q {};
 
-	cout<<"handle_is_empty_circular_queue(Q): "<<handle_is_empty_circular_queue(&Q)<<"\n";
+	cout<<"handle_is_full_circular_queue(Q): "<<handle_is_full_circular_queue(&Q)<<"\n";
 
-	Q.A = new int[4] {0, 1, 0, 0};
+	Q.A = new int[4] {0, 1, 2, 3};
 
 	Q.size = 4;
 
 	Q.front = 0;
 
-	Q.rear = 1;
+	Q.rear = 3;
 
-	cout<<"handle_is_empty_circular_queue(Q): "<<handle_is_empty_circular_queue(&Q)<<"\n";
+	cout<<"handle_is_full_circular_queue(Q): "<<handle_is_full_circular_queue(&Q)<<"\n";
 
 	return 0;
 }

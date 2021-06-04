@@ -261,3 +261,7 @@ Circular Queue ADT
 
 Program196:[c++] This program creates a circular queue.
 Program197:[c++] This program checks if a circular queue is empty.
+Program198:[c++] This program checks if a circular queue is full.
+Program199:[c++] This program displays a circular queue.
+Program200:[c++] This program inserts an element to a circular queue.
+Program201:[c++] This program deletes an element in a circular queue.
