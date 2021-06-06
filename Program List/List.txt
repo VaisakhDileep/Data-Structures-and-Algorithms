@@ -256,8 +256,8 @@ Program186:[c++] This program displays a queue.
 Program187:[c++] This program inserts an element to a queue.
 Program188:[c++] This program deletes an element from a queue.
 
-Circular Queue ADT
-------------------
+Circular Queue ADT:
+-------------------
 
 Program196:[c++] This program creates a circular queue.
 Program197:[c++] This program checks if a circular queue is empty.
@@ -265,3 +265,11 @@ Program198:[c++] This program checks if a circular queue is full.
 Program199:[c++] This program displays a circular queue.
 Program200:[c++] This program inserts an element to a circular queue.
 Program201:[c++] This program deletes an element in a circular queue.
+
+Binary tree using Arrays:
+-------------------------
+
+Program202:[c++] This program creates a binary tree.
+Program203:[c++] This program finds the height of a binary tree.
+Program204:[c++] This program creates a binary tree from an array.
+Program205:[c++] This program displays a binary tree.
