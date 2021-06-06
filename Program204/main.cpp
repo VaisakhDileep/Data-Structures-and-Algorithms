@@ -54,15 +54,20 @@ void create_binary_tree(Binary_Tree *T, int *A, int size)
 
 	T->size = size;
 
-	T->A = A;
-
 	int height {height_binary_tree(T)};
 
 	int number_nodes {static_cast<int>(pow(2, height + 1)) - 1}; // Number of nodes to safely hold the tree.
 
 	T->size = number_nodes;
 
-	for(int i {size -1}; i < T->size; i++)
+	T->A = new int[number_nodes] {};
+
+	for(int i {0}; i < size; i++)
+	{
+		T->A[i] = A[i];
+	}
+
+	for(int i {size}; i < T->size; i++)
 	{
 		T->A[i] = INT_MIN;
 	}

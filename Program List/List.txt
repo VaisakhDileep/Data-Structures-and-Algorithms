@@ -273,3 +273,6 @@ Program202:[c++] This program creates a binary tree.
 Program203:[c++] This program finds the height of a binary tree.
 Program204:[c++] This program creates a binary tree from an array.
 Program205:[c++] This program displays a binary tree.
+Program206:[c++] This program finds the left child of a node in a binary tree.
+Program207:[c++] This program finds the right child of a node in a binary tree.
+Program208:[c++] This program finds the parent of a node in a binary tree.
