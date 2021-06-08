@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 4, June, 2021
-Description : This program inserts an element into a stack.
+Description : This program pushes an element into a stack.
 */
 
 #include<iostream>
@@ -56,7 +56,7 @@ bool is_full_stack(Stack *stk)
 	}
 }
 
-void insert_stack(Stack *stk, int value)
+void push_stack(Stack *stk, int value)
 {
 	if(stk == nullptr)
 	{
@@ -82,11 +82,11 @@ void insert_stack(Stack *stk, int value)
 	}
 }
 
-void handle_insert_stack(Stack *stk, int value)
+void handle_push_stack(Stack *stk, int value)
 {
 	try
 	{
-		insert_stack(stk, value);
+		push_stack(stk, value);
 	}
 	catch(string &ex)
 	{
@@ -98,9 +98,9 @@ int main()
 {
 	Stack S {};
 
-	handle_insert_stack(&S, 1);
-	handle_insert_stack(&S, 2);
-	handle_insert_stack(&S, 3);
+	handle_push_stack(&S, 1);
+	handle_push_stack(&S, 2);
+	handle_push_stack(&S, 3);
 
 	cout<<"S: ";
 	display_stack(&S);

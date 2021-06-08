@@ -231,8 +231,8 @@ Program190:[c++] This program creates a stack from an array.
 Program191:[c++] This program checks if a stack is empty.
 Program192:[c++] This program checks if a stack is full.
 Program193:[c++] This program displays a stack.
-Program194:[c++] This program inserts an element into a stack.
-Program195:[c++] This program deletes an element from a queue.
+Program194:[c++] This program pushes an element into a stack.
+Program195:[c++] This program pops an element from a stack.
 
 Queue ADT Using Arrays:
 -----------------------
@@ -266,7 +266,7 @@ Program199:[c++] This program displays a circular queue.
 Program200:[c++] This program inserts an element to a circular queue.
 Program201:[c++] This program deletes an element in a circular queue.
 
-Binary tree using Arrays:
+Binary Tree Using Arrays:
 -------------------------
 
 Program202:[c++] This program creates a binary tree.
@@ -276,3 +276,15 @@ Program205:[c++] This program displays a binary tree.
 Program206:[c++] This program finds the left child of a node in a binary tree.
 Program207:[c++] This program finds the right child of a node in a binary tree.
 Program208:[c++] This program finds the parent of a node in a binary tree.
+
+Binary Tree Using Arrays:
+-------------------------
+
+Program209:[c++] This program creates a binary tree.
+Program210:[c++] This program creates a binary tree fron an array.
+Program211:[c++] This program displays a binary tree using pre-order traversal.
+Program212:[c++] This program displays a binary tree using in-order traversal.
+Program213:[c++] This program displays a binary tree using post-order traversal.
+Program214:[c++] This program displays a binary tree in pre-order traversal using stack.
+Program215:[c++] This program displays a binary tree in in-order traversal using stack.
+Program216:[c++] This program displays a binary tree in post-order traversal using stack.

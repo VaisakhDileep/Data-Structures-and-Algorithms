@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 4, June, 2021
-Description : This program deletes an element from a queue.
+Description : This program pops an element from a stack.
 */
 
 #include<iostream>
@@ -74,7 +74,7 @@ bool is_empty_stack(Stack *stk)
 	}
 }
 
-int delete_stack(Stack *stk)
+int pop_stack(Stack *stk)
 {
 	if(stk == nullptr)
 	{
@@ -97,11 +97,11 @@ int delete_stack(Stack *stk)
 	return deleted_value;
 }
 
-int handle_delete_stack(Stack *stk)
+int handle_pop_stack(Stack *stk)
 {
 	try
 	{
-		return delete_stack(stk);
+		return pop_stack(stk);
 	}
 	catch(string &ex)
 	{
@@ -117,9 +117,9 @@ int main()
 
 	create_stack(&S, new int[5] {1, 2, 3, 4, 5}, 5);
 
-	handle_delete_stack(&S);
-	handle_delete_stack(&S);
-	handle_delete_stack(&S);
+	handle_pop_stack(&S);
+	handle_pop_stack(&S);
+	handle_pop_stack(&S);
 
 	cout<<"S: ";
 	display_stack(&S);
