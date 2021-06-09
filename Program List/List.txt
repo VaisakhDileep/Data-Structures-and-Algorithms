@@ -281,8 +281,11 @@ Binary Tree Using Arrays:
 -------------------------
 
 Program209:[c++] This program creates a binary tree.
-Program210:[c++] This program creates a binary tree fron an array.
+Program210:[c++] This program creates a binary tree from an array.
 Program211:[c++] This program displays a binary tree using pre-order traversal.
 Program212:[c++] This program displays a binary tree using in-order traversal.
 Program213:[c++] This program displays a binary tree using post-order traversal.
 Program214:[c++] This program displays a binary tree using pre-order traversal using stack.
+Program215:[c++] This program displays a binary tree using in-order traversal using stack.
+Program216:[c++] This program displays a binary tree using post-order traversal using stack.
+Program217:[c++] This program displays a binary tree using level-order traversal using queue.

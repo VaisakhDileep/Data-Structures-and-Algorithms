@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 9, June, 2021
-Description : This program displays a binary tree using pre-order traversal using stack.
+Description : This program displays a binary tree using in-order traversal using stack.
 */
 
 #include<iostream>
@@ -136,7 +136,7 @@ void handle_create_binary_tree(Binary_Tree *T, int *A, int size)
 	create_binary_tree(&(T->root), 0, A, size);
 }
 
-void display_binary_tree(Binary_Tree *T) // pre-order traversal
+void display_binary_tree(Binary_Tree *T)
 {
 	if(T == nullptr)
 	{
@@ -151,8 +151,6 @@ void display_binary_tree(Binary_Tree *T) // pre-order traversal
 	{
 		if(node != nullptr)
 		{
-			cout<<node->data<<" ";
-
 			stack::push_stack(&stk, node);
 
 			node = node->left_child;
@@ -160,6 +158,8 @@ void display_binary_tree(Binary_Tree *T) // pre-order traversal
 		else
 		{
 			node = stack::pop_stack(&stk);
+
+			cout<<node->data<<" ";
 
 			node = node->right_child;
 		}
@@ -172,7 +172,7 @@ int main()
 
 	handle_create_binary_tree(&T, new int[6] {1, 2, 3, INT_MIN, 4, 5}, 6);
 
-	cout<<"T[pre-order]: ";
+	cout<<"T[in-order]: ";
 	display_binary_tree(&T);
 	cout<<"\n";
 

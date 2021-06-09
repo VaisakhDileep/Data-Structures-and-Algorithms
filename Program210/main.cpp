@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 7, June, 2021
-Description : This program creates a binary tree fron an array.
+Description : This program creates a binary tree from an array.
 */
 
 #include<iostream>

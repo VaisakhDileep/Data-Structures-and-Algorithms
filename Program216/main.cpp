@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 9, June, 2021
-Description : This program displays a binary tree using pre-order traversal using stack.
+Description : This program displays a binary tree using post-order traversal using stack.
 */
 
 #include<iostream>
@@ -111,6 +111,8 @@ struct Node
 
 	int data;
 
+	int count {0};
+
 	Node *right_child;
 };
 
@@ -123,7 +125,7 @@ void create_binary_tree(Node **node, int i, int *A, int size)
 {
 	if((i < size) and (A[i] != INT_MIN))
 	{
-		*node = new Node {nullptr, A[i], nullptr};
+		*node = new Node {nullptr, A[i], 0, nullptr};
 
 		create_binary_tree(&((*node)->left_child), (2 * (i + 1)) - 1, A, size);
 
@@ -136,7 +138,7 @@ void handle_create_binary_tree(Binary_Tree *T, int *A, int size)
 	create_binary_tree(&(T->root), 0, A, size);
 }
 
-void display_binary_tree(Binary_Tree *T) // pre-order traversal
+void display_binary_tree(Binary_Tree *T)
 {
 	if(T == nullptr)
 	{
@@ -151,17 +153,28 @@ void display_binary_tree(Binary_Tree *T) // pre-order traversal
 	{
 		if(node != nullptr)
 		{
-			cout<<node->data<<" ";
-
 			stack::push_stack(&stk, node);
 
 			node = node->left_child;
 		}
 		else
 		{
-			node = stack::pop_stack(&stk);
+			Node *temp {stack::pop_stack(&stk)};
 
-			node = node->right_child;
+			if(temp->count == 0)
+			{
+				temp->count++;
+
+				stack::push_stack(&stk, temp);
+
+				node = temp->right_child;
+			}
+			else
+			{
+				cout<<temp->data<<" ";
+
+				temp->count = 0;
+			}
 		}
 	}
 }
@@ -172,7 +185,7 @@ int main()
 
 	handle_create_binary_tree(&T, new int[6] {1, 2, 3, INT_MIN, 4, 5}, 6);
 
-	cout<<"T[pre-order]: ";
+	cout<<"T[post-order]: ";
 	display_binary_tree(&T);
 	cout<<"\n";
 
