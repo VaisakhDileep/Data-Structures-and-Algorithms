@@ -290,3 +290,7 @@ Program214:[c++] This program displays a binary tree using pre-order traversal u
 Program215:[c++] This program displays a binary tree using in-order traversal using stack.
 Program216:[c++] This program displays a binary tree using post-order traversal using stack.
 Program217:[c++] This program displays a binary tree using level-order traversal using queue.
+Program219:[c++] This program counts the number of nodes in a binary tree.
+Program220:[c++] This program counts the number of nodes of degree '2' in a binary tree.
+Program221:[c++] This program finds the sum of all the nodes in a binary tree.
+Program222:[c++] This program finds the height of a binary tree.
