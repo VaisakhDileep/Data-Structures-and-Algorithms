@@ -277,8 +277,8 @@ Program206:[c++] This program finds the left child of a node in a binary tree.
 Program207:[c++] This program finds the right child of a node in a binary tree.
 Program208:[c++] This program finds the parent of a node in a binary tree.
 
-Binary Tree Using Arrays:
--------------------------
+Binary Tree Using Linked List:
+------------------------------
 
 Program209:[c++] This program creates a binary tree.
 Program210:[c++] This program creates a binary tree from an array.
@@ -291,6 +291,14 @@ Program215:[c++] This program displays a binary tree using in-order traversal us
 Program216:[c++] This program displays a binary tree using post-order traversal using stack.
 Program217:[c++] This program displays a binary tree using level-order traversal using queue.
 Program219:[c++] This program counts the number of nodes in a binary tree.
-Program220:[c++] This program counts the number of nodes of degree '2' in a binary tree.
+Program220:[c++] This program counts the number of nodes with degree '2' in a binary tree.
+Program225:[c++] This program counts the number of nodes with degree '1' in a binary tree.
 Program221:[c++] This program finds the sum of all the nodes in a binary tree.
 Program222:[c++] This program finds the height of a binary tree.
+Program223:[c++] This program counts the number of leaf nodes in a binary tree.
+Program224:[c++] This program counts the number of non-leaf nodes in a binary tree.
+
+Binary Search Tree:
+-------------------
+
+Program226:[c++] 

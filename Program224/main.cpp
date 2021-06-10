@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 9, June, 2021
-Description : This program counts the number of nodes with degree '2' in a binary tree.
+Description : This program counts the number of non-leaf nodes in a binary tree.
 */
 
 #include<iostream>
@@ -39,28 +39,28 @@ void handle_create_binary_tree(Binary_Tree *T, int *A, int size)
 	create_binary_tree(&(T->root), 0, A, size);
 }
 
-int count_nodes_degree_two_binary_tree(Node *node)
+int count_non_leaf_nodes_binary_tree(Node *node)
 {
-	int count_left {}, count_right {};
+	int left_count {}, right_count {};
 
 	if(node != nullptr)
 	{
-		count_left = count_nodes_degree_two_binary_tree(node->left_child);
+		left_count = count_non_leaf_nodes_binary_tree(node->left_child);
 
-		count_right = count_nodes_degree_two_binary_tree(node->right_child);
+		right_count = count_non_leaf_nodes_binary_tree(node->right_child);
 
-		if(node->left_child and node->right_child)
+		if(node->left_child or node->right_child)
 		{
-			return count_left + count_right + 1;
+			return left_count + right_count + 1;
 		}
 		else
 		{
-			return count_left + count_right;
+			return left_count + right_count;
 		}
 	}
 }
 
-int handle_count_nodes_degree_two_binary_tree(Binary_Tree *T)
+int handle_count_non_leaf_nodes_binary_tree(Binary_Tree *T)
 {
 	if(T == nullptr)
 	{
@@ -69,16 +69,16 @@ int handle_count_nodes_degree_two_binary_tree(Binary_Tree *T)
 		return -1;
 	}
 
-	return count_nodes_degree_two_binary_tree(T->root);
+	return count_non_leaf_nodes_binary_tree(T->root);
 }
 
 int main()
 {
 	Binary_Tree T {};
 
-	handle_create_binary_tree(&T, new int[5] {1, 2, 3, 4, 5}, 5);
+	handle_create_binary_tree(&T, new int[6] {1, 2, 3, 4, 5, 6}, 6);
 
-	cout<<"handle_count_nodes_degree_two_binary_tree(T): "<<handle_count_nodes_degree_two_binary_tree(&T)<<"\n";
+	cout<<"handle_count_non_leaf_nodes_binary_tree(T): "<<handle_count_non_leaf_nodes_binary_tree(&T)<<"\n";
 
 	return 0;
 }

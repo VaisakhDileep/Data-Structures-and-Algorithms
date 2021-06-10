@@ -39,9 +39,52 @@ void handle_create_binary_tree(Binary_Tree *T, int *A, int size)
 	create_binary_tree(&(T->root), 0, A, size);
 }
 
+int height_binary_tree(Node *node)
+{
+	int left_height {}, right_height {};
 
+	if(node != nullptr)
+	{
+		left_height = height_binary_tree(node->left_child);
+
+		right_height = height_binary_tree(node->right_child);
+
+		if(left_height > right_height)
+		{
+			return left_height + 1;
+		}
+		else
+		{
+			return right_height + 1;
+		}
+	}
+
+	return 0;
+}
+
+int handle_height_binary_tree(Binary_Tree *T)
+{
+	if(T == nullptr)
+	{
+		cout<<"ERROR - Invalid operation, binary tree is not valid .....";
+
+		return -1;
+	}
+	else if(T->root == nullptr)
+	{
+		return 0;
+	}
+
+	return height_binary_tree(T->root) - 1;
+}
 
 int main()
 {
+	Binary_Tree T {};
+
+	handle_create_binary_tree(&T, new int[4] {1, 2, 3, 4}, 4);
+
+	cout<<"handle_height_binary_tree(T): "<<handle_height_binary_tree(&T)<<"\n";
+
 	return 0;
 }

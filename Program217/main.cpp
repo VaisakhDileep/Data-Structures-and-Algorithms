@@ -143,7 +143,7 @@ void handle_create_binary_tree(Binary_Tree *T, int *A, int size)
 	create_binary_tree(&(T->root), 0, A, size);
 }
 
-void display_binary_tree(Binary_Tree *T)
+void display_binary_tree(Binary_Tree *T) // level-order traversal
 {
 	if((T == nullptr) or (T->root == nullptr))
 	{

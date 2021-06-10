@@ -60,6 +60,8 @@ int handle_sum_binary_tree(Binary_Tree *T)
 	if(T == nullptr)
 	{
 		cout<<"ERROR - Invalid operation, binary tree is not valid .....";
+
+		return -1;
 	}
 
 	return sum_binary_tree(T->root);
