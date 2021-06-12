@@ -111,97 +111,97 @@ Program100:[c++] This program finds all the permutations of a string(using swap 
 
 Matrices(N X M):
 ----------------
-Program101: This program creates a matrix.
-Program102: This program displays a matrix.
-Program103: This program represents a matrix in row-major form.
-Program104: This program represents a matrix in column-major form.
-Program180: This program finds the transpose of a matrix.
+Program101:[c++] This program creates a matrix.
+Program102:[c++] This program displays a matrix.
+Program103:[c++] This program represents a matrix in row-major form.
+Program104:[c++] This program represents a matrix in column-major form.
+Program180:[c++] This program finds the transpose of a matrix.
 
 Square Matrices(N X N):
 -----------------------
-Program105: This program creates a square matrix.
-Program106: This program displays a square matrix.
-Program181: This program finds the transpose of a square matrix.
+Program105:[c++] This program creates a square matrix.
+Program106:[c++] This program displays a square matrix.
+Program181:[c++] This program finds the transpose of a square matrix.
 
 Special Square Matrices:
 ------------------------
-Program107: This program optimizes a diagonal matrix.
-Program108: This program optimizes a lower-triangular matrix in row-major form.
-Program109: This program optimizes a lower-triangular matrix in column-major form.
-Program110: This program optimizes a upper-triangular matrix in row-major form.
-Program111: This program optimizes a upper-triangular matrix in column-major form.
-Program112: This program optimizes a symmetric matrix.
-Program113: This program optimizes a tridiagonal matrix.
-Program114: This program optimizes a toeplitz matrix.
+Program107:[c++] This program optimizes a diagonal matrix.
+Program108:[c++] This program optimizes a lower-triangular matrix in row-major form.
+Program109:[c++] This program optimizes a lower-triangular matrix in column-major form.
+Program110:[c++] This program optimizes a upper-triangular matrix in row-major form.
+Program111:[c++] This program optimizes a upper-triangular matrix in column-major form.
+Program112:[c++] This program optimizes a symmetric matrix.
+Program113:[c++] This program optimizes a tridiagonal matrix.
+Program114:[c++] This program optimizes a toeplitz matrix.
 
 Sparse Matrix:
 --------------
-Program115: This program optimizes a sparse matrix using 3-column representation.
-Program116: This program adds two sparse matrices using 3-column representation.
+Program115:[c++] This program optimizes a sparse matrix using 3-column representation.
+Program116:[c++] This program adds two sparse matrices using 3-column representation.
 
 Polynomial Representation:
 --------------------------
-Program117: This program represents a polynomial using arrays.
-Program118: This program displays a polynomial.
-Program119: This program makes the polynomial ascending.
-Program120: This program evaluates a polynomial.
-Program121: This program adds two polynomials.
+Program117:[c++] This program represents a polynomial using arrays.
+Program118:[c++] This program displays a polynomial.
+Program119:[c++] This program makes the polynomial ascending.
+Program120:[c++] This program evaluates a polynomial.
+Program121:[c++] This program adds two polynomials.
 
 Linked List:
 ------------
-Program122: This program creates a linked list.
-Program123: This program creates a linked list from an array.
-Program124: This program displays a linked list.
-Program125: This program displays a linked list in reverse order.
-Program126: This program counts the number of nodes in a linked list.
-Program127: This program finds the sum of all the elements in a linked list.
-Program128: This program finds the max element in a linked list.
-Program129: This program finds the min element in a linked list.
-Program130: This program finds the average of all the elements in a linked list.
-Program131: This program performs linear search in a linked list.
-Program132: This program appends an element at the end of a linked list.
-Program133: This program inserts an element to a linked list.
-Program134: This program inserts an element to a sorted linked list.
-Program135: This program deletes an element from a linked list.
-Program136: This program checks if a linked list is sorted.
-Program137: This program removes all the duplicate elements in a sorted linked list.
-Program138: This program reverses a linked list by reversing the data elements.
-Program139: This program reverses a linked list by reversing the links.
-Program140: This program concatenates two linked lists.
-Program141: This program merges two sorted linked lists.
-Program142: This program checks if a linked list contains loops.
-Program143: This program finds the middle node in a linked list.
+Program122:[c++] This program creates a linked list.
+Program123:[c++] This program creates a linked list from an array.
+Program124:[c++] This program displays a linked list.
+Program125:[c++] This program displays a linked list in reverse order.
+Program126:[c++] This program counts the number of nodes in a linked list.
+Program127:[c++] This program finds the sum of all the elements in a linked list.
+Program128:[c++] This program finds the max element in a linked list.
+Program129:[c++] This program finds the min element in a linked list.
+Program130:[c++] This program finds the average of all the elements in a linked list.
+Program131:[c++] This program performs linear search in a linked list.
+Program132:[c++] This program appends an element at the end of a linked list.
+Program133:[c++] This program inserts an element to a linked list.
+Program134:[c++] This program inserts an element to a sorted linked list.
+Program135:[c++] This program deletes an element from a linked list.
+Program136:[c++] This program checks if a linked list is sorted.
+Program137:[c++] This program removes all the duplicate elements in a sorted linked list.
+Program138:[c++] This program reverses a linked list by reversing the data elements.
+Program139:[c++] This program reverses a linked list by reversing the links.
+Program140:[c++] This program concatenates two linked lists.
+Program141:[c++] This program merges two sorted linked lists.
+Program142:[c++] This program checks if a linked list contains loops.
+Program143:[c++] This program finds the middle node in a linked list.
 
 Circular Linked List:
 ---------------------
 
-Program144: This program creates a circular linked list.
-Program145: This program creates a circular linked list from an array.
-Program146: This program displays a circular linked list.
-Program147: This program inserts an element to a circular linked list.
-Program148: This program deletes an element in a circular linked list.
-Program149: This program counts the number of nodes in a circular linked list.
+Program144:[c++] This program creates a circular linked list.
+Program145:[c++] This program creates a circular linked list from an array.
+Program146:[c++] This program displays a circular linked list.
+Program147:[c++] This program inserts an element to a circular linked list.
+Program148:[c++] This program deletes an element in a circular linked list.
+Program149:[c++] This program counts the number of nodes in a circular linked list.
 
 Doubly Linked List:
 -------------------
 
-Program150: This program creates a doubly linked list.
-Program151: This program creates a doubly linked list from an array.
-Program152: This program counts the number of nodes in a doubly linked list.
-Program153: This program displays a doubly linked list.
-Program154: This program inserts an element to a doubly linked list.
-Program155: This program deletes an element in a doubly linked list.
-Program156: This program reverses a doubly linked list.
+Program150:[c++] This program creates a doubly linked list.
+Program151:[c++] This program creates a doubly linked list from an array.
+Program152:[c++] This program counts the number of nodes in a doubly linked list.
+Program153:[c++] This program displays a doubly linked list.
+Program154:[c++] This program inserts an element to a doubly linked list.
+Program155:[c++] This program deletes an element in a doubly linked list.
+Program156:[c++] This program reverses a doubly linked list.
 
 Circular Doubly Linked List:
 ----------------------------
 
-Program157: This program creates a circular doubly linked list.
-Program158: This program creates a circular doubly linked list from an array.
-Program159: This program counts the number of nodes in a circular doubly linked list.
-Program160: This program displays a circular doubly linked list.
-Program161: This program inserts an element to a circular doubly linked list.
-Program162: This program deletes an element in a circular doubly linked list.
+Program157:[c++] This program creates a circular doubly linked list.
+Program158:[c++] This program creates a circular doubly linked list from an array.
+Program159:[c++] This program counts the number of nodes in a circular doubly linked list.
+Program160:[c++] This program displays a circular doubly linked list.
+Program161:[c++] This program inserts an element to a circular doubly linked list.
+Program162:[c++] This program deletes an element in a circular doubly linked list.
 
 Bit Manipulation:
 -----------------
@@ -301,4 +301,13 @@ Program224:[c++] This program counts the number of non-leaf nodes in a binary tr
 Binary Search Tree:
 -------------------
 
-Program226:[c++] 
+Program226:[c++] This program inserts an element to a binary search tree.
+Program227:[c++] This program creates a binary search tree from an array.
+Program228:[c++] This program searches for an element in a binary search tree.
+
+Sorting Techniques:
+-------------------
+
+Program229:[c++] This program demonstrates bubble sort.
+Program230:[c++] This program makes bubble sort adaptive.
+Program231:[c++] This program finds the first 'n' largest elements in an array using bubble sort.
