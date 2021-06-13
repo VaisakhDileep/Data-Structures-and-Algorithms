@@ -311,3 +311,5 @@ Sorting Techniques:
 Program229:[c++] This program demonstrates bubble sort.
 Program230:[c++] This program makes bubble sort adaptive.
 Program231:[c++] This program finds the first 'n' largest elements in an array using bubble sort.
+Program232:[c++] This program demonstrates insertion sort in an array.
+Program233:[c++] This program demonstrates insertion sort in a linked list.
