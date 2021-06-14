@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 12, June, 2021
-Description : This program finds the first 'n' largest elements in an array using bubble sort.
+Date		: 14, June, 2021
+Description : This program finds the first 'n' smallest elements in an array using selection sort.
 */
 
 #include<iostream>
@@ -42,7 +42,7 @@ void swap(int &a, int &b)
 	b = temp;
 }
 
-Array* first_n_largest_elements(Array *A, int n)
+Array* first_n_smallest_elements(Array *A, int n)
 {
 	if(A == nullptr)
 	{
@@ -54,29 +54,33 @@ Array* first_n_largest_elements(Array *A, int n)
 		throw string {"ERROR - Invalid operation, value of 'n' exceeds the size of the array ....."};
 	}
 
-	Array *result {new Array {new int[n] {}, A->size, n}};
+	Array *result_array {new Array {new int[n] {}, A->size, n}};
 
 	for(int i {0}; i < n; i++)
 	{
-		for(int j {0}; j < (A->size - 1- i); j++)
+		int k {i};
+
+		for(int j {i}; j < A->size; j++)
 		{
-			if(A->A[j] > A->A[j + 1])
+			if(A->A[j] < A->A[k])
 			{
-				swap(A->A[j], A->A[j + 1]);
+				k = j;
 			}
 		}
 
-		result->A[i] = A->A[A->size - 1 - i];
+		swap(A->A[i], A->A[k]);
+
+		result_array->A[i] = A->A[i];
 	}
 
-	return result;
+	return result_array;
 }
 
-Array* handle_first_n_largest_elements(Array *A, int n)
+Array* handle_first_n_smallest_elements(Array *A, int n)
 {
 	try
 	{
-		return first_n_largest_elements(A, n);
+		return first_n_smallest_elements(A, n);
 	}
 	catch(string &ex)
 	{
@@ -94,13 +98,13 @@ int main()
 	display_array(&A);
 	cout<<"\n";
 
-	Array *result {handle_first_n_largest_elements(&A, 3)};
+	Array *result {handle_first_n_smallest_elements(&A, 3)};
 
 	cout<<"result: ";
 	display_array(result);
 	cout<<"\n";
 
-	result = handle_first_n_largest_elements(&A, 7);
+	result = handle_first_n_smallest_elements(&A, 7);
 	cout<<"\n";
 
 	return 0;

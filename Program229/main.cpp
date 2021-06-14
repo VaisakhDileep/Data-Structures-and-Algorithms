@@ -34,6 +34,14 @@ void display_array(const Array *A)
 	cout<<"]";
 }
 
+void swap(int &a, int &b)
+{
+	int temp {a};
+
+	a = b;
+	b = temp;
+}
+
 void bubble_sort(Array *A)
 {
 	if(A == nullptr)
@@ -47,7 +55,7 @@ void bubble_sort(Array *A)
 		{
 			if(A->A[j] > A->A[j + 1])
 			{
-				swap(A->A[j], A->A[j + 1]); // C++ has a built in swap function.
+				swap(A->A[j], A->A[j + 1]);
 			}
 		}
 	}

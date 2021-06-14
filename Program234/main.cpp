@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 12, June, 2021
-Description : This program makes bubble sort adaptive.
+Date		: 13, June, 2021
+Description : This program demonstrates selection sort.
 */
 
 #include<iostream>
@@ -42,36 +42,34 @@ void swap(int &a, int &b)
 	b = temp;
 }
 
-void bubble_sort(Array *A)
+void selection_sort(Array *A)
 {
-	bool flag {};
-
-	for(int i {0}; i < A->size - 1; i++)
+	if(A == nullptr)
 	{
-		flag = false;
+		throw string {"ERROR - Invalid operation, array is not valid ....."};
+	}
 
-		for(int j {0}; j < A->size - 1 - i; j++)
+	for(int i {0}; i < (A->size - 1); i++)
+	{
+		int k {i};
+
+		for(int j {i}; j < A->size; j++)
 		{
-			if(A->A[j] > A->A[j + 1])
+			if(A->A[j] < A->A[k])
 			{
-				swap(A->A[j], A->A[j + 1]);
-
-				flag = true;
+				k = j;
 			}
 		}
 
-		if(flag == false)
-		{
-			break;
-		}
+		swap(A->A[i], A->A[k]);
 	}
 }
 
-void handle_bubble_sort(Array *A)
+void handle_selection_sort(Array *A)
 {
 	try
 	{
-		bubble_sort(A);
+		selection_sort(A);
 	}
 	catch(string &ex)
 	{
@@ -81,13 +79,13 @@ void handle_bubble_sort(Array *A)
 
 int main()
 {
-	Array A {new int[6] {9, 2, 4, 10, 7, 5}, 6, 6};
+	Array A {new int[6] {9, 1, 3, 8, 5, 10}, 6, 6};
 
 	cout<<"A: ";
 	display_array(&A);
 	cout<<"\n";
 
-	handle_bubble_sort(&A);
+	handle_selection_sort(&A);
 
 	cout<<"A: ";
 	display_array(&A);

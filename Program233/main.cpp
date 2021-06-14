@@ -51,6 +51,22 @@ void create_linked_list(Linked_list *L, int *A, int size)
 	}
 }
 
+void delete_linked_list(Linked_list *L)
+{
+	Node *last {L->head};
+
+	while(last != nullptr)
+	{
+		Node *temp {last->next};
+
+		delete last;
+
+		last = temp;
+	}
+
+	L->head = nullptr;
+}
+
 void insert_sorted_linked_list(Linked_list *L, int value)
 {
 	if(L == nullptr)
@@ -94,7 +110,7 @@ void insert_sorted_linked_list(Linked_list *L, int value)
 	}
 }
 
-void insertion_sort(Linked_list *L)
+void insertion_sort(Linked_list *L) // Insertion sort is preferrable for linked list as we dont have to shift unlike the case for arrays.
 {
 	Linked_list *sorted_list {new Linked_list {}};
 
@@ -105,7 +121,9 @@ void insertion_sort(Linked_list *L)
 		insert_sorted_linked_list(sorted_list, current_node->data);
 
 		current_node = current_node->next;
-	} 
+	}
+
+	delete_linked_list(L);
 
 	L->head = sorted_list->head;
 }
