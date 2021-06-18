@@ -318,10 +318,13 @@ Program234:[c++] This program demonstrates selection sort.
 Program236:[c++] This program finds the first 'n' smallest elements in an array using selection sort.
 
 Undirected Graph Representation Using Adjacency Matrix:
----------------------------------------------
+-------------------------------------------------------
 
 Program237:[c++] This program creates an undirected graph.
 Program240:[c++] This program displays an undirected graph.
 Program239:[c++] This program deletes an undirected graph.
 Program238:[c++] This program inserts an edge in an undirected graph.
 Program241:[c++] This program removes an edge from an undirected graph.
+Program242:[c++] This program creates an undirected graph from an array of edges.
+Program243:[c++] This program creates an undirected graph from user.
+
