@@ -17,6 +17,13 @@ struct Undirected_Graph
 	int n;
 };
 
+struct Edge
+{
+	int vertex_1;
+
+	int vertex_2;
+};
+
 void display_undirected_graph(Undirected_Graph *u_graph)
 {
 	if(u_graph == nullptr)
@@ -60,25 +67,25 @@ void delete_undirected_graph(Undirected_Graph *u_graph)
 	delete[] u_graph->A;
 }
 
-void add_edge_undirected_graph(Undirected_Graph *u_graph, int *edge)
+void add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 {
 	if(u_graph == nullptr)
 	{
 		throw string {"ERROR - Invalid operation, graph is not valid ....."};
 	}
 
-	if((edge[0] < 0) or (edge[1] < 0))
+	if((edge.vertex_1 < 0) or (edge.vertex_2 < 0))
 	{
 		throw string {"ERROR - Invalid operation, given edge contains negative vertex ....."};
 	}
 
-	if((edge[0] < u_graph->n) and (edge[1] < u_graph->n))
+	if((edge.vertex_1 < u_graph->n) and (edge.vertex_2 < u_graph->n))
 	{
-		u_graph->A[edge[0]][edge[1]] = u_graph->A[edge[1]][edge[0]] = 1;
+		u_graph->A[edge.vertex_1][edge.vertex_2] = u_graph->A[edge.vertex_2][edge.vertex_1] = 1;
 	}
 	else
 	{
-		int new_num_nodes {(edge[0] > edge[1]) ? edge[0] + 1 : edge[1] + 1};
+		int new_num_nodes {(edge.vertex_1 > edge.vertex_2) ? edge.vertex_1 + 1 : edge.vertex_2 + 1};
 
 		Undirected_Graph temp {new int*[new_num_nodes] {}, new_num_nodes};
 
@@ -95,7 +102,7 @@ void add_edge_undirected_graph(Undirected_Graph *u_graph, int *edge)
 			}
 		}
 
-		temp.A[edge[0]][edge[1]] = temp.A[edge[1]][edge[0]] = 1;
+		temp.A[edge.vertex_1][edge.vertex_2] = temp.A[edge.vertex_2][edge.vertex_1] = 1;
 
 		delete_undirected_graph(u_graph);
 
@@ -105,11 +112,11 @@ void add_edge_undirected_graph(Undirected_Graph *u_graph, int *edge)
 	}
 }
 
-void handle_add_edge_undirected_graph(Undirected_Graph *u_graph, int *A)
+void handle_add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 {
 	try
 	{
-		add_edge_undirected_graph(u_graph, A);
+		add_edge_undirected_graph(u_graph, edge);
 	}
 	catch(string &ex)
 	{
@@ -125,19 +132,19 @@ int main()
 	display_undirected_graph(&u_graph);
 	cout<<"\n\n";
 
-	handle_add_edge_undirected_graph(&u_graph, new int[2] {0, 4});
+	handle_add_edge_undirected_graph(&u_graph, Edge {0, 4});
 
 	cout<<"u_graph [after adding {0, 4}]: \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n\n";
 
-	handle_add_edge_undirected_graph(&u_graph, new int[2] {1, 5});
+	handle_add_edge_undirected_graph(&u_graph, Edge {1, 5});
 
 	cout<<"u_graph [after adding {1, 5}]: \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n\n";
 
-	handle_add_edge_undirected_graph(&u_graph, new int[2] {-1, 2});
+	handle_add_edge_undirected_graph(&u_graph, Edge {-1, 2});
 	cout<<"\n";
 
 	return 0;

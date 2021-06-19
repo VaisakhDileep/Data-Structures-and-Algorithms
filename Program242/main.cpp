@@ -17,6 +17,13 @@ struct Undirected_Graph
 	int n;
 };
 
+struct Edge
+{
+	int vertex_1;
+
+	int vertex_2;
+};
+
 void display_undirected_graph(Undirected_Graph *u_graph)
 {
 	if(u_graph == nullptr)
@@ -60,25 +67,25 @@ void delete_undirected_graph(Undirected_Graph *u_graph)
 	delete[] u_graph->A;
 }
 
-void add_edge_undirected_graph(Undirected_Graph *u_graph, int *edge)
+void add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 {
 	if(u_graph == nullptr)
 	{
 		throw string {"ERROR - Invalid operation, graph is not valid ....."};
 	}
 
-	if((edge[0] < 0) or (edge[1] < 0))
+	if((edge.vertex_1 < 0) or (edge.vertex_2 < 0))
 	{
 		throw string {"ERROR - Invalid operation, given edge contains negative vertex ....."};
 	}
 
-	if((edge[0] < u_graph->n) and (edge[1] < u_graph->n))
+	if((edge.vertex_1 < u_graph->n) and (edge.vertex_2 < u_graph->n))
 	{
-		u_graph->A[edge[0]][edge[1]] = u_graph->A[edge[1]][edge[0]] = 1;
+		u_graph->A[edge.vertex_1][edge.vertex_2] = u_graph->A[edge.vertex_2][edge.vertex_1] = 1;
 	}
 	else
 	{
-		int new_num_nodes {(edge[0] > edge[1]) ? edge[0] + 1 : edge[1] + 1};
+		int new_num_nodes {(edge.vertex_1 > edge.vertex_2) ? edge.vertex_1 + 1 : edge.vertex_2 + 1};
 
 		Undirected_Graph temp {new int*[new_num_nodes] {}, new_num_nodes};
 
@@ -95,7 +102,7 @@ void add_edge_undirected_graph(Undirected_Graph *u_graph, int *edge)
 			}
 		}
 
-		temp.A[edge[0]][edge[1]] = temp.A[edge[1]][edge[0]] = 1;
+		temp.A[edge.vertex_1][edge.vertex_2] = temp.A[edge.vertex_2][edge.vertex_1] = 1;
 
 		delete_undirected_graph(u_graph);
 
@@ -105,7 +112,7 @@ void add_edge_undirected_graph(Undirected_Graph *u_graph, int *edge)
 	}
 }
 
-void create_undirected_graph(Undirected_Graph *u_graph, int **edges, int num_edges)
+void create_undirected_graph(Undirected_Graph *u_graph, Edge *edges, int num_edges)
 {
 	if(u_graph == nullptr)
 	{
@@ -125,7 +132,7 @@ void create_undirected_graph(Undirected_Graph *u_graph, int **edges, int num_edg
 	}
 }
 
-void handle_create_undirected_graph(Undirected_Graph *u_graph, int **edges, int num_edges)
+void handle_create_undirected_graph(Undirected_Graph *u_graph, Edge *edges, int num_edges)
 {
 	try
 	{
@@ -141,7 +148,7 @@ int  main()
 {
 	Undirected_Graph u_graph {};
 
-	int **edges {new int*[10] {new int[2] {0, 1}, new int[2] {0, 3}, new int[2] {1, 2}, new int[2] {0, 10}, new int[2] {5, 9}, new int[2] {9, 7}, new int[2] {0, 6}, new int[2] {3, 4}, new int[2] {4, 5}, new int[2] {8, 1}}};
+	Edge edges[10] {Edge {0, 1}, Edge {0, 3}, Edge {1, 2}, Edge {0, 10}, Edge {5, 9}, Edge {9, 7}, Edge {0, 6}, Edge {3, 4}, Edge {4, 5}, Edge {8, 1}};
 
 	handle_create_undirected_graph(&u_graph, edges, 10);
 

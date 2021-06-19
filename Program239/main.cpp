@@ -15,6 +15,13 @@ struct Undirected_Graph
 	int n;
 };
 
+struct Edge
+{
+	int vertex_1;
+
+	int vertex_2;
+};
+
 void delete_undirected_graph(Undirected_Graph *u_graph)
 {
 	if(u_graph == nullptr)

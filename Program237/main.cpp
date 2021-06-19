@@ -17,6 +17,13 @@ struct Undirected_Graph // This is a square matrix.
 	int n; // number of rows or columns.
 };
 
+struct Edge // Unweighted edge.
+{
+	int vertex_1;
+
+	int vertex_2;
+};
+
 int main()
 {
 	Undirected_Graph u_graph {new int*[5] {new int[5] {0, 1, 1, 1, 0}, new int[5] {1, 0, 1, 0, 0}, new int[5] {1, 1, 0, 1, 1}, new int [5] {1, 0, 1, 0, 1}, new int[5] {0, 0, 1, 1, 0}}, 5};

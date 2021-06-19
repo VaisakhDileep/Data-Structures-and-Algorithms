@@ -332,3 +332,5 @@ Weighted Undirected Graph Representation Using Adjacency Matrix:
 ----------------------------------------------------------------
 
 Program244:[c++] This program creates an undirected weighted graph.
+Program245:[c++] This program displays an undirected weighted graph.
+Program246:[c++]

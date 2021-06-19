@@ -17,6 +17,13 @@ struct Undirected_Graph
 	int n;
 };
 
+struct Edge
+{
+	int vertex_1;
+
+	int vertex_2;
+};
+
 void display_undirected_graph(Undirected_Graph *u_graph)
 {
 	if(u_graph == nullptr)
@@ -45,27 +52,27 @@ void display_undirected_graph(Undirected_Graph *u_graph)
 	cout<<"]";
 }
 
-void remove_edge_undirected_graph(Undirected_Graph *u_graph, int *edge)
+void remove_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 {
 	if(u_graph == nullptr)
 	{
 		throw string {"ERROR - Invalid operation, graph is not valid ....."};
 	}
 
-	if((edge[0] < 0) or (edge[1] < 0))
+	if((edge.vertex_1 < 0) or (edge.vertex_2 < 0))
 	{
 		throw string {"ERROR - Invalid operation, given edge contains negative vertex ....."};
 	}
 
-	if((edge[0] >= u_graph->n) or (edge[1] >= u_graph->n))
+	if((edge.vertex_1 >= u_graph->n) or (edge.vertex_2 >= u_graph->n))
 	{
 		throw string {"ERROR - Invalid operation, given edge not present in the graph ....."};
 	}
 
-	u_graph->A[edge[0]][edge[1]] = u_graph->A[edge[1]][edge[0]] = 0;
+	u_graph->A[edge.vertex_1][edge.vertex_2] = u_graph->A[edge.vertex_2][edge.vertex_1] = 0;
 }
 
-void handle_remove_edge_undirected_graph(Undirected_Graph *u_graph, int *edge)
+void handle_remove_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 {
 	try
 	{
@@ -85,16 +92,16 @@ int main()
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 
-	handle_remove_edge_undirected_graph(&u_graph, new int[2] {0, 1});
+	handle_remove_edge_undirected_graph(&u_graph, Edge {0, 1});
 
 	cout<<"u_graph: [after removing {0, 1}]: \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 
-	handle_remove_edge_undirected_graph(&u_graph, new int[2] {-1, 2});
+	handle_remove_edge_undirected_graph(&u_graph, Edge {-1, 2});
 	cout<<"\n";
 
-	handle_remove_edge_undirected_graph(&u_graph, new int[2] {0, 5});
+	handle_remove_edge_undirected_graph(&u_graph, Edge {0, 5});
 	cout<<"\n";
 
 	return 0;
