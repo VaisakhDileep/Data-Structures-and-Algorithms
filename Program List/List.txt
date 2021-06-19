@@ -328,3 +328,7 @@ Program241:[c++] This program removes an edge from an undirected graph.
 Program242:[c++] This program creates an undirected graph from an array of edges.
 Program243:[c++] This program creates an undirected graph from user.
 
+Weighted Undirected Graph Representation Using Adjacency Matrix:
+----------------------------------------------------------------
+
+Program244:[c++] This program creates an undirected weighted graph.

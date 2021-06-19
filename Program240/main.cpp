@@ -14,7 +14,7 @@ struct Undirected_Graph
 {
 	int **A;
 
-	int num_nodes;
+	int n;
 };
 
 void display_undirected_graph(Undirected_Graph *u_graph)
@@ -27,16 +27,16 @@ void display_undirected_graph(Undirected_Graph *u_graph)
 	}
 
 	cout<<"[\n     ";
-	for(int i {0}; i < u_graph->num_nodes; i++)
+	for(int i {0}; i < u_graph->n; i++)
 	{
 		cout<<setw(3)<<i<<" ";
 	}
 	cout<<"\n";
 
-	for(int i {0}; i < u_graph->num_nodes; i++)
+	for(int i {0}; i < u_graph->n; i++)
 	{
 		cout<<setw(3)<<left<<i<<right<<"[ ";
-		for(int j {0}; j < u_graph->num_nodes; j++)
+		for(int j {0}; j < u_graph->n; j++)
 		{
 			cout<<setw(3)<<u_graph->A[i][j]<<" ";
 		}

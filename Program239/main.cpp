@@ -12,7 +12,7 @@ struct Undirected_Graph
 {
 	int **A;
 
-	int num_nodes;
+	int n;
 };
 
 void delete_undirected_graph(Undirected_Graph *u_graph)
@@ -22,7 +22,7 @@ void delete_undirected_graph(Undirected_Graph *u_graph)
 		throw string {"ERROR - Invalid operation, graph is not valid ....."};
 	}
 
-	for(int i {0}; i < u_graph->num_nodes; i++)
+	for(int i {0}; i < u_graph->n; i++)
 	{
 		delete[] u_graph->A[i];
 	}
