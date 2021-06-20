@@ -175,7 +175,6 @@ Program235:[c++] This program deletes a linked list.
 
 Circular Linked List:
 ---------------------
-
 Program144:[c++] This program creates a circular linked list.
 Program145:[c++] This program creates a circular linked list from an array.
 Program146:[c++] This program displays a circular linked list.
@@ -185,7 +184,6 @@ Program149:[c++] This program counts the number of nodes in a circular linked li
 
 Doubly Linked List:
 -------------------
-
 Program150:[c++] This program creates a doubly linked list.
 Program151:[c++] This program creates a doubly linked list from an array.
 Program152:[c++] This program counts the number of nodes in a doubly linked list.
@@ -196,7 +194,6 @@ Program156:[c++] This program reverses a doubly linked list.
 
 Circular Doubly Linked List:
 ----------------------------
-
 Program157:[c++] This program creates a circular doubly linked list.
 Program158:[c++] This program creates a circular doubly linked list from an array.
 Program159:[c++] This program counts the number of nodes in a circular doubly linked list.
@@ -206,7 +203,6 @@ Program162:[c++] This program deletes an element in a circular doubly linked lis
 
 Bit Manipulation:
 -----------------
-
 Program094:[c++] This program helps to understand masking.
 Program095:[c++] This program helps to understand merging.
 Program163:[c++] This program finds the index of the first set bit of a number.
@@ -214,7 +210,6 @@ Program164:[c++] This program finds the index of the first different bit of two 
 
 Stack ADT Using Arrays:
 -----------------------
-
 Program165:[c++] This program creates a stack.
 Program166:[c++] This program checks if a stack is empty.
 Program167:[c++] This program checks if a stack is full.
@@ -226,7 +221,6 @@ Program172:[c++] This program peeks through a stack.
 
 Stack ADT Using Linked List:
 ----------------------------
-
 Program189:[c++] This program creates a stack.
 Program190:[c++] This program creates a stack from an array.
 Program191:[c++] This program checks if a stack is empty.
@@ -237,7 +231,6 @@ Program195:[c++] This program pops an element from a stack.
 
 Queue ADT Using Arrays:
 -----------------------
-
 Program173:[c++] This program creates a queue.
 Program174:[c++] This program checks if a queue is empty.
 Program175:[c++] This program checks if a queue is full.
@@ -248,7 +241,6 @@ Program179:[c++] This program resets a queue.
 
 Queue ADT Using Linked List:
 ----------------------------
-
 Program182:[c++] This program creates a queue.
 Program183:[c++] This program creates a queue from an array.
 Program184:[c++] This program checks if a queue is empty.
@@ -259,7 +251,6 @@ Program188:[c++] This program deletes an element from a queue.
 
 Circular Queue ADT:
 -------------------
-
 Program196:[c++] This program creates a circular queue.
 Program197:[c++] This program checks if a circular queue is empty.
 Program198:[c++] This program checks if a circular queue is full.
@@ -269,7 +260,6 @@ Program201:[c++] This program deletes an element in a circular queue.
 
 Binary Tree Using Arrays:
 -------------------------
-
 Program202:[c++] This program creates a binary tree.
 Program203:[c++] This program finds the height of a binary tree.
 Program204:[c++] This program creates a binary tree from an array.
@@ -280,7 +270,6 @@ Program208:[c++] This program finds the parent of a node in a binary tree.
 
 Binary Tree Using Linked List:
 ------------------------------
-
 Program209:[c++] This program creates a binary tree.
 Program210:[c++] This program creates a binary tree from an array.
 Program218:[c++] This program creates a binary tree from user using queue.
@@ -301,14 +290,12 @@ Program224:[c++] This program counts the number of non-leaf nodes in a binary tr
 
 Binary Search Tree:
 -------------------
-
 Program226:[c++] This program inserts an element to a binary search tree.
 Program227:[c++] This program creates a binary search tree from an array.
 Program228:[c++] This program searches for an element in a binary search tree.
 
 Sorting Techniques:
 -------------------
-
 Program229:[c++] This program demonstrates bubble sort.
 Program230:[c++] This program makes bubble sort adaptive.
 Program231:[c++] This program finds the first 'n' largest elements in an array using bubble sort.
@@ -319,18 +306,27 @@ Program236:[c++] This program finds the first 'n' smallest elements in an array 
 
 Undirected Graph Representation Using Adjacency Matrix:
 -------------------------------------------------------
-
 Program237:[c++] This program creates an undirected graph.
 Program240:[c++] This program displays an undirected graph.
 Program239:[c++] This program deletes an undirected graph.
-Program238:[c++] This program inserts an edge in an undirected graph.
+Program238:[c++] This program inserts an edge to an undirected graph.
 Program241:[c++] This program removes an edge from an undirected graph.
 Program242:[c++] This program creates an undirected graph from an array of edges.
 Program243:[c++] This program creates an undirected graph from user.
 
-Weighted Undirected Graph Representation Using Adjacency Matrix:
-----------------------------------------------------------------
+Undirected Graph Representation Using Adjacency List:
+-----------------------------------------------------
+Program251:[c++] This program creates an undirected graph.
+Program252:[c++] This program displays an undirected graph.
+Program253:[c++] This program deletes an undirected graph.
+Program254:[c++] 
 
-Program244:[c++] This program creates an undirected weighted graph.
-Program245:[c++] This program displays an undirected weighted graph.
-Program246:[c++]
+Weighed Undirected Graph Representation Using Adjacency Matrix:
+----------------------------------------------------------------
+Program244:[c++] This program creates a weighed undirected graph.
+Program245:[c++] This program displays a weighed undirected graph.
+Program246:[c++] This program deletes a weighed undirected graph.
+Program247:[c++] This program inserts an edge to a weighed undirected graph.
+Program248:[c++] This program removes an edge from a weighed undirected graph.
+Program249:[c++] This program creates a weighed undirected graph from an array of edges.
+Program250:[c++] This program creates a weighed undirected graph from user.

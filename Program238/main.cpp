@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 16, June, 2021
-Description : This program inserts an edge in an undirected graph.
+Description : This program inserts an edge to an undirected graph.
 */
 
 #include<iostream>

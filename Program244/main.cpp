@@ -1,21 +1,23 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 19, June, 2021
-Description : This program creates an undirected weighted graph.
+Description : This program creates a weighed undirected graph.
 */
+
+// Note: Nodes in the graph are labelled from '0'.
 
 #include<iostream>
 
 using namespace std;
 
-struct Weighed_Undirected_Graph // This is a square matrix.
+struct Weighed_Undirected_Graph // Using adjacency matrix.
 {
 	int **A; // dynamically created 2-D array.
 
 	int n; // number of rows or columns.
 };
 
-struct Edge // Weighted edge.
+struct Weighed_Edge // edge with weight.
 {
 	int vertex_1;
 

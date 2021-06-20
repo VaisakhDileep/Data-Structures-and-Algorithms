@@ -10,7 +10,7 @@ Description : This program creates an undirected graph.
 
 using namespace std;
 
-struct Undirected_Graph // This is a square matrix.
+struct Undirected_Graph // Using adjacency matrix.
 {
 	int **A; // dynamically created 2-D array.
 
