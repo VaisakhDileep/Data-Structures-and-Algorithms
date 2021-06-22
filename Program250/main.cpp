@@ -89,13 +89,13 @@ void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weigh
 	}
 	else
 	{
-		int new_num_nodes {(w_edge.vertex_1 > w_edge.vertex_2) ? w_edge.vertex_1 + 1 : w_edge.vertex_2 + 1};
+		int new_n {(w_edge.vertex_1 > w_edge.vertex_2) ? w_edge.vertex_1 + 1 : w_edge.vertex_2 + 1};
 
-		Weighed_Undirected_Graph temp {new int*[new_num_nodes] {}, new_num_nodes};
+		Weighed_Undirected_Graph temp {new int*[new_n] {}, new_n};
 
-		for(int i {0}; i < new_num_nodes; i++)
+		for(int i {0}; i < new_n; i++)
 		{
-			temp.A[i] = new int[new_num_nodes] {};
+			temp.A[i] = new int[new_n] {};
 		}
 
 		for(int i {0}; i < wu_graph->n; i++)

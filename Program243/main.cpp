@@ -89,13 +89,13 @@ void add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 	}
 	else
 	{
-		int new_num_nodes {(edge.vertex_1 > edge.vertex_2) ? edge.vertex_1 + 1 : edge.vertex_2 + 1};
+		int new_n {(edge.vertex_1 > edge.vertex_2) ? edge.vertex_1 + 1 : edge.vertex_2 + 1};
 
-		Undirected_Graph temp {new int*[new_num_nodes] {}, new_num_nodes};
+		Undirected_Graph temp {new int*[new_n] {}, new_n};
 
-		for(int i {0}; i < new_num_nodes; i++)
+		for(int i {0}; i < new_n; i++)
 		{
-			temp.A[i] = new int[new_num_nodes] {};
+			temp.A[i] = new int[new_n] {};
 		}
 
 		for(int i {0}; i < u_graph->n; i++)

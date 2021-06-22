@@ -319,7 +319,9 @@ Undirected Graph Representation Using Adjacency List:
 Program251:[c++] This program creates an undirected graph.
 Program252:[c++] This program displays an undirected graph.
 Program253:[c++] This program deletes an undirected graph.
-Program254:[c++] 
+Program254:[c++] This program inserts an edge to an undirected graph.
+Program255:[c++] This program removes an edge from an undirected graph.
+Program256:[c++] This program creates an undirected graph from an array of edges.
 
 Weighed Undirected Graph Representation Using Adjacency Matrix:
 ----------------------------------------------------------------
