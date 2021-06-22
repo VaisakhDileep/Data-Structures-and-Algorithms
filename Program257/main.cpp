@@ -1,12 +1,14 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 20, June, 2021
-Description : This program inserts an edge to an undirected graph.
+Date		: 22, June, 2021
+Description : This program creates an undirected graph from user.
 */
 
 #include<iostream>
 
 #include<iomanip>
+
+#include<limits>
 
 using namespace std;
 
@@ -191,11 +193,58 @@ void add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 	}
 }
 
-void handle_add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
+void create_undirected_graph(Undirected_Graph *u_graph)
+{
+	if(u_graph == nullptr)
+	{
+		throw string {"ERROR - Invalid operation, graph is not valid ....."};
+	}
+
+	int num_edges {};
+
+	cout<<"Enter the number of edges present in the graph: ";
+
+	cin>>num_edges;
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+	cout<<"\nStart entering the edges in the format \"{vertex_1, vertex_2}\": \n";
+
+	for(int i {0}; i < num_edges; i++)
+	{
+		int vertex_1 {}, vertex_2 {};
+
+		string user_input {};
+
+		cout<<"> ";
+
+		getline(cin, user_input);
+
+		istringstream iss {user_input};
+
+		iss.ignore(); // This will ignore "{".
+
+		iss>>vertex_1;
+
+		iss.ignore(); // This will ignore ",".
+
+		iss>>vertex_2;
+
+		try
+		{
+			add_edge_undirected_graph(u_graph, Edge {vertex_1, vertex_2});
+		}
+		catch(string &ex)
+		{
+			throw string {"ERROR - Invalid operation, given edge is not valid ....."};
+		}
+	}
+}
+
+void handle_create_undirected_graph(Undirected_Graph *u_graph)
 {
 	try
 	{
-		add_edge_undirected_graph(u_graph, edge);
+		create_undirected_graph(u_graph);
 	}
 	catch(string &ex)
 	{
@@ -205,43 +254,13 @@ void handle_add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 
 int main()
 {
-	Undirected_Graph u_graph {new Linked_list*[5] {}, 5};
+	Undirected_Graph u_graph {};
 
-	u_graph.A[0] = new Linked_list {new Node {4, nullptr}};
-	u_graph.A[4] = new Linked_list {new Node {0, nullptr}};
-
-	u_graph.A[1] = new Linked_list {new Node {3, nullptr}};
-	u_graph.A[3] = new Linked_list {new Node {1, nullptr}};
-
-	u_graph.A[3]->head->next = new Node {0, nullptr};
-	u_graph.A[0]->head->next = new Node {3, nullptr};
+	handle_create_undirected_graph(&u_graph);
+	cout<<"\n\n";
 
 	cout<<"u_graph:\n";
 	display_undirected_graph(&u_graph);
-	cout<<"\n";
-
-	handle_add_edge_undirected_graph(&u_graph, Edge {10, 2});
-
-	cout<<"u_graph: [after adding {10, 2}]\n";
-	display_undirected_graph(&u_graph);
-	cout<<"\n";
-
-	handle_add_edge_undirected_graph(&u_graph, Edge {3, 11});
-
-	cout<<"u_graph: [after adding {3, 11}]\n";
-	display_undirected_graph(&u_graph);
-	cout<<"\n";
-
-	handle_add_edge_undirected_graph(&u_graph, Edge {0, 2});
-
-	cout<<"u_graph: [after adding {0, 2}]\n";
-	display_undirected_graph(&u_graph);
-	cout<<"\n";
-
-	handle_add_edge_undirected_graph(&u_graph, Edge {0, 2});
-	cout<<"\n";
-
-	handle_add_edge_undirected_graph(&u_graph, Edge {-1, 2});
 	cout<<"\n";
 
 	return 0;

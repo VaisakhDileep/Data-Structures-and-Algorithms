@@ -12,7 +12,7 @@ using namespace std;
 
 struct Node
 {
-	int data;
+	int vertex;
 
 	Node *next;
 };
@@ -52,7 +52,7 @@ namespace prototype_1 // Here we print every vertex.
 
 				while(last != nullptr)
 				{
-					cout<<" -> "<<setw(3)<<last->data;
+					cout<<" -> "<<setw(3)<<last->vertex;
 
 					last = last->next;
 				}
@@ -85,7 +85,7 @@ namespace prototype_2 // Here we print only the vertices that have at least one 
 
 				while(last != nullptr)
 				{
-					cout<<" -> "<<setw(3)<<last->data;
+					cout<<" -> "<<setw(3)<<last->vertex;
 
 					last = last->next;
 				}

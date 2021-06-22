@@ -10,7 +10,7 @@ using namespace std;
 
 struct Node
 {
-	int data;
+	int vertex;
 
 	Node *next;
 };

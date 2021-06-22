@@ -322,6 +322,7 @@ Program253:[c++] This program deletes an undirected graph.
 Program254:[c++] This program inserts an edge to an undirected graph.
 Program255:[c++] This program removes an edge from an undirected graph.
 Program256:[c++] This program creates an undirected graph from an array of edges.
+Program257:[c++] This program creates an undirected graph from user.
 
 Weighed Undirected Graph Representation Using Adjacency Matrix:
 ----------------------------------------------------------------
@@ -332,3 +333,8 @@ Program247:[c++] This program inserts an edge to a weighed undirected graph.
 Program248:[c++] This program removes an edge from a weighed undirected graph.
 Program249:[c++] This program creates a weighed undirected graph from an array of edges.
 Program250:[c++] This program creates a weighed undirected graph from user.
+
+Weighed Undirected Graph Representation Using Adjacency List:
+-------------------------------------------------------------
+
+Program258:[c++] This program creates a weighed undirected graph.

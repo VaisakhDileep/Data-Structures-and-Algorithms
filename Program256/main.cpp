@@ -12,7 +12,7 @@ using namespace std;
 
 struct Node
 {
-	int data;
+	int vertex;
 
 	Node *next;
 };
@@ -57,7 +57,7 @@ void display_undirected_graph(Undirected_Graph *u_graph)
 
 			while(last != nullptr)
 			{
-				cout<<" -> "<<setw(3)<<last->data;
+				cout<<" -> "<<setw(3)<<last->vertex;
 
 				last = last->next;
 			}
@@ -92,7 +92,7 @@ void add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 			{
 				previous_node = last;
 
-				if(last->data == edge.vertex_2)
+				if(last->vertex == edge.vertex_2)
 				{
 					throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
 				}
@@ -115,7 +115,7 @@ void add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 			{
 				previous_node = last;
 
-				if(last->data == edge.vertex_1)
+				if(last->vertex == edge.vertex_1)
 				{
 					throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
 				}
@@ -149,7 +149,7 @@ void add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 			{
 				previous_node = last;
 
-				if(last->data == edge.vertex_2)
+				if(last->vertex == edge.vertex_2)
 				{
 					throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
 				}
@@ -172,7 +172,7 @@ void add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 			{
 				previous_node = last;
 
-				if(last->data == edge.vertex_1)
+				if(last->vertex == edge.vertex_1)
 				{
 					throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
 				}
