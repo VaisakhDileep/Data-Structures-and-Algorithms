@@ -336,5 +336,10 @@ Program250:[c++] This program creates a weighed undirected graph from user.
 
 Weighed Undirected Graph Representation Using Adjacency List:
 -------------------------------------------------------------
-
 Program258:[c++] This program creates a weighed undirected graph.
+Program259:[c++] This program displays a weighed undirected graph.
+Program260:[c++] This program deletes a weighed undirected graph.
+Program261:[c++] This program inserts an edge to a weighed undirected graph.
+Program262:[c++] This program removes an edge from a weighed undirected graph.
+Program263:[c++] This program creates a weighed undirected graph from an array of edges.
+Program264:[c++] This program creates a weighed undirected graph from user.
