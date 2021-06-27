@@ -8,6 +8,8 @@ Description : This program creates a weighed undirected graph from user.
 
 #include<iomanip>
 
+#include<sstream>
+
 #include<limits>
 
 using namespace std;

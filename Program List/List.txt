@@ -348,3 +348,14 @@ Directed Graph Representation Using Adjacency Matrix:
 -----------------------------------------------------
 
 Program265:[c++] This program creates a directed graph.
+Program266:[c++] This program displays a directed graph.
+Program267:[c++] This program deletes a directed graph.
+Program268:[c++] This program inserts an edge to a directed graph.
+Program269:[c++] This program removes an edge from a directed graph.
+Program270:[c++] This program creates a directed graph from an array of edges.
+Program271:[c++] This program creates a directed graph from user.
+
+Directed Graph Representation Using Adjacency List:
+---------------------------------------------------
+
+Program272:[c++] This program creates a directed graph.

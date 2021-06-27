@@ -130,19 +130,19 @@ int main()
 
 	cout<<"u_graph:\n";
 	display_undirected_graph(&u_graph);
-	cout<<"\n\n";
+	cout<<"\n";
 
 	handle_add_edge_undirected_graph(&u_graph, Edge {0, 4});
 
 	cout<<"u_graph [after adding {0, 4}]: \n";
 	display_undirected_graph(&u_graph);
-	cout<<"\n\n";
+	cout<<"\n";
 
 	handle_add_edge_undirected_graph(&u_graph, Edge {1, 5});
 
 	cout<<"u_graph [after adding {1, 5}]: \n";
 	display_undirected_graph(&u_graph);
-	cout<<"\n\n";
+	cout<<"\n";
 
 	handle_add_edge_undirected_graph(&u_graph, Edge {-1, 2});
 	cout<<"\n";

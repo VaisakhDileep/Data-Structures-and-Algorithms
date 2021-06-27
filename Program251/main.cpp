@@ -26,7 +26,7 @@ struct Undirected_Graph // Using adjacency list.
 {
 	Linked_list **A; // array of linked lists.
 
-	int n; // number of rows or columns.
+	int n; // number of rows.
 };
 
 int main()

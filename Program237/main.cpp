@@ -6,7 +6,7 @@ Description : This program creates an undirected graph.
 
 // Note: Nodes in the graph are labelled from '0'.
 
-#include<bits/stdc++.h>
+#include<iostream>
 
 using namespace std;
 
