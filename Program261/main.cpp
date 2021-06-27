@@ -220,19 +220,19 @@ int main()
 	wu_graph.A[0]->head->next = new Node {2, 35, nullptr};
 	wu_graph.A[2] = new Linked_list {new Node {0, 35, nullptr}};
 
-	cout<<"wu_graph:\n";
+	cout<<"wu_graph: \n";
 	display_weighed_undirected_graph(&wu_graph);
 	cout<<"\n";
 
 	handle_add_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {7, 5, 500});
 
-	cout<<"wu_graph: [after adding {7, 5, 500}]\n";
+	cout<<"wu_graph: [after adding {7, 5, 500}] \n";
 	display_weighed_undirected_graph(&wu_graph);
 	cout<<"\n";
 
 	handle_add_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {11, 8, 450});
 
-	cout<<"wu_graph: [after adding {11, 8, 450}]\n";
+	cout<<"wu_graph: [after adding {11, 8, 450}] \n";
 	display_weighed_undirected_graph(&wu_graph);
 	cout<<"\n";
 

@@ -130,21 +130,21 @@ int main()
 {
 	Weighed_Undirected_Graph wu_graph {new int*[5] {new int[5] {0, 3, 0, 0, 7}, new int[5] {3, 0, 0, 0, 0}, new int[5] {0, 0, 0, 8, 0}, new int[5] {0, 0, 8, 0, 0}, new int[5] {7, 0, 0, 0, 0}}, 5};
 
-	cout<<"u_graph:\n";
+	cout<<"u_graph: \n";
 	display_weighed_undirected_graph(&wu_graph);
-	cout<<"\n\n";
+	cout<<"\n";
 
 	handle_add_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {0, 4, 10});
 
 	cout<<"u_graph [after adding {0, 4, 10}]: \n";
 	display_weighed_undirected_graph(&wu_graph);
-	cout<<"\n\n";
+	cout<<"\n";
 
 	handle_add_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {1, 5, 11});
 
 	cout<<"u_graph [after adding {1, 5, 11}]: \n";
 	display_weighed_undirected_graph(&wu_graph);
-	cout<<"\n\n";
+	cout<<"\n";
 
 	handle_add_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {-1, 2, 12});
 	cout<<"\n";

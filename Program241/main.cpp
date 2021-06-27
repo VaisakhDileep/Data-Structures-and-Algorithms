@@ -88,7 +88,7 @@ int main()
 {
 	Undirected_Graph u_graph {new int*[5] {new int[5] {0, 1, 1, 1, 0}, new int[5] {1, 0, 1, 0, 0}, new int[5] {1, 1, 0, 1, 1}, new int [5] {1, 0, 1, 0, 1}, new int[5] {0, 0, 1, 1, 0}}, 5};
 
-	cout<<"u_graph:\n";
+	cout<<"u_graph: \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 

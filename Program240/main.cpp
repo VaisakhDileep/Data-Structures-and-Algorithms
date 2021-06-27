@@ -58,11 +58,11 @@ int main()
 
 	Undirected_Graph u_graph_2 {};
 
-	cout<<"u_graph_1:\n";
+	cout<<"u_graph_1: \n";
 	display_undirected_graph(&u_graph_1);
 	cout<<"\n";
 
-	cout<<"u_graph_2:\n";
+	cout<<"u_graph_2: \n";
 	display_undirected_graph(&u_graph_2);
 	cout<<"\n";
 

@@ -199,19 +199,19 @@ int main()
 	u_graph.A[3]->head->next = new Node {0, nullptr};
 	u_graph.A[0]->head->next = new Node {3, nullptr};
 
-	cout<<"u_graph:\n";
+	cout<<"u_graph: \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 
 	handle_remove_edge_undirected_graph(&u_graph, Edge {3, 1});
 
-	cout<<"u_graph: [after removing {3, 1}]\n";
+	cout<<"u_graph: [after removing {3, 1}] \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 
 	handle_remove_edge_undirected_graph(&u_graph, Edge {0, 4});
 
-	cout<<"u_graph: [after removing {0, 4}]\n";
+	cout<<"u_graph: [after removing {0, 4}] \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 

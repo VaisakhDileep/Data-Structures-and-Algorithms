@@ -158,7 +158,7 @@ int main()
 
 	handle_create_directed_graph(&d_graph, edges, 10);
 
-	cout<<"d_graph:\n";
+	cout<<"d_graph: \n";
 	display_directed_graph(&d_graph);
 	cout<<"\n";
 

@@ -134,7 +134,7 @@ int main()
 {
 	Directed_Graph d_graph {new int*[5] {new int[3] {0, 1, 0}, new int[3] {0, 0, 1}, new int[3] {1, 1, 0}, new int[3] {1, 1, 0}, new int[3] {1, 0, 0}}, 5, 3};
 
-	cout<<"d_graph:\n";
+	cout<<"d_graph: \n";
 	display_directed_graph(&d_graph);
 	cout<<"\n";
 

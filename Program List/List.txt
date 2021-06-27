@@ -359,3 +359,6 @@ Directed Graph Representation Using Adjacency List:
 ---------------------------------------------------
 
 Program272:[c++] This program creates a directed graph.
+Program273:[c++] This program displays a directed graph.
+Program274:[c++] This program deletes a directed graph.
+Program275:[c++] This program inserts an edge to a directed graph.

@@ -58,7 +58,7 @@ int main()
 {
 	Weighed_Undirected_Graph wu_graph {new int*[5] {new int[5] {0, 3, 0, 0, 7}, new int[5] {3, 0, 0, 0, 0}, new int[5] {0, 0, 0, 8, 0}, new int[5] {0, 0, 8, 0, 0}, new int[5] {7, 0, 0, 0, 0}}, 5};
 
-	cout<<"wu_graph:\n";
+	cout<<"wu_graph: \n";
 	display_weighed_undirected_graph(&wu_graph);
 	cout<<"\n";
 

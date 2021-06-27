@@ -108,11 +108,11 @@ int main()
 	u_graph.A[3]->head->next = new Node {0, nullptr};
 	u_graph.A[0]->head->next = new Node {3, nullptr};
 
-	cout<<"u_graph: [prototype 1]\n";
+	cout<<"u_graph: [prototype 1] \n";
 	prototype_1::display_undirected_graph(&u_graph); // "X" means no edges for the vertex.
 	cout<<"\n";
 
-	cout<<"u_graph: [prototype 2]\n";
+	cout<<"u_graph: [prototype 2] \n";
 	prototype_2::display_undirected_graph(&u_graph);
 	cout<<"\n";
 

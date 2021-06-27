@@ -235,7 +235,7 @@ int main()
 
 	handle_create_weighed_undirected_graph(&wu_graph, edges, 10);
 
-	cout<<"wu_graph:\n";
+	cout<<"wu_graph: \n";
 	display_weighed_undirected_graph(&wu_graph);
 	cout<<"\n";
 

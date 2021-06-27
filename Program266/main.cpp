@@ -60,11 +60,11 @@ int main()
 
 	Directed_Graph d_graph_2 {};
 
-	cout<<"d_graph_1:\n";
+	cout<<"d_graph_1: \n";
 	display_directed_graph(&d_graph_1);
 	cout<<"\n";
 
-	cout<<"d_graph_2:\n";
+	cout<<"d_graph_2: \n";
 	display_directed_graph(&d_graph_2);
 	cout<<"\n";
 

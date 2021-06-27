@@ -216,25 +216,25 @@ int main()
 	u_graph.A[3]->head->next = new Node {0, nullptr};
 	u_graph.A[0]->head->next = new Node {3, nullptr};
 
-	cout<<"u_graph:\n";
+	cout<<"u_graph: \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 
 	handle_add_edge_undirected_graph(&u_graph, Edge {10, 2});
 
-	cout<<"u_graph: [after adding {10, 2}]\n";
+	cout<<"u_graph: [after adding {10, 2}] \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 
 	handle_add_edge_undirected_graph(&u_graph, Edge {3, 11});
 
-	cout<<"u_graph: [after adding {3, 11}]\n";
+	cout<<"u_graph: [after adding {3, 11}] \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 
 	handle_add_edge_undirected_graph(&u_graph, Edge {0, 2});
 
-	cout<<"u_graph: [after adding {0, 2}]\n";
+	cout<<"u_graph: [after adding {0, 2}] \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 

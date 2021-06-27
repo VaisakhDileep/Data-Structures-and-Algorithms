@@ -257,9 +257,9 @@ int main()
 	Undirected_Graph u_graph {};
 
 	handle_create_undirected_graph(&u_graph);
-	cout<<"\n\n";
+	cout<<"\n";
 
-	cout<<"u_graph:\n";
+	cout<<"u_graph: \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 
