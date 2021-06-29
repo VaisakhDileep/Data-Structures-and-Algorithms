@@ -75,7 +75,7 @@ void remove_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 
 	if((edge.vertex_1 < 0) or (edge.vertex_2 < 0))
 	{
-		throw string {"ERROR - Invalid operation, given edge contains negative index ....."};
+		throw string {"ERROR - Invalid operation, given edge contains negative vertex ....."};
 	}
 
 	if((edge.vertex_1 >= u_graph->n) or (edge.vertex_2 >= u_graph->n))

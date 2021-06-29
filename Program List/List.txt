@@ -362,3 +362,14 @@ Program272:[c++] This program creates a directed graph.
 Program273:[c++] This program displays a directed graph.
 Program274:[c++] This program deletes a directed graph.
 Program275:[c++] This program inserts an edge to a directed graph.
+Program276:[c++] This program removes an edge from a directed graph.
+Program277:[c++] This program creates a directed graph from an array of edges.
+Program278:[c++] This program creates a directed graph from user.
+
+Weighed Directed Graph Representation Using Adjacency Matrix:
+-------------------------------------------------------------
+
+Program279:[c++] This program creates a weighed directed graph.
+Program280:[c++] This program displays a weighed directed graph.
+Program281:[c++] This program deletes a weighed directed graph.
+Program282:[c++] This program inserts an edge to a weighed directed graph.

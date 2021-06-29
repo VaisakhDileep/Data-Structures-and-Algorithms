@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 27, June, 2021
-Description : This program inserts an edge to a directed graph.
+Date		: 28, June, 2021
+Description : This program creates a directed graph from an array of edges.
 */
 
 #include<iostream>
@@ -124,11 +124,31 @@ void add_edge_directed_graph(Directed_Graph *d_graph, Edge edge)
 	}
 }
 
-void handle_add_edge_directed_graph(Directed_Graph *d_graph, Edge edge)
+void create_directed_graph(Directed_Graph *d_graph, Edge *edges, int num_edges)
+{
+	if(d_graph == nullptr)
+	{
+		throw string {"ERROR - Invalid operation, graph is not valid ....."};
+	}
+
+	for(int i {0}; i < num_edges; i++)
+	{
+		try
+		{
+			add_edge_directed_graph(d_graph, edges[i]);
+		}
+		catch(string &ex)
+		{
+			throw string {"ERROR - Invalid operation, given set of edges is not valid ....."};
+		}
+	}
+}
+
+void handle_create_directed_graph(Directed_Graph *d_graph, Edge *edges, int num_edges)
 {
 	try
 	{
-		add_edge_directed_graph(d_graph, edge);
+		create_directed_graph(d_graph, edges, num_edges);
 	}
 	catch(string &ex)
 	{
@@ -138,40 +158,14 @@ void handle_add_edge_directed_graph(Directed_Graph *d_graph, Edge edge)
 
 int main()
 {
-	Directed_Graph d_graph {new Linked_list*[5] {}, 5};
+	Directed_Graph d_graph {};
 
-	d_graph.A[0] = new Linked_list {new Node {2, nullptr}};
-	
-	d_graph.A[2] = new Linked_list {new Node {5, nullptr}};
+	Edge edges[10] {Edge {0, 1}, Edge {2, 8}, Edge {2, 6}, Edge {1, 10}, Edge {10, 1}, Edge {7, 0}, Edge {3, 4}, Edge {10, 5}, Edge {11, 1}, Edge {7, 9}};
 
-	d_graph.A[0]->head->next = new Node {7, nullptr};
+	handle_create_directed_graph(&d_graph, edges, 10);
 
 	cout<<"d_graph: \n";
 	display_directed_graph(&d_graph);
-	cout<<"\n";
-
-	handle_add_edge_directed_graph(&d_graph, Edge {10, 2});
-
-	cout<<"d_graph: [after adding {10, 2}] \n";
-	display_directed_graph(&d_graph);
-	cout<<"\n";
-
-	handle_add_edge_directed_graph(&d_graph, Edge {2, 10});
-
-	cout<<"d_graph: [after adding {2, 10}] \n";
-	display_directed_graph(&d_graph);
-	cout<<"\n";
-
-	handle_add_edge_directed_graph(&d_graph, Edge {5, 4});
-
-	cout<<"d_graph: [after adding {5, 4}] \n";
-	display_directed_graph(&d_graph);
-	cout<<"\n";
-
-	handle_add_edge_directed_graph(&d_graph, Edge {5, 4});
-	cout<<"\n";
-
-	handle_add_edge_directed_graph(&d_graph, Edge {-1, 2});
 	cout<<"\n";
 
 	return 0;

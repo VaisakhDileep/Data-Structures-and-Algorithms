@@ -8,8 +8,6 @@ Description : This program creates an undirected graph from user.
 
 #include<iomanip>
 
-#include<sstream>
-
 #include<limits>
 
 using namespace std;
