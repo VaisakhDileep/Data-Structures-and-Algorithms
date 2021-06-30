@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 29, June, 2021
-Description : This program inserts an edge to a weighed directed graph.
+Description : This program creates a weighed directed graph from an array of edges.
 */
 
 #include<iostream>
@@ -120,11 +120,31 @@ void add_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_E
 	}
 }
 
-void handle_add_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edge w_edge)
+void create_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edge *w_edges, int num_edges)
+{
+	if(wd_graph == nullptr)
+	{
+		throw string {"ERROR - Invalid operation, graph is not valid ....."};
+	}
+
+	for(int i {0}; i < num_edges; i++)
+	{
+		try
+		{
+			add_edge_weighed_directed_graph(wd_graph, w_edges[i]);
+		}
+		catch(string &ex)
+		{
+			throw string {"ERROR - Invalid operation, given set of edges is not valid ....."};
+		}
+	}
+}
+
+void handle_create_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edge *w_edges, int num_edges)
 {
 	try
 	{
-		add_edge_weighed_directed_graph(wd_graph, w_edge);
+		create_weighed_directed_graph(wd_graph, w_edges, num_edges);
 	}
 	catch(string &ex)
 	{
@@ -134,31 +154,14 @@ void handle_add_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, We
 
 int main()
 {
-	Weighed_Directed_Graph wd_graph {new int*[5] {new int[3] {0, 0, 4}, new int[3] {1, 0, 0}, new int[3] {1, 2, 0}, new int[3] {7, 5, 0}, new int[3] {8, 3, 2}}, 5, 3};
+	Weighed_Directed_Graph wd_graph {};
+
+	Weighed_Edge edges[10] {Weighed_Edge {0, 10, 12}, Weighed_Edge {1, 5, 15}, Weighed_Edge {1, 9, 32}, Weighed_Edge {3, 5, 35}, Weighed_Edge {10, 9, 29}, Weighed_Edge {10, 0, 45}, Weighed_Edge {11, 10, 55}, Weighed_Edge {10, 11, 65}, Weighed_Edge {0, 3, 67}, Weighed_Edge {0, 9, 75}};
+
+	create_weighed_directed_graph(&wd_graph, edges, 10);
 
 	cout<<"wd_graph: \n";
 	display_weighed_directed_graph(&wd_graph);
-	cout<<"\n";
-
-	handle_add_edge_weighed_directed_graph(&wd_graph, Weighed_Edge {10, 2, 13});
-
-	cout<<"wd_graph [after adding {10, 2, 13}]: \n";
-	display_weighed_directed_graph(&wd_graph);
-	cout<<"\n";
-
-	handle_add_edge_weighed_directed_graph(&wd_graph, Weighed_Edge {3, 7, 15});
-
-	cout<<"wd_graph [after adding {3, 7, 15}]: \n";
-	display_weighed_directed_graph(&wd_graph);
-	cout<<"\n";
-
-	handle_add_edge_weighed_directed_graph(&wd_graph, Weighed_Edge {2, 6, 19});
-
-	cout<<"wd_graph [after adding {2, 6, 19}]: \n";
-	display_weighed_directed_graph(&wd_graph);
-	cout<<"\n";
-
-	handle_add_edge_weighed_directed_graph(&wd_graph, Weighed_Edge {-1, 2, 4});
 	cout<<"\n";
 
 	return 0;

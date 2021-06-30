@@ -97,7 +97,7 @@ namespace prototype_2 // Here we print only the vertices that have at least one 
 
 int main()
 {
-	Directed_Graph d_graph {new Linked_list*[5] {}, 5};
+	Directed_Graph d_graph {new Linked_list*[3] {}, 3};
 
 	d_graph.A[0] = new Linked_list {new Node {2, nullptr}};
 	

@@ -373,3 +373,21 @@ Program279:[c++] This program creates a weighed directed graph.
 Program280:[c++] This program displays a weighed directed graph.
 Program281:[c++] This program deletes a weighed directed graph.
 Program282:[c++] This program inserts an edge to a weighed directed graph.
+Program283:[c++] This program removes an edge from a weighed directed graph.
+Program284:[c++] This program creates a weighed directed graph from an array of edges.
+Program287:[c++] This program creates a weighed directed graph from user.
+
+Weighed Directed Graph Representation Using Adjacency List:
+-----------------------------------------------------------
+
+Program288:[c++] This program creates a weighed directed graph.
+Program289:[c++] This program displays a weighed directed graph.
+
+Breadth First Search:
+---------------------
+Program285:[c++] This program demonstrates breadth first search for an undirected graph represented using adjacency matrix.
+
+
+Depth First Search:
+-------------------
+Program286:[c++] This program demonstrates depth first search for an undirected graph represented using adjacency matrix.
