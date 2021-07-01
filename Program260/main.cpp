@@ -61,6 +61,8 @@ void delete_weighed_undirected_graph(Weighed_Undirected_Graph *u_graph)
 			u_graph->A[i] = nullptr;
 		}
 	}
+
+	delete[] u_graph->A;
 }
 
 void handle_delete_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph)

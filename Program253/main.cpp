@@ -59,6 +59,8 @@ void delete_undirected_graph(Undirected_Graph *u_graph)
 			u_graph->A[i] = nullptr;
 		}
 	}
+
+	delete[] u_graph->A;
 }
 
 void handle_delete_undirected_graph(Undirected_Graph *u_graph)

@@ -59,6 +59,8 @@ void delete_directed_graph(Directed_Graph *d_graph)
 			d_graph->A[i] = nullptr;
 		}
 	}
+
+	delete[] d_graph->A;
 }
 
 void handle_delete_directed_graph(Directed_Graph *d_graph)

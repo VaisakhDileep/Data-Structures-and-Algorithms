@@ -382,6 +382,11 @@ Weighed Directed Graph Representation Using Adjacency List:
 
 Program288:[c++] This program creates a weighed directed graph.
 Program289:[c++] This program displays a weighed directed graph.
+Program290:[c++] This program deletes a weighed directed graph.
+Program291:[c++] This program inserts an edge to a weighed directed graph.
+Program292:[c++] This program removes an edge from a weighed directed graph.
+Program293:[c++] This program creates a weighed directed graph from an array of edges.
+Program294:[c++] This program creates a weighed directed graph from user.
 
 Breadth First Search:
 ---------------------
