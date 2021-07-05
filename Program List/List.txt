@@ -288,6 +288,14 @@ Program222:[c++] This program finds the height of a binary tree.
 Program223:[c++] This program counts the number of leaf nodes in a binary tree.
 Program224:[c++] This program counts the number of non-leaf nodes in a binary tree.
 
+Binary Max Heap:
+----------------
+Program297:[c++] This program creates a binary max heap.
+Program298:[c++] This program finds the height of a binary max heap.
+Program299:[c++] This program displays a binary max heap.
+Program300:[c++] This program inserts an element into a binary max heap.
+Program301:[c++] This program creates a binary max heap from an array.
+
 Binary Search Tree:
 -------------------
 Program226:[c++] This program inserts an element to a binary search tree.
@@ -346,7 +354,6 @@ Program264:[c++] This program creates a weighed undirected graph from user.
 
 Directed Graph Representation Using Adjacency Matrix:
 -----------------------------------------------------
-
 Program265:[c++] This program creates a directed graph.
 Program266:[c++] This program displays a directed graph.
 Program267:[c++] This program deletes a directed graph.
@@ -357,7 +364,6 @@ Program271:[c++] This program creates a directed graph from user.
 
 Directed Graph Representation Using Adjacency List:
 ---------------------------------------------------
-
 Program272:[c++] This program creates a directed graph.
 Program273:[c++] This program displays a directed graph.
 Program274:[c++] This program deletes a directed graph.
@@ -368,7 +374,6 @@ Program278:[c++] This program creates a directed graph from user.
 
 Weighed Directed Graph Representation Using Adjacency Matrix:
 -------------------------------------------------------------
-
 Program279:[c++] This program creates a weighed directed graph.
 Program280:[c++] This program displays a weighed directed graph.
 Program281:[c++] This program deletes a weighed directed graph.
@@ -379,7 +384,6 @@ Program287:[c++] This program creates a weighed directed graph from user.
 
 Weighed Directed Graph Representation Using Adjacency List:
 -----------------------------------------------------------
-
 Program288:[c++] This program creates a weighed directed graph.
 Program289:[c++] This program displays a weighed directed graph.
 Program290:[c++] This program deletes a weighed directed graph.
@@ -391,8 +395,9 @@ Program294:[c++] This program creates a weighed directed graph from user.
 Breadth First Search:
 ---------------------
 Program285:[c++] This program demonstrates breadth first search for an undirected graph represented using adjacency matrix.
-
+Program295:[c++] This program demonstrates breadth first search for an undirected graph represented using adjacency list.
 
 Depth First Search:
 -------------------
 Program286:[c++] This program demonstrates depth first search for an undirected graph represented using adjacency matrix.
+Program296:[c++] This program demonstrates depth first search for an undirected graph represented using adjacency list.
