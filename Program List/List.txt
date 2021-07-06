@@ -295,6 +295,15 @@ Program298:[c++] This program finds the height of a binary max heap.
 Program299:[c++] This program displays a binary max heap.
 Program300:[c++] This program inserts an element into a binary max heap.
 Program301:[c++] This program creates a binary max heap from an array.
+Program302:[c++] This program removes an element from a binary max heap.
+Program303:[c++] This program converts a binary tree into a binary max heap(heapify algorithm).
+
+Binary Min Heap:
+----------------
+Program304:[c++] This program creates a binary min heap.
+Program305:[c++] This program finds the height of a binary min heap.
+Program306:[c++] This program displays a binary min heap.
+Program307:[c++] This program inserts an element into a binary min heap.
 
 Binary Search Tree:
 -------------------

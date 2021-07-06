@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 6, July, 2021
-Description : This program creates a binary max heap from an array.
+Date		:6, July, 2021
+Description : This program removes an element from a binary max heap.
 */
 
 #include<iostream>
@@ -9,6 +9,14 @@ Description : This program creates a binary max heap from an array.
 #include<math.h>
 
 using namespace std;
+
+void swap(int &x, int &y)
+{
+	int temp {y};
+
+	y = x;
+	x = temp;
+}
 
 struct Binary_Max_Heap
 {
@@ -124,6 +132,70 @@ void handle_create_binary_max_heap(Binary_Max_Heap *heap, int *A, int size)
 	}
 }
 
+void remove_node_binary_max_heap(Binary_Max_Heap *heap)
+{
+	if(heap == nullptr)
+	{
+		throw string {"ERROR - Invalid operation, binary max heap is not valid ....."};
+	}
+
+	if(heap->size == 0)
+	{
+		throw string {"ERROR - Invalid operation, binary max heap is empty ....."};
+	}
+
+	int removed_node {heap->A[0]};
+
+	heap->A[0] = heap->A[heap->size - 1];
+
+	int i {0};
+
+	int left_child_index {(2 * (i + 1) - 1)}, right_child_index {left_child_index + 1};
+
+	while(left_child_index < heap->size)
+	{
+		int target {left_child_index};
+
+		if(right_child_index < heap->size)
+		{
+			if(heap->A[right_child_index] > heap->A[left_child_index])
+			{
+				target = right_child_index;
+			}
+		}
+
+		if(heap->A[i] < heap->A[target])
+		{
+			swap(heap->A[i], heap->A[target]);
+
+			i = target;
+
+			left_child_index = 2 * (target + 1) - 1;
+
+			right_child_index = left_child_index + 1;
+		}
+		else
+		{
+			break;
+		}
+	}
+	heap->A[heap->size - 1] = removed_node; // We place the deleted value at the end of the max heap.
+
+	heap->size--;
+}
+
+void handle_remove_node_binary_max_heap(Binary_Max_Heap *heap)
+{
+	try
+	{
+		remove_node_binary_max_heap(heap);
+	}
+	catch(string &ex)
+	{
+		cout<<ex;
+	}
+}
+
 int main()
 {
 	Binary_Max_Heap heap {};
@@ -133,6 +205,22 @@ int main()
 	cout<<"heap: ";
 	display_binary_max_heap(&heap);
 	cout<<"\n";
+
+	handle_remove_node_binary_max_heap(&heap);
+
+	cout<<"heap [after performing remove operation]: ";
+	display_binary_max_heap(&heap);
+	cout<<"\n";
+
+	cout<<"removed value: "<<heap.A[heap.size]<<"\n";
+
+	handle_remove_node_binary_max_heap(&heap);
+
+	cout<<"heap [after performing remove operation]: ";
+	display_binary_max_heap(&heap);
+	cout<<"\n";
+
+	cout<<"removed value: "<<heap.A[heap.size]<<"\n";
 
 	return 0;
 }

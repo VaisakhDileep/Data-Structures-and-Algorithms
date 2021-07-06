@@ -55,10 +55,10 @@ int height_binary_max_heap(Binary_Max_Heap *heap)
 		height++;
 	}
 
-	return (height - 1);
+	return height - 1;
 }
 
-void insert_binary_max_heap(Binary_Max_Heap *heap, int value)
+void insert_node_binary_max_heap(Binary_Max_Heap *heap, int value)
 {
 	if(heap == nullptr)
 	{
@@ -99,11 +99,11 @@ void insert_binary_max_heap(Binary_Max_Heap *heap, int value)
 	heap->size++;
 }
 
-void handle_insert_handle_binary_max_heap(Binary_Max_Heap *heap, int value)
+void handle_insert_node_handle_binary_max_heap(Binary_Max_Heap *heap, int value)
 {
 	try
 	{
-		insert_binary_max_heap(heap, value);
+		insert_node_binary_max_heap(heap, value);
 	}
 	catch(string &ex)
 	{
@@ -115,13 +115,13 @@ int main()
 {
 	Binary_Max_Heap heap {};
 
-	handle_insert_handle_binary_max_heap(&heap, 10); // We can create a binary max heap from scratch like this.
-	handle_insert_handle_binary_max_heap(&heap, 30);
-	handle_insert_handle_binary_max_heap(&heap, 40);
-	handle_insert_handle_binary_max_heap(&heap, 50);
-	handle_insert_handle_binary_max_heap(&heap, 60);
-	handle_insert_handle_binary_max_heap(&heap, 70);
-	handle_insert_handle_binary_max_heap(&heap, 80);
+	handle_insert_node_handle_binary_max_heap(&heap, 10); // We can create a binary max heap from scratch like this.
+	handle_insert_node_handle_binary_max_heap(&heap, 30);
+	handle_insert_node_handle_binary_max_heap(&heap, 40);
+	handle_insert_node_handle_binary_max_heap(&heap, 50);
+	handle_insert_node_handle_binary_max_heap(&heap, 60);
+	handle_insert_node_handle_binary_max_heap(&heap, 70);
+	handle_insert_node_handle_binary_max_heap(&heap, 80);
 
 	cout<<"heap: ";
 	display_binary_max_heap(&heap);
