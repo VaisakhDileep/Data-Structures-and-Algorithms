@@ -110,11 +110,11 @@ int main()
 	wu_graph.A[0]->head->next = new Node {2, 35, nullptr};
 	wu_graph.A[2] = new Linked_list {new Node {0, 35, nullptr}};
 
-	cout<<"wu_graph: [prototype 1] \n";
+	cout<<"wu_graph [prototype 1]: \n";
 	prototype_1::display_weighed_undirected_graph(&wu_graph);
 	cout<<"\n";
 
-	cout<<"wu_graph: [prototype 2] \n";
+	cout<<"wu_graph [prototype 2]: \n";
 	prototype_2::display_weighed_undirected_graph(&wu_graph);
 	cout<<"\n";
 

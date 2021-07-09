@@ -96,7 +96,7 @@ int main()
 
 	handle_remove_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {0, 1, 0}); // Providing "weight" is not necessary.
 
-	cout<<"u_graph: [after removing {0, 1}]: \n";
+	cout<<"u_graph [after removing {0, 1}]: \n";
 	display_weighed_undirected_graph(&wu_graph);
 	cout<<"\n";
 

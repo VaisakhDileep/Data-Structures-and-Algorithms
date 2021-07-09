@@ -156,13 +156,13 @@ int main()
 
 	handle_add_edge_weighed_directed_graph(&wd_graph, Weighed_Edge {10, 3, 35});
 
-	cout<<"wd_graph: [after adding {10, 3, 35}] \n";
+	cout<<"wd_graph [after adding {10, 3, 35}]: \n";
 	display_weighed_directed_graph(&wd_graph);
 	cout<<"\n";
 
 	handle_add_edge_weighed_directed_graph(&wd_graph, Weighed_Edge {0, 9, 55});
 
-	cout<<"wd_graph: [after adding {0, 9, 35}] \n";
+	cout<<"wd_graph [after adding {0, 9, 35}]: \n";
 	display_weighed_directed_graph(&wd_graph);
 	cout<<"\n";
 

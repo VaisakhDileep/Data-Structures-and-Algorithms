@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 6, July, 2021
-Description : This program inserts an element into a binary min heap.
+Description : This program creates a binary min heap from an array.
 */
 
 #include<iostream>
@@ -99,11 +99,24 @@ void insert_node_binary_min_heap(Binary_Min_Heap *heap, int value)
 	heap->size++;
 }
 
-void handle_insert_node_binary_min_heap(Binary_Min_Heap *heap, int value)
+void create_binary_min_heap(Binary_Min_Heap *heap, int *A, int size)
+{
+	if(heap == nullptr)
+	{
+		throw string {"ERROR - Invalid operation, binary min heap is not valid ....."};
+	}
+
+	for(int i {0}; i < size; i++)
+	{
+		insert_node_binary_min_heap(heap, A[i]);
+	}
+}
+
+void handle_create_binary_min_heap(Binary_Min_Heap *heap, int *A, int size)
 {
 	try
 	{
-		insert_node_binary_min_heap(heap, value);
+		create_binary_min_heap(heap, A, size);
 	}
 	catch(string &ex)
 	{
@@ -115,13 +128,7 @@ int main()
 {
 	Binary_Min_Heap heap {};
 
-	handle_insert_node_binary_min_heap(&heap, 90); // We can create a binary min heap from scratch like this.
-	handle_insert_node_binary_min_heap(&heap, 80);
-	handle_insert_node_binary_min_heap(&heap, 70);
-	handle_insert_node_binary_min_heap(&heap, 60);
-	handle_insert_node_binary_min_heap(&heap, 50);
-	handle_insert_node_binary_min_heap(&heap, 40);
-	handle_insert_node_binary_min_heap(&heap, 30);
+	handle_create_binary_min_heap(&heap, new int[10] {100, 90, 80, 70, 60, 50, 40, 30, 20, 10}, 10);
 
 	cout<<"heap: ";
 	display_binary_min_heap(&heap);

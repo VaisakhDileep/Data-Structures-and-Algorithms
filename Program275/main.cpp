@@ -152,19 +152,19 @@ int main()
 
 	handle_add_edge_directed_graph(&d_graph, Edge {10, 2});
 
-	cout<<"d_graph: [after adding {10, 2}] \n";
+	cout<<"d_graph [after adding {10, 2}]: \n";
 	display_directed_graph(&d_graph);
 	cout<<"\n";
 
 	handle_add_edge_directed_graph(&d_graph, Edge {2, 10});
 
-	cout<<"d_graph: [after adding {2, 10}] \n";
+	cout<<"d_graph [after adding {2, 10}]: \n";
 	display_directed_graph(&d_graph);
 	cout<<"\n";
 
 	handle_add_edge_directed_graph(&d_graph, Edge {5, 4});
 
-	cout<<"d_graph: [after adding {5, 4}] \n";
+	cout<<"d_graph [after adding {5, 4}]: \n";
 	display_directed_graph(&d_graph);
 	cout<<"\n";
 

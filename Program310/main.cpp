@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 6, July, 2021
-Description : This program converts a binary tree into a binary max heap(heapify algorithm).
+Date		: 7, July, 2021
+Description : This program converts a binary tree into a binary min heap(heapify algorithm).
 */
 
 #include<iostream>
@@ -120,7 +120,7 @@ void swap(int &x, int &y)
 	x = temp;
 }
 
-void heapify_binary_tree_to_binary_max_heap(Binary_Tree *T, int node)
+void heapify_binary_tree_to_binary_min_heap(Binary_Tree *T, int node)
 {
 	if(T->A[node] == INT_MIN)
 	{
@@ -129,7 +129,7 @@ void heapify_binary_tree_to_binary_max_heap(Binary_Tree *T, int node)
 
 	int left_child_index {2 * (node + 1) - 1}, right_child_index {left_child_index + 1};
 
-	int largest_child_index {-1};
+	int smallest_child_index {-1};
 
 	if((left_child_index >= T->size) and (right_child_index >= T->size)) // leaf node
 	{
@@ -138,39 +138,39 @@ void heapify_binary_tree_to_binary_max_heap(Binary_Tree *T, int node)
 
 	if(left_child_index < T->size)
 	{
-		if(T->A[left_child_index] > T->A[node])
+		if(T->A[left_child_index] < T->A[node])
 		{
-			largest_child_index = left_child_index;
+			smallest_child_index = left_child_index;
 		}
 	}
 
 	if(right_child_index < T->size)
 	{
-		if(T->A[right_child_index] > T->A[node])
+		if(T->A[right_child_index] < T->A[node])
 		{
-			if(largest_child_index != -1)
+			if(smallest_child_index != -1)
 			{
-				if(T->A[right_child_index] > T->A[left_child_index])
+				if(T->A[right_child_index] < T->A[left_child_index])
 				{
-					largest_child_index = right_child_index;
+					smallest_child_index = right_child_index;
 				}
 			}
 			else
 			{
-				largest_child_index = right_child_index;
+				smallest_child_index = right_child_index;
 			}
 		}
 	}
 
-	if(largest_child_index != -1)
+	if(smallest_child_index != -1)
 	{
-		swap(T->A[node], T->A[largest_child_index]);
+		swap(T->A[node], T->A[smallest_child_index]);
 
-		heapify_binary_tree_to_binary_max_heap(T, largest_child_index);
+		heapify_binary_tree_to_binary_min_heap(T, smallest_child_index);
 	}
 }
 
-void handle_heapify_binary_tree_to_binary_max_heap(Binary_Tree *T)
+void handle_heapify_binary_tree_to_binary_min_heap(Binary_Tree *T)
 {
 	if(T == nullptr)
 	{
@@ -186,7 +186,7 @@ void handle_heapify_binary_tree_to_binary_max_heap(Binary_Tree *T)
 	{
 		try
 		{
-			heapify_binary_tree_to_binary_max_heap(T, i);
+			heapify_binary_tree_to_binary_min_heap(T, i);
 		}
 		catch(string &ex)
 		{
@@ -201,20 +201,20 @@ int main()
 {
 	Binary_Tree T1 {}, T2 {};
 
-	handle_create_binary_tree(&T1, new int[6] {10, 30, 20, 5, 40, 50}, 6);
-	handle_create_binary_tree(&T2, new int[6] {10, 30, 20, 5, INT_MIN, 50}, 6);
+	handle_create_binary_tree(&T1, new int[6] {50, 20, 40, 10, 5, 0}, 6);
+	handle_create_binary_tree(&T2, new int[6] {50, 20, 40, 10, INT_MIN, 0}, 6);
 
 	cout<<"T1: ";
 	display_binary_tree(&T1);
 	cout<<"\n";
 
-	handle_heapify_binary_tree_to_binary_max_heap(&T1);
+	handle_heapify_binary_tree_to_binary_min_heap(&T1);
 
-	cout<<"T1 [after heapify]: ";
+	cout<<"T2 [after heapify]: ";
 	display_binary_tree(&T1);
 	cout<<"\n";
 
-	handle_heapify_binary_tree_to_binary_max_heap(&T2);
+	handle_heapify_binary_tree_to_binary_min_heap(&T2);
 	cout<<"\n";
 
 	return 0;

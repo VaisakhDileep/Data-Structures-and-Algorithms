@@ -157,13 +157,13 @@ int main()
 
 	handle_remove_edge_directed_graph(&d_graph, Edge {0, 7});
 
-	cout<<"d_graph: [after removing {0, 7}] \n";
+	cout<<"d_graph [after removing {0, 7}]: \n";
 	display_directed_graph(&d_graph);
 	cout<<"\n";
 
 	handle_remove_edge_directed_graph(&d_graph, Edge {0, 2});
 
-	cout<<"d_graph: [after removing {0, 2}] \n";
+	cout<<"d_graph [after removing {0, 2}]: \n";
 	display_directed_graph(&d_graph);
 	cout<<"\n";
 

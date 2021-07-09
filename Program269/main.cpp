@@ -96,7 +96,7 @@ int main()
 
 	handle_remove_edge_directed_graph(&d_graph, Edge {0, 1});
 
-	cout<<"d_graph: [after removing {0, 1}] \n";
+	cout<<"d_graph [after removing {0, 1}]: \n";
 	display_directed_graph(&d_graph);
 	cout<<"\n";
 

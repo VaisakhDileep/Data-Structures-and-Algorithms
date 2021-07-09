@@ -226,13 +226,13 @@ int main()
 
 	handle_add_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {7, 5, 500});
 
-	cout<<"wu_graph: [after adding {7, 5, 500}] \n";
+	cout<<"wu_graph [after adding {7, 5, 500}]: \n";
 	display_weighed_undirected_graph(&wu_graph);
 	cout<<"\n";
 
 	handle_add_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {11, 8, 450});
 
-	cout<<"wu_graph: [after adding {11, 8, 450}] \n";
+	cout<<"wu_graph [after adding {11, 8, 450}]: \n";
 	display_weighed_undirected_graph(&wu_graph);
 	cout<<"\n";
 

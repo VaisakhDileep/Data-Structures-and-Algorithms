@@ -16,7 +16,9 @@ struct Binary_Tree
 {
 	int *A;
 
-	int size;
+	int size {0};
+
+	int alloted_size {0};
 };
 
 int height_binary_tree(Binary_Tree *T)
@@ -42,7 +44,7 @@ int height_binary_tree(Binary_Tree *T)
 		height++;
 	}
 
-	return (height - 1);
+	return height - 1;
 }
 
 void create_binary_tree(Binary_Tree *T, int *A, int size)
@@ -58,7 +60,9 @@ void create_binary_tree(Binary_Tree *T, int *A, int size)
 
 	int number_nodes {static_cast<int>(pow(2, height + 1)) - 1}; // Number of nodes to safely hold the tree.
 
-	T->size = number_nodes;
+	T->size = size;
+
+	T->alloted_size = number_nodes;
 
 	T->A = new int[number_nodes] {};
 
@@ -67,7 +71,7 @@ void create_binary_tree(Binary_Tree *T, int *A, int size)
 		T->A[i] = A[i];
 	}
 
-	for(int i {size}; i < T->size; i++)
+	for(int i {size}; i < T->alloted_size; i++)
 	{
 		T->A[i] = INT_MIN;
 	}

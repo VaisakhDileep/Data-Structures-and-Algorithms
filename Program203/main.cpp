@@ -14,7 +14,9 @@ struct Binary_Tree
 {
 	int *A;
 
-	int size;
+	int size {0};
+
+	int alloted_size {0};
 };
 
 int height_binary_tree(Binary_Tree *T)
@@ -40,7 +42,7 @@ int height_binary_tree(Binary_Tree *T)
 		height++;
 	}
 
-	return (height - 1);
+	return height - 1;
 }
 
 int handle_height_binary_tree(Binary_Tree *T)
@@ -59,7 +61,7 @@ int handle_height_binary_tree(Binary_Tree *T)
 
 int main()
 {
-	Binary_Tree T {new int[6] {1, 2, 3, INT_MIN, INT_MIN, 4}, 6};
+	Binary_Tree T {new int[6] {1, 2, 3, INT_MIN, INT_MIN, 4}, 6, 7};
 
 	cout<<"handle_height_binary_tree(T): "<<handle_height_binary_tree(&T)<<"\n";
 

@@ -222,19 +222,19 @@ int main()
 
 	handle_add_edge_undirected_graph(&u_graph, Edge {10, 2});
 
-	cout<<"u_graph: [after adding {10, 2}] \n";
+	cout<<"u_graph [after adding {10, 2}]: \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 
 	handle_add_edge_undirected_graph(&u_graph, Edge {3, 11});
 
-	cout<<"u_graph: [after adding {3, 11}] \n";
+	cout<<"u_graph [after adding {3, 11}]: \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 
 	handle_add_edge_undirected_graph(&u_graph, Edge {0, 2});
 
-	cout<<"u_graph: [after adding {0, 2}] \n";
+	cout<<"u_graph [after adding {0, 2}]: \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 

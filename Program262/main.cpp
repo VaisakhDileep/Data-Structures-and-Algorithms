@@ -212,13 +212,13 @@ int main()
 
 	handle_remove_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {3, 7, 0}); // It is not necessary to provide the weight of the edge.
 
-	cout<<"wu_graph: [after removing {3, 7}] \n";
+	cout<<"wu_graph [after removing {3, 7}]: \n";
 	display_weighed_undirected_graph(&wu_graph);
 	cout<<"\n";
 
 	handle_remove_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {0, 9, 0});
 
-	cout<<"wu_graph: [after removing {0, 9}] \n";
+	cout<<"wu_graph [after removing {0, 9}]: \n";
 	display_weighed_undirected_graph(&wu_graph);
 	cout<<"\n";
 

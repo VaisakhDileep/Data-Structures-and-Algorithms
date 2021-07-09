@@ -107,11 +107,11 @@ int main()
 
 	wd_graph.A[0]->head->next = new Node {7, 45, nullptr};
 
-	cout<<"wd_graph: [prototype 1] \n";
+	cout<<"wd_graph [prototype 1]: \n";
 	prototype_1::display_weighed_directed_graph(&wd_graph);
 	cout<<"\n";
 
-	cout<<"wd_graph: [prototype 2] \n";
+	cout<<"wd_graph [prototype 2]: \n";
 	prototype_2::display_weighed_directed_graph(&wd_graph);
 	cout<<"\n";
 

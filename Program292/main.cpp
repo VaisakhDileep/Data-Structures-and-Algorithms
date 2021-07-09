@@ -161,13 +161,13 @@ int main()
 
 	handle_remove_edge_weighed_directed_graph(&wd_graph, Weighed_Edge {0, 2, 0}); // It is not necessary to provide the weight of the edge.
 
-	cout<<"wd_graph: [after removing {0, 2}] \n";
+	cout<<"wd_graph [after removing {0, 2}]: \n";
 	display_weighed_directed_graph(&wd_graph);
 	cout<<"\n";
 
 	handle_remove_edge_weighed_directed_graph(&wd_graph, Weighed_Edge {0, 7, 0});
 
-	cout<<"wd_graph: [after removing {0, 7}] \n";
+	cout<<"wd_graph [after removing {0, 7}]: \n";
 	display_weighed_directed_graph(&wd_graph);
 	cout<<"\n";
 

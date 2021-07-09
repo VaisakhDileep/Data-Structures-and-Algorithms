@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 27, April, 2021
-Description : This program finds the 'n'th element of the fibonacci series(memoization).
+Description : This program finds the n'th element of the fibonacci series(memoization).
 */
 
 #include<iostream>

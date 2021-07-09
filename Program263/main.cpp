@@ -195,7 +195,7 @@ void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weigh
 	}
 }
 
-void create_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge *edges, int num_edges)
+void create_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge *w_edges, int num_edges)
 {
 	if(wu_graph == nullptr)
 	{
@@ -206,7 +206,7 @@ void create_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed
 	{
 		try
 		{
-			add_edge_weighed_undirected_graph(wu_graph, edges[i]);
+			add_edge_weighed_undirected_graph(wu_graph, w_edges[i]);
 		}
 		catch(string &ex)
 		{
@@ -215,11 +215,11 @@ void create_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed
 	}
 }
 
-void handle_create_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge *edges, int num_edges)
+void handle_create_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge *w_edges, int num_edges)
 {
 	try
 	{
-		create_weighed_undirected_graph(wu_graph, edges, num_edges);
+		create_weighed_undirected_graph(wu_graph, w_edges, num_edges);
 	}
 	catch(string &ex)
 	{
@@ -231,9 +231,9 @@ int main()
 {
 	Weighed_Undirected_Graph wu_graph {};
 
-	Weighed_Edge edges[10] {Weighed_Edge {1, 2, 10}, Weighed_Edge {2, 4, 15}, Weighed_Edge {5, 10, 20}, Weighed_Edge {8, 9, 25}, Weighed_Edge {9, 11, 30}, Weighed_Edge {5, 11, 35}, Weighed_Edge {12, 11, 40}, Weighed_Edge {0, 5, 45}, Weighed_Edge {0, 8, 50}, Weighed_Edge {3, 8, 55}};
+	Weighed_Edge w_edges[10] {Weighed_Edge {1, 2, 10}, Weighed_Edge {2, 4, 15}, Weighed_Edge {5, 10, 20}, Weighed_Edge {8, 9, 25}, Weighed_Edge {9, 11, 30}, Weighed_Edge {5, 11, 35}, Weighed_Edge {12, 11, 40}, Weighed_Edge {0, 5, 45}, Weighed_Edge {0, 8, 50}, Weighed_Edge {3, 8, 55}};
 
-	handle_create_weighed_undirected_graph(&wu_graph, edges, 10);
+	handle_create_weighed_undirected_graph(&wu_graph, w_edges, 10);
 
 	cout<<"wu_graph: \n";
 	display_weighed_undirected_graph(&wu_graph);

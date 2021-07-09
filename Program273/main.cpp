@@ -105,11 +105,11 @@ int main()
 
 	d_graph.A[0]->head->next = new Node {7, nullptr};
 
-	cout<<"d_graph: [prototype 1] \n";
+	cout<<"d_graph [prototype 1]: \n";
 	prototype_1::display_directed_graph(&d_graph); // "X" means no edges for the vertex.
 	cout<<"\n";
 
-	cout<<"d_graph: [prototype 2] \n";
+	cout<<"d_graph [prototype 2]: \n";
 	prototype_2::display_directed_graph(&d_graph);
 	cout<<"\n";
 

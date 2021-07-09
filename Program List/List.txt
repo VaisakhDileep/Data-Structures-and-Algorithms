@@ -27,8 +27,8 @@ Program020:[c++] This program finds the power(m, n).
 Program021:[c++] This program optimized power(m, n).
 Program022:[c++] This program finds the value of power(e, x) using taylor series.
 Program023:[c++] This program finds the value of power(e, x) using taylor series(horner's rule).
-Program024:[c++] This program finds the 'n'th element of the fibonacci series.
-Program025:[c++] This program finds the 'n'th element of the fibonacci series(memoization).
+Program024:[c++] This program finds the n'th element of the fibonacci series.
+Program025:[c++] This program finds the n'th element of the fibonacci series(memoization).
 Program026:[c++] This program finds the number of combinations.
 Program027:[c++] This program finds the number of combinations(pascal's triangle).
 Program028:[c++] This program finds the solution for the Tower of Hanoi problem.
@@ -304,6 +304,9 @@ Program304:[c++] This program creates a binary min heap.
 Program305:[c++] This program finds the height of a binary min heap.
 Program306:[c++] This program displays a binary min heap.
 Program307:[c++] This program inserts an element into a binary min heap.
+Program308:[c++] This program creates a binary min heap from an array.
+Program309:[c++] This program removes an element from a binary min heap.
+Program310:[c++] This program converts a binary tree into a binary min heap(heapify algorithm).
 
 Binary Search Tree:
 -------------------
@@ -405,8 +408,11 @@ Breadth First Search:
 ---------------------
 Program285:[c++] This program demonstrates breadth first search for an undirected graph represented using adjacency matrix.
 Program295:[c++] This program demonstrates breadth first search for an undirected graph represented using adjacency list.
+Program311:[c++] This program demonstrates breadth first search for a weighed undirected graph represented using adjacency matrix.
+Program312:[c++] This program demonstrates breadth first search for a weighed undirected graph represented using adjacency list.
 
 Depth First Search:
 -------------------
 Program286:[c++] This program demonstrates depth first search for an undirected graph represented using adjacency matrix.
 Program296:[c++] This program demonstrates depth first search for an undirected graph represented using adjacency list.
+Program313:[c++] This program demonstrates depth first search for a weighed undirected graph represented using adjacency matrix.

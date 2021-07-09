@@ -94,7 +94,7 @@ int main()
 
 	handle_remove_edge_undirected_graph(&u_graph, Edge {0, 1});
 
-	cout<<"u_graph: [after removing {0, 1}] \n";
+	cout<<"u_graph [after removing {0, 1}]: \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 
