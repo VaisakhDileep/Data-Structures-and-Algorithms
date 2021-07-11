@@ -410,9 +410,16 @@ Program285:[c++] This program demonstrates breadth first search for an undirecte
 Program295:[c++] This program demonstrates breadth first search for an undirected graph represented using adjacency list.
 Program311:[c++] This program demonstrates breadth first search for a weighed undirected graph represented using adjacency matrix.
 Program312:[c++] This program demonstrates breadth first search for a weighed undirected graph represented using adjacency list.
+Program315:[c++] This program demonstrates breadth first search for a directed graph represented using adjacency matrix.
+Program316:[c++] This program demonstrates breadth first search for a directed graph represented using adjacency list.
+Program317:[c++] This program demonstrates breadth first search for a weighed directed graph represented using adjacency matrix.
+Program318:[c++] This program demonstrates breadth first search for a weighed directed graph represented using adjacency list.
 
 Depth First Search:
 -------------------
 Program286:[c++] This program demonstrates depth first search for an undirected graph represented using adjacency matrix.
 Program296:[c++] This program demonstrates depth first search for an undirected graph represented using adjacency list.
 Program313:[c++] This program demonstrates depth first search for a weighed undirected graph represented using adjacency matrix.
+Program314:[c++] This program demonstrates depth first search for a weighed undirected graph represented using adjacency list.
+Program319:[c++] This program demonstrates depth first search for a directed graph represented using adjacency matrix.
+Program320:[c++] This program demonstrates depth first search for a directed graph represented using adjacency list.

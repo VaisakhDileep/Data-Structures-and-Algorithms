@@ -156,9 +156,9 @@ int main()
 {
 	Weighed_Directed_Graph wd_graph {};
 
-	Weighed_Edge edges[10] {Weighed_Edge {0, 10, 12}, Weighed_Edge {1, 5, 15}, Weighed_Edge {1, 9, 32}, Weighed_Edge {3, 5, 35}, Weighed_Edge {10, 9, 29}, Weighed_Edge {10, 0, 45}, Weighed_Edge {11, 10, 55}, Weighed_Edge {10, 11, 65}, Weighed_Edge {0, 3, 67}, Weighed_Edge {0, 9, 75}};
+	Weighed_Edge w_edges[10] {Weighed_Edge {0, 10, 12}, Weighed_Edge {1, 5, 15}, Weighed_Edge {1, 9, 32}, Weighed_Edge {3, 5, 35}, Weighed_Edge {10, 9, 29}, Weighed_Edge {10, 0, 45}, Weighed_Edge {11, 10, 55}, Weighed_Edge {10, 11, 65}, Weighed_Edge {0, 3, 67}, Weighed_Edge {0, 9, 75}};
 
-	create_weighed_directed_graph(&wd_graph, edges, 10);
+	create_weighed_directed_graph(&wd_graph, w_edges, 10);
 
 	cout<<"wd_graph: \n";
 	display_weighed_directed_graph(&wd_graph);
