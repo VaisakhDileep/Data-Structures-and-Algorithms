@@ -163,6 +163,18 @@ using namespace Directed_Graph_Using_Adjacency_List;
 
 void depth_first_search(Directed_Graph *d_graph, int node, int *visited)
 {
+	if(d_graph->A[node] == nullptr)
+	{
+		if(visited[node] == 0)
+		{
+			cout<<node<<" ";
+
+			visited[node] = 1;
+		}
+
+		return ;
+	}
+
 	if(visited[node] == 0)
 	{
 		cout<<node<<" ";
@@ -192,10 +204,53 @@ void handle_depth_first_search(Directed_Graph *d_graph, int root = 0)
 		return ;
 	}
 
-	if()
+	if(root < 0)
+	{
+		cout<<"ERROR - Invalid root vertex, vertex cannot be negative .....";
+
+		return ;
+	}
+
+	int max_node {root};
+
+	for(int i {0}; i < d_graph->n; i++)
+	{
+		if(d_graph->A[i] == nullptr)
+		{
+			continue;
+		}
+
+		Node *last {d_graph->A[i]->head};
+
+		while(last != nullptr)
+		{
+			max_node = (last->vertex > max_node) ? last->vertex : max_node;
+
+			last = last->next;
+		}
+	}
+
+	depth_first_search(d_graph, root, new int[max_node + 1] {0});
 }
 
 int main()
 {
+	Directed_Graph d_graph {};
+
+	Edge edges[11] {Edge {0, 1}, Edge {1, 2}, Edge {1, 3}, Edge {3, 4}, Edge {4, 5}, Edge {4, 6}, Edge {4, 7}, Edge {5, 6}, Edge {5, 8}, Edge {7, 8}, Edge {8, 2}};
+
+	handle_create_directed_graph(&d_graph, edges, 11);
+
+	cout<<"d_graph: \n";
+	display_directed_graph(&d_graph);
+	cout<<"\n";
+
+	cout<<"DFS(d_graph): ";
+	handle_depth_first_search(&d_graph);
+	cout<<"\n";
+
+	handle_depth_first_search(&d_graph, -1);
+	cout<<"\n";
+
 	return 0;
 }

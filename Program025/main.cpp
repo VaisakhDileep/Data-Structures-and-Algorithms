@@ -4,6 +4,8 @@ Date		: 27, April, 2021
 Description : This program finds the n'th element of the fibonacci series(memoization).
 */
 
+// Indexing of the fibonacci series starts from '0'.
+
 #include<iostream>
 
 using namespace std;

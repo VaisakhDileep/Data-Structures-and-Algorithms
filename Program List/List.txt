@@ -423,3 +423,11 @@ Program313:[c++] This program demonstrates depth first search for a weighed undi
 Program314:[c++] This program demonstrates depth first search for a weighed undirected graph represented using adjacency list.
 Program319:[c++] This program demonstrates depth first search for a directed graph represented using adjacency matrix.
 Program320:[c++] This program demonstrates depth first search for a directed graph represented using adjacency list.
+Program321:[c++] This program demonstrates depth first search for a weighed directed graph represented using adjacency matrix.
+Program322:[c++] This program demonstrates depth first search for a weighed directed graph represented using adjacency list.
+
+Dynamic Programming:
+--------------------
+Program323:[c++] This program finds the n'th element of the fibonacci series using recursion.
+Program324:[c++] This program finds the n'th element of the fibonacci series using memoization.
+Program325:[c++] This program implements the grid traveller problem using recursion.
