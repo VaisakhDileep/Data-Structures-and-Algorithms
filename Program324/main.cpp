@@ -1,8 +1,10 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 
-Description : This program finds the n'th element of the fibonacci series using memoization.
+Date		: 11, July, 2021
+Description : This program implements fibonacci(n) using memoization.
 */
+
+// fibonacci(n) finds the n'th element in the fibonacci series. The 1st and 2nd element of the sequence are 0 and 1.
 
 // Indexing of the fibonacci series starts from '0'.
 
@@ -32,7 +34,7 @@ long long fibonacci(long long num, unordered_map<long long, long long> &memo)
 
 long long handle_fibonacci(long long num)
 {
-	unordered_map<long long, long long> memo;
+	unordered_map<long long, long long> memo {};
 
 	return fibonacci(num, memo);
 }

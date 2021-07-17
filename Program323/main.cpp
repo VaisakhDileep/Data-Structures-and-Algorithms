@@ -1,8 +1,10 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 11, July, 2021
-Description : This program finds the n'th element of the fibonacci series using recursion.
+Description : This program implements fibonacci(n) using recursion.
 */
+
+// fibonacci(n) finds the n'th element in the fibonacci series. The 1st and 2nd element of the sequence are 0 and 1.
 
 // Indexing of the fibonacci series starts from '0'.
 
