@@ -168,6 +168,12 @@ int main()
 	display_directed_graph(&d_graph);
 	cout<<"\n";
 
+	handle_add_edge_directed_graph(&d_graph, Edge {12, 12});
+
+	cout<<"d_graph [after adding {12, 12}]: \n";
+	display_directed_graph(&d_graph);
+	cout<<"\n";
+
 	handle_add_edge_directed_graph(&d_graph, Edge {5, 4});
 	cout<<"\n";
 

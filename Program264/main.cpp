@@ -109,6 +109,11 @@ void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weigh
 			previous_node->next = new Node {edge.vertex_2, edge.weight, nullptr};
 		}
 
+		if(edge.vertex_1 == edge.vertex_2)
+		{
+			return ;
+		}
+
 		if(wu_graph->A[edge.vertex_2] == nullptr)
 		{
 			wu_graph->A[edge.vertex_2] = new Linked_list {new Node {edge.vertex_1, edge.weight, nullptr}};
@@ -164,6 +169,17 @@ void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weigh
 			}
 
 			previous_node->next = new Node {edge.vertex_2, edge.weight, nullptr};
+		}
+
+		if(edge.vertex_1 == edge.vertex_2)
+		{
+			wu_graph->A = temp.A;
+
+			temp.A = nullptr;
+
+			wu_graph->n = temp.n;
+
+			return ;
 		}
 
 		if(temp.A[edge.vertex_2] == nullptr)

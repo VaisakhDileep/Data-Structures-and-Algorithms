@@ -109,6 +109,11 @@ namespace Weighed_Undirected_Graph_Using_Adjacency_List // Weighed Undirected Gr
 				previous_node->next = new Node {edge.vertex_2, edge.weight, nullptr};
 			}
 
+			if(edge.vertex_1 == edge.vertex_2)
+			{
+				return ;
+			}
+
 			if(wu_graph->A[edge.vertex_2] == nullptr)
 			{
 				wu_graph->A[edge.vertex_2] = new Linked_list {new Node {edge.vertex_1, edge.weight, nullptr}};
@@ -164,6 +169,17 @@ namespace Weighed_Undirected_Graph_Using_Adjacency_List // Weighed Undirected Gr
 				}
 
 				previous_node->next = new Node {edge.vertex_2, edge.weight, nullptr};
+			}
+
+			if(edge.vertex_1 == edge.vertex_2)
+			{
+				wu_graph->A = temp.A;
+
+				temp.A = nullptr;
+
+				wu_graph->n = temp.n;
+
+				return ;
 			}
 
 			if(temp.A[edge.vertex_2] == nullptr)

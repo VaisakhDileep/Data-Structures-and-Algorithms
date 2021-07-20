@@ -138,9 +138,9 @@ int main()
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 
-	handle_add_edge_undirected_graph(&u_graph, Edge {1, 5});
+	handle_add_edge_undirected_graph(&u_graph, Edge {7, 7});
 
-	cout<<"u_graph [after adding {1, 5}]: \n";
+	cout<<"u_graph [after adding {7, 7}]: \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 

@@ -86,7 +86,7 @@ void handle_remove_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 
 int main()
 {
-	Undirected_Graph u_graph {new int*[5] {new int[5] {0, 1, 1, 1, 0}, new int[5] {1, 0, 1, 0, 0}, new int[5] {1, 1, 0, 1, 1}, new int [5] {1, 0, 1, 0, 1}, new int[5] {0, 0, 1, 1, 0}}, 5};
+	Undirected_Graph u_graph {new int*[5] {new int[5] {1, 1, 1, 1, 0}, new int[5] {1, 0, 1, 0, 0}, new int[5] {1, 1, 0, 1, 1}, new int [5] {1, 0, 1, 0, 1}, new int[5] {0, 0, 1, 1, 0}}, 5};
 
 	cout<<"u_graph: \n";
 	display_undirected_graph(&u_graph);
@@ -95,6 +95,12 @@ int main()
 	handle_remove_edge_undirected_graph(&u_graph, Edge {0, 1});
 
 	cout<<"u_graph [after removing {0, 1}]: \n";
+	display_undirected_graph(&u_graph);
+	cout<<"\n";
+
+	handle_remove_edge_undirected_graph(&u_graph, Edge {0, 0});
+
+	cout<<"u_graph [after removing {0, 0}]: \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 

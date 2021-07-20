@@ -107,6 +107,11 @@ void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weigh
 			previous_node->next = new Node {edge.vertex_2, edge.weight, nullptr};
 		}
 
+		if(edge.vertex_1 == edge.vertex_2)
+		{
+			return ;
+		}
+
 		if(wu_graph->A[edge.vertex_2] == nullptr)
 		{
 			wu_graph->A[edge.vertex_2] = new Linked_list {new Node {edge.vertex_1, edge.weight, nullptr}};
@@ -162,6 +167,17 @@ void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weigh
 			}
 
 			previous_node->next = new Node {edge.vertex_2, edge.weight, nullptr};
+		}
+
+		if(edge.vertex_1 == edge.vertex_2)
+		{
+			wu_graph->A = temp.A;
+
+			temp.A = nullptr;
+
+			wu_graph->n = temp.n;
+
+			return ;
 		}
 
 		if(temp.A[edge.vertex_2] == nullptr)
@@ -231,7 +247,7 @@ int main()
 {
 	Weighed_Undirected_Graph wu_graph {};
 
-	Weighed_Edge w_edges[10] {Weighed_Edge {1, 2, 10}, Weighed_Edge {2, 4, 15}, Weighed_Edge {5, 10, 20}, Weighed_Edge {8, 9, 25}, Weighed_Edge {9, 11, 30}, Weighed_Edge {5, 11, 35}, Weighed_Edge {12, 11, 40}, Weighed_Edge {0, 5, 45}, Weighed_Edge {0, 8, 50}, Weighed_Edge {3, 8, 55}};
+	Weighed_Edge w_edges[10] {Weighed_Edge {1, 1, 10}, Weighed_Edge {2, 4, 15}, Weighed_Edge {5, 10, 20}, Weighed_Edge {8, 9, 25}, Weighed_Edge {9, 11, 30}, Weighed_Edge {5, 11, 35}, Weighed_Edge {12, 11, 40}, Weighed_Edge {0, 5, 45}, Weighed_Edge {0, 8, 50}, Weighed_Edge {3, 8, 55}};
 
 	handle_create_weighed_undirected_graph(&wu_graph, w_edges, 10);
 

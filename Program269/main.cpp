@@ -88,7 +88,7 @@ void handle_remove_edge_directed_graph(Directed_Graph *d_graph, Edge edge)
 
 int main()
 {
-	Directed_Graph d_graph {new int*[5] {new int[3] {0, 1, 0}, new int[3] {0, 0, 1}, new int[3] {1, 1, 0}, new int[3] {1, 1, 0}, new int[3] {1, 0, 0}}, 5, 3};
+	Directed_Graph d_graph {new int*[5] {new int[3] {1, 1, 0}, new int[3] {0, 0, 1}, new int[3] {1, 1, 0}, new int[3] {1, 1, 0}, new int[3] {1, 0, 0}}, 5, 3};
 
 	cout<<"d_graph: \n";
 	display_directed_graph(&d_graph);
@@ -97,6 +97,12 @@ int main()
 	handle_remove_edge_directed_graph(&d_graph, Edge {0, 1});
 
 	cout<<"d_graph [after removing {0, 1}]: \n";
+	display_directed_graph(&d_graph);
+	cout<<"\n";
+
+	handle_remove_edge_directed_graph(&d_graph, Edge {0, 0});
+
+	cout<<"d_graph [after removing {0, 0}]: \n";
 	display_directed_graph(&d_graph);
 	cout<<"\n";
 

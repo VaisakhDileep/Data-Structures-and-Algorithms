@@ -128,6 +128,11 @@ void remove_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 		}
 	}
 
+	if(edge.vertex_1 == edge.vertex_2)
+	{
+		return ;
+	}
+
 	if(u_graph->A[edge.vertex_2] == nullptr)
 	{
 		throw string {"ERROR - Invalid operation, given edge is not present in the graph ....."};
@@ -199,6 +204,8 @@ int main()
 	u_graph.A[3]->head->next = new Node {0, nullptr};
 	u_graph.A[0]->head->next = new Node {3, nullptr};
 
+	u_graph.A[4]->head->next = new Node {4, nullptr};
+
 	cout<<"u_graph: \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
@@ -212,6 +219,12 @@ int main()
 	handle_remove_edge_undirected_graph(&u_graph, Edge {0, 4});
 
 	cout<<"u_graph [after removing {0, 4}]: \n";
+	display_undirected_graph(&u_graph);
+	cout<<"\n";
+
+	handle_remove_edge_undirected_graph(&u_graph, Edge {4, 4});
+
+	cout<<"u_graph [after removing {4, 4}]: \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 

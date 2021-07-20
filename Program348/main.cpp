@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 1, July, 2021
-Description : This program demonstrates breadth first search for an undirected graph represented using adjacency list.
+Date		: 18, July, 2021
+Description : This program displays all the connected components of an undirected graph represented using adjacency list(breadth first search).
 */
 
 #include<iostream>
@@ -374,7 +374,7 @@ using namespace Undirected_Graph_Using_Adjacency_List;
 
 using namespace Queue_Using_Linked_list;
 
-void breadth_first_search(Undirected_Graph *u_graph, int root)
+void breadth_first_search(Undirected_Graph *u_graph, int root, int *visited) // Some changes were made compared to the traditional BFS algorithm.
 {
 	if(u_graph == nullptr)
 	{
@@ -388,7 +388,7 @@ void breadth_first_search(Undirected_Graph *u_graph, int root)
 
 	cout<<root<<" ";
 
-	int *visited = new int[u_graph->n] {0};
+	// int *visited = new int[u_graph->n] {0};
 
 	visited[root] = 1;
 
@@ -418,11 +418,38 @@ void breadth_first_search(Undirected_Graph *u_graph, int root)
 	}
 }
 
-void handle_breadth_first_search(Undirected_Graph *u_graph, int root = 0)
+void display_all_connected_components_undirected_graph(Undirected_Graph *u_graph)
+{
+	if(u_graph == nullptr)
+	{
+		throw string {"ERROR - Invalid operation, graph is not valid ....."};
+	}
+
+	int *visited = new int[u_graph->n] {0};
+
+	for(int i {0}; i < u_graph->n; i++)
+	{
+		if(u_graph->A[i] == nullptr)
+		{
+			continue;
+		}
+		else
+		{
+			if(visited[i] == 0)
+			{
+				breadth_first_search(u_graph, i, visited);
+
+				cout<<"\n";
+			}
+		}
+	}
+}
+
+void handle_display_all_connected_components_undirected_graph(Undirected_Graph *u_graph)
 {
 	try
 	{
-		breadth_first_search(u_graph, root);
+		display_all_connected_components_undirected_graph(u_graph);
 	}
 	catch(string &ex)
 	{
@@ -434,19 +461,16 @@ int main()
 {
 	Undirected_Graph u_graph {};
 
-	Edge edges[9] {Edge {0, 1}, Edge {0, 2}, Edge {0, 3}, Edge {1, 2}, Edge {3, 4}, Edge {2, 4}, Edge {4, 5}, Edge {4, 6}, Edge {3, 2}};
+	Edge edges[8] {Edge {7, 7}, Edge {1, 2}, Edge {2, 4}, Edge {4, 3}, Edge {2, 3}, Edge {5, 6}, Edge {8, 9}, Edge {8, 10}};
 
-	handle_create_undirected_graph(&u_graph, edges, 9);
+	handle_create_undirected_graph(&u_graph, edges, 8);
 
 	cout<<"u_graph: \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 
-	cout<<"BFS(u_graph): ";
-	handle_breadth_first_search(&u_graph);
-	cout<<"\n";
-
-	handle_breadth_first_search(&u_graph, -1);
+	cout<<"display_all_components(u_graph): \n";
+	handle_display_all_connected_components_undirected_graph(&u_graph);
 	cout<<"\n";
 
 	return 0;

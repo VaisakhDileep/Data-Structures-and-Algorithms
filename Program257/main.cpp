@@ -105,6 +105,11 @@ void add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 			previous_node->next = new Node {edge.vertex_2, nullptr};
 		}
 
+		if(edge.vertex_1 == edge.vertex_2)
+		{
+			return ;
+		}
+
 		if(u_graph->A[edge.vertex_2] == nullptr)
 		{
 			u_graph->A[edge.vertex_2] = new Linked_list {new Node {edge.vertex_1, nullptr}};
@@ -160,6 +165,17 @@ void add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 			}
 
 			previous_node->next = new Node {edge.vertex_2, nullptr};
+		}
+
+		if(edge.vertex_1 == edge.vertex_2)
+		{
+			u_graph->A = temp.A;
+
+			temp.A = nullptr;
+
+			u_graph->n = temp.n;
+
+			return ;
 		}
 
 		if(temp.A[edge.vertex_2] == nullptr)

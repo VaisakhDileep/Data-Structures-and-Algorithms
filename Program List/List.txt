@@ -428,6 +428,11 @@ Program320:[c++] This program demonstrates depth first search for a directed gra
 Program321:[c++] This program demonstrates depth first search for a weighed directed graph represented using adjacency matrix.
 Program322:[c++] This program demonstrates depth first search for a weighed directed graph represented using adjacency list.
 
+Connected Components in an Undirected Graph:
+--------------------------------------------
+Program347:[c++] This program displays all the connected components of an undirected graph represented using adjacency list(depth first search).
+Program348:[c++] This program displays all the connected components of an undirected graph represented using adjacency list(breadth first search).
+
 Dynamic Programming:
 --------------------
 Program323:[c++] This program implements fibonacci(n) using recursion.

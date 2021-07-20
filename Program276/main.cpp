@@ -151,6 +151,8 @@ int main()
 
 	d_graph.A[0]->head->next = new Node {7, nullptr};
 
+	d_graph.A[2]->head->next = new Node {2, nullptr};
+
 	cout<<"d_graph: \n";
 	display_directed_graph(&d_graph);
 	cout<<"\n";
@@ -164,6 +166,12 @@ int main()
 	handle_remove_edge_directed_graph(&d_graph, Edge {0, 2});
 
 	cout<<"d_graph [after removing {0, 2}]: \n";
+	display_directed_graph(&d_graph);
+	cout<<"\n";
+
+	handle_remove_edge_directed_graph(&d_graph, Edge {2, 2});
+
+	cout<<"d_graph [after removing {2, 2}]: \n";
 	display_directed_graph(&d_graph);
 	cout<<"\n";
 

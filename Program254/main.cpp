@@ -103,6 +103,11 @@ void add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 			previous_node->next = new Node {edge.vertex_2, nullptr};
 		}
 
+		if(edge.vertex_1 == edge.vertex_2)
+		{
+			return ;
+		}
+
 		if(u_graph->A[edge.vertex_2] == nullptr)
 		{
 			u_graph->A[edge.vertex_2] = new Linked_list {new Node {edge.vertex_1, nullptr}};
@@ -158,6 +163,17 @@ void add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 			}
 
 			previous_node->next = new Node {edge.vertex_2, nullptr};
+		}
+
+		if(edge.vertex_1 == edge.vertex_2)
+		{
+			u_graph->A = temp.A;
+
+			temp.A = nullptr;
+
+			u_graph->n = temp.n;
+
+			return ;
 		}
 
 		if(temp.A[edge.vertex_2] == nullptr)
@@ -232,13 +248,13 @@ int main()
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 
-	handle_add_edge_undirected_graph(&u_graph, Edge {0, 2});
+	handle_add_edge_undirected_graph(&u_graph, Edge {13, 13});
 
-	cout<<"u_graph [after adding {0, 2}]: \n";
+	cout<<"u_graph [after adding {13, 13}]: \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 
-	handle_add_edge_undirected_graph(&u_graph, Edge {0, 2});
+	handle_add_edge_undirected_graph(&u_graph, Edge {13, 13});
 	cout<<"\n";
 
 	handle_add_edge_undirected_graph(&u_graph, Edge {-1, 2});

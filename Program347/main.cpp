@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 1, July, 2021
-Description : This program demonstrates breadth first search for an undirected graph represented using adjacency list.
+Date		: 17, July, 2021
+Description : This program displays all the connected components of an undirected graph represented using adjacency list(depth first search).
 */
 
 #include<iostream>
@@ -9,134 +9,6 @@ Description : This program demonstrates breadth first search for an undirected g
 #include<iomanip>
 
 using namespace std;
-
-namespace Queue_Using_Linked_list // Queue is designed using Linked List representation.
-{
-	struct Node
-	{
-		int data;
-
-		Node *next;
-	};
-
-	struct Queue
-	{
-		Node *front {nullptr};
-
-		Node *rear {nullptr};
-	};
-
-	bool is_full_queue(Queue *Q)
-	{
-		Node *temp = new Node {0, nullptr};
-
-		if(temp == NULL)
-		{
-			return true;
-		}
-		else
-		{
-			delete temp;
-
-			return false;
-		}
-	}
-
-	bool is_empty_queue(Queue *Q)
-	{
-		if(Q == nullptr)
-		{
-			throw string {"ERROR - Invalid operation, queue is not valid ....."};
-		}
-
-		if(Q->front == nullptr)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-
-	void enqueue(Queue *Q, int value)
-	{
-		if(Q == nullptr)
-		{
-			throw string {"ERROR - Invalid operation, queue is not valid ....."};
-		}
-
-		if(is_full_queue(Q))
-		{
-			throw string {"ERROR - Invalid operation, queue is full ....."};
-		}
-
-		if(Q->front == nullptr)
-		{
-			Q->front = Q->rear = new Node {value, nullptr};
-		}
-		else
-		{
-			Q->rear = Q->rear->next = new Node {value, nullptr};
-		}
-	}
-
-	void handle_enqueue(Queue *Q, int value)
-	{
-		try
-		{
-			enqueue(Q, value);
-		}
-		catch(string &ex)
-		{
-			cout<<ex;
-		}
-	}
-
-	int dequeue(Queue *Q)
-	{
-		if(Q == nullptr)
-		{
-			throw string {"ERROR - Invalid operation, queue is not valid ....."};
-		}
-
-		if(is_empty_queue(Q))
-		{
-			throw string {"ERROR - Invalid operation, queue is empty ....."};
-		}
-		else
-		{
-			int deleted_value {Q->front->data};
-
-			Node *temp {Q->front};
-
-			Q->front = Q->front->next;
-
-			if(Q->front == nullptr)
-			{
-				Q->rear = nullptr;
-			}
-
-			delete temp;
-
-			return deleted_value;
-		}
-	}
-
-	int handle_dequeue(Queue *Q)
-	{
-		try
-		{
-			return dequeue(Q);
-		}
-		catch(string &ex)
-		{
-			cout<<ex;
-
-			return -1;
-		}
-	}
-}
 
 namespace Undirected_Graph_Using_Adjacency_List // Undirected Graph is designed using Adjacency List representation.
 {
@@ -372,45 +244,21 @@ namespace Undirected_Graph_Using_Adjacency_List // Undirected Graph is designed 
 
 using namespace Undirected_Graph_Using_Adjacency_List;
 
-using namespace Queue_Using_Linked_list;
-
-void breadth_first_search(Undirected_Graph *u_graph, int root)
+void depth_first_search(Undirected_Graph *u_graph, int node, int *visited)
 {
-	if(u_graph == nullptr)
+	if(visited[node] == 0)
 	{
-		throw string {"ERROR - Invalid operation, graph is not valid ....."};
-	}
+		cout<<node<<" ";
 
-	if(root < 0)
-	{
-		throw string {"ERROR - Invalid root vertex, vertex cannot be negative ....."};
-	}
+		visited[node] = 1;
 
-	cout<<root<<" ";
-
-	int *visited = new int[u_graph->n] {0};
-
-	visited[root] = 1;
-
-	Queue Q {};
-
-	handle_enqueue(&Q, root);
-
-	while(!is_empty_queue(&Q))
-	{
-		int node {handle_dequeue(&Q)};
-
-		Undirected_Graph_Using_Adjacency_List::Node *last {u_graph->A[node]->head};
+		Node *last {u_graph->A[node]->head};
 
 		while(last != nullptr)
 		{
-			if(visited[last->vertex] == 0)
+			if(visited[last->vertex] == 0) // Not necessary to include "visited[last->vertex] == 0", but saves recursive calls.
 			{
-				cout<<last->vertex<<" ";
-
-				visited[last->vertex] = 1;
-
-				handle_enqueue(&Q, last->vertex);
+				depth_first_search(u_graph, last->vertex, visited);
 			}
 
 			last = last->next;
@@ -418,11 +266,38 @@ void breadth_first_search(Undirected_Graph *u_graph, int root)
 	}
 }
 
-void handle_breadth_first_search(Undirected_Graph *u_graph, int root = 0)
+void display_all_connected_components_undirected_graph(Undirected_Graph *u_graph)
+{
+	if(u_graph == nullptr)
+	{
+		throw string {"ERROR - Invalid operation, graph is not valid ....."};
+	}
+
+	int *visited = new int[u_graph->n] {0};
+
+	for(int i {0}; i < u_graph->n; i++)
+	{
+		if(u_graph->A[i] == nullptr)
+		{
+			continue;
+		}
+		else
+		{
+			if(visited[i] == 0)
+			{
+				depth_first_search(u_graph, i, visited);
+
+				cout<<"\n";
+			}
+		}
+	}
+}
+
+void handle_display_all_connected_components_undirected_graph(Undirected_Graph *u_graph)
 {
 	try
 	{
-		breadth_first_search(u_graph, root);
+		display_all_connected_components_undirected_graph(u_graph);
 	}
 	catch(string &ex)
 	{
@@ -434,19 +309,16 @@ int main()
 {
 	Undirected_Graph u_graph {};
 
-	Edge edges[9] {Edge {0, 1}, Edge {0, 2}, Edge {0, 3}, Edge {1, 2}, Edge {3, 4}, Edge {2, 4}, Edge {4, 5}, Edge {4, 6}, Edge {3, 2}};
+	Edge edges[8] {Edge {7, 7}, Edge {1, 2}, Edge {2, 4}, Edge {4, 3}, Edge {2, 3}, Edge {5, 6}, Edge {8, 9}, Edge {8, 10}};
 
-	handle_create_undirected_graph(&u_graph, edges, 9);
+	handle_create_undirected_graph(&u_graph, edges, 8);
 
 	cout<<"u_graph: \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 
-	cout<<"BFS(u_graph): ";
-	handle_breadth_first_search(&u_graph);
-	cout<<"\n";
-
-	handle_breadth_first_search(&u_graph, -1);
+	cout<<"display_all_components(u_graph): \n";
+	handle_display_all_connected_components_undirected_graph(&u_graph);
 	cout<<"\n";
 
 	return 0;

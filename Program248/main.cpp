@@ -88,7 +88,7 @@ void handle_remove_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_gr
 
 int main()
 {
-	Weighed_Undirected_Graph wu_graph {new int*[5] {new int[5] {0, 3, 0, 0, 7}, new int[5] {3, 0, 0, 0, 0}, new int[5] {0, 0, 0, 8, 0}, new int[5] {0, 0, 8, 0, 0}, new int[5] {7, 0, 0, 0, 0}}, 5};
+	Weighed_Undirected_Graph wu_graph {new int*[5] {new int[5] {9, 3, 0, 0, 7}, new int[5] {3, 0, 0, 0, 0}, new int[5] {0, 0, 0, 8, 0}, new int[5] {0, 0, 8, 0, 0}, new int[5] {7, 0, 0, 0, 0}}, 5};
 
 	cout<<"u_graph: \n";
 	display_weighed_undirected_graph(&wu_graph);
@@ -97,6 +97,12 @@ int main()
 	handle_remove_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {0, 1, 0}); // Providing "weight" is not necessary.
 
 	cout<<"u_graph [after removing {0, 1}]: \n";
+	display_weighed_undirected_graph(&wu_graph);
+	cout<<"\n";
+
+	handle_remove_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {0, 0, 0});
+
+	cout<<"u_graph [after removing {0, 0}]: \n";
 	display_weighed_undirected_graph(&wu_graph);
 	cout<<"\n";
 

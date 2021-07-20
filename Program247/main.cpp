@@ -140,9 +140,9 @@ int main()
 	display_weighed_undirected_graph(&wu_graph);
 	cout<<"\n";
 
-	handle_add_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {1, 5, 11});
+	handle_add_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {1, 1, 11});
 
-	cout<<"u_graph [after adding {1, 5, 11}]: \n";
+	cout<<"u_graph [after adding {1, 1, 11}]: \n";
 	display_weighed_undirected_graph(&wu_graph);
 	cout<<"\n";
 

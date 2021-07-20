@@ -150,6 +150,12 @@ int main()
 	display_directed_graph(&d_graph);
 	cout<<"\n";
 
+	handle_add_edge_directed_graph(&d_graph, Edge {6, 6});
+
+	cout<<"d_graph [after adding {6, 6}]: \n";
+	display_directed_graph(&d_graph);
+	cout<<"\n";
+
 	handle_add_edge_directed_graph(&d_graph, Edge {-1, 2});
 	cout<<"\n";
 
