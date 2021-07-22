@@ -433,6 +433,10 @@ Connected Components in an Undirected Graph:
 Program347:[c++] This program displays all the connected components of an undirected graph represented using adjacency list(depth first search).
 Program348:[c++] This program displays all the connected components of an undirected graph represented using adjacency list(breadth first search).
 
+Shortest Path Algorithm for Undirected Graph:
+---------------------------------------------
+Program349:[c++] This program finds the shortest path from one node to the other for an undirected graph represented using adjacency list(breadth first search).
+
 Dynamic Programming:
 --------------------
 Program323:[c++] This program implements fibonacci(n) using recursion.
