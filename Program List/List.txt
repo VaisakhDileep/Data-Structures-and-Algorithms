@@ -437,6 +437,13 @@ Shortest Path Algorithm for Undirected Graph:
 ---------------------------------------------
 Program349:[c++] This program finds the shortest path from one node to the other for an undirected graph represented using adjacency list(breadth first search).
 
+Detect Cycle in Undirected Graph:
+---------------------------------
+Program350:[c++] This program detects whether there is a cycle in an undirected graph represented using adjacency list(depth first search).
+Program351:[c++] This program detects whether there is a cycle in an undirected graph represented using adjacency list(breadth first search).
+
+
+
 Dynamic Programming:
 --------------------
 Program323:[c++] This program implements fibonacci(n) using recursion.

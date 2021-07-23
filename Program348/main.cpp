@@ -8,135 +8,9 @@ Description : This program displays all the connected components of an undirecte
 
 #include<iomanip>
 
+#include<queue>
+
 using namespace std;
-
-namespace Queue_Using_Linked_list // Queue is designed using Linked List representation.
-{
-	struct Node
-	{
-		int data;
-
-		Node *next;
-	};
-
-	struct Queue
-	{
-		Node *front {nullptr};
-
-		Node *rear {nullptr};
-	};
-
-	bool is_full_queue(Queue *Q)
-	{
-		Node *temp = new Node {0, nullptr};
-
-		if(temp == NULL)
-		{
-			return true;
-		}
-		else
-		{
-			delete temp;
-
-			return false;
-		}
-	}
-
-	bool is_empty_queue(Queue *Q)
-	{
-		if(Q == nullptr)
-		{
-			throw string {"ERROR - Invalid operation, queue is not valid ....."};
-		}
-
-		if(Q->front == nullptr)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-
-	void enqueue(Queue *Q, int value)
-	{
-		if(Q == nullptr)
-		{
-			throw string {"ERROR - Invalid operation, queue is not valid ....."};
-		}
-
-		if(is_full_queue(Q))
-		{
-			throw string {"ERROR - Invalid operation, queue is full ....."};
-		}
-
-		if(Q->front == nullptr)
-		{
-			Q->front = Q->rear = new Node {value, nullptr};
-		}
-		else
-		{
-			Q->rear = Q->rear->next = new Node {value, nullptr};
-		}
-	}
-
-	void handle_enqueue(Queue *Q, int value)
-	{
-		try
-		{
-			enqueue(Q, value);
-		}
-		catch(string &ex)
-		{
-			cout<<ex;
-		}
-	}
-
-	int dequeue(Queue *Q)
-	{
-		if(Q == nullptr)
-		{
-			throw string {"ERROR - Invalid operation, queue is not valid ....."};
-		}
-
-		if(is_empty_queue(Q))
-		{
-			throw string {"ERROR - Invalid operation, queue is empty ....."};
-		}
-		else
-		{
-			int deleted_value {Q->front->data};
-
-			Node *temp {Q->front};
-
-			Q->front = Q->front->next;
-
-			if(Q->front == nullptr)
-			{
-				Q->rear = nullptr;
-			}
-
-			delete temp;
-
-			return deleted_value;
-		}
-	}
-
-	int handle_dequeue(Queue *Q)
-	{
-		try
-		{
-			return dequeue(Q);
-		}
-		catch(string &ex)
-		{
-			cout<<ex;
-
-			return -1;
-		}
-	}
-}
 
 namespace Undirected_Graph_Using_Adjacency_List // Undirected Graph is designed using Adjacency List representation.
 {
@@ -372,8 +246,6 @@ namespace Undirected_Graph_Using_Adjacency_List // Undirected Graph is designed 
 
 using namespace Undirected_Graph_Using_Adjacency_List;
 
-using namespace Queue_Using_Linked_list;
-
 void breadth_first_search(Undirected_Graph *u_graph, int root, int *visited) // Some changes were made compared to the traditional BFS algorithm.
 {
 	if(u_graph == nullptr)
@@ -392,13 +264,15 @@ void breadth_first_search(Undirected_Graph *u_graph, int root, int *visited) // 
 
 	visited[root] = 1;
 
-	Queue Q {};
+	queue<int> Q {};
 
-	handle_enqueue(&Q, root);
+	Q.push(root);
 
-	while(!is_empty_queue(&Q))
+	while(!Q.empty())
 	{
-		int node {handle_dequeue(&Q)};
+		int node {Q.front()};
+
+		Q.pop();
 
 		Undirected_Graph_Using_Adjacency_List::Node *last {u_graph->A[node]->head};
 
@@ -410,7 +284,7 @@ void breadth_first_search(Undirected_Graph *u_graph, int root, int *visited) // 
 
 				visited[last->vertex] = 1;
 
-				handle_enqueue(&Q, last->vertex);
+				Q.push(last->vertex);
 			}
 
 			last = last->next;

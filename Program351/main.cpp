@@ -1,20 +1,23 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 22, July, 2021
-Description : This program finds the shortest path from one node to the other for an undirected graph represented using adjacency list(breadth first search).
+Date		: 23, July, 2021
+Description : This program detects whether there is a cycle in an undirected graph represented using adjacency list(breadth first search).
 */
 
 #include<iostream>
 
 #include<iomanip>
 
-#include<vector>
-
-#include<algorithm>
-
 #include<queue>
 
 using namespace std;
+
+struct Queue_Node
+{
+	int vertex;
+
+	int parent;
+};
 
 namespace Undirected_Graph_Using_Adjacency_List // Undirected Graph is designed using Adjacency List representation.
 {
@@ -250,95 +253,77 @@ namespace Undirected_Graph_Using_Adjacency_List // Undirected Graph is designed 
 
 using namespace Undirected_Graph_Using_Adjacency_List;
 
-int** breadth_first_search(Undirected_Graph *u_graph, int root) // Some changes were made compared to the traditional BFS algorithm.
+bool breadth_first_search(Undirected_Graph *u_graph, int root, int *visited) // Some changes were made compared to the traditional BFS algorithm.
 {
-	if(u_graph == nullptr)
-	{
-		throw string {"ERROR - Invalid operation, graph is not valid ....."};
-	}
-
-	if(root < 0)
-	{
-		throw string {"ERROR - Invalid root vertex, vertex cannot be negative ....."};
-	}
-
-	int *visited = new int[u_graph->n] {0};
-
-	int **previous_node = new int*[u_graph->n] {nullptr};
+	queue<Queue_Node> Q {};
 
 	visited[root] = 1;
 
-	queue<int> Q {};
-
-	Q.push(root);
+	Q.push(Queue_Node {root, -1});
 
 	while(!Q.empty())
 	{
-		int node {Q.front()};
+		Queue_Node node {Q.front()};
 
 		Q.pop();
 
-		Undirected_Graph_Using_Adjacency_List::Node *last {u_graph->A[node]->head};
+		Node *last {u_graph->A[node.vertex]->head};
 
 		while(last != nullptr)
 		{
-			if(visited[last->vertex] == 0)
+			if(visited[last->vertex] == 0) // If there is an unvisited child node, then propogate.
 			{
 				visited[last->vertex] = 1;
 
-				previous_node[last->vertex] = new int {node};
-
-				Q.push(last->vertex);
+				Q.push(Queue_Node {last->vertex, node.vertex});
+			}
+			else if(last->vertex != node.parent) // If we come across a visited child node and if its not the parent of the node.
+			{
+				return true;
 			}
 
 			last = last->next;
 		}
 	}
 
-	return previous_node;
+	return false;
 }
 
-void shortest_path_undirected_graph(Undirected_Graph *u_graph, int start_node, int end_node)
+bool detect_cycle_undirected_graph(Undirected_Graph *u_graph)
 {
 	if(u_graph == nullptr)
 	{
 		throw string {"ERROR - Invalid operation, graph is not valid ....."};
 	}
 
-	if((start_node < 0) or (end_node < 0))
+	int *visited = new int[u_graph->n] {0};
+
+	for(int i {0}; i < u_graph->n; i++) // In case if the graph is disconnected.
 	{
-		throw string {"ERROR - Invalid vertex, vertex cannot be negative ....."};
+		if(u_graph->A[i] == nullptr)
+		{
+			continue;
+		}
+		else
+		{
+			if(visited[i] == 0)
+			{
+				if(breadth_first_search(u_graph, i, visited) == true)
+				{
+					return true;
+				}
+			}
+		}
 	}
 
-	int **previous_nodes {breadth_first_search(u_graph, start_node)};
-
-	vector<int> path {};
-
-	path.push_back(end_node);
-
-	for(int *i {previous_nodes[end_node]}; i != nullptr; i = previous_nodes[*i])
-	{
-		path.push_back(*i);
-	}
-
-	reverse(path.begin(), path.end()); // Reverses the vector.
-
-	if(path.at(0) != start_node)
-	{
-		throw string {"ERROR - Invalid operation, no path exists between the nodes ....."};
-	}
-
-	for(unsigned long long i {0}; i < path.size(); i++)
-	{
-		cout<<path.at(i)<<" ";
-	}
+	return false;
 }
 
-void handle_shortest_path_undirected_graph(Undirected_Graph *u_graph, int start_node, int end_node)
+bool handle_detect_cycle_undirected_graph(Undirected_Graph *u_graph)
 {
 	try
 	{
-		shortest_path_undirected_graph(u_graph, start_node, end_node);
+		return detect_cycle_undirected_graph(u_graph);
 	}
 	catch(string &ex)
 	{
@@ -350,17 +335,21 @@ int main()
 {
 	Undirected_Graph u_graph {};
 
-	Edge edges[10] {Edge {0, 1}, Edge {1, 6}, Edge {1, 2}, Edge {1, 5}, Edge {6, 7}, Edge {7, 8}, Edge {2, 3}, Edge {3, 8}, Edge {3, 4}, Edge {5, 4}};
+	// Edge edges[5] {Edge {0, 1}, Edge {1, 4}, Edge {4, 3}, Edge {2, 3}, Edge {1, 2}}; // This test case contains a cycle.
 
-	handle_create_undirected_graph(&u_graph, edges, 10);
+	// Edge edges[5] {Edge {0, 1}, Edge {1, 4}, Edge {4, 3}, Edge {1, 2}, Edge {4, 5}}; // This test case does not contain any cycle.
+
+	// Edge edges[5] {Edge {0, 1}, Edge {2, 3}, Edge {2, 4}, Edge {3, 4}, Edge {4, 5}}; // This test case is a disconnected graph that contains a cycle.
+
+	Edge edges[5] {Edge {0, 1}, Edge {1, 2}, Edge {3, 4}, Edge {4, 5}, Edge {5, 6}}; // This test case is a disconnected graph that does not contain any cycle.
+
+	handle_create_undirected_graph(&u_graph, edges, 5);
 
 	cout<<"u_graph: \n";
 	display_undirected_graph(&u_graph);
 	cout<<"\n";
 
-	cout<<"shortest_path_undirected_graph(u_graph, 1, 3): \n";
-	handle_shortest_path_undirected_graph(&u_graph, 1, 3);
-	cout<<"\n";
+	cout<<"detect_cycle_undirected_graph(u_graph): "<<handle_detect_cycle_undirected_graph(&u_graph)<<"\n";
 
 	return 0;
 }
