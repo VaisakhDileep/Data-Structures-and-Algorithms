@@ -442,7 +442,13 @@ Detect Cycle in Undirected Graph:
 Program350:[c++] This program detects whether there is a cycle in an undirected graph represented using adjacency list(depth first search).
 Program351:[c++] This program detects whether there is a cycle in an undirected graph represented using adjacency list(breadth first search).
 
+Detect Cycle in Directed Graph:
+-------------------------------
+Program352:[c++] This program detects whether there is a cycle in a directed graph represented using adjacency list(depth first search).
 
+Topological Sort for Directed Acyclic Graph:
+--------------------------------------------
+Program353:[c++] This program performs topological sort on a directed acyclic graph(depth first search).
 
 Dynamic Programming:
 --------------------
