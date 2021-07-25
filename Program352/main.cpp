@@ -192,7 +192,7 @@ bool depth_first_search(Directed_Graph *d_graph, int node, int *visited, int *re
 					return true;
 				}
 			}
-			else if(recursive_call_stack_state[last->vertex] == 1) // If the child node is visited and its already in the recursive call stack.
+			else if(recursive_call_stack_state[last->vertex] == 1) // If the child node is visited and it's already in the recursive call stack.
 			{
 				return true;
 			}
@@ -215,7 +215,7 @@ bool detect_cycle_directed_graph(Directed_Graph *d_graph)
 
 	int *visited = new int[d_graph->n] {0}; // "visited" array does not contain any leaf nodes.
 
-	int *recursive_call_stack_state = new int[d_graph->n] {0}; // Checks if the node is visited in the recursive call stack. As we pop the function stack, it is resetted. "recursive_call_stack_state" array does not contain any leaf nodes.
+	int *recursive_call_stack_state = new int[d_graph->n] {0}; // Checks if the node is visited in the recursive call stack. As we pop the function call stack, it is resetted. "recursive_call_stack_state" array does not contain any leaf nodes.
 
 	for(int i {0}; i < d_graph->n; i++) // In case if the graph is disconnected.
 	{

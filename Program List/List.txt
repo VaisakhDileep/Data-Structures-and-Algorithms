@@ -446,9 +446,17 @@ Detect Cycle in Directed Graph:
 -------------------------------
 Program352:[c++] This program detects whether there is a cycle in a directed graph represented using adjacency list(depth first search).
 
+Detect Cycle in Weighed Directed Graph:
+---------------------------------------
+Program354:[c++] This program detects whether there is a cycle in a weighed directed graph represented using adjacency list(depth first search).
+
 Topological Sort for Directed Acyclic Graph:
 --------------------------------------------
-Program353:[c++] This program performs topological sort on a directed acyclic graph(depth first search).
+Program353:[c++] This program performs topological sort on a directed acyclic graph represented using adjacency list(depth first search).
+
+Topological Sort for Weighed Directed Acyclic Graph:
+----------------------------------------------------
+Program355:[c++] This program performs topological sort on a weighed directed acyclic graph represented using adjacency list(depth first search).
 
 Dynamic Programming:
 --------------------

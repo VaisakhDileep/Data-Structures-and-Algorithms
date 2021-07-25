@@ -211,7 +211,7 @@ void handle_depth_first_search(Directed_Graph *d_graph, int root = 0)
 		return ;
 	}
 
-	int max_node {root};
+	int max_node {d_graph->n - 1};
 
 	for(int i {0}; i < d_graph->n; i++)
 	{

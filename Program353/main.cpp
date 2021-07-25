@@ -1,10 +1,12 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 24, July, 2021
-Description : This program performs topological sort on a directed acyclic graph(depth first search).
+Description : This program performs topological sort on a directed acyclic graph represented using adjacency list(depth first search).
 */
 
 // Directed-Acyclic graphs are the directed graphs that do not contain any cycle.
+
+// All trees are Directed-Acyclic graphs.
 
 #include<iostream>
 
@@ -165,7 +167,7 @@ namespace Directed_Graph_Using_Adjacency_List // Directed Graph is designed usin
 
 using namespace Directed_Graph_Using_Adjacency_List;
 
-namespace Detect_Cycles_Directed_Graph // "detect_cycle_directed_graph()" is implement using DFS algorithm.
+namespace Detect_Cycles_Directed_Graph // "detect_cycle_directed_graph()" is implemented using DFS algorithm.
 {
 	bool depth_first_search(Directed_Graph *d_graph, int node, int *visited, int *recursive_call_stack_state) // Some changes were made compared to the traditional DFS algorithm.
 	{
@@ -303,7 +305,7 @@ list<int>* topological_sort_directed_graph(Directed_Graph *d_graph)
 		throw string {"ERROR - Invalid operation, directed graph contains cycle ....."};
 	}
 
-	int max_node {d_graph->n};
+	int max_node {d_graph->n - 1};
 
 	for(int i {0}; i < d_graph->n; i++)
 	{
@@ -324,7 +326,7 @@ list<int>* topological_sort_directed_graph(Directed_Graph *d_graph)
 
 	list<int> *topological_order {new list<int> {}};
 
-	int *visited = new int[max_node + 1] {};
+	int *visited = new int[max_node + 1] {0};
 
 	for(int i {0}; i <= max_node; i++)
 	{

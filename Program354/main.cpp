@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 11, July, 2021
-Description : This program demonstrates depth first search for a weighed directed graph represented using adjacency list.
+Date		: 25, July, 2021
+Description : This program detects whether there is a cycle in a weighed directed graph represented using adjacency list(depth first search).
 */
 
 #include<iostream>
@@ -165,96 +165,114 @@ namespace Weighed_Directed_Graph_Using_Adjacency_List // Weighed Directed Graph 
 
 using namespace Weighed_Directed_Graph_Using_Adjacency_List;
 
-void depth_first_search(Weighed_Directed_Graph *wd_graph, int node, int *visited)
+bool depth_first_search(Weighed_Directed_Graph *wd_graph, int node, int *visited, int *recursive_call_stack_state) // Some changes were made compared to the traditional DFS algorithm.
 {
-	if(wd_graph->A[node] == nullptr)
+	if(wd_graph->A[node] == nullptr) // This is a leaf node.
 	{
-		if(visited[node] == 0)
-		{
-			cout<<node<<" ";
-
-			visited[node] = 1;
-		}
-
-		return ;
+		return false;
 	}
 
 	if(visited[node] == 0)
 	{
-		cout<<node<<" ";
-
 		visited[node] = 1;
+
+		recursive_call_stack_state[node] = 1;
 
 		Node *last {wd_graph->A[node]->head};
 
 		while(last != nullptr)
 		{
-			if(visited[last->vertex] == 0) // Not necessary to include "visited[last->vertex] == 0", but saves recursive calls.
+			if(last->vertex >= wd_graph->n) // This is a leaf node.
 			{
-				depth_first_search(wd_graph, last->vertex, visited);
+				last = last->next;
+
+				continue;
+			}
+
+			if(visited[last->vertex] == 0) // If the child node is not visited, then propogate.
+			{
+				if(depth_first_search(wd_graph, last->vertex, visited, recursive_call_stack_state) == true)
+				{
+					return true;
+				}
+			}
+			else if(recursive_call_stack_state[last->vertex] == 1) // If the child node is visited and it's already in the recursive call stack.
+			{
+				return true;
 			}
 
 			last = last->next;
 		}
 	}
+
+	recursive_call_stack_state[node] = 0; // Reset the node state.
+
+	return false;
 }
 
-void handle_depth_first_search(Weighed_Directed_Graph *wd_graph, int root = 0)
+bool detect_cycle_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
 {
 	if(wd_graph == nullptr)
 	{
-		cout<<"ERROR - Invalid operation, graph is not valid .....";
-
-		return ;
+		throw string {"ERROR - Invalid operation, graph is not valid ....."};
 	}
 
-	if(root < 0)
-	{
-		cout<<"ERROR - Invalid root vertex, vertex cannot be negative .....";
+	int *visited = new int[wd_graph->n] {0}; // "visited" array does not contain any leaf node.
 
-		return ;
-	}
+	int *recursive_call_stack_state = new int[wd_graph->n] {0}; // Checks if the node is visited in the recursive call stack. As we pop the function call stack, it is resetted. "recursive_call_stack_state" array does not contain any leaf nodes.
 
-	int max_node {wd_graph->n - 1};
-
-	for(int i {0}; i < wd_graph->n; i++)
+	for(int i {0}; i < wd_graph->n; i++) // In case if the graph is disconnected.
 	{
 		if(wd_graph->A[i] == nullptr)
 		{
 			continue;
 		}
-
-		Node *last {wd_graph->A[i]->head};
-
-		while(last != nullptr)
+		else
 		{
-			max_node = (last->vertex > max_node) ? last->vertex : max_node;
-
-			last = last->next;
+			if(visited[i] == 0)
+			{
+				if(depth_first_search(wd_graph, i, visited, recursive_call_stack_state) == true)
+				{
+					return true;
+				}
+			}
 		}
 	}
 
-	depth_first_search(wd_graph, root, new int[max_node + 1] {0});
+	return false;
+}
+
+bool handle_detect_cycle_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
+{
+	try
+	{
+		return detect_cycle_weighed_directed_graph(wd_graph);
+	}
+	catch(string &ex)
+	{
+		cout<<ex;
+	}
 }
 
 int main()
 {
 	Weighed_Directed_Graph wd_graph {};
 
-	Weighed_Edge w_edges[11] {Weighed_Edge {0, 1, 10}, Weighed_Edge {1, 2, 20}, Weighed_Edge {1, 3, 30}, Weighed_Edge {3, 4, 40}, Weighed_Edge {4, 5, 50}, Weighed_Edge {4, 6, 60}, Weighed_Edge {4, 7, 70}, Weighed_Edge {5, 6, 80}, Weighed_Edge {5, 8, 90}, Weighed_Edge {7, 8, 100}, Weighed_Edge {8, 2, 110}};
+	// Weighed_Edge w_edges[5] {Weighed_Edge {0, 1, 10}, Weighed_Edge {1, 2, 20}, Weighed_Edge {2, 3, 30}, Weighed_Edge {3, 1, 40}, Weighed_Edge {3, 4, 50}}; // This test case contains a cycle.
 
-	handle_create_weighed_directed_graph(&wd_graph, w_edges, 11);
+	// Weighed_Edge w_edges[5] {Weighed_Edge {0, 1, 10}, Weighed_Edge {1, 2, 20}, Weighed_Edge {2, 3, 30}, Weighed_Edge {3, 4, 40}, Weighed_Edge {3, 5, 50}}; // This test case does not contain cycle.
+
+	// Weighed_Edge w_edges[5] {Weighed_Edge {0, 1, 10}, Weighed_Edge {2, 3, 20}, Weighed_Edge {3, 4, 30}, Weighed_Edge {4, 3, 40}, Weighed_Edge {4, 5, 50}}; // This test case is a disconnected graph that contains a cycle.
+
+	Weighed_Edge w_edges[5] {Weighed_Edge {0, 1, 10}, Weighed_Edge {2, 3, 20}, Weighed_Edge {3, 4, 30}, Weighed_Edge {4, 5, 40}, Weighed_Edge {4, 6, 50}}; // This test case is a disconnected graph that does not contain any cycle.
+
+	handle_create_weighed_directed_graph(&wd_graph, w_edges, 5);
 
 	cout<<"wd_graph: \n";
 	display_weighed_directed_graph(&wd_graph);
 	cout<<"\n";
 
-	cout<<"DFS(wd_graph): ";
-	handle_depth_first_search(&wd_graph);
-	cout<<"\n";
-
-	handle_depth_first_search(&wd_graph, -1);
-	cout<<"\n";
+	cout<<"detect_cycle_weighed_directed_graph(wd_graph): "<<handle_detect_cycle_weighed_directed_graph(&wd_graph)<<"\n";
 
 	return 0;
 }
