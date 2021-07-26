@@ -163,7 +163,7 @@ using namespace Directed_Graph_Using_Adjacency_List;
 
 bool depth_first_search(Directed_Graph *d_graph, int node, int *visited, int *recursive_call_stack_state) // Some changes were made compared to the traditional DFS algorithm.
 {
-	if(d_graph->A[node] == nullptr) // This is a leaf node.
+	if(d_graph->A[node] == nullptr) // This is a leaf node. We already checked for "node >= d_graph->n" in the while loop.
 	{
 		return false;
 	}
@@ -258,11 +258,13 @@ int main()
 
 	// Edge edges[5] {Edge {0, 1}, Edge {1, 2}, Edge {2, 3}, Edge {3, 4}, Edge {3, 5}}; // This test case does not contain any cycle.
 
+	Edge edges[6] {Edge {0, 1}, Edge {1, 2}, Edge {1, 3}, Edge {3, 4}, Edge {3, 5}, Edge {1, 5}}; // This test case does not contain any cycle.
+
 	// Edge edges[5] {Edge {0, 1}, Edge {2, 3}, Edge {3, 4}, Edge {4, 3}, Edge {4, 5}}; // This test case is a disconnected graph that contains a cycle.
 
-	Edge edges[5] {Edge {0, 1}, Edge {2, 3}, Edge {3, 4}, Edge {4, 5}, Edge {4, 6}}; // This test case is a disconnected graph that does not contain any cycle.
+	// Edge edges[5] {Edge {0, 1}, Edge {2, 3}, Edge {3, 4}, Edge {4, 5}, Edge {4, 6}}; // This test case is a disconnected graph that does not contain any cycle.
 
-	handle_create_directed_graph(&d_graph, edges, 5);
+	handle_create_directed_graph(&d_graph, edges, 6);
 
 	cout<<"d_graph: \n";
 	display_directed_graph(&d_graph);

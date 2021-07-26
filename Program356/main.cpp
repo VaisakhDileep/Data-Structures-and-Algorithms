@@ -1,14 +1,18 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 25, July, 2021
-Description : This program performs topological sort on a weighed directed acyclic graph represented using adjacency list(depth first search).
+Description : This program finds the single source shortest path for a weighed directed acyclic graph represented using adjacency list(topological sort).
 */
+
+// This version of single source shortest path algorithm will work only for a weighed directed acyclic graph.
 
 #include<iostream>
 
 #include<iomanip>
 
 #include<list>
+
+#include<vector>
 
 using namespace std;
 
@@ -259,50 +263,113 @@ namespace Detect_Cycles_Weighed_Directed_Graph // "detect_cycle_weighed_directed
 	}
 }
 
-void depth_first_search(Weighed_Directed_Graph *wd_graph, int node, int *visited, list<int> *topological_order) // Some changes were made compared to the traditional DFS algorithm.
+namespace Topological_Sort_Weighed_Directed_Graph // "topological_sort_weighed_directed_graph()" is implemented using DFS algorithm.
 {
-	if((node >= wd_graph->n) or (wd_graph->A[node] == nullptr)) // This is a leaf node.
+	void depth_first_search(Weighed_Directed_Graph *wd_graph, int node, int *visited, list<int> *topological_order) // Some changes were made compared to the traditional DFS algorithm.
 	{
+		if((node >= wd_graph->n) or (wd_graph->A[node] == nullptr)) // This is a leaf node.
+		{
+			if(visited[node] == 0)
+			{
+				visited[node] = 1;
+
+				topological_order->push_front(node);
+			}
+		}
+
 		if(visited[node] == 0)
 		{
 			visited[node] = 1;
+
+			Node *last {wd_graph->A[node]->head};
+
+			while(last != nullptr)
+			{
+				if(visited[last->vertex] == 0)
+				{
+					depth_first_search(wd_graph, last->vertex, visited, topological_order);
+				}
+
+				last = last->next;
+			}
 
 			topological_order->push_front(node);
 		}
 	}
 
-	if(visited[node] == 0)
+	list<int>* topological_sort_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
 	{
-		visited[node] = 1;
+		using namespace Detect_Cycles_Weighed_Directed_Graph; // This will prevent the conflict between the two DFS algorithm.
 
-		Node *last {wd_graph->A[node]->head};
-
-		while(last != nullptr)
+		if(wd_graph == nullptr)
 		{
-			if(visited[last->vertex] == 0)
-			{
-				depth_first_search(wd_graph, last->vertex, visited, topological_order);
-			}
-
-			last = last->next;
+			throw string {"ERROR - Invalid operation, graph is not valid ....."};
 		}
 
-		topological_order->push_front(node);
+		if(handle_detect_cycle_weighed_directed_graph(wd_graph) == true)
+		{
+			throw string {"ERROR - Invalid operation, weighed directed graph contains cycle ....."};
+		}
+
+		int max_node {wd_graph->n - 1};
+
+		for(int i {0}; i < wd_graph->n; i++)
+		{
+			if(wd_graph->A[i] == nullptr)
+			{
+				continue;
+			}
+
+			Node *last {wd_graph->A[i]->head};
+
+			while(last != nullptr)
+			{
+				max_node = (last->vertex > max_node) ? last->vertex : max_node;
+
+				last = last->next;
+			}
+		}
+
+		list<int> *topological_order {new list<int> {}};
+
+		int *visited = new int[max_node + 1] {0};
+
+		for(int i {0}; i <= max_node; i++)
+		{
+			if(wd_graph->A[i] == nullptr) // This is a leaf node or an unassigned node.
+			{
+				continue; // There is no point doing DFS on a leaf node or an unassigned node.
+			}
+
+			depth_first_search(wd_graph, i, visited, topological_order);
+		}
+
+		return topological_order;
+	}
+
+	list<int>* handle_topological_sort_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
+	{
+		try
+		{
+			return topological_sort_weighed_directed_graph(wd_graph);
+		}
+		catch(string &ex)
+		{
+			cout<<ex;
+		}
 	}
 }
 
-list<int>* topological_sort_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
+vector<int>* single_source_shortest_path_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, int source)
 {
-	using namespace Detect_Cycles_Weighed_Directed_Graph; // This will prevent the conflict between the two DFS algorithm.
-
 	if(wd_graph == nullptr)
 	{
-		throw string {"ERROR - Invalid operation, graph is not valid ....."};
+		throw string {"ERROR - Invlaid operation, graph is not valid ....."};
 	}
 
-	if(handle_detect_cycle_weighed_directed_graph(wd_graph) == true)
+	if(source < 0)
 	{
-		throw string {"ERROR - Invalid operation, weighed directed graph contains cycle ....."};
+		throw string {"ERROR - Invalid source vertex, source vertex cannot be negative ....."};
 	}
 
 	int max_node {wd_graph->n - 1};
@@ -324,28 +391,54 @@ list<int>* topological_sort_weighed_directed_graph(Weighed_Directed_Graph *wd_gr
 		}
 	}
 
-	list<int> *topological_order {new list<int> {}};
-
-	int *visited = new int[max_node + 1] {0};
-
-	for(int i {0}; i <= max_node; i++)
+	if(source > max_node)
 	{
-		if(wd_graph->A[i] == nullptr) // This is a leaf node or an unassigned node.
-		{
-			continue; // There is no point doing DFS on a leaf node or an unassigned node.
-		}
-
-		depth_first_search(wd_graph, i, visited, topological_order);
+		throw string {"ERROR - Invalid source vertex, source vertex exceeds the largest vertex in the graph ....."};
 	}
 
-	return topological_order;
+	using namespace Topological_Sort_Weighed_Directed_Graph;
+
+	list<int> *topological_order {topological_sort_weighed_directed_graph(wd_graph)};
+
+	vector<int> *distance {new vector<int>((max_node + 1), -1)};
+
+	distance->at(source) = 0;
+
+	for(auto itr {topological_order->begin()}; itr != topological_order->end(); itr++)
+	{
+		if(distance->at(*itr) != -1)
+		{
+			if((*itr >= wd_graph->n) or (wd_graph->A[*itr] == nullptr)) // This is a leaf node.
+			{
+				continue;
+			}
+
+			Node *last {wd_graph->A[*itr]->head};
+
+			while(last != nullptr)
+			{
+				if(distance->at(last->vertex) == -1)
+				{
+					distance->at(last->vertex) = last->weight + distance->at(*itr);
+				}
+				else
+				{
+					distance->at(last->vertex) = min(distance->at(last->vertex), (last->weight + distance->at(*itr)));
+				}
+
+				last = last->next;
+			}
+		}
+	}
+
+	return distance;
 }
 
-list<int>* handle_topological_sort_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
+vector<int>* handle_single_source_shortest_path_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, int source)
 {
 	try
 	{
-		return topological_sort_weighed_directed_graph(wd_graph);
+		return single_source_shortest_path_weighed_directed_graph(wd_graph, source);
 	}
 	catch(string &ex)
 	{
@@ -353,16 +446,16 @@ list<int>* handle_topological_sort_weighed_directed_graph(Weighed_Directed_Graph
 	}
 }
 
-void display_topological_order(list<int> *topological_order)
+void display_single_source_shortest_path(vector<int> *distance, int source)
 {
-	if(topological_order == nullptr)
+	if(distance == nullptr)
 	{
 		return ;
 	}
 
-	for(auto itr {topological_order->begin()}; itr != topological_order->end(); itr++)
+	for(int i {0}; i < distance->size(); i++)
 	{
-		cout<<*itr<<" ";
+		cout<<source<<" -> "<<i<<" : "<<((distance->at(i) == -1) ? "Not reachable" : to_string(distance->at(i)))<<"\n";
 	}
 }
 
@@ -370,9 +463,9 @@ int main()
 {
 	Weighed_Directed_Graph wd_graph {};
 
-	// Weighed_Edge w_edges[5] {Weighed_Edge {0, 1, 10}, Weighed_Edge {1, 2, 20}, Weighed_Edge {4, 1, 30}, Weighed_Edge {5, 4, 40}, Weighed_Edge {3, 4, 50}};
+	// Weighed_Edge w_edges[6] {Weighed_Edge {0, 1, 10}, Weighed_Edge {1, 2, 20}, Weighed_Edge {1, 3, 30}, Weighed_Edge {3, 4, 40}, Weighed_Edge {3, 5, 50}, Weighed_Edge {1, 5, 60}};
 
-	Weighed_Edge w_edges[6] {Weighed_Edge {0, 1, 10}, Weighed_Edge {1, 2, 20}, Weighed_Edge {1, 3, 30}, Weighed_Edge {3, 4, 40}, Weighed_Edge {3, 5, 50}, Weighed_Edge {1, 5, 60}};
+	Weighed_Edge w_edges[6] {Weighed_Edge {0, 1, 10}, Weighed_Edge {2, 1, 20}, Weighed_Edge {1, 3, 30}, Weighed_Edge {3, 4, 40}, Weighed_Edge {1, 4, 50}, Weighed_Edge {4, 5, 60}};
 
 	handle_create_weighed_directed_graph(&wd_graph, w_edges, 6);
 
@@ -380,11 +473,9 @@ int main()
 	display_weighed_directed_graph(&wd_graph);
 	cout<<"\n";
 
-	list<int> *topological_order {handle_topological_sort_weighed_directed_graph(&wd_graph)};
+	vector<int> *distance {handle_single_source_shortest_path_weighed_directed_graph(&wd_graph, 1)};
 
-	cout<<"topological_order: ";
-	display_topological_order(topological_order);
-	cout<<"\n";
+	display_single_source_shortest_path(distance, 1);
 
 	return 0;
 }

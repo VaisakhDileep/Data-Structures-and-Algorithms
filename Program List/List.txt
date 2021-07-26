@@ -458,6 +458,18 @@ Topological Sort for Weighed Directed Acyclic Graph:
 ----------------------------------------------------
 Program355:[c++] This program performs topological sort on a weighed directed acyclic graph represented using adjacency list(depth first search).
 
+Single Source Shortest Path for Weighed Directed Acyclic Graph:
+---------------------------------------------------------------
+Program356:[c++] This program finds the single source shortest path for a weighed directed acyclic graph represented using adjacency list(topological sort).
+
+Single Source Longest Path for Weighed Directed Acyclic Graph:
+--------------------------------------------------------------
+Program357:[c++] This program finds the single source longest path for a weighed directed acyclic graph represented using adjacency list(topological sort).
+
+Dijkstra's Single Source Shortest Path for Weighed Directed Graph:
+------------------------------------------------------------------
+Program358:[c++] This program finds the single source shortest path for a weighed directed graph represented using adjacency list(Dijkstra's algorithm).
+
 Dynamic Programming:
 --------------------
 Program323:[c++] This program implements fibonacci(n) using recursion.

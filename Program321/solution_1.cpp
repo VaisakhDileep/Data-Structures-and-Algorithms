@@ -200,9 +200,11 @@ int main()
 {
 	Weighed_Directed_Graph wd_graph {};
 
-	Weighed_Edge w_edges[11] {Weighed_Edge {0, 1, 10}, Weighed_Edge {1, 2, 20}, Weighed_Edge {1, 3, 30}, Weighed_Edge {3, 4, 40}, Weighed_Edge {4, 5, 50}, Weighed_Edge {4, 6, 60}, Weighed_Edge {4, 7, 70}, Weighed_Edge {5, 6, 80}, Weighed_Edge {5, 8, 90}, Weighed_Edge {7, 8, 100}, Weighed_Edge {8, 2, 110}};
+	// Weighed_Edge w_edges[11] {Weighed_Edge {0, 1, 10}, Weighed_Edge {1, 2, 20}, Weighed_Edge {1, 3, 30}, Weighed_Edge {3, 4, 40}, Weighed_Edge {4, 5, 50}, Weighed_Edge {4, 6, 60}, Weighed_Edge {4, 7, 70}, Weighed_Edge {5, 6, 80}, Weighed_Edge {5, 8, 90}, Weighed_Edge {7, 8, 100}, Weighed_Edge {8, 2, 110}};
 
-	handle_create_weighed_directed_graph(&wd_graph, w_edges, 11);
+	Weighed_Edge w_edges[6] {Weighed_Edge {0, 1, 10}, Weighed_Edge {1, 2, 20}, Weighed_Edge {1, 3, 30}, Weighed_Edge {3, 4, 40}, Weighed_Edge {3, 5, 50}, Weighed_Edge {1, 5, 60}};
+
+	handle_create_weighed_directed_graph(&wd_graph, w_edges, 6);
 
 	cout<<"wd_graph: \n";
 	display_weighed_directed_graph(&wd_graph);

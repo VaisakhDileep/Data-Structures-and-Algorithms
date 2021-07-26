@@ -167,7 +167,7 @@ using namespace Weighed_Directed_Graph_Using_Adjacency_List;
 
 bool depth_first_search(Weighed_Directed_Graph *wd_graph, int node, int *visited, int *recursive_call_stack_state) // Some changes were made compared to the traditional DFS algorithm.
 {
-	if(wd_graph->A[node] == nullptr) // This is a leaf node.
+	if(wd_graph->A[node] == nullptr) // This is a leaf node. We already checked for "node >= d_graph->n" in the while loop.
 	{
 		return false;
 	}
@@ -262,11 +262,13 @@ int main()
 
 	// Weighed_Edge w_edges[5] {Weighed_Edge {0, 1, 10}, Weighed_Edge {1, 2, 20}, Weighed_Edge {2, 3, 30}, Weighed_Edge {3, 4, 40}, Weighed_Edge {3, 5, 50}}; // This test case does not contain cycle.
 
+	Weighed_Edge w_edges[6] {Weighed_Edge {0, 1, 10}, Weighed_Edge {1, 2, 20}, Weighed_Edge {1, 3, 30}, Weighed_Edge {3, 4, 40}, Weighed_Edge {3, 5, 50}, Weighed_Edge {1, 5, 60}}; // This test case does not contain cycle.
+
 	// Weighed_Edge w_edges[5] {Weighed_Edge {0, 1, 10}, Weighed_Edge {2, 3, 20}, Weighed_Edge {3, 4, 30}, Weighed_Edge {4, 3, 40}, Weighed_Edge {4, 5, 50}}; // This test case is a disconnected graph that contains a cycle.
 
-	Weighed_Edge w_edges[5] {Weighed_Edge {0, 1, 10}, Weighed_Edge {2, 3, 20}, Weighed_Edge {3, 4, 30}, Weighed_Edge {4, 5, 40}, Weighed_Edge {4, 6, 50}}; // This test case is a disconnected graph that does not contain any cycle.
+	// Weighed_Edge w_edges[5] {Weighed_Edge {0, 1, 10}, Weighed_Edge {2, 3, 20}, Weighed_Edge {3, 4, 30}, Weighed_Edge {4, 5, 40}, Weighed_Edge {4, 6, 50}}; // This test case is a disconnected graph that does not contain any cycle.
 
-	handle_create_weighed_directed_graph(&wd_graph, w_edges, 5);
+	handle_create_weighed_directed_graph(&wd_graph, w_edges, 6);
 
 	cout<<"wd_graph: \n";
 	display_weighed_directed_graph(&wd_graph);

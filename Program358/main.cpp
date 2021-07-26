@@ -1,12 +1,18 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 11, July, 2021
-Description : This program demonstrates depth first search for a weighed directed graph represented using adjacency list.
+Date		: 26, July, 2021
+Description : This program finds the single source shortest path for a weighed directed graph represented using adjacency list(Dijkstra's algorithm).
 */
+
+// This version of single source shortest path algorithm will work only for weighed directed graphs that do not contain any negative weights.
 
 #include<iostream>
 
 #include<iomanip>
+
+#include<vector>
+
+#include<queue> // For "priority_queue".
 
 using namespace std;
 
@@ -165,54 +171,16 @@ namespace Weighed_Directed_Graph_Using_Adjacency_List // Weighed Directed Graph 
 
 using namespace Weighed_Directed_Graph_Using_Adjacency_List;
 
-void depth_first_search(Weighed_Directed_Graph *wd_graph, int node, int *visited)
-{
-	if(wd_graph->A[node] == nullptr)
-	{
-		if(visited[node] == 0)
-		{
-			cout<<node<<" ";
-
-			visited[node] = 1;
-		}
-
-		return ;
-	}
-
-	if(visited[node] == 0)
-	{
-		cout<<node<<" ";
-
-		visited[node] = 1;
-
-		Node *last {wd_graph->A[node]->head};
-
-		while(last != nullptr)
-		{
-			if(visited[last->vertex] == 0) // Not necessary to include "visited[last->vertex] == 0", but saves recursive calls.
-			{
-				depth_first_search(wd_graph, last->vertex, visited);
-			}
-
-			last = last->next;
-		}
-	}
-}
-
-void handle_depth_first_search(Weighed_Directed_Graph *wd_graph, int root = 0)
+vector<int>* single_source_shortest_path_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, int source) // Dijkstra's algorithm.
 {
 	if(wd_graph == nullptr)
 	{
-		cout<<"ERROR - Invalid operation, graph is not valid .....";
-
-		return ;
+		throw string {"ERROR - Invalid operation, graph is not valid ....."};
 	}
 
-	if(root < 0)
+	if(source < 0)
 	{
-		cout<<"ERROR - Invalid root vertex, vertex cannot be negative .....";
-
-		return ;
+		throw string {"ERROR - Invalid source vertex, source vertex cannot be negative ....."};
 	}
 
 	int max_node {wd_graph->n - 1};
@@ -234,29 +202,15 @@ void handle_depth_first_search(Weighed_Directed_Graph *wd_graph, int root = 0)
 		}
 	}
 
-	depth_first_search(wd_graph, root, new int[max_node + 1] {0});
+	if(source > max_node)
+	{
+		throw string {"ERROR - Invalid source vertex, source vertex exceeds the largest vertex in the graph ....."};
+	}
+
+
 }
 
 int main()
 {
-	Weighed_Directed_Graph wd_graph {};
-
-	// Weighed_Edge w_edges[11] {Weighed_Edge {0, 1, 10}, Weighed_Edge {1, 2, 20}, Weighed_Edge {1, 3, 30}, Weighed_Edge {3, 4, 40}, Weighed_Edge {4, 5, 50}, Weighed_Edge {4, 6, 60}, Weighed_Edge {4, 7, 70}, Weighed_Edge {5, 6, 80}, Weighed_Edge {5, 8, 90}, Weighed_Edge {7, 8, 100}, Weighed_Edge {8, 2, 110}};
-
-	Weighed_Edge w_edges[6] {Weighed_Edge {0, 1, 10}, Weighed_Edge {1, 2, 20}, Weighed_Edge {1, 3, 30}, Weighed_Edge {3, 4, 40}, Weighed_Edge {3, 5, 50}, Weighed_Edge {1, 5, 60}};
-
-	handle_create_weighed_directed_graph(&wd_graph, w_edges, 6);
-
-	cout<<"wd_graph: \n";
-	display_weighed_directed_graph(&wd_graph);
-	cout<<"\n";
-
-	cout<<"DFS(wd_graph): ";
-	handle_depth_first_search(&wd_graph);
-	cout<<"\n";
-
-	handle_depth_first_search(&wd_graph, -1);
-	cout<<"\n";
-
 	return 0;
 }
