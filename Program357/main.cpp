@@ -1,10 +1,10 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 26, July, 2021
-Description : This program finds the single source longest path for a weighed directed acyclic graph represented using adjacency list(topological sort).
+Description : This program finds the single source longest path cost for a weighed directed acyclic graph represented using adjacency list(topological sort).
 */
 
-// This version of single source longest path will work only for a weighed directed acyclic graph.
+// This version of single source longest path cost will work only for a weighed directed acyclic graph.
 
 #include<iostream>
 
@@ -360,7 +360,7 @@ namespace Topological_Sort_Weighed_Directed_Graph // "topological_sort_weighed_d
 	}
 }
 
-vector<int>* single_source_longest_path_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, int source)
+vector<int>* single_source_longest_path_cost_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, int source)
 {
 	if(wd_graph == nullptr)
 	{
@@ -439,11 +439,11 @@ vector<int>* single_source_longest_path_weighed_directed_graph(Weighed_Directed_
 	return distance;
 }
 
-vector<int>* handle_single_source_longest_path_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, int source)
+vector<int>* handle_single_source_longest_path_cost_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, int source)
 {
 	try
 	{
-		return single_source_longest_path_weighed_directed_graph(wd_graph, source);
+		return single_source_longest_path_cost_weighed_directed_graph(wd_graph, source);
 	}
 	catch(string &ex)
 	{
@@ -451,7 +451,7 @@ vector<int>* handle_single_source_longest_path_weighed_directed_graph(Weighed_Di
 	}
 }
 
-void display_single_source_longest_path(vector<int> *distance, int source)
+void display_single_source_longest_path_cost(vector<int> *distance, int source)
 {
 	if(distance == nullptr)
 	{
@@ -478,9 +478,9 @@ int main()
 	display_weighed_directed_graph(&wd_graph);
 	cout<<"\n";
 
-	vector<int> *distance {handle_single_source_longest_path_weighed_directed_graph(&wd_graph, 1)};
+	vector<int> *distance {handle_single_source_longest_path_cost_weighed_directed_graph(&wd_graph, 1)};
 
-	display_single_source_longest_path(distance, 1);
+	display_single_source_longest_path_cost(distance, 1);
 
 	return 0;
 }
