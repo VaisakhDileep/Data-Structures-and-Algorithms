@@ -469,9 +469,12 @@ Program357:[c++] This program finds the single source longest path cost for a we
 Dijkstra's Single Source Shortest Path Cost for Weighed Directed Graph:
 -----------------------------------------------------------------------
 Program358:[c++] This program finds the single source shortest path cost for a weighed directed graph represented using adjacency list(Dijkstra's algorithm).
+Program360:[c++] This program finds the shortest path cost from one node to the other for a weighed directed graph represented using adjacency list(Dijkstra's algorithm).
 
 Dijkstra's Single Source Shortest Path for Weighed Directed Graph:
 ------------------------------------------------------------------
+Program359:[c++] This program finds the single source shortest path for a weighed directed graph represented using adjacency list(Dijkstra's algorithm).
+Program361:[c++] This program finds the shortest path from one node to the other for a weighed directed graph represented using adjacency list(Dijkstra's algorithm).
 
 Dynamic Programming:
 --------------------

@@ -1,10 +1,10 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 26, July, 2021
-Description : This program finds the single source shortest path cost for a weighed directed graph represented using adjacency list(Dijkstra's algorithm).
+Date		: 27, July, 2021
+Description : This program finds the single source shortest path for a weighed directed graph represented using adjacency list(Dijkstra's algorithm).
 */
 
-// This version of single source shortest path cost algorithm will work only for weighed directed graphs that do not contain any negative weights.
+// This version of single source shortest path algorithm will work only for weighted directed graphs that do not contain any negative weights.
 
 #include<iostream>
 
@@ -15,6 +15,8 @@ Description : This program finds the single source shortest path cost for a weig
 #include<queue> // For "priority_queue".
 
 #include<utility> // For "std::pair".
+
+#include<list>
 
 using namespace std;
 
@@ -182,7 +184,7 @@ public:
 	}
 };
 
-vector<int>* single_source_shortest_path_cost_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, int source) // Dijkstra's algorithm.
+vector<int>* single_source_shortest_path_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, int source)
 {
 	if(wd_graph == nullptr)
 	{
@@ -220,6 +222,8 @@ vector<int>* single_source_shortest_path_cost_weighed_directed_graph(Weighed_Dir
 
 	int *visited = new int[max_node + 1] {0};
 
+	vector<int> *previous_node {new vector<int>(max_node + 1, -1)};
+
 	vector<int> *distance {new vector<int>(max_node + 1, INT_MAX)}; // "INT_MAX" corresponds to infinity.
 
 	priority_queue<pair<int, int>, vector<pair<int, int>>, Custom_Compare> p_queue {};
@@ -236,7 +240,7 @@ vector<int>* single_source_shortest_path_cost_weighed_directed_graph(Weighed_Dir
 
 		visited[vertex] = 1;
 
-		if((vertex >= wd_graph->n) or (wd_graph->A[vertex] == nullptr)) // This is a leaf node
+		if((vertex >= wd_graph->n) or (wd_graph->A[vertex] == nullptr)) // This is a leaf node.
 		{
 			continue;
 		}
@@ -261,6 +265,8 @@ vector<int>* single_source_shortest_path_cost_weighed_directed_graph(Weighed_Dir
 					continue;
 				}
 
+				previous_node->at(last->vertex) = vertex;
+
 				distance->at(last->vertex) = new_distance;
 
 				p_queue.push(make_pair(last->vertex, new_distance));
@@ -270,14 +276,14 @@ vector<int>* single_source_shortest_path_cost_weighed_directed_graph(Weighed_Dir
 		}
 	}
 
-	return distance;
+	return previous_node;
 }
 
-vector<int>* handle_single_source_shortest_path_cost_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, int source)
+vector<int>* handle_single_source_shortest_path_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, int source)
 {
 	try
 	{
-		return single_source_shortest_path_cost_weighed_directed_graph(wd_graph, source);
+		return single_source_shortest_path_weighed_directed_graph(wd_graph, source);
 	}
 	catch(string &ex)
 	{
@@ -285,16 +291,42 @@ vector<int>* handle_single_source_shortest_path_cost_weighed_directed_graph(Weig
 	}
 }
 
-void display_single_source_shortest_path_cost(vector<int> *distance, int source)
+void display_single_source_shortest_path(vector<int> *previous_node, int source)
 {
-	if(distance == nullptr)
+	if(previous_node == nullptr)
 	{
 		return ;
 	}
 
-	for(int i {0}; i < distance->size(); i++)
+	for(int i {0}; i < previous_node->size(); i++)
 	{
-		cout<<source<<" -> "<<i<<" : "<<((distance->at(i) == INT_MAX) ? "Not reachable" : to_string(distance->at(i)))<<"\n";
+		if(previous_node->at(i) == -1)
+		{
+			cout<<source<<" -> "<<i<<" : Not reachable\n";
+		}
+		else
+		{
+			list<int> path {};
+
+			path.push_back(i);
+
+			int last_vertex {previous_node->at(i)};
+
+			while(last_vertex != -1)
+			{
+				path.push_front(last_vertex);
+
+				last_vertex = previous_node->at(last_vertex);
+			}
+
+			cout<<source<<" -> "<<i<<" : ";
+
+			for(auto itr {path.begin()}; itr != path.end(); itr++)
+			{
+				cout<<(*itr)<<" ";
+			}
+			cout<<"\n";
+		}
 	}
 }
 
@@ -312,9 +344,9 @@ int main()
 	display_weighed_directed_graph(&wd_graph);
 	cout<<"\n";
 
-	vector<int> *distance {handle_single_source_shortest_path_cost_weighed_directed_graph(&wd_graph, 0)};
+	vector<int> *path {handle_single_source_shortest_path_weighed_directed_graph(&wd_graph, 0)};
 
-	display_single_source_shortest_path_cost(distance, 0);
+	display_single_source_shortest_path(path, 0);
 
 	return 0;
 }
