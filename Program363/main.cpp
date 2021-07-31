@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 29, July, 2021
-Description : This program detects the presence of a negative cycle in a weighed directed graph represented using adjacency list(Bellman-Ford's algorithm).
+Date		: 30, July, 2021
+Description : This program finds the single source shortest path cost for a weighed directed graph represented using adjacency list(Bellman-Ford's algorithm).
 */
 
 #include<iostream>
@@ -169,18 +169,23 @@ namespace Weighed_Directed_Graph_Using_Adjacency_List // Weighed Directed Graph 
 
 using namespace Weighed_Directed_Graph_Using_Adjacency_List;
 
-bool detect_negative_cycle_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
+vector<int>* single_source_shortest_path_cost_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, int source) // Bellman-Ford's algorithm.
 {
 	if(wd_graph == nullptr)
 	{
 		throw string {"ERROR - Invalid operation, graph is not valid ....."};
 	}
 
+	if(source < 0)
+	{
+		throw string {"ERROR - Invalid source vertex, source vertex cannot be negative ....."};
+	}
+
 	int max_node {wd_graph->n - 1};
 
 	unordered_set<int> vertices {};
 
-	for(int i {0}; i < wd_graph->n; i++)
+	for(int i {0}; i < wd_graph->n - 1; i++)
 	{
 		if(wd_graph->A[i] == nullptr)
 		{
@@ -201,14 +206,16 @@ bool detect_negative_cycle_weighed_directed_graph(Weighed_Directed_Graph *wd_gra
 		}
 	}
 
-	vector<int> distance(max_node + 1, INT_MAX); // "INT_MAX" corresponds to infinity.
+	if(source > max_node)
+	{
+		throw string {"ERROR - Invalid source vertex, source vertex exceeds the largest vertex in the graph ....."};
+	}
 
-	int start_node {*(vertices.begin())};
+	vector<int> *distance {new vector<int>(max_node + 1, INT_MAX)}; // "INT_MAX" corresponds to infinity.
 
-	distance.at(start_node) = 0;
+	distance->at(source) = 0;
 
-flag:
-	for(unsigned long long i {0}; i < (vertices.size() - 1); i++)
+	for(unsigned long long i {0}; i < (vertices.size() - 1); i++) // In order to propogate minimum distance.
 	{
 		for(int j {0}; j < wd_graph->n; j++)
 		{
@@ -217,7 +224,7 @@ flag:
 				continue;
 			}
 
-			if(distance.at(j) == INT_MAX)
+			if(distance->at(j) == INT_MAX)
 			{
 				continue;
 			}
@@ -226,11 +233,11 @@ flag:
 
 			while(last != nullptr)
 			{
-				int new_distance {distance.at(j) + last->weight};
+				int new_distance {distance->at(j) + last->weight};
 
-				if(new_distance < distance.at(last->vertex))
+				if(new_distance < distance->at(last->vertex))
 				{
-					distance.at(last->vertex) = new_distance;
+					distance->at(last->vertex) = new_distance;
 				}
 
 				last = last->next;
@@ -238,54 +245,84 @@ flag:
 		}
 	}
 
-	for(int i {0}; i < wd_graph->n; i++)
+	for(unsigned long long i {0}; i < (vertices.size() - 1); i++) // In order to propogate "-infinity" for vertices that participate in a negative cycle or reachable from a negative cycle.
 	{
-		if(wd_graph->A[i] == nullptr)
+		for(int j {0}; j < wd_graph->n; j++)
 		{
-			continue;
-		}
-
-		if(vertices.find(i) == vertices.end()) // vertex not present in the graph.
-		{
-			continue;
-		}
-
-		if(distance.at(i) == INT_MAX) // In case if the graph is disconnected, we end up with unvisited vertices.
-		{
-			distance.at(i) = 0;
-
-			goto flag;
-		}
-
-		Node *last {wd_graph->A[i]->head};
-
-		while(last != nullptr)
-		{
-			int new_distance {distance.at(i) + last->weight};
-
-			if(new_distance < distance.at(last->vertex))
+			if(wd_graph->A[j] == nullptr)
 			{
-				return true;
+				continue;
 			}
 
-			last = last->next;
+			if(distance->at(j) == INT_MAX) // Vertices that are not reachable from the source vertex.
+			{
+				continue;
+			}
+
+			if(distance->at(j) == INT_MIN)
+			{
+				Node *last {wd_graph->A[j]->head};
+
+				while(last != nullptr)
+				{
+					distance->at(last->vertex) = INT_MIN;
+
+					last = last->next;
+				}
+			}
+
+			Node *last {wd_graph->A[j]->head};
+
+			while(last != nullptr)
+			{
+				int new_distance {distance->at(j) + last->weight};
+
+				if(new_distance < distance->at(last->vertex))
+				{
+					distance->at(last->vertex) = INT_MIN;
+				}
+
+				last = last->next;
+			}
 		}
 	}
 
-	return false;
+	return distance;
 }
 
-bool handle_detect_negative_cycle_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
+vector<int>* handle_single_source_shortest_path_cost_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, int source) // Bellman-Ford's algorithm.
 {
 	try
 	{
-		return detect_negative_cycle_weighed_directed_graph(wd_graph);
+		return single_source_shortest_path_cost_weighed_directed_graph(wd_graph, source);
 	}
 	catch(string &ex)
 	{
 		cout<<ex;
+	}
+}
 
-		return false;
+void display_single_source_shortest_path_cost(vector<int> *distance, int source)
+{
+	if(distance == nullptr)
+	{
+		return ;
+	}
+
+	for(int i {0}; i < distance->size(); i++)
+	{
+		if(distance->at(i) == INT_MAX)
+		{
+			cout<<source<<" -> "<<i<<" : "<<"Not reachable\n";
+		}
+		else if(distance->at(i) == INT_MIN)
+		{
+			cout<<source<<" -> "<<i<<" : "<<"-infinity\n";
+		}
+		else
+		{
+			cout<<source<<" -> "<<i<<" : "<<distance->at(i)<<"\n";
+		}
 	}
 }
 
@@ -307,7 +344,9 @@ int main()
 	display_weighed_directed_graph(&wd_graph);
 	cout<<"\n";
 
-	cout<<"detect_negative_cycle_weighed_directed_graph(wd_graph): "<<handle_detect_negative_cycle_weighed_directed_graph(&wd_graph)<<"\n";
+	vector<int> *distance {handle_single_source_shortest_path_cost_weighed_directed_graph(&wd_graph, 0)};
+
+	display_single_source_shortest_path_cost(distance, 0);
 
 	return 0;
 }
