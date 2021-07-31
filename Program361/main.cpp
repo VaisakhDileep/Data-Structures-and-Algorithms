@@ -321,6 +321,13 @@ void display_path(list<int> *path)
 		return ;
 	}
 
+	if(path->size() == 0)
+	{
+		cout<<"Not reachable";
+
+		return ;
+	}
+
 	for(auto itr {path->begin()}; itr != path->end(); itr++)
 	{
 		cout<<(*itr)<<" ";
