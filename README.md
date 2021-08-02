@@ -1,15 +1,3 @@
-<style>
-	p {
-	animation: color-change 1s infinite;
-	}
-
-	@keyframes color-change {
-	0% { color: red; }
-	50% { color: blue; }
-	100% { color: red; }
-	}
-</style>
-
 # **Data-Structures-and-Algorithms**
 **For program list:** [*Click Here*](Program%20List/List.txt)
 
