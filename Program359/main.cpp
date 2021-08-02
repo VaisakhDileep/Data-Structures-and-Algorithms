@@ -300,7 +300,11 @@ void display_single_source_shortest_path(vector<int> *previous_node, int source)
 
 	for(int i {0}; i < previous_node->size(); i++)
 	{
-		if(previous_node->at(i) == -1)
+		if(i == source)
+		{
+			cout<<source<<" -> "<<i<<" : "<<i<<"\n";
+		}
+		else if(previous_node->at(i) == -1)
 		{
 			cout<<source<<" -> "<<i<<" : Not reachable\n";
 		}

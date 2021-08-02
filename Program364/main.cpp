@@ -225,7 +225,7 @@ namespace Bellman_Ford_Single_Source_Shortest_Path_For_Weighed_Directed_Graph
 
 		distance->at(source) = 0;
 
-		for(unsigned long long i {0}; i < (vertices.size() - 1); i++)
+		for(unsigned long long i {0}; i < (vertices.size() - 1); i++) // In order to propogate minimum distance.
 		{
 			for(int j {0}; j < wd_graph->n; j++)
 			{
@@ -315,7 +315,18 @@ namespace Bellman_Ford_Single_Source_Shortest_Path_For_Weighed_Directed_Graph
 
 		for(int i {0}; i < previous_node->size(); i++)
 		{
-			if(previous_node->at(i) == non_reachable)
+			if(i == source)
+			{
+				if(previous_node->at(i) == non_reachable)
+				{
+					cout<<source<<" -> "<<i<<" : "<<i<<"\n";
+				}
+				else
+				{
+					cout<<source<<" -> "<<i<<" : "<<"Negative cycle present in the path\n";
+				}
+			}
+			else if(previous_node->at(i) == non_reachable)
 			{
 				cout<<source<<" -> "<<i<<" : "<<"Not reachable\n";
 			}
@@ -368,13 +379,13 @@ int main()
 {
 	Weighed_Directed_Graph wd_graph {};
 
-	// Weighed_Edge w_edges[7] {Weighed_Edge {0, 1, 1}, Weighed_Edge {1, 2, 2}, Weighed_Edge {2, 3, 3}, Weighed_Edge {3, 1, -6}, Weighed_Edge {2, 4, 4}, Weighed_Edge {4, 5, 5}, Weighed_Edge {5, 4, -1}}; // This test case contains a negative cycle.
+	Weighed_Edge w_edges[7] {Weighed_Edge {0, 1, 1}, Weighed_Edge {1, 2, 2}, Weighed_Edge {2, 3, 3}, Weighed_Edge {3, 1, -6}, Weighed_Edge {2, 4, 4}, Weighed_Edge {4, 5, 5}, Weighed_Edge {5, 4, -1}}; // This test case contains a negative cycle.
 
 	// Weighed_Edge w_edges[7] {Weighed_Edge {0, 1, 1}, Weighed_Edge {1, 2, 2}, Weighed_Edge {2, 3, 3}, Weighed_Edge {3, 1, 6}, Weighed_Edge {2, 4, 4}, Weighed_Edge {4, 5, 5}, Weighed_Edge {5, 4, -1}}; // This test case does not contains a negative cycle.
 
 	// Weighed_Edge w_edges[7] {Weighed_Edge {0, 1, 1}, Weighed_Edge {1, 2, 2}, Weighed_Edge {3, 4, 1}, Weighed_Edge {4, 5, 2}, Weighed_Edge {5, 3, -4}, Weighed_Edge {5, 6, 5}, Weighed_Edge {6, 5, 6}}; // This test case is a disconnected graph that containsa a negative cycle.
 
-	Weighed_Edge w_edges[7] {Weighed_Edge {0, 1, 1}, Weighed_Edge {1, 2, 2}, Weighed_Edge {3, 4, 1}, Weighed_Edge {4, 5, 2}, Weighed_Edge {5, 3, 4}, Weighed_Edge {5, 6, 5}, Weighed_Edge {6, 5, 6}}; // This test case is a disconnected graph that does not containsa a negative cycle.
+	// Weighed_Edge w_edges[7] {Weighed_Edge {0, 1, 1}, Weighed_Edge {1, 2, 2}, Weighed_Edge {3, 4, 1}, Weighed_Edge {4, 5, 2}, Weighed_Edge {5, 3, 4}, Weighed_Edge {5, 6, 5}, Weighed_Edge {6, 5, 6}}; // This test case is a disconnected graph that does not containsa a negative cycle.
 
 	handle_create_weighed_directed_graph(&wd_graph, w_edges, 7);
 
