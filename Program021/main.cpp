@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 27, April, 2021
-Description : This program optimized power(m, n).
+Description : This program optimizes power(m, n).
 */
 
 #include<iostream>
