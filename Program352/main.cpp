@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 23, July, 2021
-Description :  This program detects whether there is a cycle in an undirected graph represented using adjacency list(depth first search).
+Description : This program detects whether there is a cycle in an undirected graph represented using adjacency list(depth first search).
 */
 
 #include<iostream>

@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 28, April, 2021
-Description : This program finds the number of combinations.
+Description : This program finds the number of combinations for 'n'.
 */
 
 #include<iostream>
