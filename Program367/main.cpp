@@ -61,7 +61,7 @@ int handle_zero_one_knap_sack(int *weights, int *profits, int W, int size)
 		return 0;
 	}
 
-	vector<vector<int>> memo(size, vector<int>(W + 1, INT_MIN)); // result will be stored at memo[size - 1][W].
+	vector<vector<int>> memo(size, vector<int>(W + 1, INT_MIN)); // result will be stored at "memo[size - 1][W]".
 
 	return zero_one_knap_sack(weights, profits, W, size, memo);
 }
