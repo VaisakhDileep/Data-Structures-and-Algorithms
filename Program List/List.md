@@ -514,3 +514,12 @@ Program345:[c++] [This program implements count_construct(target, word_bank) usi
 Program337:[c++] [This program implements all_construct(target, word_bank) using recursion.](../Program337/main.cpp)<br>
 Program338:[c++] [This program implements all_construct(target, word_bank) using memoization.](../Program338/main.cpp)<br>
 Program346:[c++] [This program implements all_construct(target, word_bank) using tabulation.](../Program346/main.cpp)<br>
+
+# Kadane's Largest Sum Contiguous Subarray:
+
+Program365:[c++] [This program implements Kadane's largest sum contiguous subarray algorithm.](../Program365/main.cpp)<br>
+
+# 0-1 Knapsack Problem:
+
+Program366:[c++] [This program implements 0-1 knapsack problem using recursion.(brute force approach)](../Program366/main.cpp)<br>
+Program367:[c++] [This program implements 0-1 knapsack problem using memoization.](../Program367/main.cpp)<br>
