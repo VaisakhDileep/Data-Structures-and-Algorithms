@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 5, August, 2021
-Description : This program extracts all the words in a trie.
+Date		: 6, August, 2021
+Description : This program displays all the words in a trie.
 */
 
 #include<iostream>
@@ -87,13 +87,11 @@ void handle_insert_trie(Trie *trie, string word)
 	}
 }
 
-void extract_all_words_trie(Trie_Node *trie_node, string word, vector<string> *words, int level)
+void display_all_words_trie(Trie_Node *trie_node, string word, int level)
 {
 	if(trie_node->end_of_word == true)
 	{
-		// word += trie_node->data; // For our trie data-structure we store the present character in "data", this is one way of retreiving the word.
-
-		words->push_back(word);
+		cout<<word<<" ";
 	}
 
 	for(int i {0}; i < 26; i++)
@@ -103,35 +101,25 @@ void extract_all_words_trie(Trie_Node *trie_node, string word, vector<string> *w
 			if(word.size() == level)
 			{
 				word += i + 'a';
-
-				// word += trie_node->data; // For our trie data-structure we store the present character in "data", this is one way of retreiving the word.
 			}
 			else
 			{
 				word[level] = i + 'a';
-
-				// word[level] = trie_node->data; // For our trie data-structure we store the present character in "data", this is one way of retreiving the word.
 			}
 
-			extract_all_words_trie(trie_node->children[i], word, words, level + 1);
+			display_all_words_trie(trie_node->children[i], word, level + 1);
 		}
 	}
 }
 
-vector<string>* handle_extract_all_words_trie(Trie *trie)
+void handle_display_all_words_trie(Trie *trie)
 {
-	vector<string> *words {new vector<string> {}};
-
 	if((trie == nullptr) or (trie->root == nullptr))
 	{
 		cout<<"ERROR - Invalid operation, trie is not valid .....";
-
-		return words;
 	}
 
-	extract_all_words_trie(trie->root, "", words, 0);
-
-	return words;
+	display_all_words_trie(trie->root, "", 0);
 }
 
 int main()
@@ -145,14 +133,8 @@ int main()
 	handle_insert_trie(&dictionary_1, "Trevor");
 	handle_insert_trie(&dictionary_1, "Trev");
 
-	vector<string> *words_dictionary_1 {handle_extract_all_words_trie(&dictionary_1)};
-
 	cout<<"dictionary 1: ";
-	for(int i {0}; i < words_dictionary_1->size(); i++)
-	{
-		cout<<words_dictionary_1->at(i)<<" ";
-	}
-	cout<<"\n";
+	handle_display_all_words_trie(&dictionary_1);
 
 	return 0;
 }

@@ -55,9 +55,9 @@ void insert_trie(Trie *trie, string word)
 			{
 				crawler->children[index] = new Trie_Node {};
 
-				crawler->data = word.at(i);
-
 				crawler = crawler->children[index];
+
+				crawler->data = word.at(i);
 			}
 			else
 			{

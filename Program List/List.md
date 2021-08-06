@@ -530,3 +530,5 @@ Program368:[c++] [This program implements 0-1 knapsack problem using tabulation.
 Program369:[c++] [This program creates a trie.](../Program369/main.cpp)<br>
 Program370:[c++] [This program inserts an element into a trie.](../Program370/main.cpp)<br>
 Program371:[c++] [This program extracts all the words in a trie.](../Program371/main.cpp)<br>
+Program372:[c++] [This program displays all the words in a trie.](../Program372/main.cpp)<br>
+Program373:[c++] [This program deletes a word from a trie.]()<br>
