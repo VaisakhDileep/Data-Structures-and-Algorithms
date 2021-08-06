@@ -524,3 +524,9 @@ Program365:[c++] [This program implements Kadane's largest sum contiguous subarr
 Program366:[c++] [This program implements 0-1 knapsack problem using recursion(brute force approach).](../Program366/main.cpp)<br>
 Program367:[c++] [This program implements 0-1 knapsack problem using memoization.](../Program367/main.cpp)<br>
 Program368:[c++] [This program implements 0-1 knapsack problem using tabulation.](../Program368/main.cpp)<br>
+
+# Trie:
+
+Program369:[c++] [This program creates a trie.](../Program369/main.cpp)<br>
+Program370:[c++] [This program inserts an element into a trie.](../Program370/main.cpp)<br>
+Program371:[c++] [This program extracts all the words in a trie.](../Program371/main.cpp)<br>
