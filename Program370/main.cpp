@@ -24,7 +24,7 @@ struct Trie
 	Trie_Node *root {};
 };
 
-void insert_trie(Trie *trie, string word)
+void insert_word_trie(Trie *trie, string word)
 {
 	if(trie == nullptr)
 	{
@@ -73,11 +73,11 @@ void insert_trie(Trie *trie, string word)
 	crawler->end_of_word = true;
 }
 
-void handle_insert_trie(Trie *trie, string word)
+void handle_insert_word_trie(Trie *trie, string word)
 {
 	try
 	{
-		insert_trie(trie, word);
+		insert_word_trie(trie, word);
 	}
 	catch(string &ex)
 	{
@@ -89,10 +89,10 @@ int main()
 {
 	Trie dictionary_1 {};
 
-	handle_insert_trie(&dictionary_1, "Michael");
-	handle_insert_trie(&dictionary_1, "Franklin");
-	handle_insert_trie(&dictionary_1, "Lamar");
-	handle_insert_trie(&dictionary_1, "Trevor");
+	handle_insert_word_trie(&dictionary_1, "Michael");
+	handle_insert_word_trie(&dictionary_1, "Franklin");
+	handle_insert_word_trie(&dictionary_1, "Lamar");
+	handle_insert_word_trie(&dictionary_1, "Trevor");
 
 	return 0;
 }

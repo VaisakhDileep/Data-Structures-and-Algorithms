@@ -1,14 +1,12 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 6, August, 2021
-Description : This program displays all the words in a trie.
+Date		: 7, August, 2021
+Description : This program searches for a word in a trie.
 */
 
 #include<iostream>
 
 #include<algorithm>
-
-#include<vector>
 
 using namespace std;
 
@@ -128,6 +126,52 @@ void handle_display_all_words_trie(Trie *trie)
 	display_all_words_trie(trie->root, "", 0);
 }
 
+bool search_word_trie(Trie_Node *trie_node, string word)
+{
+	if(trie_node == nullptr)
+	{
+		throw string {"ERROR - Invalid operation, trie is not valid ....."};
+	}
+
+	transform(word.begin(), word.end(), word.begin(), ::tolower);
+
+	for(int i {0}; i < word.size(); i++)
+	{
+		if(!isalpha(word.at(i)))
+		{
+			throw string {"ERROR - Invalid operation, given word contains non alphabet characters ....."};
+		}
+	}
+
+	Trie_Node *crawler {trie_node};
+
+	for(int i {0}; i < word.length(); i++)
+	{
+		int index {word.at(i) - 'a'};
+
+		if(crawler->children[index] == nullptr)
+		{
+			return false;
+		}
+
+		crawler = crawler->children[index];
+	}
+
+	return crawler->end_of_word;
+}
+
+bool handle_search_word_trie(Trie *trie, string word)
+{
+	try
+	{
+		return search_word_trie(trie->root, word);
+	}
+	catch(string &ex)
+	{
+		cout<<ex;
+	}
+}
+
 int main()
 {
 	Trie dictionary_1 {};
@@ -139,8 +183,8 @@ int main()
 	handle_insert_word_trie(&dictionary_1, "Trevor");
 	handle_insert_word_trie(&dictionary_1, "Trev");
 
-	cout<<"dictionary 1: ";
-	handle_display_all_words_trie(&dictionary_1);
+	cout<<"handle_search_word_trie(&dictionary_1, \"Michael\"): "<<handle_search_word_trie(&dictionary_1, "Michael")<<"\n";
+	cout<<"handle_search_word_trie(&dictionary_1, \"Micky\"): "<<handle_search_word_trie(&dictionary_1, "Micky")<<"\n";
 
 	return 0;
 }

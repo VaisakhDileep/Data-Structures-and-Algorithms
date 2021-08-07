@@ -531,4 +531,5 @@ Program369:[c++] [This program creates a trie.](../Program369/main.cpp)<br>
 Program370:[c++] [This program inserts an element into a trie.](../Program370/main.cpp)<br>
 Program371:[c++] [This program extracts all the words in a trie.](../Program371/main.cpp)<br>
 Program372:[c++] [This program displays all the words in a trie.](../Program372/main.cpp)<br>
-Program373:[c++] [This program deletes a word from a trie.]()<br>
+Program373:[c++] [This program removes a word from a trie.](../Program373/main.cpp)<br>
+Program374:[c++] [This program searches for a word in a trie.](../Program374/main.cpp)<br>

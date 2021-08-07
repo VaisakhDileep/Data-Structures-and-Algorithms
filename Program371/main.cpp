@@ -26,7 +26,7 @@ struct Trie
 	Trie_Node *root {};
 };
 
-void insert_trie(Trie *trie, string word)
+void insert_word_trie(Trie *trie, string word)
 {
 	if(trie == nullptr)
 	{
@@ -75,11 +75,11 @@ void insert_trie(Trie *trie, string word)
 	crawler->end_of_word = true;
 }
 
-void handle_insert_trie(Trie *trie, string word)
+void handle_insert_word_trie(Trie *trie, string word)
 {
 	try
 	{
-		insert_trie(trie, word);
+		insert_word_trie(trie, word);
 	}
 	catch(string &ex)
 	{
@@ -91,9 +91,9 @@ void extract_all_words_trie(Trie_Node *trie_node, string word, vector<string> *w
 {
 	if(trie_node->end_of_word == true)
 	{
-		// word += trie_node->data; // For our trie data-structure we store the present character in "data", this is one way of retreiving the word.
-
 		words->push_back(word);
+
+		// word += trie_node->data; // For our trie data-structure we store the present character in "data", this is one way of retreiving the word.
 	}
 
 	for(int i {0}; i < 26; i++)
@@ -138,12 +138,12 @@ int main()
 {
 	Trie dictionary_1 {};
 
-	handle_insert_trie(&dictionary_1, "Michael");
-	handle_insert_trie(&dictionary_1, "Micky");
-	handle_insert_trie(&dictionary_1, "Franklin");
-	handle_insert_trie(&dictionary_1, "Frank");
-	handle_insert_trie(&dictionary_1, "Trevor");
-	handle_insert_trie(&dictionary_1, "Trev");
+	handle_insert_word_trie(&dictionary_1, "Michael");
+	handle_insert_word_trie(&dictionary_1, "Micky");
+	handle_insert_word_trie(&dictionary_1, "Franklin");
+	handle_insert_word_trie(&dictionary_1, "Frank");
+	handle_insert_word_trie(&dictionary_1, "Trevor");
+	handle_insert_word_trie(&dictionary_1, "Trev");
 
 	vector<string> *words_dictionary_1 {handle_extract_all_words_trie(&dictionary_1)};
 
