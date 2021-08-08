@@ -143,7 +143,7 @@ Trie_Node* remove_word_trie(Trie_Node *trie_node, string word, int level)
 {
 	if(trie_node == nullptr)
 	{
-		throw string {"ERROR - Invalid operation, word not present in trie ....."};
+		throw string {"ERROR - Invalid operation, given word not present in trie ....."};
 
 		// return nullptr; // If you choose not to give an exception.
 	}
@@ -156,7 +156,7 @@ Trie_Node* remove_word_trie(Trie_Node *trie_node, string word, int level)
 		}
 		else
 		{
-			throw string {"ERROR - Invalid operation, word not present in trie ....."};
+			throw string {"ERROR - Invalid operation, given word not present in trie ....."};
 		}
 
 

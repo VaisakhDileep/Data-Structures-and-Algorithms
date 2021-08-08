@@ -533,3 +533,9 @@ Program371:[c++] [This program extracts all the words in a trie.](../Program371/
 Program372:[c++] [This program displays all the words in a trie.](../Program372/main.cpp)<br>
 Program373:[c++] [This program removes a word from a trie.](../Program373/main.cpp)<br>
 Program374:[c++] [This program searches for a word in a trie.](../Program374/main.cpp)<br>
+Program375:[c++] [This program counts the number of strings with given prefix using trie.](../Program375/main.cpp)<br>
+Program376:[c++] [This program demonstrates the auto complete feature using trie.](../Program376/main.cpp)<br>
+
+# Huffman Coding:
+
+Program377:[c++] []()<br>

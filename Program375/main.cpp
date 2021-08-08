@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 7, August, 2021
-Description : This program searches for a word in a trie.
+Description : This program counts the number of strings with given prefix using trie.
 */
 
 #include<iostream>
@@ -12,7 +12,7 @@ using namespace std;
 
 struct Trie_Node
 {
-	char data {};
+	int prefix_count {0}; // Keeps track of the prefix count of the word.
 
 	Trie_Node *children[26] {};
 
@@ -57,11 +57,13 @@ void insert_word_trie(Trie *trie, string word)
 
 				crawler = crawler->children[index];
 
-				crawler->data = word.at(i);
+				(crawler->prefix_count)++;
 			}
 			else
 			{
 				crawler = crawler->children[index];
+
+				(crawler->prefix_count)++;
 			}
 		}
 		else
@@ -85,48 +87,7 @@ void handle_insert_word_trie(Trie *trie, string word)
 	}
 }
 
-void display_all_words_trie(Trie_Node *trie_node, string word, int level)
-{
-	if(trie_node->end_of_word == true)
-	{
-		// word += trie_node->data; // For our trie data structure we store the present character in "data", this is one way of retrieving the word.
-
-		cout<<word<<" ";
-	}
-
-	for(int i {0}; i < 26; i++)
-	{
-		if(trie_node->children[i] != nullptr)
-		{
-			if(word.size() == level)
-			{
-				word += i + 'a';
-
-				// word += trie_node->data; // For our trie data structure we store the present character in "data", this is one way of retrieving the word.
-			}
-			else
-			{
-				word[level] = i + 'a';
-
-				// word[level] = trie_node->data; // For our trie data structure we store the present character in "data", this is one way of retrieving the word.
-			}
-
-			display_all_words_trie(trie_node->children[i], word, level + 1);
-		}
-	}
-}
-
-void handle_display_all_words_trie(Trie *trie)
-{
-	if((trie == nullptr) or (trie->root == nullptr))
-	{
-		cout<<"ERROR - Invalid operation, trie is not valid .....";
-	}
-
-	display_all_words_trie(trie->root, "", 0);
-}
-
-bool search_word_trie(Trie *trie, string word)
+int prefix_count_trie(Trie *trie, string word)
 {
 	if((trie == nullptr) or (trie->root == nullptr))
 	{
@@ -135,36 +96,35 @@ bool search_word_trie(Trie *trie, string word)
 
 	transform(word.begin(), word.end(), word.begin(), ::tolower);
 
-	for(int i {0}; i < word.size(); i++)
-	{
-		if(!isalpha(word.at(i)))
-		{
-			throw string {"ERROR - Invalid operation, given word contains non alphabet characters ....."};
-		}
-	}
-
 	Trie_Node *crawler {trie->root};
 
-	for(int i {0}; i < word.length(); i++)
+	for(int i {0}; i < word.size(); i++)
 	{
-		int index {word.at(i) - 'a'};
-
-		if(crawler->children[index] == nullptr)
+		if(isalpha(word.at(i)))
 		{
-			return false;
-		}
+			int index {word.at(i) - 'a'};
 
-		crawler = crawler->children[index];
+			if((crawler->children[index] == nullptr) or (crawler->children[index]->prefix_count == 0))
+			{
+				throw string {"ERROR - Invalid operation, given word not present in trie ....."};
+			}
+
+			crawler = crawler->children[index];
+		}
+		else
+		{
+			throw string {"ERROR - Invalid operation, given word contains non negative characters ....."};
+		}
 	}
 
-	return crawler->end_of_word;
+	return crawler->prefix_count;
 }
 
-bool handle_search_word_trie(Trie *trie, string word)
+int handle_prefix_count_trie(Trie *trie, string word)
 {
 	try
 	{
-		return search_word_trie(trie, word);
+		return prefix_count_trie(trie, word);
 	}
 	catch(string &ex)
 	{
@@ -183,8 +143,7 @@ int main()
 	handle_insert_word_trie(&dictionary_1, "Trevor");
 	handle_insert_word_trie(&dictionary_1, "Trev");
 
-	cout<<"handle_search_word_trie(&dictionary_1, \"Michael\"): "<<handle_search_word_trie(&dictionary_1, "Michael")<<"\n";
-	cout<<"handle_search_word_trie(&dictionary_1, \"Micky\"): "<<handle_search_word_trie(&dictionary_1, "Micky")<<"\n";
+	cout<<"handle_prefix_count_trie(&dictionary_1, \"m\"): "<<handle_prefix_count_trie(&dictionary_1, "m")<<"\n";
 
 	return 0;
 }
