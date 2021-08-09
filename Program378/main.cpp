@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 8, August, 2021
-Description : This program creates the huffman table for the given message.
+Date		: 9, August, 2021
+Description : This program performs huffman encoding for the given message.
 */
 
 #include<iostream>
@@ -118,24 +118,53 @@ Huffman_Table* handle_create_huffman_table(string message)
 	}
 }
 
-void display_huffman_table(Huffman_Table *huffman_table)
+string encoding_huffman(Huffman_Table *huffman_table, string message)
 {
-	if(huffman_table == nullptr)
+	if(message.size() <= 1)
 	{
-		return ;
+		throw string {"ERROR - Invalid operation, huffman encoding cannot be performed for strings with length lesser than or equal to 1 ....."};
 	}
 
-	for(auto itr {huffman_table->table.begin()}; itr != huffman_table->table.end(); itr++)
+	string encoded_message {};
+
+	for(int i {0}; i < message.size(); i++)
 	{
-		cout<<itr->first<<" : "<<itr->second<<"\n";
+		if(huffman_table->table.find(message.at(i)) != huffman_table->table.end())
+		{
+			encoded_message += huffman_table->table[message.at(i)];
+		}
+		else
+		{
+			throw string {"ERROR - Invalid operation, character key not present in the huffman table ....."};
+		}
+	}
+
+	return encoded_message;
+}
+
+string handle_encoding_huffman(Huffman_Table *huffman_table, string message)
+{
+	try
+	{
+		return encoding_huffman(huffman_table, message);
+	}
+	catch(string &ex)
+	{
+		cout<<ex;
+
+		return "";
 	}
 }
 
 int main()
 {
-	Huffman_Table *huffman_table {handle_create_huffman_table("Vaisakh")};
+	string message {"Vaisakh Dileep"}, encoded_message {};
 
-	display_huffman_table(huffman_table);
+	Huffman_Table *huffman_table {handle_create_huffman_table(message)};
+
+	encoded_message = handle_encoding_huffman(huffman_table, message);
+
+	cout<<message<<" --after encoding--> "<<encoded_message<<"\n";
 
 	return 0;
 }

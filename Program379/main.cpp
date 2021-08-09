@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 8, August, 2021
-Description : This program creates the huffman table for the given message.
+Date		: 9, August, 2021
+Description : This program creates the huffman tree for the given message.
 */
 
 #include<iostream>
@@ -9,8 +9,6 @@ Description : This program creates the huffman table for the given message.
 #include<unordered_map>
 
 #include<queue>
-
-#include<vector>
 
 using namespace std;
 
@@ -25,27 +23,10 @@ struct Node
 	Node *right;
 };
 
-struct Huffman_Table
+struct Huffman_Tree
 {
-	unordered_map<char, string> table {};
+	Node *root;
 };
-
-void extract_huffman_code(Node *node, Huffman_Table *huffman_table, string code = "")
-{
-	if(node == nullptr)
-	{
-		return ;
-	}
-
-	if(node->character != '~')
-	{
-		huffman_table->table[node->character] = code;
-	}
-
-	extract_huffman_code(node->left, huffman_table, code + "0");
-
-	extract_huffman_code(node->right, huffman_table, code + "1");
-}
 
 class Custom_Compare // Custom compare function for "priority_queue".
 {
@@ -56,14 +37,14 @@ public:
 	}
 };
 
-Huffman_Table* create_huffman_table(string message) // "message" is case-sensitive.
+Huffman_Tree* create_huffman_tree(string message)
 {
 	if(message.size() <= 1)
 	{
-		throw string {"ERROR - Invalid operation, huffman table cannot be constructed for strings with length lesser than or equal to 1 ....."};
+		throw string {"Invalid operation, huffman tree cannot be constructed for strings with length lesser than or equal to 1 ....."};
 	}
 
-	Huffman_Table *huffman_table {new Huffman_Table {}};
+	Huffman_Tree *huffman_tree(new Huffman_Tree {});
 
 	unordered_map<char, int> character_frequency {};
 
@@ -101,16 +82,16 @@ Huffman_Table* create_huffman_table(string message) // "message" is case-sensiti
 		min_heap.push(new_node);
 	}
 
-	extract_huffman_code(min_heap.top(), huffman_table);
+	huffman_tree->root = min_heap.top();
 
-	return huffman_table;
+	return huffman_tree;
 }
 
-Huffman_Table* handle_create_huffman_table(string message)
+Huffman_Tree* handle_create_huffman_tree(string message)
 {
 	try
 	{
-		return create_huffman_table(message);
+		return create_huffman_tree(message);
 	}
 	catch(string &ex)
 	{
@@ -118,24 +99,9 @@ Huffman_Table* handle_create_huffman_table(string message)
 	}
 }
 
-void display_huffman_table(Huffman_Table *huffman_table)
-{
-	if(huffman_table == nullptr)
-	{
-		return ;
-	}
-
-	for(auto itr {huffman_table->table.begin()}; itr != huffman_table->table.end(); itr++)
-	{
-		cout<<itr->first<<" : "<<itr->second<<"\n";
-	}
-}
-
 int main()
 {
-	Huffman_Table *huffman_table {handle_create_huffman_table("Vaisakh")};
-
-	display_huffman_table(huffman_table);
+	Huffman_Tree *huffman_tree {handle_create_huffman_tree("Vaisakh")};
 
 	return 0;
 }

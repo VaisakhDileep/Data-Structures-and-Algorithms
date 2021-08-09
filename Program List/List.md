@@ -538,4 +538,7 @@ Program376:[c++] [This program demonstrates the auto complete feature using trie
 
 # Huffman Coding:
 
-Program377:[c++] []()<br>
+Program379:[c++] [This program creates the huffman tree for the given message.](../Program379/main.cpp)<br>
+Program377:[c++] [This program creates the huffman table for the given message.](../Program377/main.cpp)<br>
+Program378:[c++] [This program performs huffman encoding for the given message.](../Program378/main.cpp)<br>
+Program380:[c++] [This program performs huffman decoding for the given message.](../Program380/main.cpp)
