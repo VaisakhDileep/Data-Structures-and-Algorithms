@@ -487,6 +487,7 @@ Program364:[c++] [This program finds the single source shortest path for a weigh
 # Detect Negative Cycle in Weighed Directed Graph:
 
 Program362:[c++] [This program detects the presence of a negative cycle in a weighed directed graph represented using adjacency list(Bellman-Ford's algorithm).](../Program362/main.cpp)<br>
+Program383:[c++] [This program detects the presence of a negative cycle in a weighed directed graph represented using adjacency matrix(Floyd Warshall's algorithm).](../Program383/main.cpp)<br>
 
 # Dynamic Programming:
 
@@ -542,3 +543,8 @@ Program379:[c++] [This program creates the huffman tree for the given message.](
 Program377:[c++] [This program creates the huffman table for the given message.](../Program377/main.cpp)<br>
 Program378:[c++] [This program performs huffman encoding for the given message.](../Program378/main.cpp)<br>
 Program380:[c++] [This program performs huffman decoding for the given message.](../Program380/main.cpp)
+
+# Segment Tree For Range Minimum Query:
+
+Program381:[c++] [This program constructs a segment tree for range minimum query.](../Program381/main.cpp)<br>
+Program382:[c++] [This program performs the range minimum query operation on the segment tree.](../Program382/main.cpp)<br>
