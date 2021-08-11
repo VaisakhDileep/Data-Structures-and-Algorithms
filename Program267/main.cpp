@@ -6,15 +6,13 @@ Description : This program deletes a directed graph.
 
 #include<iostream>
 
+#include<vector>
+
 using namespace std;
 
 struct Directed_Graph
 {
-	int **A;
-
-	int rows;
-
-	int columns;
+	vector<vector<int>*> *A;
 };
 
 struct Edge
@@ -31,12 +29,17 @@ void delete_directed_graph(Directed_Graph *d_graph)
 		throw string {"ERROR - Invalid operation, graph is not valid ....."};
 	}
 
-	for(int i {0}; i < d_graph->rows; i++)
+	if((d_graph->A == nullptr) or (d_graph->A->size() == 0))
 	{
-		delete[] d_graph->A[i];
+		return ;
 	}
 
-	delete[] d_graph->A;
+	for(int i {0}; i < d_graph->A->size(); i++)
+	{
+		delete d_graph->A->at(i);
+	}
+
+	delete d_graph->A;
 }
 
 void handle_delete_directed_graph(Directed_Graph *d_graph)
@@ -53,7 +56,7 @@ void handle_delete_directed_graph(Directed_Graph *d_graph)
 
 int main()
 {
-	Directed_Graph d_graph {new int*[5] {new int[4] {0, 1, 0, 1}, new int[4] {0, 0, 1, 0}, new int[4] {1, 1, 0, 0}, new int[4] {1, 1, 0, 0}, new int[4] {1, 0, 0, 0}}, 5, 4};
+	Directed_Graph d_graph {new vector<vector<int>*> {new vector<int> {1, 1, 0, 1}, new vector<int> {0, 0, 1, 0}, new vector<int> {1, 1, 0, 0}, new vector<int> {1, 1, 0, 0}, new vector<int> {1, 0, 0, 0}}};
 
 	handle_delete_directed_graph(&d_graph);
 

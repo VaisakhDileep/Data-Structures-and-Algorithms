@@ -6,15 +6,13 @@ Description : This program deletes a weighed directed graph.
 
 #include<iostream>
 
+#include<vector>
+
 using namespace std;
 
 struct Weighed_Directed_Graph
 {
-	int **A;
-
-	int rows;
-
-	int columns;
+	vector<vector<int>*> *A;
 };
 
 struct Weighed_Edge
@@ -33,12 +31,17 @@ void delete_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
 		throw string {"ERROR - Invalid operation, graph is not valid ....."};
 	}
 
-	for(int i {0}; i < wd_graph->rows; i++)
+	if((wd_graph->A == nullptr) or (wd_graph->A->size() == 0))
 	{
-		delete[] wd_graph->A[i];
+		return ;
 	}
 
-	delete[] wd_graph->A;
+	for(int i {0}; i < wd_graph->A->size(); i++)
+	{
+		delete wd_graph->A->at(i);
+	}
+
+	delete wd_graph->A;
 }
 
 void handle_delete_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
@@ -55,7 +58,7 @@ void handle_delete_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
 
 int main()
 {
-	Weighed_Directed_Graph wd_graph {new int*[5] {new int[3] {0, 0, 4}, new int[3] {1, 0, 0}, new int[3] {1, 2, 0}, new int[3] {7, 5, 0}, new int[3] {8, 3, 2}}, 5, 3};
+	Weighed_Directed_Graph wd_graph {new vector<vector<int>*> {new vector<int> {0, INT_MAX, 4}, new vector<int> {1, 0, INT_MAX}, new vector<int> {1, 2, 0}, new vector<int> {7, 5, INT_MAX}, new vector<int> {8, 3, 2}}};
 
 	handle_delete_weighed_directed_graph(&wd_graph);
 

@@ -8,15 +8,13 @@ Description : This program creates a weighed directed graph.
 
 #include<iostream>
 
+#include<vector>
+
 using namespace std;
 
 struct Weighed_Directed_Graph // Using adjacency matrix.
 {
-	int **A; // dynamically created 2-D array.
-
-	int rows; // number of rows.
-
-	int columns; // number of columns.
+	vector<vector<int>*> *A; // dynamically created 2-D array.
 };
 
 struct Weighed_Edge
@@ -30,7 +28,7 @@ struct Weighed_Edge
 
 int main()
 {
-	Weighed_Directed_Graph wd_graph {new int*[5] {new int[3] {0, 0, 4}, new int[3] {1, 0, 0}, new int[3] {1, 2, 0}, new int[3] {7, 5, 0}, new int[3] {8, 3, 2}}, 5, 3};
+	Weighed_Directed_Graph wd_graph {new vector<vector<int>*> {new vector<int> {0, INT_MAX, 4}, new vector<int> {1, 0, INT_MAX}, new vector<int> {1, 2, 0}, new vector<int> {7, 5, INT_MAX}, new vector<int> {8, 3, 2}}};
 
 	return 0;
 }

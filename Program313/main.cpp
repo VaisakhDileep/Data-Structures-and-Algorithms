@@ -8,15 +8,15 @@ Description : This program demonstrates depth first search for a weighed undirec
 
 #include<iomanip>
 
+#include<vector>
+
 using namespace std;
 
 namespace Weighed_Undirected_Graph_Using_Adjacency_Matrix // Weighed Undirected Graph is designed using Adjacency Matrix representation.
 {
 	struct Weighed_Undirected_Graph
 	{
-		int **A;
-
-		int n;
+		vector<vector<int>*> *A;
 	};
 
 	struct Weighed_Edge
@@ -30,7 +30,7 @@ namespace Weighed_Undirected_Graph_Using_Adjacency_Matrix // Weighed Undirected 
 
 	void display_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph)
 	{
-		if(wu_graph == nullptr)
+		if((wu_graph == nullptr) or (wu_graph->A == nullptr) or (wu_graph->A->size() == 0))
 		{
 			cout<<"[\n]";
 
@@ -38,37 +38,49 @@ namespace Weighed_Undirected_Graph_Using_Adjacency_Matrix // Weighed Undirected 
 		}
 
 		cout<<"[\n     ";
-		for(int i {0}; i < wu_graph->n; i++)
+		for(int i {0}; i < wu_graph->A->size(); i++)
 		{
 			cout<<setw(3)<<i<<" ";
 		}
 		cout<<"\n";
 
-		for(int i {0}; i < wu_graph->n; i++)
+		for(int i {0}; i < wu_graph->A->size(); i++)
 		{
 			cout<<setw(3)<<left<<i<<right<<"[ ";
-			for(int j {0}; j < wu_graph->n; j++)
+			for(int j {0}; j < wu_graph->A->size(); j++)
 			{
-				cout<<setw(3)<<wu_graph->A[i][j]<<" ";
+				if(wu_graph->A->at(i)->at(j) == INT_MAX)
+				{
+					cout<<"INF"<<" ";
+				}
+				else
+				{
+					cout<<setw(3)<<wu_graph->A->at(i)->at(j)<<" ";
+				}
 			}
 			cout<<"]\n";
 		}
 		cout<<"]";
 	}
 
-	void delete_weighed_undirected_graph(Weighed_Undirected_Graph *u_graph)
+	void delete_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph)
 	{
-		if(u_graph == nullptr)
+		if(wu_graph == nullptr)
 		{
 			throw string {"ERROR - Invalid operation, graph is not valid ....."};
 		}
 
-		for(int i {0}; i < u_graph->n; i++)
+		if((wu_graph->A == nullptr) or (wu_graph->A->size() == 0))
 		{
-			delete[] u_graph->A[i];
+			return ;
 		}
 
-		delete[] u_graph->A;
+		for(int i {0}; i < wu_graph->A->size(); i++)
+		{
+			delete wu_graph->A->at(i);
+		}
+
+		delete wu_graph->A;
 	}
 
 	void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge w_edge)
@@ -78,41 +90,52 @@ namespace Weighed_Undirected_Graph_Using_Adjacency_Matrix // Weighed Undirected 
 			throw string {"ERROR - Invalid operation, graph is not valid ....."};
 		}
 
+		if((wu_graph->A == nullptr) or (wu_graph->A->size() == 0))
+		{
+			wu_graph->A = new vector<vector<int>*> {new vector<int> {}};
+		}
+
 		if((w_edge.vertex_1 < 0) or (w_edge.vertex_2 < 0))
 		{
 			throw string {"ERROR - Invalid operation, given edge contains negative vertex ....."};
 		}
 
-		if((w_edge.vertex_1 < wu_graph->n) and (w_edge.vertex_2 < wu_graph->n))
+		if((w_edge.vertex_1 < wu_graph->A->size()) and (w_edge.vertex_2 < wu_graph->A->size()))
 		{
-			wu_graph->A[w_edge.vertex_1][w_edge.vertex_2] = wu_graph->A[w_edge.vertex_2][w_edge.vertex_1] = w_edge.weight;
+			wu_graph->A->at(w_edge.vertex_1)->at(w_edge.vertex_2) = wu_graph->A->at(w_edge.vertex_2)->at(w_edge.vertex_1) = w_edge.weight;
 		}
 		else
 		{
 			int new_n {(w_edge.vertex_1 > w_edge.vertex_2) ? w_edge.vertex_1 + 1 : w_edge.vertex_2 + 1};
 
-			Weighed_Undirected_Graph temp {new int*[new_n] {}, new_n};
+			Weighed_Undirected_Graph temp {new vector<vector<int>*>(new_n, nullptr)};
 
 			for(int i {0}; i < new_n; i++)
 			{
-				temp.A[i] = new int[new_n] {};
+				temp.A->at(i) = new vector<int>(new_n, INT_MAX);
 			}
 
-			for(int i {0}; i < wu_graph->n; i++)
+			for(int i {0}; i < wu_graph->A->size(); i++)
 			{
-				for(int j {0}; j < wu_graph->n; j++)
+				for(int j {0}; j < wu_graph->A->at(0)->size(); j++)
 				{
-					temp.A[i][j] = wu_graph->A[i][j];
+					temp.A->at(i)->at(j) = wu_graph->A->at(i)->at(j);
 				}
 			}
 
-			temp.A[w_edge.vertex_1][w_edge.vertex_2] = temp.A[w_edge.vertex_2][w_edge.vertex_1] = w_edge.weight;
+			temp.A->at(w_edge.vertex_1)->at(w_edge.vertex_2) = temp.A->at(w_edge.vertex_2)->at(w_edge.vertex_1) = w_edge.weight;
 
 			delete_weighed_undirected_graph(wu_graph);
 
 			wu_graph->A = temp.A;
 
-			wu_graph->n = temp.n;
+			for(int i {0}; i < wu_graph->A->size(); i++)
+			{
+				if(wu_graph->A->at(i)->at(i) == INT_MAX)
+				{
+					wu_graph->A->at(i)->at(i) = 0;
+				}
+			}
 		}
 	}
 
@@ -159,9 +182,9 @@ void depth_first_search(Weighed_Undirected_Graph *wu_graph, int node, int *visit
 
 		visited[node] = 1;
 
-		for(int i {0}; i < wu_graph->n; i++)
+		for(int i {0}; i < wu_graph->A->size(); i++)
 		{
-			if((wu_graph->A[node][i] != 0) and (visited[i] == 0)) // Not necessary to include "visited[i] == 0", but saves recursive calls.
+			if((wu_graph->A->at(node)->at(i) != INT_MAX) and (visited[i] == 0)) // Not necessary to include "visited[i] == 0", but saves recursive calls.
 			{
 				depth_first_search(wu_graph, i, visited);
 			}
@@ -178,6 +201,13 @@ void handle_depth_first_search(Weighed_Undirected_Graph *wu_graph, int root = 0)
 		return ;
 	}
 
+	if((wu_graph->A == nullptr) or (wu_graph->A->size() == 0))
+	{
+		cout<<"ERROR - Invalid operation, graph is empty .....";
+
+		return ;
+	}
+
 	if(root < 0)
 	{
 		cout<<"ERROR - Invalid root vertex, vertex cannot be negative .....";
@@ -185,7 +215,7 @@ void handle_depth_first_search(Weighed_Undirected_Graph *wu_graph, int root = 0)
 		return ;
 	}
 
-	depth_first_search(wu_graph, root, new int[wu_graph->n] {0});
+	depth_first_search(wu_graph, root, new int[wu_graph->A->size()] {0});
 }
 
 int main()

@@ -8,13 +8,13 @@ Description : This program inserts an edge to a weighed undirected graph.
 
 #include<iomanip>
 
+#include<vector>
+
 using namespace std;
 
 struct Weighed_Undirected_Graph
 {
-	int **A;
-
-	int n;
+	vector<vector<int>*> *A;
 };
 
 struct Weighed_Edge
@@ -28,7 +28,7 @@ struct Weighed_Edge
 
 void display_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph)
 {
-	if(wu_graph == nullptr)
+	if((wu_graph == nullptr) or (wu_graph->A == nullptr) or (wu_graph->A->size() == 0))
 	{
 		cout<<"[\n]";
 
@@ -36,37 +36,49 @@ void display_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph)
 	}
 
 	cout<<"[\n     ";
-	for(int i {0}; i < wu_graph->n; i++)
+	for(int i {0}; i < wu_graph->A->size(); i++)
 	{
 		cout<<setw(3)<<i<<" ";
 	}
 	cout<<"\n";
 
-	for(int i {0}; i < wu_graph->n; i++)
+	for(int i {0}; i < wu_graph->A->size(); i++)
 	{
 		cout<<setw(3)<<left<<i<<right<<"[ ";
-		for(int j {0}; j < wu_graph->n; j++)
+		for(int j {0}; j < wu_graph->A->size(); j++)
 		{
-			cout<<setw(3)<<wu_graph->A[i][j]<<" ";
+			if(wu_graph->A->at(i)->at(j) == INT_MAX)
+			{
+				cout<<"INF"<<" ";
+			}
+			else
+			{
+				cout<<setw(3)<<wu_graph->A->at(i)->at(j)<<" ";
+			}
 		}
 		cout<<"]\n";
 	}
 	cout<<"]";
 }
 
-void delete_weighed_undirected_graph(Weighed_Undirected_Graph *u_graph)
+void delete_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph)
 {
-	if(u_graph == nullptr)
+	if(wu_graph == nullptr)
 	{
 		throw string {"ERROR - Invalid operation, graph is not valid ....."};
 	}
 
-	for(int i {0}; i < u_graph->n; i++)
+	if((wu_graph->A == nullptr) or (wu_graph->A->size() == 0))
 	{
-		delete[] u_graph->A[i];
+		return ;
 	}
 
-	delete[] u_graph->A;
+	for(int i {0}; i < wu_graph->A->size(); i++)
+	{
+		delete wu_graph->A->at(i);
+	}
+
+	delete wu_graph->A;
 }
 
 void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge w_edge)
@@ -76,41 +88,52 @@ void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weigh
 		throw string {"ERROR - Invalid operation, graph is not valid ....."};
 	}
 
+	if((wu_graph->A == nullptr) or (wu_graph->A->size() ==0))
+	{
+		wu_graph->A = new vector<vector<int>*> {new vector<int> {}};
+	}
+
 	if((w_edge.vertex_1 < 0) or (w_edge.vertex_2 < 0))
 	{
 		throw string {"ERROR - Invalid operation, given edge contains negative vertex ....."};
 	}
 
-	if((w_edge.vertex_1 < wu_graph->n) and (w_edge.vertex_2 < wu_graph->n))
+	if((w_edge.vertex_1 < wu_graph->A->size()) and (w_edge.vertex_2 < wu_graph->A->size()))
 	{
-		wu_graph->A[w_edge.vertex_1][w_edge.vertex_2] = wu_graph->A[w_edge.vertex_2][w_edge.vertex_1] = w_edge.weight;
+		wu_graph->A->at(w_edge.vertex_1)->at(w_edge.vertex_2) = wu_graph->A->at(w_edge.vertex_2)->at(w_edge.vertex_1) = w_edge.weight;
 	}
 	else
 	{
 		int new_n {(w_edge.vertex_1 > w_edge.vertex_2) ? w_edge.vertex_1 + 1 : w_edge.vertex_2 + 1};
 
-		Weighed_Undirected_Graph temp {new int*[new_n] {}, new_n};
+		Weighed_Undirected_Graph temp {new vector<vector<int>*>(new_n, nullptr)};
 
 		for(int i {0}; i < new_n; i++)
 		{
-			temp.A[i] = new int[new_n] {};
+			temp.A->at(i) = new vector<int>(new_n, INT_MAX);
 		}
 
-		for(int i {0}; i < wu_graph->n; i++)
+		for(int i {0}; i < wu_graph->A->size(); i++)
 		{
-			for(int j {0}; j < wu_graph->n; j++)
+			for(int j {0}; j < wu_graph->A->at(0)->size(); j++)
 			{
-				temp.A[i][j] = wu_graph->A[i][j];
+				temp.A->at(i)->at(j) = wu_graph->A->at(i)->at(j);
 			}
 		}
 
-		temp.A[w_edge.vertex_1][w_edge.vertex_2] = temp.A[w_edge.vertex_2][w_edge.vertex_1] = w_edge.weight;
+		temp.A->at(w_edge.vertex_1)->at(w_edge.vertex_2) = temp.A->at(w_edge.vertex_2)->at(w_edge.vertex_1) = w_edge.weight;
 
 		delete_weighed_undirected_graph(wu_graph);
 
 		wu_graph->A = temp.A;
 
-		wu_graph->n = temp.n;
+		for(int i {0}; i < wu_graph->A->size(); i++)
+		{
+			if(wu_graph->A->at(i)->at(i) == INT_MAX)
+			{
+				wu_graph->A->at(i)->at(i) = 0;
+			}
+		}
 	}
 }
 
@@ -128,21 +151,27 @@ void handle_add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph
 
 int main()
 {
-	Weighed_Undirected_Graph wu_graph {new int*[5] {new int[5] {0, 3, 0, 0, 7}, new int[5] {3, 0, 0, 0, 0}, new int[5] {0, 0, 0, 8, 0}, new int[5] {0, 0, 8, 0, 0}, new int[5] {7, 0, 0, 0, 0}}, 5};
+	Weighed_Undirected_Graph wu_graph {new vector<vector<int>*> {new vector<int> {0, 3, INT_MAX, INT_MAX, 7}, new vector<int> {3, 0, INT_MAX, INT_MAX, INT_MAX}, new vector<int> {INT_MAX, INT_MAX, 0, 8, INT_MAX}, new vector<int> {INT_MAX, INT_MAX, 8, 0, INT_MAX}, new vector<int> {7, INT_MAX, INT_MAX, INT_MAX, 0}}};
 
-	cout<<"u_graph: \n";
+	cout<<"wu_graph: \n";
 	display_weighed_undirected_graph(&wu_graph);
 	cout<<"\n";
 
 	handle_add_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {0, 4, 10});
 
-	cout<<"u_graph [after adding {0, 4, 10}]: \n";
+	cout<<"wu_graph [after adding {0, 4, 10}]: \n";
 	display_weighed_undirected_graph(&wu_graph);
 	cout<<"\n";
 
 	handle_add_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {1, 1, 11});
 
-	cout<<"u_graph [after adding {1, 1, 11}]: \n";
+	cout<<"wu_graph [after adding {1, 1, 11}]: \n";
+	display_weighed_undirected_graph(&wu_graph);
+	cout<<"\n";
+
+	handle_add_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {2, 6, 15});
+
+	cout<<"wu_graph [after adding {2, 6, 15}]: \n";
 	display_weighed_undirected_graph(&wu_graph);
 	cout<<"\n";
 

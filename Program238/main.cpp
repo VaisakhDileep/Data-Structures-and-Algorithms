@@ -8,13 +8,13 @@ Description : This program inserts an edge to an undirected graph.
 
 #include<iomanip>
 
+#include<vector>
+
 using namespace std;
 
 struct Undirected_Graph
 {
-	int **A;
-
-	int n;
+	vector<vector<int>*> *A;
 };
 
 struct Edge
@@ -26,7 +26,7 @@ struct Edge
 
 void display_undirected_graph(Undirected_Graph *u_graph)
 {
-	if(u_graph == nullptr)
+	if((u_graph == nullptr) or (u_graph->A == nullptr) or (u_graph->A->size() == 0))
 	{
 		cout<<"[\n]";
 
@@ -34,18 +34,18 @@ void display_undirected_graph(Undirected_Graph *u_graph)
 	}
 
 	cout<<"[\n     ";
-	for(int i {0}; i < u_graph->n; i++)
+	for(int i {0}; i < u_graph->A->size(); i++)
 	{
 		cout<<setw(3)<<i<<" ";
 	}
 	cout<<"\n";
 
-	for(int i {0}; i < u_graph->n; i++)
+	for(int i {0}; i < u_graph->A->size(); i++)
 	{
 		cout<<setw(3)<<left<<i<<right<<"[ ";
-		for(int j {0}; j < u_graph->n; j++)
+		for(int j {0}; j < u_graph->A->size(); j++)
 		{
-			cout<<setw(3)<<u_graph->A[i][j]<<" ";
+			cout<<setw(3)<<u_graph->A->at(i)->at(j)<<" ";
 		}
 		cout<<"]\n";
 	}
@@ -59,12 +59,17 @@ void delete_undirected_graph(Undirected_Graph *u_graph)
 		throw string {"ERROR - Invalid operation, graph is not valid ....."};
 	}
 
-	for(int i {0}; i < u_graph->n; i++)
+	if((u_graph->A == nullptr) or (u_graph->A->size() == 0))
 	{
-		delete[] u_graph->A[i];
+		return ;
 	}
 
-	delete[] u_graph->A;
+	for(int i {0}; i < u_graph->A->size(); i++)
+	{
+		delete u_graph->A->at(i);
+	}
+
+	delete u_graph->A;
 }
 
 void add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
@@ -74,41 +79,44 @@ void add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 		throw string {"ERROR - Invalid operation, graph is not valid ....."};
 	}
 
+	if((u_graph->A == nullptr) or (u_graph->A->size() == 0))
+	{
+		u_graph->A = new vector<vector<int>*> {new vector<int> {}};
+	}
+
 	if((edge.vertex_1 < 0) or (edge.vertex_2 < 0))
 	{
 		throw string {"ERROR - Invalid operation, given edge contains negative vertex ....."};
 	}
 
-	if((edge.vertex_1 < u_graph->n) and (edge.vertex_2 < u_graph->n))
+	if((edge.vertex_1 < u_graph->A->size()) and (edge.vertex_2 < u_graph->A->size()))
 	{
-		u_graph->A[edge.vertex_1][edge.vertex_2] = u_graph->A[edge.vertex_2][edge.vertex_1] = 1;
+		u_graph->A->at(edge.vertex_1)->at(edge.vertex_2) = u_graph->A->at(edge.vertex_2)->at(edge.vertex_1) = 1;
 	}
 	else
 	{
 		int new_n {(edge.vertex_1 > edge.vertex_2) ? edge.vertex_1 + 1 : edge.vertex_2 + 1};
 
-		Undirected_Graph temp {new int*[new_n] {}, new_n};
+		Undirected_Graph temp {new vector<vector<int>*>(new_n, nullptr)};
 
 		for(int i {0}; i < new_n; i++)
 		{
-			temp.A[i] = new int[new_n] {};
+			temp.A->at(i) = new vector<int>(new_n, 0);
 		}
 
-		for(int i {0}; i < u_graph->n; i++)
+		for(int i {0}; i < u_graph->A->size(); i++)
 		{
-			for(int j {0}; j < u_graph->n; j++)
+			for(int j {0}; j < u_graph->A->at(0)->size(); j++)
 			{
-				temp.A[i][j] = u_graph->A[i][j];
+				temp.A->at(i)->at(j) = u_graph->A->at(i)->at(j);
 			}
 		}
 
-		temp.A[edge.vertex_1][edge.vertex_2] = temp.A[edge.vertex_2][edge.vertex_1] = 1;
+		temp.A->at(edge.vertex_1)->at(edge.vertex_2) = temp.A->at(edge.vertex_2)->at(edge.vertex_1) = 1;
 
 		delete_undirected_graph(u_graph);
 
 		u_graph->A = temp.A;
-
-		u_graph->n = temp.n;
 	}
 }
 
@@ -126,7 +134,7 @@ void handle_add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 
 int main()
 {
-	Undirected_Graph u_graph {new int*[5] {new int[5] {0, 1, 1, 1, 0}, new int[5] {1, 0, 1, 0, 0}, new int[5] {1, 1, 0, 1, 1}, new int [5] {1, 0, 1, 0, 1}, new int[5] {0, 0, 1, 1, 0}}, 5};
+	Undirected_Graph u_graph {new vector<vector<int>*> {new vector<int> {0, 1, 1, 1, 0}, new vector<int> {1, 0, 1, 0, 0}, new vector<int> {1, 1, 0, 1, 1}, new vector<int> {1, 0, 1, 0, 1}, new vector<int> {0, 0, 1, 1, 0}}};
 
 	cout<<"u_graph: \n";
 	display_undirected_graph(&u_graph);

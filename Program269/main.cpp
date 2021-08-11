@@ -8,15 +8,13 @@ Description : This program removes an edge from a directed graph.
 
 #include<iomanip>
 
+#include<vector>
+
 using namespace std;
 
 struct Directed_Graph
 {
-	int **A;
-
-	int rows;
-
-	int columns;
+	vector<vector<int>*> *A;
 };
 
 struct Edge
@@ -28,7 +26,7 @@ struct Edge
 
 void display_directed_graph(Directed_Graph *d_graph)
 {
-	if(d_graph == nullptr)
+	if((d_graph == nullptr) or (d_graph->A == nullptr))
 	{
 		cout<<"[\n]";
 
@@ -36,18 +34,18 @@ void display_directed_graph(Directed_Graph *d_graph)
 	}
 
 	cout<<"[\n     ";
-	for(int i {0}; i < d_graph->columns; i++)
+	for(int i {0}; i < d_graph->A->at(0)->size(); i++)
 	{
 		cout<<setw(3)<<i<<" ";
 	}
 	cout<<"\n";
 
-	for(int i {0}; i < d_graph->rows; i++)
+	for(int i {0}; i < d_graph->A->size(); i++)
 	{
 		cout<<setw(3)<<left<<i<<right<<"[ ";
-		for(int j {0}; j < d_graph->columns; j++)
+		for(int j {0}; j < d_graph->A->at(0)->size(); j++)
 		{
-			cout<<setw(3)<<d_graph->A[i][j]<<" ";
+			cout<<setw(3)<<d_graph->A->at(i)->at(j)<<" ";
 		}
 		cout<<"]\n";
 	}
@@ -61,17 +59,22 @@ void remove_edge_directed_graph(Directed_Graph *d_graph, Edge edge)
 		throw string {"ERROR - Invalid operation, graph is not valid ....."};
 	}
 
+	if(d_graph->A == nullptr) // Graph is already empty.
+	{
+		return ;
+	}
+
 	if((edge.vertex_1 < 0) or (edge.vertex_2 < 0))
 	{
 		throw string {"ERROR - Invalid operation, given edge contains negative vertex ....."};
 	}
 
-	if((edge.vertex_1 >= d_graph->rows) or (edge.vertex_2 >= d_graph->columns))
+	if((edge.vertex_1 >= d_graph->A->size()) or (edge.vertex_2 >= d_graph->A->at(0)->size()))
 	{
 		throw string {"ERROR - Invalid operation, given edge not present in the graph ....."};
 	}
 
-	d_graph->A[edge.vertex_1][edge.vertex_2] = 0;
+	d_graph->A->at(edge.vertex_1)->at(edge.vertex_2) = 0;
 }
 
 void handle_remove_edge_directed_graph(Directed_Graph *d_graph, Edge edge)
@@ -88,7 +91,7 @@ void handle_remove_edge_directed_graph(Directed_Graph *d_graph, Edge edge)
 
 int main()
 {
-	Directed_Graph d_graph {new int*[5] {new int[3] {1, 1, 0}, new int[3] {0, 0, 1}, new int[3] {1, 1, 0}, new int[3] {1, 1, 0}, new int[3] {1, 0, 0}}, 5, 3};
+	Directed_Graph d_graph {new vector<vector<int>*> {new vector<int> {1, 1, 0}, new vector<int> {0, 0, 1}, new vector<int> {1, 1, 0}, new vector<int> {1, 1, 0}, new vector<int> {1, 0, 0}}};
 
 	cout<<"d_graph: \n";
 	display_directed_graph(&d_graph);

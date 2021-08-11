@@ -8,13 +8,13 @@ Description : This program creates an undirected graph.
 
 #include<iostream>
 
+#include<vector>
+
 using namespace std;
 
 struct Undirected_Graph // Using adjacency matrix.
 {
-	int **A; // dynamically created 2-D array.
-
-	int n; // number of rows or columns.
+	vector<vector<int>*> *A; // dynamically created 2-D vector array.
 };
 
 struct Edge // Unweighted edge.
@@ -26,7 +26,7 @@ struct Edge // Unweighted edge.
 
 int main()
 {
-	Undirected_Graph u_graph {new int*[5] {new int[5] {0, 1, 1, 1, 0}, new int[5] {1, 0, 1, 0, 0}, new int[5] {1, 1, 0, 1, 1}, new int [5] {1, 0, 1, 0, 1}, new int[5] {0, 0, 1, 1, 0}}, 5};
+	Undirected_Graph u_graph {new vector<vector<int>*> {new vector<int> {0, 1, 1, 1, 0}, new vector<int> {1, 0, 1, 0, 0}, new vector<int> {1, 1, 0, 1, 1}, new vector<int> {1, 0, 1, 0, 1}, new vector<int> {0, 0, 1, 1, 0}}};
 
 	return 0;
 }

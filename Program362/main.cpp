@@ -169,7 +169,7 @@ namespace Weighed_Directed_Graph_Using_Adjacency_List // Weighed Directed Graph 
 
 using namespace Weighed_Directed_Graph_Using_Adjacency_List;
 
-bool detect_negative_cycle_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
+bool detect_negative_cycle_weighed_directed_graph(Weighed_Directed_Graph *wd_graph) // Bellman Ford's algorithm.
 {
 	if(wd_graph == nullptr)
 	{

@@ -8,15 +8,15 @@ Description : This program demonstrates depth first search for an undirected gra
 
 #include<iomanip>
 
+#include<vector>
+
 using namespace std;
 
 namespace Undirected_Graph_Using_Adjacency_Matrix // Undirected Graph is designed using Adjacency Matrix representation.
 {
 	struct Undirected_Graph
 	{
-		int **A;
-
-		int n;
+		vector<vector<int>*> *A;
 	};
 
 	struct Edge
@@ -28,7 +28,7 @@ namespace Undirected_Graph_Using_Adjacency_Matrix // Undirected Graph is designe
 
 	void display_undirected_graph(Undirected_Graph *u_graph)
 	{
-		if(u_graph == nullptr)
+		if((u_graph == nullptr) or (u_graph->A == nullptr) or (u_graph->A->size() == 0))
 		{
 			cout<<"[\n]";
 
@@ -36,18 +36,18 @@ namespace Undirected_Graph_Using_Adjacency_Matrix // Undirected Graph is designe
 		}
 
 		cout<<"[\n     ";
-		for(int i {0}; i < u_graph->n; i++)
+		for(int i {0}; i < u_graph->A->size(); i++)
 		{
 			cout<<setw(3)<<i<<" ";
 		}
 		cout<<"\n";
 
-		for(int i {0}; i < u_graph->n; i++)
+		for(int i {0}; i < u_graph->A->size(); i++)
 		{
 			cout<<setw(3)<<left<<i<<right<<"[ ";
-			for(int j {0}; j < u_graph->n; j++)
+			for(int j {0}; j < u_graph->A->size(); j++)
 			{
-				cout<<setw(3)<<u_graph->A[i][j]<<" ";
+				cout<<setw(3)<<u_graph->A->at(i)->at(j)<<" ";
 			}
 			cout<<"]\n";
 		}
@@ -61,12 +61,17 @@ namespace Undirected_Graph_Using_Adjacency_Matrix // Undirected Graph is designe
 			throw string {"ERROR - Invalid operation, graph is not valid ....."};
 		}
 
-		for(int i {0}; i < u_graph->n; i++)
+		if((u_graph->A == nullptr) or (u_graph->A->size() == 0))
 		{
-			delete[] u_graph->A[i];
+			return ;
 		}
 
-		delete[] u_graph->A;
+		for(int i {0}; i < u_graph->A->size(); i++)
+		{
+			delete u_graph->A->at(i);
+		}
+
+		delete u_graph->A;
 	}
 
 	void add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
@@ -76,41 +81,44 @@ namespace Undirected_Graph_Using_Adjacency_Matrix // Undirected Graph is designe
 			throw string {"ERROR - Invalid operation, graph is not valid ....."};
 		}
 
+		if((u_graph->A == nullptr) or (u_graph->A->size() == 0))
+		{
+			u_graph->A = new vector<vector<int>*> {new vector<int> {}};
+		}
+
 		if((edge.vertex_1 < 0) or (edge.vertex_2 < 0))
 		{
 			throw string {"ERROR - Invalid operation, given edge contains negative vertex ....."};
 		}
 
-		if((edge.vertex_1 < u_graph->n) and (edge.vertex_2 < u_graph->n))
+		if((edge.vertex_1 < u_graph->A->size()) and (edge.vertex_2 < u_graph->A->size()))
 		{
-			u_graph->A[edge.vertex_1][edge.vertex_2] = u_graph->A[edge.vertex_2][edge.vertex_1] = 1;
+			u_graph->A->at(edge.vertex_1)->at(edge.vertex_2) = u_graph->A->at(edge.vertex_2)->at(edge.vertex_1) = 1;
 		}
 		else
 		{
 			int new_n {(edge.vertex_1 > edge.vertex_2) ? edge.vertex_1 + 1 : edge.vertex_2 + 1};
 
-			Undirected_Graph temp {new int*[new_n] {}, new_n};
+			Undirected_Graph temp {new vector<vector<int>*>(new_n, nullptr)};
 
 			for(int i {0}; i < new_n; i++)
 			{
-				temp.A[i] = new int[new_n] {};
+				temp.A->at(i) = new vector<int>(new_n, 0);
 			}
 
-			for(int i {0}; i < u_graph->n; i++)
+			for(int i {0}; i < u_graph->A->size(); i++)
 			{
-				for(int j {0}; j < u_graph->n; j++)
+				for(int j {0}; j < u_graph->A->at(0)->size(); j++)
 				{
-					temp.A[i][j] = u_graph->A[i][j];
+					temp.A->at(i)->at(j) = u_graph->A->at(i)->at(j);
 				}
 			}
 
-			temp.A[edge.vertex_1][edge.vertex_2] = temp.A[edge.vertex_2][edge.vertex_1] = 1;
+			temp.A->at(edge.vertex_1)->at(edge.vertex_2) = temp.A->at(edge.vertex_2)->at(edge.vertex_1) = 1;
 
 			delete_undirected_graph(u_graph);
 
 			u_graph->A = temp.A;
-
-			u_graph->n = temp.n;
 		}
 	}
 
@@ -157,9 +165,9 @@ void depth_first_search(Undirected_Graph *u_graph, int node, int *visited)
 
 		visited[node] = 1;
 
-		for(int i {0}; i < u_graph->n; i++)
+		for(int i {0}; i < u_graph->A->size(); i++)
 		{
-			if((u_graph->A[node][i] == 1) and (visited[i] == 0)) // Not necessary to include "visited[i] == 0", but saves recursive calls.
+			if((u_graph->A->at(node)->at(i) == 1) and (visited[i] == 0)) // Not necessary to include "visited[i] == 0", but saves recursive calls.
 			{
 				depth_first_search(u_graph, i, visited);
 			}
@@ -176,6 +184,12 @@ void handle_depth_first_search(Undirected_Graph *u_graph, int root = 0)
 		return ;
 	}
 
+	if((u_graph->A == nullptr) or (u_graph->A->size() == 0))
+	{
+		cout<<"ERROR - Invalid operation, graph is empty .....";
+		return ;
+	}
+
 	if(root < 0)
 	{
 		cout<<"ERROR - Invalid root vertex, vertex cannot be negative .....";
@@ -183,7 +197,7 @@ void handle_depth_first_search(Undirected_Graph *u_graph, int root = 0)
 		return ;
 	}
 
-	depth_first_search(u_graph, root, new int[u_graph->n] {0});
+	depth_first_search(u_graph, root, new int[u_graph->A->size()] {0});
 }
 
 int main()

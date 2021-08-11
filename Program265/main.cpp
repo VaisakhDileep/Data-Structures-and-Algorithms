@@ -8,15 +8,13 @@ Description : This program creates a directed graph.
 
 #include<iostream>
 
+#include<vector>
+
 using namespace std;
 
 struct Directed_Graph // Using adjacency matrix.
 {
-	int **A; // dynamically created 2-D array.
-
-	int rows; // number of rows.
-
-	int columns; // number of columns.
+	vector<vector<int>*> *A; // dynamically created 2-D array.
 };
 
 struct Edge
@@ -28,7 +26,7 @@ struct Edge
 
 int main()
 {
-	Directed_Graph d_graph {new int*[5] {new int[5] {0, 1, 0, 0, 1}, new int[5] {0, 0, 1, 0, 0}, new int[5] {1, 1, 0, 0, 0}, new int[5] {1, 1, 0, 0, 0}, new int[5] {1, 0, 0, 0, 0}}, 5, 5};
+	Directed_Graph d_graph {new vector<vector<int>*> {new vector<int> {0, 1, 0, 0, 1}, new vector<int> {0, 0, 1, 0, 0}, new vector<int> {1, 1, 0, 0, 0}, new vector<int> {1, 1, 0, 0, 0}, new vector<int> {1, 0, 0, 0, 0}}};
 
 	return 0;
 }

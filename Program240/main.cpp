@@ -8,13 +8,13 @@ Description : This program displays an undirected graph.
 
 #include<iomanip>
 
+#include<vector>
+
 using namespace std;
 
 struct Undirected_Graph
 {
-	int **A;
-
-	int n;
+	vector<vector<int>*> *A;
 };
 
 struct Edge
@@ -26,7 +26,7 @@ struct Edge
 
 void display_undirected_graph(Undirected_Graph *u_graph)
 {
-	if(u_graph == nullptr)
+	if((u_graph == nullptr) or (u_graph->A == nullptr) or (u_graph->A->size() == 0))
 	{
 		cout<<"[\n]";
 
@@ -34,18 +34,18 @@ void display_undirected_graph(Undirected_Graph *u_graph)
 	}
 
 	cout<<"[\n     ";
-	for(int i {0}; i < u_graph->n; i++)
+	for(int i {0}; i < u_graph->A->size(); i++)
 	{
 		cout<<setw(3)<<i<<" ";
 	}
 	cout<<"\n";
 
-	for(int i {0}; i < u_graph->n; i++)
+	for(int i {0}; i < u_graph->A->size(); i++)
 	{
 		cout<<setw(3)<<left<<i<<right<<"[ ";
-		for(int j {0}; j < u_graph->n; j++)
+		for(int j {0}; j < u_graph->A->size(); j++)
 		{
-			cout<<setw(3)<<u_graph->A[i][j]<<" ";
+			cout<<setw(3)<<u_graph->A->at(i)->at(j)<<" ";
 		}
 		cout<<"]\n";
 	}
@@ -54,7 +54,7 @@ void display_undirected_graph(Undirected_Graph *u_graph)
 
 int main()
 {
-	Undirected_Graph u_graph_1 {new int*[5] {new int[5] {0, 1, 1, 1, 0}, new int[5] {1, 0, 1, 0, 0}, new int[5] {1, 1, 0, 1, 1}, new int [5] {1, 0, 1, 0, 1}, new int[5] {0, 0, 1, 1, 0}}, 5};
+	Undirected_Graph u_graph_1 {new vector<vector<int>*> {new vector<int> {0, 1, 1, 1, 0}, new vector<int> {1, 0, 1, 0, 0}, new vector<int> {1, 1, 0, 1, 1}, new vector<int> {1, 0, 1, 0, 1}, new vector<int> {0, 0, 1, 1, 0}}};
 
 	Undirected_Graph u_graph_2 {};
 

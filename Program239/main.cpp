@@ -6,13 +6,13 @@ Description : This program deletes an undirected graph.
 
 #include<iostream>
 
+#include<vector>
+
 using namespace std;
 
 struct Undirected_Graph
 {
-	int **A;
-
-	int n;
+	vector<vector<int>*> *A;
 };
 
 struct Edge
@@ -29,12 +29,17 @@ void delete_undirected_graph(Undirected_Graph *u_graph)
 		throw string {"ERROR - Invalid operation, graph is not valid ....."};
 	}
 
-	for(int i {0}; i < u_graph->n; i++)
+	if((u_graph->A == nullptr) or (u_graph->A->size() == 0))
 	{
-		delete[] u_graph->A[i];
+		return ;
 	}
 
-	delete[] u_graph->A;
+	for(int i {0}; i < u_graph->A->size(); i++)
+	{
+		delete u_graph->A->at(i);
+	}
+
+	delete u_graph->A;
 }
 
 void handle_delete_undirected_graph(Undirected_Graph *u_graph)
@@ -51,7 +56,7 @@ void handle_delete_undirected_graph(Undirected_Graph *u_graph)
 
 int main()
 {
-	Undirected_Graph u_graph {new int*[5] {new int[5] {0, 1, 1, 1, 0}, new int[5] {1, 0, 1, 0, 0}, new int[5] {1, 1, 0, 1, 1}, new int [5] {1, 0, 1, 0, 1}, new int[5] {0, 0, 1, 1, 0}}, 5};
+	Undirected_Graph u_graph {new vector<vector<int>*> {new vector<int> {0, 1, 1, 1, 0}, new vector<int> {1, 0, 1, 0, 0}, new vector<int> {1, 1, 0, 1, 1}, new vector<int> {1, 0, 1, 0, 1}, new vector<int> {0, 0, 1, 1, 0}}};
 
 	handle_delete_undirected_graph(&u_graph);
 
