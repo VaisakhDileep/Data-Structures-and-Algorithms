@@ -1,14 +1,14 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 10, August, 2021
-Description : This program detects the presence of a negative cycle in a weighed directed graph represented using adjacency matrix(Floyd Warshall's algorithm).
+Date		: 11, August, 2021
+Description : This program finds the all pair shortest path cost for a weighed directed graph represented using adjacency matrix(Floyd Warshall's algorithm).
 */
 
 #include<iostream>
 
-#include<iomanip>
-
 #include<vector>
+
+#include<iomanip>
 
 using namespace std;
 
@@ -181,7 +181,7 @@ namespace Weighed_Directed_Graph_Using_Adjacency_Matrix // Weighed Directed Grap
 
 using namespace Weighed_Directed_Graph_Using_Adjacency_Matrix;
 
-bool detect_negative_cycle_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
+vector<vector<int>*>* all_pair_shortest_path_cost_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
 {
 	if(wd_graph == nullptr)
 	{
@@ -230,7 +230,7 @@ bool detect_negative_cycle_weighed_directed_graph(Weighed_Directed_Graph *wd_gra
 		}
 	}
 
-	for(int k {0}; k < max_node; k++)
+	for(int k {0}; k < max_node; k++) // In order to propogate "INT_MIN".
 	{
 		for(int i {0}; i < row_count; i++)
 		{
@@ -240,22 +240,29 @@ bool detect_negative_cycle_weighed_directed_graph(Weighed_Directed_Graph *wd_gra
 				{
 					continue;
 				}
+
+				if((distance->at(i)->at(k) == INT_MIN) or (distance->at(k)->at(j) == INT_MIN))
+				{
+					distance->at(i)->at(j) = INT_MIN;
+
+					continue;
+				}
 				else if(distance->at(i)->at(k) + distance->at(k)->at(j) < distance->at(i)->at(j))
 				{
-					return true;
+					distance->at(i)->at(j) = INT_MIN;
 				}
 			}
 		}
 	}
 
-	return false;
+	return distance;
 }
 
-bool handle_detect_negative_cycle_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
+vector<vector<int>*>* handle_all_pair_shortest_path_cost_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
 {
 	try
 	{
-		return detect_negative_cycle_weighed_directed_graph(wd_graph);
+		return all_pair_shortest_path_cost_weighed_directed_graph(wd_graph);
 	}
 	catch(string &ex)
 	{
@@ -263,15 +270,57 @@ bool handle_detect_negative_cycle_weighed_directed_graph(Weighed_Directed_Graph 
 	}
 }
 
+void display_all_pair_shortest_path_cost_weighed_directed_graph(vector<vector<int>*> *distance)
+{
+	if((distance == nullptr) or (distance->at(0)->size() == 0))
+	{
+		cout<<"[\n]";
+
+		return ;
+	}
+
+	cout<<"[\n     ";
+	for(int i {0}; i < distance->at(0)->size(); i++)
+	{
+		cout<<setw(4)<<i<<" ";
+	}
+	cout<<"\n";
+
+	for(int i {0}; i < distance->size(); i++)
+	{
+		cout<<setw(4)<<left<<i<<right<<"[ ";
+		for(int j {0}; j < distance->at(0)->size(); j++)
+		{
+			if(distance->at(i)->at(j) == INT_MAX)
+			{
+				cout<<"+INF"<<" ";
+			}
+			else if(distance->at(i)->at(j) == INT_MIN)
+			{
+				cout<<"-INF"<<" ";
+			}
+			else
+			{
+				cout<<setw(4)<<distance->at(i)->at(j)<<" ";
+			}
+		}
+		cout<<"]\n";
+	}
+	cout<<"]";
+}
+
 int main()
 {
 	Weighed_Directed_Graph wd_graph {};
 
-	Weighed_Edge w_edges[8] {{0, 1, 10}, {3, 1, -11}, {1, 2, 6}, {2, 3, 4}, {3, 4, 10}, {4, 5, 2}, {5, 3, 3}, {5, 6, 4}};
+	Weighed_Edge w_edges[9] {{0, 1, 10}, {1, 2, 7}, {4, 2, -11}, {2, 3, 6}, {3, 4, 4}, {4, 5, 10}, {5, 6, 2}, {6, 4, 3}, {6, 7, 4}};
 
-	handle_create_weighed_directed_graph(&wd_graph, w_edges, 8);
+	handle_create_weighed_directed_graph(&wd_graph, w_edges, 9);
 
-	cout<<"handle_detect_negative_cycle_weighed_directed_graph(wd_graph): "<<handle_detect_negative_cycle_weighed_directed_graph(&wd_graph)<<"\n";
+	vector<vector<int>*> *distance {handle_all_pair_shortest_path_cost_weighed_directed_graph(&wd_graph)};
+
+	cout<<"all pair shortest path cost:\n";
+	display_all_pair_shortest_path_cost_weighed_directed_graph(distance);
 
 	return 0;
 }

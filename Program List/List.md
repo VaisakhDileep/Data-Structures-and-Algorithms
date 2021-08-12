@@ -484,6 +484,14 @@ Program363:[c++] [This program finds the single source shortest path cost for a 
 
 Program364:[c++] [This program finds the single source shortest path for a weighed directed graph represented using adjacency list(Bellman-Ford's algorithm).](../Program364/main.cpp)<br>
 
+# Floyd-Warshall's All Pair Shortest Path Cost for Weighed Directed Graph:
+
+Program384:[c++] [This program finds the all pair shortest path cost for a weighed directed graph represented using adjacency matrix(Floyd Warshall's algorithm).](../Program384/main.cpp)<br>
+
+# Floyd-Warshall's All Pair Shortest Path for Weighed Directed Graph:
+
+Program385:[c++] [This program finds the all pair shortest path for a weighed directed graph represented using adjacency matrix(Floyd Warshall's algorithm).](../Program385/main.cpp)<br>
+
 # Detect Negative Cycle in Weighed Directed Graph:
 
 Program362:[c++] [This program detects the presence of a negative cycle in a weighed directed graph represented using adjacency list(Bellman-Ford's algorithm).](../Program362/main.cpp)<br>
@@ -548,3 +556,6 @@ Program380:[c++] [This program performs huffman decoding for the given message.]
 
 Program381:[c++] [This program constructs a segment tree for range minimum query.](../Program381/main.cpp)<br>
 Program382:[c++] [This program performs the range minimum query operation on the segment tree.](../Program382/main.cpp)<br>
+
+# Prefix Sum Array For Static Arrays:
+
