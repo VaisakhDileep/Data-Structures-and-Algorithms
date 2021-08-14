@@ -497,6 +497,10 @@ Program385:[c++] [This program finds the all pair shortest path for a weighed di
 Program362:[c++] [This program detects the presence of a negative cycle in a weighed directed graph represented using adjacency list(Bellman-Ford's algorithm).](../Program362/main.cpp)<br>
 Program383:[c++] [This program detects the presence of a negative cycle in a weighed directed graph represented using adjacency matrix(Floyd Warshall's algorithm).](../Program383/main.cpp)<br>
 
+# Bridges in Undirected Graph:
+
+Program390:[c++] [This program finds all the brides in an undirected graph represented using adjacency list.](../Program390/main.cpp)<br>
+
 # Dynamic Programming:
 
 Program323:[c++] [This program implements fibonacci(n) using recursion.](../Program323/main.cpp)<br>
@@ -557,5 +561,12 @@ Program380:[c++] [This program performs huffman decoding for the given message.]
 Program381:[c++] [This program constructs a segment tree for range minimum query.](../Program381/main.cpp)<br>
 Program382:[c++] [This program performs the range minimum query operation on the segment tree.](../Program382/main.cpp)<br>
 
-# Prefix Sum Array For Static Arrays:
+# Prefix Sum Array For Static 1-D Array:
 
+Program386:[c++] [This program creates a prefix sum array for range sum query(1-D array).](../Program386/main.cpp)<br>
+Program387:[c++] [This program performs the range sum query operation on a prefix sum array(1-D array).](../Program387/main.cpp)<br>
+
+# Prefix Sum Array For Static 2-D Array:
+
+Program388:[c++] [This program creates a prefix sum matrix for range sum query(2-D array).](../Program388/main.cpp)<br>
+Program389:[c++] [This program performs the range sum query operation on a prefix sum matrix(2-D array).](../Program389/main.cpp)<br>

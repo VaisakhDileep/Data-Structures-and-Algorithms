@@ -185,7 +185,7 @@ vector<int>* single_source_shortest_path_cost_weighed_directed_graph(Weighed_Dir
 
 	unordered_set<int> vertices {};
 
-	for(int i {0}; i < wd_graph->n - 1; i++)
+	for(int i {0}; i < wd_graph->n; i++)
 	{
 		if(wd_graph->A[i] == nullptr)
 		{
@@ -330,7 +330,7 @@ int main()
 {
 	Weighed_Directed_Graph wd_graph {};
 
-	Weighed_Edge w_edges[7] {Weighed_Edge {0, 1, 1}, Weighed_Edge {1, 2, 2}, Weighed_Edge {2, 3, 3}, Weighed_Edge {3, 1, -6}, Weighed_Edge {2, 4, 4}, Weighed_Edge {4, 5, 5}, Weighed_Edge {5, 4, -1}}; // This test case contains a negative cycle.
+	Weighed_Edge w_edges[7] {Weighed_Edge {0, 1, 1}, Weighed_Edge {1, 2, 2}, Weighed_Edge {2, 3, 3}, Weighed_Edge {3, 1, -6}, Weighed_Edge {2, 4, 4}, Weighed_Edge {4, 5, 5}, Weighed_Edge {5, 8, -1}}; // This test case contains a negative cycle.
 
 	// Weighed_Edge w_edges[7] {Weighed_Edge {0, 1, 1}, Weighed_Edge {1, 2, 2}, Weighed_Edge {2, 3, 3}, Weighed_Edge {3, 1, 6}, Weighed_Edge {2, 4, 4}, Weighed_Edge {4, 5, 5}, Weighed_Edge {5, 4, -1}}; // This test case does not contains a negative cycle.
 

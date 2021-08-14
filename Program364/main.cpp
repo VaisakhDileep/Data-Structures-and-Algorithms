@@ -193,7 +193,7 @@ namespace Bellman_Ford_Single_Source_Shortest_Path_For_Weighed_Directed_Graph
 
 		unordered_set<int> vertices {};
 
-		for(int i {0}; i < wd_graph->n - 1; i++)
+		for(int i {0}; i < wd_graph->n; i++)
 		{
 			if(wd_graph->A[i] == nullptr)
 			{
