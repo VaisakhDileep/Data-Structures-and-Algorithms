@@ -497,6 +497,14 @@ Program385:[c++] [This program finds the all pair shortest path for a weighed di
 Program362:[c++] [This program detects the presence of a negative cycle in a weighed directed graph represented using adjacency list(Bellman-Ford's algorithm).](../Program362/main.cpp)<br>
 Program383:[c++] [This program detects the presence of a negative cycle in a weighed directed graph represented using adjacency matrix(Floyd Warshall's algorithm).](../Program383/main.cpp)<br>
 
+# Tarjan's Algorithm for Finding Bridges in Undirected Graph:
+
+Program390:[c++] [This program finds all the bridges in an undirected graph represented using adjacency list(Tarjan's algorithm).](../Program390/main.cpp)<br>
+
+# Tarjan's Algorithm for Finding Articulation Points in a Undirected Graph:
+
+Program391:[c++] [This program finds all the articulation points in an undirected graph represented using adjacency list(Tarjan's algorithm).](../Program391/main.cpp)<br>
+
 # Dynamic Programming:
 
 Program323:[c++] [This program implements fibonacci(n) using recursion.](../Program323/main.cpp)<br>
