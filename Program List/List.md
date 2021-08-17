@@ -497,11 +497,11 @@ Program385:[c++] [This program finds the all pair shortest path for a weighed di
 Program362:[c++] [This program detects the presence of a negative cycle in a weighed directed graph represented using adjacency list(Bellman-Ford's algorithm).](../Program362/main.cpp)<br>
 Program383:[c++] [This program detects the presence of a negative cycle in a weighed directed graph represented using adjacency matrix(Floyd Warshall's algorithm).](../Program383/main.cpp)<br>
 
-# Tarjan's Algorithm for Finding Bridges in Undirected Graph:
+# Tarjan's Algorithm for Finding Bridges in an Undirected Graph:
 
 Program390:[c++] [This program finds all the bridges in an undirected graph represented using adjacency list(Tarjan's algorithm).](../Program390/main.cpp)<br>
 
-# Tarjan's Algorithm for Finding Articulation Points in a Undirected Graph:
+# Tarjan's Algorithm for Finding Articulation Points in an Undirected Graph:
 
 Program391:[c++] [This program finds all the articulation points in an undirected graph represented using adjacency list(Tarjan's algorithm).](../Program391/main.cpp)<br>
 
@@ -574,3 +574,7 @@ Program387:[c++] [This program performs the range sum query operation on a prefi
 
 Program388:[c++] [This program creates a prefix sum matrix for range sum query(2-D array).](../Program388/main.cpp)<br>
 Program389:[c++] [This program performs the range sum query operation on a prefix sum matrix(2-D array).](../Program389/main.cpp)<br>
+
+# Klee's Algorithm for Find the Length of The Union of Line Segments:
+
+Program392:[c++] [This program finds the length of the union of line segments(Klee's algorithm).](../Program392/main.cpp)<br>

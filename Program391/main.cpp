@@ -372,9 +372,11 @@ int main()
 {
 	Undirected_Graph u_graph {};
 
-	Edge edges[10] {Edge {0, 1}, Edge {1, 2}, Edge {2, 3}, Edge {3, 4}, Edge {4, 5}, Edge {5, 3}, Edge {5, 6}, Edge {7, 8}, Edge {8, 9}, Edge {10, 11}};
+	// Edge edges[10] {Edge {0, 1}, Edge {1, 2}, Edge {2, 3}, Edge {3, 4}, Edge {4, 5}, Edge {5, 3}, Edge {5, 6}, Edge {7, 8}, Edge {8, 9}, Edge {10, 11}};
 
-	handle_create_undirected_graph(&u_graph, edges, 10);
+	Edge edges[4] {Edge {0, 1}, Edge {1, 2}, Edge {2, 3}, Edge {3, 0}};
+
+	handle_create_undirected_graph(&u_graph, edges, 4);
 
 	cout<<"u_graph: \n";
 	display_undirected_graph(&u_graph);
