@@ -575,7 +575,7 @@ Program387:[c++] [This program performs the range sum query operation on a prefi
 Program388:[c++] [This program creates a prefix sum matrix for range sum query(2-D array).](../Program388/main.cpp)<br>
 Program389:[c++] [This program performs the range sum query operation on a prefix sum matrix(2-D array).](../Program389/main.cpp)<br>
 
-# Klee's Algorithm for Find the Length of The Union of Line Segments:
+# Klee's Algorithm to Find the Length of The Union of Line Segments:
 
 Program392:[c++] [This program finds the length of the union of line segments(Klee's algorithm).](../Program392/main.cpp)<br>
 
