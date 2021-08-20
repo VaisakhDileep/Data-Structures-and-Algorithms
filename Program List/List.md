@@ -578,3 +578,7 @@ Program389:[c++] [This program performs the range sum query operation on a prefi
 # Klee's Algorithm for Find the Length of The Union of Line Segments:
 
 Program392:[c++] [This program finds the length of the union of line segments(Klee's algorithm).](../Program392/main.cpp)<br>
+
+# Searching Algorithms:
+
+Program393:[c++] [This program performs linear search in an array.](../Program393/main.cpp)<br>
