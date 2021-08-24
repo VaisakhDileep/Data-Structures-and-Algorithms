@@ -325,6 +325,8 @@ Program232:[c++] [This program demonstrates insertion sort in an array.](../Prog
 Program233:[c++] [This program demonstrates insertion sort in a linked list.](../Program233/main.cpp)<br>
 Program234:[c++] [This program demonstrates selection sort.](../Program234/main.cpp)<br>
 Program236:[c++] [This program finds the first 'n' smallest elements in an array using selection sort.](../Program236/main.cpp)<br>
+Program396:[c++] [This program demonstrates quick sort.](../Program396/main.cpp)<br>
+Program397:[c++] [This program demonstrates count sort.](../Program397/main.cpp)<br>
 
 # Undirected Graph Representation Using Adjacency Matrix:
 
@@ -581,4 +583,9 @@ Program392:[c++] [This program finds the length of the union of line segments(Kl
 
 # Searching Algorithms:
 
-Program393:[c++] [This program performs linear search in an array.](../Program393/main.cpp)<br>
+Program393:[c++] [This program performs linear search(O(n)) in an array.](../Program393/main.cpp)<br>
+Program394:[c++] [This program performs linear search(O(n/2)) in an array.](../Program394/main.cpp)<br>
+
+# Dutch National Flag(DNF) Sort:
+
+Program395:[c++] [This program performs Dutch national flag(DNF) sort.](../Program395/main.cpp)<br>

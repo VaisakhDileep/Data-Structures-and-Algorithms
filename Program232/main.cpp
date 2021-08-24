@@ -6,20 +6,13 @@ Description : This program demonstrates insertions sort in an array.
 
 #include<iostream>
 
+#include<vector>
+
 using namespace std;
 
-struct Array
+void display_array(const vector<int> *vec)
 {
-	int *A;
-
-	int size;
-
-	int length;
-};
-
-void display_array(const Array *A)
-{
-	if(A->A == nullptr)
+	if(vec == nullptr)
 	{
 		cout<<"[ ]";
 
@@ -27,42 +20,42 @@ void display_array(const Array *A)
 	}
 
 	cout<<"[ ";
-	for(int i {0}; i < A->length; i++)
+	for(int i {0}; i < vec->size(); i++)
 	{
-		cout<<A->A[i]<<" ";
+		cout<<vec->at(i)<<" ";
 	}
 	cout<<"]";
 }
 
-void insertion_sort(Array *A)
+void insertion_sort(vector<int> *vec)
 {
-	if(A == nullptr)
+	if(vec == nullptr)
 	{
-		throw string {"ERROR - Invalid operation, array is not valid ....."};
+		throw string {"ERROR - Invalid operation, input array is not valid ....."};
 	}
 
-	for(int i {1}; i < A->size; i++)
+	for(int i {1}; i < vec->size(); i++)
 	{
 		int j {i - 1};
 
-		int temp {A->A[i]};
+		int temp {vec->at(i)};
 
-		while((j >= 0) and (A->A[j] > temp))
+		while((j >= 0) and (vec->at(j) > temp))
 		{
-			A->A[j + 1] = A->A[j];
+			vec->at(j + 1) = vec->at(j);
 
 			j--;
 		}
 
-		A->A[j + 1] = temp;
+		vec->at(j + 1) = temp;
 	}
 }
 
-void handle_insertion_sort(Array *A)
+void handle_insertion_sort(vector<int> *vec)
 {
 	try
 	{
-		insertion_sort(A);
+		insertion_sort(vec);
 	}
 	catch(string &ex)
 	{
@@ -72,16 +65,16 @@ void handle_insertion_sort(Array *A)
 
 int main()
 {
-	Array A {new int[6] {9, 1, 3, 8, 5, 10}, 6, 6};
+	vector<int> vec {9, 1, 3, 8, 5, 10};
 
-	cout<<"A: ";
-	display_array(&A);
+	cout<<"vec: ";
+	display_array(&vec);
 	cout<<"\n";
 
-	handle_insertion_sort(&A);
+	handle_insertion_sort(&vec);
 
-	cout<<"A: ";
-	display_array(&A);
+	cout<<"vec: ";
+	display_array(&vec);
 	cout<<"\n";
 
 	return 0;

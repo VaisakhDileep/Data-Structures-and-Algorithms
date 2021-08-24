@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 20, August, 2021
-Description : This program performs linear search(O(n)) in an array.
+Description : This program performs linear search(O(n/2)) in an array.
 */
 
 #include<iostream>
@@ -22,12 +22,22 @@ int linear_search(vector<int> *A, int target)
 		throw string {"ERROR - Invalid operation, array is empty ....."};
 	}
 
-	for(int i {0}; i < static_cast<int>(A->size()); i++)
+	int left {0}, right {static_cast<int>(A->size()) - 1};
+
+	while(left <= right)
 	{
-		if(A->at(i) == target)
+		if(A->at(left) == target)
 		{
-			return i;
+			return left;
 		}
+
+		if(A->at(right) == target)
+		{
+			return right;
+		}
+		left++;
+
+		right--;
 	}
 
 	throw string {"ERROR - Invalid operation, target element not present in the array ....."};

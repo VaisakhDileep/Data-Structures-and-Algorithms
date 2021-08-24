@@ -6,20 +6,13 @@ Description : This program makes bubble sort adaptive.
 
 #include<iostream>
 
+#include<vector>
+
 using namespace std;
 
-struct Array
+void display_array(const vector<int> *vec)
 {
-	int *A;
-
-	int size;
-
-	int length;
-};
-
-void display_array(const Array *A)
-{
-	if(A->A == nullptr)
+	if(vec == nullptr)
 	{
 		cout<<"[ ]";
 
@@ -27,9 +20,9 @@ void display_array(const Array *A)
 	}
 
 	cout<<"[ ";
-	for(int i {0}; i < A->length; i++)
+	for(int i {0}; i < vec->size(); i++)
 	{
-		cout<<A->A[i]<<" ";
+		cout<<vec->at(i)<<" ";
 	}
 	cout<<"]";
 }
@@ -42,19 +35,24 @@ void swap(int &a, int &b)
 	b = temp;
 }
 
-void bubble_sort(Array *A)
+void bubble_sort(vector<int> *vec)
 {
+	if(vec == nullptr)
+	{
+		throw string {"ERROR - Invalid operation, input array is not valid ....."};
+	}
+
 	bool flag {};
 
-	for(int i {0}; i < A->size - 1; i++)
+	for(int i {0}; i < vec->size() - 1; i++)
 	{
 		flag = false;
 
-		for(int j {0}; j < A->size - 1 - i; j++)
+		for(int j {0}; j < vec->size() - 1 - i; j++)
 		{
-			if(A->A[j] > A->A[j + 1])
+			if(vec->at(j) > vec->at(j + 1))
 			{
-				swap(A->A[j], A->A[j + 1]);
+				swap(vec->at(j), vec->at(j + 1));
 
 				flag = true;
 			}
@@ -67,11 +65,11 @@ void bubble_sort(Array *A)
 	}
 }
 
-void handle_bubble_sort(Array *A)
+void handle_bubble_sort(vector<int> *vec)
 {
 	try
 	{
-		bubble_sort(A);
+		bubble_sort(vec);
 	}
 	catch(string &ex)
 	{
@@ -81,16 +79,16 @@ void handle_bubble_sort(Array *A)
 
 int main()
 {
-	Array A {new int[6] {9, 2, 4, 10, 7, 5}, 6, 6};
+	vector<int> vec {9, 2, 4, 10, 7, 5};
 
-	cout<<"A: ";
-	display_array(&A);
+	cout<<"vec: ";
+	display_array(&vec);
 	cout<<"\n";
 
-	handle_bubble_sort(&A);
+	handle_bubble_sort(&vec);
 
-	cout<<"A: ";
-	display_array(&A);
+	cout<<"vec: ";
+	display_array(&vec);
 	cout<<"\n";
 
 	return 0;

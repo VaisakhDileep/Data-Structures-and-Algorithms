@@ -6,20 +6,13 @@ Description : This program finds the first 'n' largest elements in an array usin
 
 #include<iostream>
 
+#include<vector>
+
 using namespace std;
 
-struct Array
+void display_array(vector<int> *vec)
 {
-	int *A;
-
-	int size;
-
-	int length;
-};
-
-void display_array(const Array *A)
-{
-	if(A->A == nullptr)
+	if(vec == nullptr)
 	{
 		cout<<"[ ]";
 
@@ -27,9 +20,9 @@ void display_array(const Array *A)
 	}
 
 	cout<<"[ ";
-	for(int i {0}; i < A->length; i++)
+	for(int i {0}; i < vec->size(); i++)
 	{
-		cout<<A->A[i]<<" ";
+		cout<<vec->at(i)<<" ";
 	}
 	cout<<"]";
 }
@@ -42,41 +35,46 @@ void swap(int &a, int &b)
 	b = temp;
 }
 
-Array* first_n_largest_elements(Array *A, int n)
+vector<int>* first_n_largest_elements(vector<int> *vec, int n)
 {
-	if(A == nullptr)
+	if(vec == nullptr)
 	{
-		throw string {"ERROR - Invalid operation, array is not valid ....."};
+		throw string {"ERROR - Invalid operation, input array is not valid ....."};
 	}
 
-	if(n > A->size)
+	if(n < 0)
+	{
+		throw string {"ERROR - Invalid operation, value of 'n' cannot be negative ....."};
+	}
+
+	if(n > vec->size())
 	{
 		throw string {"ERROR - Invalid operation, value of 'n' exceeds the size of the array ....."};
 	}
 
-	Array *result {new Array {new int[n] {}, A->size, n}};
+	vector<int> *result {new vector<int>(n, 0)};
 
 	for(int i {0}; i < n; i++)
 	{
-		for(int j {0}; j < (A->size - 1- i); j++)
+		for(int j {0}; j < (vec->size() - 1- i); j++)
 		{
-			if(A->A[j] > A->A[j + 1])
+			if(vec->at(j) > vec->at(j + 1))
 			{
-				swap(A->A[j], A->A[j + 1]);
+				swap(vec->at(j), vec->at(j + 1));
 			}
 		}
 
-		result->A[i] = A->A[A->size - 1 - i];
+		result->at(i) = vec->at(vec->size() - 1 - i);
 	}
 
 	return result;
 }
 
-Array* handle_first_n_largest_elements(Array *A, int n)
+vector<int>* handle_first_n_largest_elements(vector<int> *vec, int n)
 {
 	try
 	{
-		return first_n_largest_elements(A, n);
+		return first_n_largest_elements(vec, n);
 	}
 	catch(string &ex)
 	{
@@ -88,19 +86,19 @@ Array* handle_first_n_largest_elements(Array *A, int n)
 
 int main()
 {
-	Array A {new int[6] {9, 4, 3, 10, 7, 2}, 6, 6};
+	vector<int> vec {9, 4, 3, 10, 7, 2};
 
-	cout<<"A: ";
-	display_array(&A);
+	cout<<"vec: ";
+	display_array(&vec);
 	cout<<"\n";
 
-	Array *result {handle_first_n_largest_elements(&A, 3)};
+	vector<int> *result {handle_first_n_largest_elements(&vec, 6)};
 
 	cout<<"result: ";
 	display_array(result);
 	cout<<"\n";
 
-	result = handle_first_n_largest_elements(&A, 7);
+	result = handle_first_n_largest_elements(&vec, 7);
 	cout<<"\n";
 
 	return 0;
