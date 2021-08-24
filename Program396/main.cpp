@@ -10,22 +10,7 @@ Description : This program demonstrates quick sort.
 
 using namespace std;
 
-void display_array(vector<int> *vec)
-{
-	if(vec == nullptr)
-	{
-		cout<<"[ ]";
 
-		return ;
-	}
-
-	cout<<"[ ";
-	for(int i {0}; i < vec->size(); i++)
-	{
-		cout<<vec->at(i)<<" ";
-	}
-	cout<<"]";
-}
 
 void swap(int &a, int &b)
 {
