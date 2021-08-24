@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 24, August, 2021
-Description : This program demonstrates count sort.
+Description : This program demonstrates bin(bucket) sort.
 */
 
 #include<iostream>
@@ -9,6 +9,18 @@ Description : This program demonstrates count sort.
 #include<vector>
 
 using namespace std;
+
+struct Node
+{
+	int data;
+
+	Node *next;
+};
+
+struct Linked_list
+{
+	Node *head;
+};
 
 void display_array(vector<int> *vec)
 {
@@ -27,7 +39,7 @@ void display_array(vector<int> *vec)
 	cout<<"]";
 }
 
-void count_sort(vector<int> *vec) // Count sort is preferred when the range of the input array is small.
+void bin_sort(vector<int> *vec) // Also called bucket sort.
 {
 	if(vec == nullptr)
 	{
@@ -46,40 +58,63 @@ void count_sort(vector<int> *vec) // Count sort is preferred when the range of t
 		max_element = max(max_element, vec->at(i));
 	}
 
-	vector<int> count_array(max_element + 1, 0);
+	vector<Node *> bin(max_element + 1, nullptr);
 
 	for(int i {0}; i < vec->size(); i++)
 	{
 		if(vec->at(i) < 0)
 		{
-			throw string {"ERROR - Invalid operation, count sort fails for input arrays with negative elements ....."};
+			throw string {"ERROR - Invalid operation, bin sort fails for input arrays with negative elements ....."};
 		}
 
-		count_array[vec->at(i)]++;
+		if(bin[vec->at(i)] == nullptr)
+		{
+			bin[vec->at(i)] = new Node {vec->at(i), nullptr};
+
+			continue;
+		}
+
+		Node *last {bin[vec->at(i)]};
+
+		while(last->next != nullptr)
+		{
+			last = last->next;
+		}
+
+		last->next = new Node {vec->at(i), nullptr};
 	}
 
 	int j {0};
 
-	for(int i {0}; i < count_array.size();)
+	for(int i {0}; i < bin.size();)
 	{
-		if(count_array[i] > 0)
+		if(bin[i] == nullptr)
 		{
-			vec->at(j++) = i;
-
-			count_array[i]--;
+			i++;
 		}
 		else
 		{
+			int counter {0};
+
+			Node *last {bin[i]};
+
+			while(last != nullptr)
+			{
+				vec->at(j++) = i;
+
+				last = last->next;
+			}
+
 			i++;
 		}
 	}
 }
 
-void handle_count_sort(vector<int> *vec)
+void handle_bin_sort(vector<int> *vec)
 {
 	try
 	{
-		count_sort(vec);
+		bin_sort(vec);
 	}
 	catch(string &ex)
 	{
@@ -95,7 +130,7 @@ int main()
 	display_array(&vec);
 	cout<<"\n";
 
-	handle_count_sort(&vec);
+	handle_bin_sort(&vec);
 
 	cout<<"vec: ";
 	display_array(&vec);

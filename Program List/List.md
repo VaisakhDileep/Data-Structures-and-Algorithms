@@ -35,7 +35,7 @@ Program026:[c++] [This program finds the number of combinations for 'n'.](../Pro
 Program027:[c++] [This program finds the number of combinations(pascal's triangle).](../Program027/main.cpp)<br>
 Program028:[c++] [This program finds the solution for the Tower of Hanoi problem.](../Program028/main.cpp)<br>
 
-# Arrays:
+# Array ADT:
 
 Program029:[c++] [This program creates an array.](../Program029/main.cpp)</br>
 Program030:[c++] [This program displays an array.](../Program030/main.cpp)</br>
@@ -327,6 +327,7 @@ Program234:[c++] [This program demonstrates selection sort.](../Program234/main.
 Program236:[c++] [This program finds the first 'n' smallest elements in an array using selection sort.](../Program236/main.cpp)<br>
 Program396:[c++] [This program demonstrates quick sort.](../Program396/main.cpp)<br>
 Program397:[c++] [This program demonstrates count sort.](../Program397/main.cpp)<br>
+Program398:[c++] [This program demonstrates bin(bucket) sort.](../Program398/main.cpp)<br>
 
 # Undirected Graph Representation Using Adjacency Matrix:
 
