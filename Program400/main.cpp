@@ -29,7 +29,7 @@ void display_array(vector<int> *vec)
 
 void merge_sorted_array(vector<int> *vec, int start_1, int end_1, int start_2, int end_2)
 {
-	
+	cout<<"Testing ...."
 }
 
 void merge_sort(vector<int> *vec, int left, int right)
