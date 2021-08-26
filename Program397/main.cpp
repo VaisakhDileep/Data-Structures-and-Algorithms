@@ -41,13 +41,6 @@ void count_sort(vector<int> *vec) // Count sort is preferred when the range of t
 
 	int max_element {vec->at(0)};
 
-	for(int i {1}; i < vec->size(); i++)
-	{
-		max_element = max(max_element, vec->at(i));
-	}
-
-	vector<int> count_array(max_element + 1, 0);
-
 	for(int i {0}; i < vec->size(); i++)
 	{
 		if(vec->at(i) < 0)
@@ -55,6 +48,13 @@ void count_sort(vector<int> *vec) // Count sort is preferred when the range of t
 			throw string {"ERROR - Invalid operation, count sort fails for input arrays with negative elements ....."};
 		}
 
+		max_element = max(max_element, vec->at(i));
+	}
+
+	vector<int> count_array(max_element + 1, 0);
+
+	for(int i {0}; i < vec->size(); i++)
+	{
 		count_array[vec->at(i)]++;
 	}
 

@@ -328,6 +328,8 @@ Program236:[c++] [This program finds the first 'n' smallest elements in an array
 Program396:[c++] [This program demonstrates quick sort.](../Program396/main.cpp)<br>
 Program397:[c++] [This program demonstrates count sort.](../Program397/main.cpp)<br>
 Program398:[c++] [This program demonstrates bin(bucket) sort.](../Program398/main.cpp)<br>
+Program399:[c++] [This program demonstrates radix sort.](../Program399/main.cpp)<br>
+Program400:[c++] [This program demonstrates merge sort.](../Program400/main.cpp)<br>
 
 # Undirected Graph Representation Using Adjacency Matrix:
 

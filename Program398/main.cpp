@@ -53,13 +53,6 @@ void bin_sort(vector<int> *vec) // Also called bucket sort.
 
 	int max_element {vec->at(0)};
 
-	for(int i {1}; i < vec->size(); i++)
-	{
-		max_element = max(max_element, vec->at(i));
-	}
-
-	vector<Node *> bin(max_element + 1, nullptr);
-
 	for(int i {0}; i < vec->size(); i++)
 	{
 		if(vec->at(i) < 0)
@@ -67,6 +60,13 @@ void bin_sort(vector<int> *vec) // Also called bucket sort.
 			throw string {"ERROR - Invalid operation, bin sort fails for input arrays with negative elements ....."};
 		}
 
+		max_element = max(max_element, vec->at(i));
+	}
+
+	vector<Node *> bin(max_element + 1, nullptr);
+
+	for(int i {0}; i < vec->size(); i++)
+	{
 		if(bin[vec->at(i)] == nullptr)
 		{
 			bin[vec->at(i)] = new Node {vec->at(i), nullptr};
@@ -94,13 +94,11 @@ void bin_sort(vector<int> *vec) // Also called bucket sort.
 		}
 		else
 		{
-			int counter {0};
-
 			Node *last {bin[i]};
 
 			while(last != nullptr)
 			{
-				vec->at(j++) = i;
+				vec->at(j++) = last->data;
 
 				last = last->next;
 			}
