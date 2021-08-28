@@ -592,3 +592,7 @@ Program394:[c++] [This program performs linear search(O(n/2)) in an array.](../P
 # Dutch National Flag(DNF) Sort:
 
 Program395:[c++] [This program performs Dutch national flag(DNF) sort.](../Program395/main.cpp)<br>
+
+# Boyer-Moore Majority Voting Algorithm:
+
+Program401:[c++] [This program demonstrates Boyer-Moore majority voting algorithm.](../Program401/main.cpp)<br>
