@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 13, June, 2021
-Description : This program demonstrates insertions sort in an array.
+Description : This program demonstrates insertions sort on an array.
 */
 
 #include<iostream>

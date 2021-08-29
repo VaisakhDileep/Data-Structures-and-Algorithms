@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 25, August, 2021
-Description : This program demonstrates merge sort.
+Description : This program demonstrates merge sort on an array.
 */
 
 #include<iostream>

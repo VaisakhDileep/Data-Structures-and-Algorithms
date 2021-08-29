@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 13, June, 2021
-Description : This program demonstrates insertion sort in a linked list.
+Description : This program demonstrates insertion sort on a linked list.
 */
 
 #include<iostream>

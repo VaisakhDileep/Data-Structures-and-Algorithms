@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 20, August, 2021
-Description : This program performs linear search(O(n)) in an array.
+Description : This program performs linear search on an array(O(n) time complexity).
 */
 
 #include<iostream>
@@ -43,7 +43,7 @@ int handle_linear_search(vector<int> *A, int target)
 	{
 		cout<<ex;
 
-		return -1;
+		return INT_MIN;
 	}
 }
 

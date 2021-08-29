@@ -321,15 +321,15 @@ Program228:[c++] [This program searches for an element in a binary search tree.]
 Program229:[c++] [This program demonstrates bubble sort.](../Program229/main.cpp)<br>
 Program230:[c++] [This program makes bubble sort adaptive.](../Program230/main.cpp)<br>
 Program231:[c++] [This program finds the first 'n' largest elements in an array using bubble sort.](../Program231/main.cpp)<br>
-Program232:[c++] [This program demonstrates insertion sort in an array.](../Program232/main.cpp)<br>
-Program233:[c++] [This program demonstrates insertion sort in a linked list.](../Program233/main.cpp)<br>
+Program232:[c++] [This program demonstrates insertion sort on an array.](../Program232/main.cpp)<br>
+Program233:[c++] [This program demonstrates insertion sort on a linked list.](../Program233/main.cpp)<br>
 Program234:[c++] [This program demonstrates selection sort.](../Program234/main.cpp)<br>
 Program236:[c++] [This program finds the first 'n' smallest elements in an array using selection sort.](../Program236/main.cpp)<br>
 Program396:[c++] [This program demonstrates quick sort.](../Program396/main.cpp)<br>
 Program397:[c++] [This program demonstrates count sort.](../Program397/main.cpp)<br>
 Program398:[c++] [This program demonstrates bin(bucket) sort.](../Program398/main.cpp)<br>
 Program399:[c++] [This program demonstrates radix sort.](../Program399/main.cpp)<br>
-Program400:[c++] [This program demonstrates merge sort.](../Program400/main.cpp)<br>
+Program400:[c++] [This program demonstrates merge sort on an array.](../Program400/main.cpp)<br>
 
 # Undirected Graph Representation Using Adjacency Matrix:
 
@@ -586,8 +586,10 @@ Program392:[c++] [This program finds the length of the union of line segments(Kl
 
 # Searching Algorithms:
 
-Program393:[c++] [This program performs linear search(O(n)) in an array.](../Program393/main.cpp)<br>
-Program394:[c++] [This program performs linear search(O(n/2)) in an array.](../Program394/main.cpp)<br>
+Program393:[c++] [This program performs linear search on an array(O(n) time complexity).](../Program393/main.cpp)<br>
+Program394:[c++] [This program performs linear search on an array(O(n/2) time complexity).](../Program394/main.cpp)<br>
+Program402:[c++] [This program performs recursive binary search on an array.](../Program402/main.cpp)<br>
+Program403:[c++] [This program performs iterative binary search on an array.](../Program403/main.cpp)<br>
 
 # Dutch National Flag(DNF) Sort:
 

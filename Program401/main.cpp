@@ -4,7 +4,7 @@ Date		: 28, August, 2021
 Description : This program demonstrates Boyer-Moore majority voting algorithm.
 */
 
-// Boyer-Moore majority voting algorithm is used to find the majority element among the given elements('n' elements) that have more than n/2 occurences.
+// Boyer-Moore majority voting algorithm is used to find the majority element among the given elements('n' elements) that have more than n/2 occurrences.
 
 #include<iostream>
 
