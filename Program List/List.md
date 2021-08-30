@@ -590,6 +590,8 @@ Program393:[c++] [This program performs linear search on an array(O(n) time comp
 Program394:[c++] [This program performs linear search on an array(O(n/2) time complexity).](../Program394/main.cpp)<br>
 Program402:[c++] [This program performs recursive binary search on an array.](../Program402/main.cpp)<br>
 Program403:[c++] [This program performs iterative binary search on an array.](../Program403/main.cpp)<br>
+Program404:[c++] [This program performs jump search on an array.](../Program404/main.cpp)<br>
+Program405:[c++] [This program performs interpolation search on an array.](../Program405/main.cpp)<br>
 
 # Dutch National Flag(DNF) Sort:
 

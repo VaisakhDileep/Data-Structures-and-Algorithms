@@ -4,6 +4,8 @@ Date		: 29, August, 2021
 Description : This program performs iterative binary search on an array.
 */
 
+// Binary search will only work for sorted arrays.
+
 #include<iostream>
 
 #include<vector>
@@ -55,7 +57,7 @@ int handle_binary_search(vector<int> *input_array, int target)
 	{
 		cout<<ex;
 
-		return INT_MIN;
+		return INT_MIN; // "INT_MIN" is returned in the case of an unsuccessful search.
 	}
 }
 
@@ -63,7 +65,7 @@ int main()
 {
 	vector<int> vec {3, 4, 8, 9, 10, 11, 12, 15};
 
-	cout<<"handle_binary_search(vec): "<<handle_binary_search(&vec, 4)<<"\n";
+	cout<<"handle_binary_search(vec, 4): "<<handle_binary_search(&vec, 4)<<"\n";
 
 	return 0;
 }

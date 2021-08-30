@@ -4,6 +4,8 @@ Date		: 28, August, 2021
 Description : This program performs recursive binary search on an array.
 */
 
+// Binary search will only work for sorted arrays.
+
 #include<iostream>
 
 #include<vector>
@@ -69,7 +71,7 @@ int main()
 {
 	vector<int> vec {0, 2, 3, 4, 8, 9, 10, 11};
 
-	cout<<"handle_binary_search(vec): "<<handle_binary_search(&vec, 3);
+	cout<<"handle_binary_search(vec, 3): "<<handle_binary_search(&vec, 3);
 
 	return 0;
 }

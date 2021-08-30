@@ -53,7 +53,7 @@ int handle_linear_search(vector<int> *A, int target)
 	{
 		cout<<ex;
 
-		return INT_MIN;
+		return INT_MIN; // "INT_MIN" is returned in the case of an unsuccessful search.
 	}
 }
 
