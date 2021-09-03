@@ -209,6 +209,8 @@ Program094:[c++] [This program helps to understand masking.](../Program094/main.
 Program095:[c++] [This program helps to understand merging.](../Program095/main.cpp)<br>
 Program163:[c++] [This program finds the index of the first set bit of a number.](../Program163/main.cpp)<br>
 Program164:[c++] [This program finds the index of the first different bit of two numbers.](../Program164/main.cpp)<br>
+Program411:[c++] [This program finds the number of set bits in a number.](../Program411/main.cpp)<br>
+Program412:[c++] [This program finds implements Brian Kernighan's algorithm to find the number of set bits in a number.]()<br>
 
 # Stack ADT Using Arrays:
 
@@ -432,6 +434,20 @@ Program319:[c++] [This program demonstrates depth first search for a directed gr
 Program320:[c++] [This program demonstrates depth first search for a directed graph represented using adjacency list.](../Program320/main.cpp)<br>
 Program321:[c++] [This program demonstrates depth first search for a weighed directed graph represented using adjacency matrix.](../Program321/main.cpp)<br>
 Program322:[c++] [This program demonstrates depth first search for a weighed directed graph represented using adjacency list.](../Program322/main.cpp)<br>
+
+# Start and Finish Time of Vertices in DFS Traversal for a Directed Graph:
+
+Program408:[c++] [This program finds the start and finish time of the vertices in DFS traversal for a directed graph represented using adjacency list.](../Program408/main.cpp)<br>
+
+# Start and Finish Time of Vertices in DFS Traversal for an Undirected Graph:
+
+Program409:[c++] [This program finds the start and finish time of the vertices in DFS traversal for an undirected graph represented using adjacency list.](../Program409/main.cpp)<br>
+
+# Edge Classification in a DFS tree for a Directed Graph:
+
+Program406:[c++] [This program finds all the tree edges in a DFS tree for a directed graph represented using adjacency list.](../Program406/main.cpp)<br>
+Program407:[c++] [This program finds all the forward edges in a DFS tree for a directed graph represented using adjacency list.](../Program407/main.cpp)<br>
+Program410:[c++] [This program finds all the back edges in a DFS tree for a directed graph represented using adjacency list.](../Program410/main.cpp)<br>
 
 # Connected Components in an Undirected Graph:
 
