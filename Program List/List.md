@@ -210,7 +210,7 @@ Program095:[c++] [This program helps to understand merging.](../Program095/main.
 Program163:[c++] [This program finds the index of the first set bit of a number.](../Program163/main.cpp)<br>
 Program164:[c++] [This program finds the index of the first different bit of two numbers.](../Program164/main.cpp)<br>
 Program411:[c++] [This program finds the number of set bits in a number.](../Program411/main.cpp)<br>
-Program412:[c++] [This program finds implements Brian Kernighan's algorithm to find the number of set bits in a number.]()<br>
+Program412:[c++] [This program finds implements Brian Kernighan's algorithm to find the number of set bits in a number.](../Program412/main.cpp)<br>
 
 # Stack ADT Using Arrays:
 
@@ -277,13 +277,6 @@ Program208:[c++] [This program finds the parent of a node in a binary tree.](../
 Program209:[c++] [This program creates a binary tree.](../Program209/main.cpp)<br>
 Program210:[c++] [This program creates a binary tree from an array.](../Program210/main.cpp)<br>
 Program218:[c++] [This program creates a binary tree from user using queue.](../Program218/main.cpp)<br>
-Program211:[c++] [This program displays a binary tree using pre-order traversal.](../Program211/main.cpp)<br>
-Program212:[c++] [This program displays a binary tree using in-order traversal.](../Program212/main.cpp)<br>
-Program213:[c++] [This program displays a binary tree using post-order traversal.](../Program213/main.cpp)<br>
-Program214:[c++] [This program displays a binary tree using pre-order traversal using stack.](../Program214/main.cpp)<br>
-Program215:[c++] [This program displays a binary tree using in-order traversal using stack.](../Program215/main.cpp)<br>
-Program216:[c++] [This program displays a binary tree using post-order traversal using stack.](../Program216/main.cpp)<br>
-Program217:[c++] [This program displays a binary tree using level-order traversal using queue.](../Program217/main.cpp)<br>
 Program219:[c++] [This program counts the number of nodes in a binary tree.](../Program219/main.cpp)<br>
 Program220:[c++] [This program counts the number of nodes with degree '2' in a binary tree.](../Program220/main.cpp)<br>
 Program225:[c++] [This program counts the number of nodes with degree '1' in a binary tree.](../Program225/main.cpp)<br>
@@ -291,6 +284,16 @@ Program221:[c++] [This program finds the sum of all the nodes in a binary tree.]
 Program222:[c++] [This program finds the height of a binary tree.](../Program222/main.cpp)<br>
 Program223:[c++] [This program counts the number of leaf nodes in a binary tree.](../Program223/main.cpp)<br>
 Program224:[c++] [This program counts the number of non-leaf nodes in a binary tree.](../Program224/main.cpp)<br>
+
+# Traversal in a Binary Tree:
+
+Program211:[c++] [This program displays a binary tree using pre-order traversal.](../Program211/main.cpp)<br>
+Program212:[c++] [This program displays a binary tree using in-order traversal.](../Program212/main.cpp)<br>
+Program213:[c++] [This program displays a binary tree using post-order traversal.](../Program213/main.cpp)<br>
+Program214:[c++] [This program displays a binary tree using pre-order traversal using stack.](../Program214/main.cpp)<br>
+Program215:[c++] [This program displays a binary tree using in-order traversal using stack.](../Program215/main.cpp)<br>
+Program216:[c++] [This program displays a binary tree using post-order traversal using stack.](../Program216/main.cpp)<br>
+Program217:[c++] [This program displays a binary tree using level-order traversal using queue.](../Program217/main.cpp)<br>
 
 # Binary Max Heap:
 

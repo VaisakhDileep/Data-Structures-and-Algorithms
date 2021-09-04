@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 3, September, 2021
-Description : This program finds the number of set bits in a number.
+Description : This program finds implements Brian Kernighan's algorithm to find the number of set bits in a number.
 */
 
 // Indexing starts from the right hand side.
@@ -17,15 +17,13 @@ int count_set_bits(int num)
 		throw string {"ERROR - Invalid operation, number cannot be negative ....."};
 	}
 
-	int H {1};
-
 	int count {0};
 
 	while(num)
 	{
-		count = count + (num & H);
+		num = num & (num - 1); // Subtracting '1' from the number flips all the bits until(including) the right-most set bit.
 
-		num = num >> 1;
+		count++;
 	}
 
 	return count;
