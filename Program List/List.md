@@ -294,6 +294,8 @@ Program214:[c++] [This program displays a binary tree using pre-order traversal 
 Program215:[c++] [This program displays a binary tree using in-order traversal using stack.](../Program215/main.cpp)<br>
 Program216:[c++] [This program displays a binary tree using post-order traversal using stack.](../Program216/main.cpp)<br>
 Program217:[c++] [This program displays a binary tree using level-order traversal using queue.](../Program217/main.cpp)<br>
+Program413:[c++] [This program constructs a binary tree from the in-order + pre-order traversals.](../Program413/main.cpp)<br>
+Program414:[c++] [This program constructs a binary tree from the in-order + post-order traversals.](../Program414/main.cpp)<br>
 
 # Binary Max Heap:
 
@@ -619,3 +621,7 @@ Program395:[c++] [This program performs Dutch national flag(DNF) sort.](../Progr
 # Boyer-Moore Majority Voting Algorithm:
 
 Program401:[c++] [This program demonstrates Boyer-Moore majority voting algorithm.](../Program401/main.cpp)<br>
+
+# Sieve of Eratosthenes Algorithm:
+
+Program415:[c++] [This program demonstrates Sieve of Eratosthenes algorithm.](../Program415/main.cpp)<br>

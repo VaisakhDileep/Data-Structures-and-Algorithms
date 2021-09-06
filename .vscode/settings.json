@@ -41,9 +41,5 @@
 		"stdexcept": "cpp",
 		"streambuf": "cpp",
 		"typeinfo": "cpp"
-	},
-	"cSpell.words": [
-		"Kadane's",
-		"Subarray"
-	]
+	}
 }
