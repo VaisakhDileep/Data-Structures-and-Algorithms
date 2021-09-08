@@ -626,3 +626,8 @@ Program401:[c++] [This program demonstrates Boyer-Moore majority voting algorith
 # Sieve of Eratosthenes Algorithm:
 
 Program415:[c++] [This program demonstrates Sieve of Eratosthenes algorithm.](../Program415/main.cpp)<br>
+
+# Quick Select Algorithm:
+
+Program417:[c++] [This program finds the n'th smallest element in an array using quick sort algorithm.](../Program417/main.cpp)<br>
+Program418:[c++] [This program finds the n'th largest element in an array using quick sort algorithm.](../Program418/main.cpp)<br>
