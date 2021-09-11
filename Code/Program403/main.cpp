@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 29, August, 2021
-Description : This program performs iterative binary search on an array.
+Description : This program performs iterative binary search on a sorted array.
 */
 
 // Binary search will only work for sorted arrays.

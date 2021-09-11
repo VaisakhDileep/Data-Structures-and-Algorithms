@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 28, August, 2021
-Description : This program performs recursive binary search on an array.
+Description : This program performs recursive binary search on a sorted array.
 */
 
 // Binary search will only work for sorted arrays.
@@ -50,7 +50,7 @@ int handle_binary_search(vector<int> *input_array, int target)
 
 	if(input_array->size() == 0)
 	{
-		cout<<"ERROR - Invalid operation, input array is not valid .....";
+		cout<<"ERROR - Invalid operation, input array is empty .....";
 
 		return INT_MIN;
 	}
