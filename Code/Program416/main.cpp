@@ -4,6 +4,8 @@ Date		: 6, September, 2021
 Description : This program finds all the cross edges in a DFS tree for a directed graph represented using adjacency list.
 */
 
+// Cross edges are the edges that are neither a back edge, forward edge or a tree edge.
+
 #include<iostream>
 
 #include<iomanip>
