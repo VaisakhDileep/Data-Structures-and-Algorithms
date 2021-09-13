@@ -296,9 +296,9 @@ vector<vector<int>*>* find_bridges_undirected_graph(Undirected_Graph *u_graph)
 
 	int max_node {u_graph->n - 1};
 
-	vector<int> *disover_time {new vector<int>(max_node + 1, 0)}; // A unique "arrival time" is given to each node(nodes that arrive early have lesser "arrival time").
+	vector<int> *disover_time {new vector<int>(max_node + 1, 0)}; // A unique "discover_time" is given to each node(nodes that arrive early have lesser "discover_time").
 
-	vector<int> *low_link {new vector<int>(max_node + 1, 0)}; // "low_link" of a node is the least "arrival time" of any node reachable from the node.
+	vector<int> *low_link {new vector<int>(max_node + 1, 0)}; // "low_link" of a node is the least "discover time" of any node reachable from the node.
 
 	vector<bool> *visited {new vector<bool>(max_node + 1, false)};
 

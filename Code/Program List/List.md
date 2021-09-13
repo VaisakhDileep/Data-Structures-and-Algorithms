@@ -537,6 +537,10 @@ Program390:[c++] [This program finds all the bridges in an undirected graph repr
 
 Program391:[c++] [This program finds all the articulation points in an undirected graph represented using adjacency list(Tarjan's algorithm).](../Program391/main.cpp)<br>
 
+# Tarjan's Algorithm for Finding all the Strongly Connected Components in a Directed Graph:
+
+Program423:[c++] [This program finds all the strongly connected components in a directed graph represented using adjacency list(Tarjan's algorithm).](../Program423/main.cpp)<br>
+
 # Dynamic Programming:
 
 Program323:[c++] [This program implements fibonacci(n) using recursion.](../Program323/main.cpp)<br>
@@ -637,3 +641,7 @@ Program415:[c++] [This program demonstrates Sieve of Eratosthenes algorithm.](..
 
 Program417:[c++] [This program finds the n'th smallest element in an array using quick sort algorithm.](../Program417/main.cpp)<br>
 Program418:[c++] [This program finds the n'th largest element in an array using quick sort algorithm.](../Program418/main.cpp)<br>
+
+# Knuth Morris Pratt Algorithm:
+
+Program422:[c++] [This program checks if the given pattern exists in a string using Knuth Morris Pratt algorithm.](../Program422/main.cpp)<br>

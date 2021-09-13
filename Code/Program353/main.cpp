@@ -330,7 +330,7 @@ list<int>* topological_sort_directed_graph(Directed_Graph *d_graph)
 
 	for(int i {0}; i <= max_node; i++)
 	{
-		if(d_graph->A[i] == nullptr) // This is a leaf node or an unassigned node.
+		if((i >= d_graph->n) or (d_graph->A[i] == nullptr)) // This is a leaf node or an unassigned node.
 		{
 			continue; // There is no point doing DFS on a leaf node or an unassigend node.
 		}

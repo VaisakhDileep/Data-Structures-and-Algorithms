@@ -330,7 +330,7 @@ list<int>* topological_sort_weighed_directed_graph(Weighed_Directed_Graph *wd_gr
 
 	for(int i {0}; i <= max_node; i++)
 	{
-		if(wd_graph->A[i] == nullptr) // This is a leaf node or an unassigned node.
+		if((i >= wd_graph->n) or (wd_graph->A[i] == nullptr)) // This is a leaf node or an unassigned node.
 		{
 			continue; // There is no point doing DFS on a leaf node or an unassigned node.
 		}
