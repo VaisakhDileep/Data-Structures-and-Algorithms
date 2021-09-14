@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 13, September, 2021
-Description : This program checks if the given pattern exists in a string using Knuth Morris Pratt algorithm.
+Description : This program finds all the matching pattern in a string using Knuth Morris Pratt algorithm.
 */
 
 #include<iostream>
@@ -16,7 +16,7 @@ vector<int>* create_kmp_table(string pattern)
 
 	kmp_table->at(0) = 0; // This is a special case.
 
-	int i {1}, length_common_prefix {0}; // When taking preifx and suffix, make sure they are proper prefix and proper suffix.
+	int i {1}, length_common_prefix {0}; // When taking prefix and suffix, make sure they are proper prefix and proper suffix.
 
 	while(i < pattern.size())
 	{
@@ -46,14 +46,16 @@ vector<int>* create_kmp_table(string pattern)
 	return kmp_table;
 }
 
-bool pattern_matching_kmp_algorithm(string text, string pattern)
+vector<pair<int, int>>* pattern_matching_kmp_algorithm(string text, string pattern)
 {
 	if((text.size() == 0) or (pattern.size() == 0))
 	{
 		throw string {"ERROR - Invalid operation, input strings cannot be empty ....."};
 	}
 
-	vector<int> *kmp_table(create_kmp_table(pattern));
+	vector<pair<int, int>> *pattern_in_string {new vector<pair<int, int>> {}};
+
+	vector<int> *kmp_table {create_kmp_table(pattern)};
 
 	int i {0}, j {0};
 
@@ -61,7 +63,9 @@ bool pattern_matching_kmp_algorithm(string text, string pattern)
 	{
 		if(j == pattern.size())
 		{
-			return true;
+			pattern_in_string->push_back(pair<int, int> {i - pattern.size(), i - 1});
+
+			j = kmp_table->at(j - 1);
 		}
 
 		if(text[i] == pattern[j])
@@ -86,13 +90,13 @@ bool pattern_matching_kmp_algorithm(string text, string pattern)
 
 	if(j == pattern.size())
 	{
-		return true;
+		pattern_in_string->push_back(pair<int, int> {i - pattern.size(), i - 1});
 	}
 
-	return false;
+	return pattern_in_string;
 }
 
-bool handle_pattern_matching_kmp_algorithm(string text, string pattern)
+vector<pair<int, int>>* handle_pattern_matching_kmp_algorithm(string text, string pattern)
 {
 	try
 	{
@@ -101,12 +105,31 @@ bool handle_pattern_matching_kmp_algorithm(string text, string pattern)
 	catch(string &ex)
 	{
 		cout<<ex;
+
+		return nullptr;
+	}
+}
+
+void display_matched_patterns(vector<pair<int, int>>* pattern_in_string)
+{
+	if(pattern_in_string == nullptr)
+	{
+		return ;
+	}
+
+	for(int i {0}; i < pattern_in_string->size(); i++)
+	{
+		cout<<"{"<<pattern_in_string->at(i).first<<", "<<pattern_in_string->at(i).second<<"} ";
 	}
 }
 
 int main()
 {
-	cout<<"pattern_matching_kmp_algorithm(\"abba\", \"ba\"): "<<handle_pattern_matching_kmp_algorithm("aabbba", "bba")<<"\n";
+	vector<pair<int, int>>* pattern_in_string {handle_pattern_matching_kmp_algorithm("abba", "ba")};
+
+	cout<<"pattern_matching_kmp_algorithm(\"abba\", \"ba\"): ";
+
+	display_matched_patterns(pattern_in_string);
 
 	return 0;
 }

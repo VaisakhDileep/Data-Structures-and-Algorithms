@@ -645,3 +645,4 @@ Program418:[c++] [This program finds the n'th largest element in an array using 
 # Knuth Morris Pratt Algorithm:
 
 Program422:[c++] [This program checks if the given pattern exists in a string using Knuth Morris Pratt algorithm.](../Program422/main.cpp)<br>
+Program424:[c++] [This program finds all the matching pattern in a string using Knuth Morris Pratt algorithm.](../Program424/main.cpp)<br>
