@@ -6,111 +6,11 @@ Description : This program displays a binary tree using level-order traversal us
 
 #include<iostream>
 
+#include<queue>
+
 using namespace std;
 
 struct Node;
-
-namespace queue
-{
-	struct Node
-	{
-		::Node *data;
-
-		Node *next;
-	};
-
-	struct Queue
-	{
-		Node *front {nullptr};
-
-		Node *rear {nullptr};
-	};
-
-	bool is_empty_queue(Queue *Q)
-	{
-		if(Q == nullptr)
-		{
-			throw string {"ERROR - Invalid operation, queue is not valid ....."};
-		}
-
-		if(Q->front == nullptr)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-
-	bool is_full_queue(Queue *Q)
-	{
-		Node *temp = new Node {nullptr, nullptr};
-
-		if(temp == NULL)
-		{
-			return true;
-		}
-		else
-		{
-			delete temp;
-
-			return false;
-		}
-	}
-
-	void enqueue(Queue *Q, ::Node *value)
-	{
-		if(Q == nullptr)
-		{
-			throw string {"ERROR - Invalid operation, queue is not valid ....."};
-		}
-
-		if(is_full_queue(Q))
-		{
-			throw string {"ERROR - Invalid operation, queue is full ....."};
-		}
-
-		if(Q->front == nullptr)
-		{
-			Q->front = Q->rear = new Node {value, nullptr};
-		}
-		else
-		{
-			Q->rear = Q->rear->next = new Node {value, nullptr};
-		}
-	}
-
-	::Node* dequeue(Queue *Q)
-	{
-		if(Q == nullptr)
-		{
-			throw string {"ERROR - Invalid operation, queue is not valid ....."};
-		}
-
-		if(is_empty_queue(Q))
-		{
-			throw string {"ERROR - Invalid operation, queue is empty ....."};
-		}
-		else
-		{
-			::Node* deleted_value {Q->front->data};
-
-			Node *temp {Q->front}; // To delete the dynamically allocated memory.
-
-			Q->front = Q->front->next;
-
-			if(Q->front == nullptr)
-			{
-				Q->rear = nullptr;
-			}
-
-			delete temp;
-
-			return deleted_value;
-		}
-	}
-}
 
 struct Node
 {
@@ -150,30 +50,32 @@ void display_binary_tree(Binary_Tree *T) // level-order traversal
 		return ;
 	}
 
-	queue::Queue Q {};
+	queue<Node*> Q {};
 
 	Node *node {T->root};
 
 	cout<<node->data<<" ";
 
-	queue::enqueue(&Q, node);
+	Q.push(node);
 
-	while(!queue::is_empty_queue(&Q))
+	while(!Q.empty())
 	{
-		node = queue::dequeue(&Q);
+		node = Q.front();
+
+		Q.pop();
 
 		if(node->left_child != nullptr)
 		{
 			cout<<node->left_child->data<<" ";
 
-			queue::enqueue(&Q, node->left_child);
+			Q.push(node->left_child);
 		}
 
 		if(node->right_child != nullptr)
 		{
 			cout<<node->right_child->data<<" ";
 
-			queue::enqueue(&Q, node->right_child);
+			Q.push(node->right_child);
 		}
 	}
 }

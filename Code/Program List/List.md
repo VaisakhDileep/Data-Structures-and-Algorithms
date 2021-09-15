@@ -473,6 +473,7 @@ Program349:[c++] [This program finds the shortest path from one node to the othe
 
 Program350:[c++] [This program detects whether there is a cycle in an undirected graph represented using adjacency list(depth first search).](../Program350/main.cpp)<br>
 Program351:[c++] [This program detects whether there is a cycle in an undirected graph represented using adjacency list(breadth first search).](../Program351/main.cpp)<br>
+Program426:[c++] [This program detects whether there is a cycle in an undirected graph represented using adjacency list(union-find algorithm).](../Program426/main.cpp)<br>
 
 # Detect Cycle in Directed Graph:
 
@@ -540,6 +541,10 @@ Program391:[c++] [This program finds all the articulation points in an undirecte
 # Tarjan's Algorithm for Finding all the Strongly Connected Components in a Directed Graph:
 
 Program423:[c++] [This program finds all the strongly connected components in a directed graph represented using adjacency list(Tarjan's algorithm).](../Program423/main.cpp)<br>
+
+# Union-Find Algorithm:
+
+Program425:[c++] [This program demonstrates the union-find algorithm.](../Program425/main.cpp)<br>
 
 # Dynamic Programming:
 
