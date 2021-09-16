@@ -542,6 +542,10 @@ Program391:[c++] [This program finds all the articulation points in an undirecte
 
 Program423:[c++] [This program finds all the strongly connected components in a directed graph represented using adjacency list(Tarjan's algorithm).](../Program423/main.cpp)<br>
 
+# Kruskal's Algorithm for Finding the Minimum Spanning Tree of a Weighed Undirected Graph:
+
+Program427:[c++] [This program finds the minimum spanning tree of a weighed undirected graph represented using adjacency list.(Kruskal's algorithm)](../Program427/main.cpp)<br>
+
 # Union-Find Algorithm:
 
 Program425:[c++] [This program demonstrates the union-find algorithm.](../Program425/main.cpp)<br>

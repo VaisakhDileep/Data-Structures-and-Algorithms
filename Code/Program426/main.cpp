@@ -284,10 +284,20 @@ using namespace Union_Find_Algorithm;
 
 bool detect_cycle_undirected_graph(Undirected_Graph *u_graph)
 {
+	if(u_graph == nullptr)
+	{
+		throw string {"ERROR - Invalid operation, graph is not valid ....."};
+	}
+
 	set<pair<int, int>> edge_list {};
 
 	for(int i {0}; i < u_graph->n; i++)
 	{
+		if(u_graph->A[i] == nullptr)
+		{
+			continue;
+		}
+
 		Node *last {u_graph->A[i]->head};
 
 		while(last != nullptr)
@@ -338,13 +348,13 @@ int main()
 {
 	Undirected_Graph u_graph {};
 
-	Edge edges[5] {Edge {0, 1}, Edge {1, 4}, Edge {4, 3}, Edge {2, 3}, Edge {1, 2}}; // This test case contains a cycle.
+	// Edge edges[5] {Edge {0, 1}, Edge {1, 4}, Edge {4, 3}, Edge {2, 3}, Edge {1, 2}}; // This test case contains a cycle.
 
 	// Edge edges[5] {Edge {0, 1}, Edge {1, 4}, Edge {4, 3}, Edge {1, 2}, Edge {4, 5}}; // This test case does not contain any cycle.
 
 	// Edge edges[5] {Edge {0, 1}, Edge {2, 3}, Edge {2, 4}, Edge {3, 4}, Edge {4, 5}}; // This test case is a disconnected graph that contains a cycle.
 
-	// Edge edges[5] {Edge {0, 1}, Edge {1, 2}, Edge {3, 4}, Edge {4, 5}, Edge {5, 6}}; // This test case is a disconnected graph that does not contain any cycle.
+	Edge edges[5] {Edge {0, 1}, Edge {1, 2}, Edge {3, 4}, Edge {4, 5}, Edge {5, 6}}; // This test case is a disconnected graph that does not contain any cycle.
 
 	handle_create_undirected_graph(&u_graph, edges, 5);
 
