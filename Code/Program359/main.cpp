@@ -175,7 +175,7 @@ namespace Weighed_Directed_Graph_Using_Adjacency_List // Weighed Directed Graph 
 
 using namespace Weighed_Directed_Graph_Using_Adjacency_List;
 
-class Custom_Compare // Custom compare function for "priority_queue".
+class Custom_Compare // Custom compare functor for "priority_queue".
 {
 public:
 	bool operator() (pair<int, int> &p_1, pair<int, int> &p_2)

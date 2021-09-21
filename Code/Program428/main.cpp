@@ -1,16 +1,16 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 16, September, 2021
-Description : This program finds the minimum spanning tree of a weighed undirected graph represented using adjacency list.(Kruskal's algorithm)
+Description : This program finds the minimum spanning tree of a weighed undirected graph represented using adjacency list.(Prim's algorithm)
 */
 
-// Kruskal's algorithm will not work for disconnected graphs. Negative weights are allowed.
+// Prim's algorithm will only work for disconnected graphs. Negative weights are allowed.
 
 #include<iostream>
 
 #include<iomanip>
 
-#include<set>
+#include<vector>
 
 #include<queue>
 
@@ -252,119 +252,97 @@ namespace Weighed_Undirected_Graph_Using_Adjacency_List // Weighed Undirected Gr
 	}
 }
 
-namespace Union_Find_Algorithm
-{
-	vector<int>* create_disjoint_sets(int size)
-	{
-		return new vector<int>(size, -1);
-	}
-
-	int Find(vector<int>* disjoint_sets, int target) // Finds the root of the disjoint set.
-	{
-		if(disjoint_sets->at(target) == -1)
-		{
-			return target;
-		}
-
-		return Find(disjoint_sets, disjoint_sets->at(target));
-	}
-
-	void Union(vector<int>* disjoint_sets, int target_1, int target_2) // Preforms Union operator on the two subsets.
-	{
-		int target_1_root {Find(disjoint_sets, target_1)};
-
-		int target_2_root {Find(disjoint_sets, target_2)};
-
-		if(target_1_root == target_2_root) // Both the elements are already in the same set.
-		{
-			return ;
-		}
-
-		disjoint_sets->at(target_1_root) = target_2_root;
-	}
-}
-
 using namespace Weighed_Undirected_Graph_Using_Adjacency_List;
 
-using namespace Union_Find_Algorithm;
-
-class Custom_Compare // Custom compare function for "priority_queue".
+class Custom_Compare // Custom compare functor for "priority_queue".
 {
 public:
-	bool operator() (tuple<int, int, int> &t_1, tuple<int, int, int> &t_2)
+	bool operator() (pair<int, int> &p_1, pair<int, int> &p_2)
 	{
-		return get<2>(t_1) > get<2>(t_2); // Priority is higher for edges with lesser weights.
+		return (p_1.second > p_2.second); // Priority is higher for vertices with lesser weights.
 	}
 };
 
-Weighed_Undirected_Graph* construct_minimum_spanning_tree_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph) // Kruskal's algorithm for Minimum Spanning Tree.
+Weighed_Undirected_Graph* construct_minimum_spanning_tree_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph) // Prim's algorithm for Minimum Spanning Tree.
 {
 	if(wu_graph == nullptr)
 	{
 		throw string {"ERROR - Invalid operation, graph is not valid ....."};
 	}
 
-	set<tuple<int, int, int>> weighed_edge_list {};
+	int source {};
 
-	set<int> vertices {};
-
-	priority_queue<tuple<int, int, int>, vector<tuple<int, int, int>>, Custom_Compare> p_queue {};
-
-	for(int i {0}; i < wu_graph->n; i++)
+	for(int i {0}; i < wu_graph->n; i++) // Choosing a random "source_node".
 	{
-		if(wu_graph->A[i] == nullptr) // Redundant Node.
+		if(wu_graph->A[i] == nullptr)
+		{
+			continue;
+		}
+		else
+		{
+			source = i;
+
+			break;
+		}
+	}
+
+	int *visited = new int[wu_graph->n] {0};
+
+	vector<pair<int, int>> *previous_node {new vector<pair<int, int>>(wu_graph->n, make_pair(-1, -1))};
+
+	vector<int> *distance {new vector<int>(wu_graph->n, INT_MAX)}; // "INT_MAX" corresponds to infinity.
+
+	priority_queue<pair<int, int>, vector<pair<int, int>>, Custom_Compare> p_queue {};
+
+	distance->at(source) = 0;
+
+	p_queue.push(make_pair(source, 0));
+
+	while(!p_queue.empty())
+	{
+		int vertex {p_queue.top().first};
+
+		p_queue.pop();
+
+		visited[vertex] = 1;
+
+		if(wu_graph->A[vertex] == nullptr) // This is a leaf node.
 		{
 			continue;
 		}
 
-		vertices.insert(i);
-
-		Node *last {wu_graph->A[i]->head};
+		Node *last {wu_graph->A[vertex]->head};
 
 		while(last != nullptr)
 		{
-			if((weighed_edge_list.find(tuple<int, int, int> {i, last->vertex, last->weight}) == weighed_edge_list.end()) and (weighed_edge_list.find(tuple<int, int, int> {last->vertex, i, last->weight}) == weighed_edge_list.end()))
+			if(last->weight < distance->at(last->vertex))
 			{
-				weighed_edge_list.insert(tuple<int, int, int> {i, last->vertex, last->weight});
+				if(visited[last->vertex])
+				{
+					last = last->next;
+
+					continue;
+				}
+
+				previous_node->at(last->vertex) = make_pair(vertex, last->weight);
+
+				distance->at(last->vertex) = last->weight;
+
+				p_queue.push(make_pair(last->vertex,last->weight));
 			}
 
 			last = last->next;
 		}
 	}
 
-	for(auto itr {weighed_edge_list.begin()}; itr != weighed_edge_list.end(); itr++)
-	{
-		p_queue.push(tuple<int, int, int> {get<0>(*itr), get<1>(*itr), get<2>(*itr)});
-	}
-
-	int edge_count {vertices.size() - 1};
-
 	Weighed_Undirected_Graph *minimum_spanning_tree {new Weighed_Undirected_Graph {}};
 
-	vector<int> *disjoint_sets {create_disjoint_sets(wu_graph->n)};
-
-	tuple<int, int, int> target {p_queue.top()};
-
-	p_queue.pop();
-
-	while(edge_count > 0)
+	for(int i {0}; i < previous_node->size(); i++)
 	{
-		int vertex_1_root {Find(disjoint_sets, get<0>(target))};
-
-		int vertex_2_root {Find(disjoint_sets, get<1>(target))};
-
-		if(vertex_1_root != vertex_2_root)
+		if(previous_node->at(i).first != -1)
 		{
-			add_edge_weighed_undirected_graph(minimum_spanning_tree, Weighed_Edge {get<0>(target), get<1>(target), get<2>(target)});
-
-			Union(disjoint_sets, get<0>(target), get<1>(target));
-
-			edge_count--;
+			add_edge_weighed_undirected_graph(minimum_spanning_tree, Weighed_Edge {i, previous_node->at(i).first, previous_node->at(i).second});
 		}
-
-		target = p_queue.top();
-
-		p_queue.pop();
 	}
 
 	return minimum_spanning_tree;

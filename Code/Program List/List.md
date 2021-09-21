@@ -546,6 +546,10 @@ Program423:[c++] [This program finds all the strongly connected components in a 
 
 Program427:[c++] [This program finds the minimum spanning tree of a weighed undirected graph represented using adjacency list.(Kruskal's algorithm)](../Program427/main.cpp)<br>
 
+# Prim's Algorithm for Finding the Minimum Spanning Tree of a Weighed Undirected Graph:
+
+Program428:[c++] [This program finds the minimum spanning tree of a weighed undirected graph represented using adjacency list.(Prim's algorithm)](../Program428/main.cpp)<br>
+
 # Union-Find Algorithm:
 
 Program425:[c++] [This program demonstrates the union-find algorithm.](../Program425/main.cpp)<br>
