@@ -319,7 +319,8 @@ Program310:[c++] [This program converts a binary tree into a binary min heap(hea
 
 # Binary Search Tree:
 
-Program226:[c++] [This program inserts an element to a binary search tree.](../Program226/main.cpp)<br>
+Program226:[c++] [This program inserts an element iteratively to a binary search tree.](../Program226/main.cpp)<br>
+Program436:[c++] [This program inserts an element recursively to a binary search tree.](../Program436/main.cpp)<br>
 Program227:[c++] [This program creates a binary search tree from an array.](../Program227/main.cpp)<br>
 Program228:[c++] [This program searches for an element in a binary search tree.](../Program228/main.cpp)<br>
 
