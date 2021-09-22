@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 22, September, 2021
-Description : This program swaps two numbers using a temporary variable.
+Description : This program swaps two numbers without using a temporary variable(using +, - operator).
 */
 
 #include<iostream>
@@ -15,10 +15,11 @@ void swap(int *a, int *b)
 		throw string {"ERROR - Invalid operation, one of the input numbers is not valid ....."};
 	}
 
-	int temp {*a};
+	*a = *a + *b;
 
-	*a = *b;
-	*b = temp;
+	*b = *a - *b;
+
+	*a = *a - *b;
 }
 
 void handle_swap(int *a, int *b)
