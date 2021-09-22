@@ -41,7 +41,7 @@ void handle_create_binary_tree(Binary_Tree *T, int *A, int size)
 
 int height_binary_tree(Node *node)
 {
-	int left_height {}, right_height {};
+	int left_height {0}, right_height {0};
 
 	if(node != nullptr)
 	{
@@ -75,7 +75,7 @@ int handle_height_binary_tree(Binary_Tree *T)
 		return 0;
 	}
 
-	return height_binary_tree(T->root) - 1;
+	return height_binary_tree(T->root) - 1; // We are only counting the edges for height.
 }
 
 int main()

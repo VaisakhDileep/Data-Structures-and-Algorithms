@@ -42,7 +42,7 @@ int height_binary_tree(Binary_Tree *T)
 		height++;
 	}
 
-	return height - 1;
+	return height - 1; // We are only counting the edges for height.
 }
 
 int handle_height_binary_tree(Binary_Tree *T)

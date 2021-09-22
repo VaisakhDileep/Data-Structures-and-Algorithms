@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 11, June, 2021
-Description : This program creates a binary search tree from an array.
+Date		: 23, September, 2021
+Description : This program finds the height of the binary search tree.
 */
 
 #include<iostream>
@@ -90,11 +90,52 @@ void create_binary_search_tree(Binary_Search_Tree *T, int *A, int size)
 	}
 }
 
+int height_binary_search_tree(Node *node)
+{
+	int left_height {0}, right_height {0};
+
+	if(node != nullptr)
+	{
+		left_height = height_binary_search_tree(node->left_child);
+
+		right_height = height_binary_search_tree(node->right_child);
+
+		if(left_height > right_height)
+		{
+			return left_height + 1;
+		}
+		else
+		{
+			return right_height + 1;
+		}
+	}
+
+	return 0;
+}
+
+int handle_height_binary_search_tree(Binary_Search_Tree *T)
+{
+	if(T == nullptr)
+	{
+		cout<<"ERROR - Invlaid operation, binary search tree is not valid .....";
+
+		return -1;
+	}
+	else if(T->root == nullptr)
+	{
+		return 0;
+	}
+
+	return height_binary_search_tree(T->root) - 1; // We are only counting the edges for height.
+}
+
 int main()
 {
 	Binary_Search_Tree T {};
 
-	create_binary_search_tree(&T, new int[6] {2, 4, 4, 5, 2, 3}, 6);
+	create_binary_search_tree(&T, new int[6] {7, 4, 6, 8, 9, 2}, 6);
+
+	cout<<"handle_height_binary_search_tree(T->root): "<<handle_height_binary_search_tree(&T)<<"\n";
 
 	return 0;
 }

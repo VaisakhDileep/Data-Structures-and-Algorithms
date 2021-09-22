@@ -17,12 +17,12 @@ struct Node
 	Node *right_child;
 };
 
-struct Binary_Tree
+struct Binary_Search_Tree
 {
 	Node *root;
 };
 
-void insert_binary_search_tree(Binary_Tree *T, int value)
+void insert_binary_search_tree(Binary_Search_Tree *T, int value)
 {
 	if(T == nullptr)
 	{
@@ -66,7 +66,7 @@ void insert_binary_search_tree(Binary_Tree *T, int value)
 	}
 }
 
-void create_binary_search_tree(Binary_Tree *T, int *A, int size)
+void create_binary_search_tree(Binary_Search_Tree *T, int *A, int size)
 {
 	for(int i {0}; i < size; i++)
 	{
@@ -92,7 +92,7 @@ void create_binary_search_tree(Binary_Tree *T, int *A, int size)
 
 namespace iteration
 {
-	Node* search_binary_search_tree(Binary_Tree *T, int key)
+	Node* search_binary_search_tree(Binary_Search_Tree *T, int key)
 	{
 		if(T == nullptr)
 		{
@@ -120,7 +120,7 @@ namespace iteration
 		throw string {"ERROR - Invalid operation, key not present in the binary search tree ....."};
 	}
 
-	Node* handle_search_binary_search_tree(Binary_Tree *T, int key)
+	Node* handle_search_binary_search_tree(Binary_Search_Tree *T, int key)
 	{
 		try
 		{
@@ -158,7 +158,7 @@ namespace recursion
 		}
 	}
 
-	Node* handle_search_binary_search_tree(Binary_Tree *T, int key)
+	Node* handle_search_binary_search_tree(Binary_Search_Tree *T, int key)
 	{
 		if(T == nullptr)
 		{
@@ -184,7 +184,7 @@ namespace recursion
 
 int main()
 {
-	Binary_Tree T {};
+	Binary_Search_Tree T {};
 
 	create_binary_search_tree(&T, new int[6] {7, 4, 6, 8, 9, 2}, 6);
 

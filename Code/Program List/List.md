@@ -323,6 +323,8 @@ Program226:[c++] [This program inserts an element iteratively to a binary search
 Program436:[c++] [This program inserts an element recursively to a binary search tree.](../Program436/main.cpp)<br>
 Program227:[c++] [This program creates a binary search tree from an array.](../Program227/main.cpp)<br>
 Program228:[c++] [This program searches for an element in a binary search tree.](../Program228/main.cpp)<br>
+Program438:[c++] [This program finds the height of the binary search tree.](../Program438/main.cpp)<br>
+Program437:[c++] [This program checks if the given binary search tree is height balanced(O(n*n) solution).](../Program437/main.cpp)<br>
 
 # Sorting Techniques:
 

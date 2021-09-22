@@ -17,12 +17,12 @@ struct Node
 	Node *right_child;
 };
 
-struct Binary_Tree
+struct Binary_Search_Tree
 {
 	Node *root;
 };
 
-void insert_binary_search_tree(Binary_Tree *T, int value)
+void insert_binary_search_tree(Binary_Search_Tree *T, int value)
 {
 	if(T == nullptr)
 	{
@@ -66,7 +66,7 @@ void insert_binary_search_tree(Binary_Tree *T, int value)
 	}
 }
 
-void handle_insert_binary_search_tree(Binary_Tree *T, int value)
+void handle_insert_binary_search_tree(Binary_Search_Tree *T, int value)
 {
 	try
 	{
@@ -80,7 +80,7 @@ void handle_insert_binary_search_tree(Binary_Tree *T, int value)
 
 int main()
 {
-	Binary_Tree T1 {};
+	Binary_Search_Tree T1 {};
 
 	handle_insert_binary_search_tree(&T1, 1); // We can create a binary search tree from scratch like this.
 	handle_insert_binary_search_tree(&T1, 4);
