@@ -663,3 +663,6 @@ Program424:[c++] [This program finds all the matching pattern in a string using 
 # Swapping:
 Program429:[c++] [This program swaps two numbers using a temporary variable.](../Program429/main.cpp)<br>
 Program430:[c++] [This program swaps two numbers without using a temporary variable(using +, - operator).](../Program430/main.cpp)<br>
+Program431:[c++] [This program swaps two numbers without using a temporary variable(using *, / operator).](../Program431/main.cpp)<br>
+Program432:[c++] [This program swaps two numbers without using a temporary variable in a single line(using +, - operator).](../Program432/main.cpp)<br>
+Program433:[c++] [This program swaps two numbers without using a temporary variable in a single line(using *, / operator).](../Program433/main.cpp)<br>
