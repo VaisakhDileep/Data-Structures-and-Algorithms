@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 12, June, 2021
-Description : This program searches for an element iteratively in a binary search tree.
+Date		: 23, September, 2021
+Description : This program searches for an element recursively in a binary search tree.
 */
 
 #include<iostream>
@@ -90,45 +90,47 @@ void create_binary_search_tree(Binary_Search_Tree *T, int *A, int size)
 	}
 }
 
-Node* search_binary_search_tree(Binary_Search_Tree *T, int key)
+Node* search_binary_search_tree(Node *node, int key)
 {
-	if(T == nullptr)
+	if(node == nullptr)
 	{
-		throw string {"ERROR - Invalid opeartion, binary search tree is not valid ....."};
+		return nullptr;
 	}
 
-	Node *node {T->root};
-
-	while(node != nullptr)
+	if(key == node->data)
 	{
-		if(key == node->data)
-		{
-			return node;
-		}
-		else if(key < node->data)
-		{
-			node = node->left_child;
-		}
-		else if(key > node->data)
-		{
-			node = node->right_child;
-		}
+		return node;
 	}
-
-	throw string {"ERROR - Invalid operation, key not present in the binary search tree ....."};
+	else if(key < node->data)
+	{
+		return search_binary_search_tree(node->left_child, key);
+	}
+	else if(key > node->data)
+	{
+		return search_binary_search_tree(node->right_child, key);
+	}
 }
 
 Node* handle_search_binary_search_tree(Binary_Search_Tree *T, int key)
 {
-	try
+	if(T == nullptr)
 	{
-		return search_binary_search_tree(T, key);
-	}
-	catch(string &ex)
-	{
-		cout<<ex;
+		cout<<"ERROR - Invalid operation, binary search tree is not valid .....";
 
 		return nullptr;
+	}
+
+	Node *target {search_binary_search_tree(T->root, key)};
+
+	if(target == nullptr)
+	{
+		cout<<"ERROR - Invalid operation, key not present in the binary search tree .....";
+
+		return nullptr;
+	}
+	else
+	{
+		return target;
 	}
 }
 
@@ -143,7 +145,7 @@ int main()
 	cout<<"handle_search_binary_search_tree(&T, 2): "<<handle_search_binary_search_tree(&T, 2)->data<<"\n";
 	cout<<"handle_search_binary_search_tree(&T, 9): "<<handle_search_binary_search_tree(&T, 9)->data<<"\n";
 
-	cout<<"handle_search_binary_search_tree(&T, 10): "<<handle_search_binary_search_tree(&T, 10)<<"\n\n";
+	cout<<"handle_search_binary_search_tree(&T, 10): "<<handle_search_binary_search_tree(&T, 10)<<"\n";
 
 	return 0;
 }

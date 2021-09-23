@@ -322,7 +322,8 @@ Program310:[c++] [This program converts a binary tree into a binary min heap(hea
 Program226:[c++] [This program inserts an element iteratively to a binary search tree.](../Program226/main.cpp)<br>
 Program436:[c++] [This program inserts an element recursively to a binary search tree.](../Program436/main.cpp)<br>
 Program227:[c++] [This program creates a binary search tree from an array.](../Program227/main.cpp)<br>
-Program228:[c++] [This program searches for an element in a binary search tree.](../Program228/main.cpp)<br>
+Program228:[c++] [This program searches for an element iteratively in a binary search tree.](../Program228/main.cpp)<br>
+Program440:[c++] [This program searches for an element recursively in a binary search tree.](../Program440/main.cpp)<br>
 Program438:[c++] [This program finds the height of the binary search tree.](../Program438/main.cpp)<br>
 Program437:[c++] [This program checks if the given binary search tree is height balanced(O(n*n) solution).](../Program437/main.cpp)<br>
 Program439:[c++] [This program checks if the given binary search tree is height balanced(O(n) solution).](../Program439/main.cpp)<br>
