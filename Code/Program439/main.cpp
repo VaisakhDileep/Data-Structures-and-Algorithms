@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date		: 23, September, 2021
-Description : This program checks if the given binary search tree is height balanced(O(n*n) solution).
+Description : This program checks if the given binary search tree is height balanced(O(n) solution).
 */
 
 #include<iostream>
@@ -90,49 +90,26 @@ void create_binary_search_tree(Binary_Search_Tree *T, int *A, int size)
 	}
 }
 
-int height_binary_search_tree(Node *node)
-{
-	int left_height {0}, right_height {0};
-
-	if(node != nullptr)
-	{
-		left_height = height_binary_search_tree(node->left_child);
-
-		right_height = height_binary_search_tree(node->right_child);
-
-		if(left_height > right_height)
-		{
-			return left_height + 1;
-		}
-		else
-		{
-			return right_height + 1;
-		}
-	}
-
-	return 0;
-}
-
-bool is_height_balanced_binary_search_tree(Node *root)
+bool is_height_balanced_binary_search_tree(Node *root, int &height)
 {
 	if(root == nullptr)
 	{
 		return true;
 	}
 
-	if(is_height_balanced_binary_search_tree(root->left_child) == false)
+	int left_height {0}, right_height {0};
+
+	if(is_height_balanced_binary_search_tree(root->left_child, left_height) == false)
 	{
 		return false;
 	}
 
-	if(is_height_balanced_binary_search_tree(root->right_child) == false)
+	if(is_height_balanced_binary_search_tree(root->right_child, right_height) == false)
 	{
 		return false;
 	}
 
-	int left_height {height_binary_search_tree(root->left_child)};
-
-	int right_height {height_binary_search_tree(root->right_child)};
+	height = max(left_height, right_height) + 1;
 
 	if(abs(left_height - right_height) <= 1)
 	{
@@ -155,7 +132,9 @@ bool handle_is_height_balanced_binary_search_tree(Binary_Search_Tree *T)
 		return true;
 	}
 
-	return is_height_balanced_binary_search_tree(T->root);
+	int height {};
+
+	return is_height_balanced_binary_search_tree(T->root, height);
 }
 
 int main()
