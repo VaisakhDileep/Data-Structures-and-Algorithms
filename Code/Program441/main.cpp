@@ -1,12 +1,10 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 6, June, 2021
-Description : This program finds the left child of a node in a binary tree.
+Date		: 24, September, 2021
+Description : This program finds the inorder predecessor of a node in a binary tree.
 */
 
 #include<iostream>
-
-#include<climits>
 
 #include<math.h>
 
@@ -58,7 +56,7 @@ void create_binary_tree(Binary_Tree *T, int *A, int size)
 
 	int height {height_binary_tree(T)};
 
-	int number_nodes {static_cast<int>(pow(2, height + 1)) - 1};
+	int number_nodes {static_cast<int>(pow(2, height + 1)) - 1}; // Number of nodes to safely hold the tree.
 
 	T->size = size;
 
@@ -77,7 +75,19 @@ void create_binary_tree(Binary_Tree *T, int *A, int size)
 	}
 }
 
-int left_child_binary_tree(Binary_Tree *T, int node)
+void handle_create_binary_tree(Binary_Tree *T, int *A, int size)
+{
+	try
+	{
+		create_binary_tree(T, A, size);
+	}
+	catch(string &ex)
+	{
+		cout<<ex;
+	}
+}
+
+int inorder_predecessor_binary_tree(Binary_Tree *T, int node)
 {
 	if(T == nullptr)
 	{
@@ -103,26 +113,33 @@ int left_child_binary_tree(Binary_Tree *T, int node)
 	{
 		throw string {"ERROR - Invalid operation, node not present in the binary tree ....."};
 	}
-	else
-	{
-		i = (2 * (i + 1)) - 1; // Equation for finding the index of the left child of the node.
-	}
+
+	i = (2 * (i + 1)) - 1; // Equation for finding the index of the left child of the node.
 
 	if((i >= T->size) or (T->A[i] == INT_MIN))
 	{
-		throw string {"ERROR - Invalid operation, no left child present for the node ....."};
+		throw string {"ERROR - Invalid operation, given binary tree does not contain inorder predecessor ....."};
 	}
-	else
+
+	int inorder_predecessor {T->A[i]};
+
+	i = 2 * (i + 1); // Equation for finding the index of the right child of the node.
+
+	while((i < T->size) and (T->A[i] != INT_MIN))
 	{
-		return T->A[i];
+		inorder_predecessor = T->A[i];
+
+		i = 2 * (i + 1); // Equation for finding the index of the right child of the node.
 	}
+
+	return inorder_predecessor;
 }
 
-int handle_left_child_binary_tree(Binary_Tree *T, int node)
+int handle_inorder_predecessor_binary_tree(Binary_Tree *T, int node)
 {
 	try
 	{
-		return left_child_binary_tree(T, node);
+		return inorder_predecessor_binary_tree(T, node);
 	}
 	catch(string &ex)
 	{
@@ -136,12 +153,17 @@ int main()
 {
 	Binary_Tree T {};
 
-	create_binary_tree(&T, new int [4] {1, 2, 3, 4}, 4);
+	// create_binary_tree(&T, new int[1] {1}, 1);
 
-	cout<<"handle_left_child_binary_tree(T, 2): "<<handle_left_child_binary_tree(&T, 2)<<"\n";
-	cout<<"handle_left_child_binary_tree(T, 1): "<<handle_left_child_binary_tree(&T, 1)<<"\n";
-	cout<<"handle_left_child_binary_tree(T, 3): "<<handle_left_child_binary_tree(&T, 3)<<"\n";
-	cout<<"handle_left_child_binary_tree(T, 5): "<<handle_left_child_binary_tree(&T, 5)<<"\n";
+	// create_binary_tree(&T, new int[4] {1, 2, 3, 4}, 4);
+
+	// create_binary_tree(&T, new int[5] {1, 2, 3, 4, 5}, 5);
+
+	create_binary_tree(&T, new int[5] {1, INT_MIN, 2, INT_MIN, INT_MIN}, 5);
+
+	// create_binary_tree(&T, new int[11] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}, 11);
+
+	cout<<"handle_inorder_predecessor_binary_tree(T, 1): "<<handle_inorder_predecessor_binary_tree(&T, 1)<<"\n";
 
 	return 0;
 }

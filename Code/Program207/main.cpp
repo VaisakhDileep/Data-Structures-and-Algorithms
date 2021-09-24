@@ -128,7 +128,7 @@ int handle_right_child_binary_tree(Binary_Tree *T, int node)
 	{
 		cout<<ex;
 
-		return -1;
+		return INT_MIN;
 	}
 }
 

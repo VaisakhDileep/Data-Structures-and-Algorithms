@@ -271,6 +271,8 @@ Program205:[c++] [This program displays a binary tree.](../Program205/main.cpp)<
 Program206:[c++] [This program finds the left child of a node in a binary tree.](../Program206/main.cpp)<br>
 Program207:[c++] [This program finds the right child of a node in a binary tree.](../Program207/main.cpp)<br>
 Program208:[c++] [This program finds the parent of a node in a binary tree.](../Program208/main.cpp)<br>
+Program441:[c++] [This program finds the inorder predecessor of a node in a binary tree.](../Program441/main.cpp)<br>
+Program442:[c++] [This program finds the inorder successor of a node in a binary tree.](../Program442/main.cp)<br>
 
 # Binary Tree Using Linked List:
 
