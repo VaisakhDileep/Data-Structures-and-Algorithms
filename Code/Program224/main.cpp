@@ -68,6 +68,10 @@ int handle_count_non_leaf_nodes_binary_tree(Binary_Tree *T)
 
 		return -1;
 	}
+	else if(T->root == nullptr)
+	{
+		return 0;
+	}
 
 	return count_non_leaf_nodes_binary_tree(T->root);
 }

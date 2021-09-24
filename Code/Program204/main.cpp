@@ -93,7 +93,7 @@ int main()
 {
 	Binary_Tree T {};
 
-	handle_create_binary_tree(&T, new int[4] {1, 2, 3, INT_MIN}, 4);
+	handle_create_binary_tree(&T, new int[4] {1, 2, 3, INT_MIN}, 4); // Array corresponds to the level-order traversal.
 
 	return 0;
 }

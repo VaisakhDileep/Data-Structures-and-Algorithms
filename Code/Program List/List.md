@@ -272,12 +272,13 @@ Program206:[c++] [This program finds the left child of a node in a binary tree.]
 Program207:[c++] [This program finds the right child of a node in a binary tree.](../Program207/main.cpp)<br>
 Program208:[c++] [This program finds the parent of a node in a binary tree.](../Program208/main.cpp)<br>
 Program441:[c++] [This program finds the inorder predecessor of a node in a binary tree.](../Program441/main.cpp)<br>
-Program442:[c++] [This program finds the inorder successor of a node in a binary tree.](../Program442/main.cp)<br>
+Program442:[c++] [This program finds the inorder successor of a node in a binary tree.](../Program442/main.cpp)<br>
 
 # Binary Tree Using Linked List:
 
 Program209:[c++] [This program creates a binary tree.](../Program209/main.cpp)<br>
 Program210:[c++] [This program creates a binary tree from an array.](../Program210/main.cpp)<br>
+Program444:[c++] [This program searches for a node in a binary tree.](../Program444/main.cpp)<br>
 Program218:[c++] [This program creates a binary tree from user using queue.](../Program218/main.cpp)<br>
 Program219:[c++] [This program counts the number of nodes in a binary tree.](../Program219/main.cpp)<br>
 Program220:[c++] [This program counts the number of nodes with degree '2' in a binary tree.](../Program220/main.cpp)<br>
@@ -286,6 +287,7 @@ Program221:[c++] [This program finds the sum of all the nodes in a binary tree.]
 Program222:[c++] [This program finds the height of a binary tree.](../Program222/main.cpp)<br>
 Program223:[c++] [This program counts the number of leaf nodes in a binary tree.](../Program223/main.cpp)<br>
 Program224:[c++] [This program counts the number of non-leaf nodes in a binary tree.](../Program224/main.cpp)<br>
+Program443:[c++] [This program finds the inorder predecessor of a node in a binary tree.](../Program443/main.cpp)<br>
 
 # Traversal in a Binary Tree:
 

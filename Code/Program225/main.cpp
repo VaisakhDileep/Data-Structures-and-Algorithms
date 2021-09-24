@@ -68,6 +68,10 @@ int handle_count_nodes_degree_one_binary_tree(Binary_Tree *T)
 	{
 		cout<<"ERROR - Invalid operation, binary tree is not valid .....";
 	}
+	else if(T->root == nullptr)
+	{
+		return 0;
+	}
 
 	return count_nodes_degree_one_binary_tree(T->root);
 }

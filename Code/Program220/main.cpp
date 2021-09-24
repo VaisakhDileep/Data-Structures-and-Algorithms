@@ -68,6 +68,10 @@ int handle_count_nodes_degree_two_binary_tree(Binary_Tree *T)
 
 		return -1;
 	}
+	else if(T->root == nullptr)
+	{
+		return 0;
+	}
 
 	return count_nodes_degree_two_binary_tree(T->root);
 }

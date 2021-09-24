@@ -118,7 +118,7 @@ int inorder_successor_binary_tree(Binary_Tree *T, int node)
 
 	if((i >= T->size) or (T->A[i] == INT_MIN))
 	{
-		throw string {"ERROR - Invalid operation, given binary tree does not contain inorder successor ....."};
+		throw string {"ERROR - Invalid operation, given binary tree node does not contain inorder successor ....."};
 	}
 
 	int inorder_successor {T->A[i]};
