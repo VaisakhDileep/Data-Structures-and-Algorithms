@@ -153,15 +153,15 @@ int main()
 {
 	Binary_Tree T {};
 
-	// create_binary_tree(&T, new int[1] {1}, 1);
+	// handle_create_binary_tree(&T, new int[1] {1}, 1);
 
-	// create_binary_tree(&T, new int[4] {1, 2, 3, 4}, 4);
+	// handle_create_binary_tree(&T, new int[4] {1, 2, 3, 4}, 4);
 
-	// create_binary_tree(&T, new int[5] {1, 2, 3, 4, 5}, 5);
+	// handle_create_binary_tree(&T, new int[5] {1, 2, 3, 4, 5}, 5);
 
-	create_binary_tree(&T, new int[5] {1, INT_MIN, 2, INT_MIN, INT_MIN}, 5);
+	handle_create_binary_tree(&T, new int[5] {1, INT_MIN, 2, INT_MIN, INT_MIN}, 5);
 
-	// create_binary_tree(&T, new int[11] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}, 11);
+	// handle_create_binary_tree(&T, new int[11] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}, 11);
 
 	cout<<"handle_inorder_predecessor_binary_tree(T, 1): "<<handle_inorder_predecessor_binary_tree(&T, 1)<<"\n";
 

@@ -77,6 +77,18 @@ void create_binary_tree(Binary_Tree *T, int *A, int size)
 	}
 }
 
+void handle_create_binary_tree(Binary_Tree *T, int *A, int size)
+{
+	try
+	{
+		create_binary_tree(T, A, size);
+	}
+	catch(string &ex)
+	{
+		cout<<ex;
+	}
+}
+
 int left_child_binary_tree(Binary_Tree *T, int node)
 {
 	if(T == nullptr)
@@ -136,7 +148,7 @@ int main()
 {
 	Binary_Tree T {};
 
-	create_binary_tree(&T, new int [4] {1, 2, 3, 4}, 4);
+	handle_create_binary_tree(&T, new int [4] {1, 2, 3, 4}, 4);
 
 	cout<<"handle_left_child_binary_tree(T, 2): "<<handle_left_child_binary_tree(&T, 2)<<"\n";
 	cout<<"handle_left_child_binary_tree(T, 1): "<<handle_left_child_binary_tree(&T, 1)<<"\n";
