@@ -62,26 +62,32 @@ Node* search_binary_tree(Node *node, int target)
 	return result; // If "target" is not present in the left subtree or right subtree, then "result" will be equal to "nullptr".
 }
 
-bool handle_search_binary_tree(Binary_Tree *T, int target)
+Node* handle_search_binary_tree(Binary_Tree *T, int target)
 {
 	if(T == nullptr)
 	{
-		throw string {"ERROR - Invalid operation, binary tree is not valid ....."};
+		cout<<"ERROR - Invalid operation, binary tree is not valid .....";
+
+		return nullptr;
 	}
 	else if(T->root == nullptr)
 	{
-		throw string {"ERROR - Invalid operation, binary tree is empty ....."};
+		cout<<"ERROR - Invalid operation, binary tree is empty .....";
+
+		return nullptr;
 	}
 
 	Node *result {search_binary_tree(T->root, target)};
 
 	if(result != nullptr)
 	{
-		return true;
+		return result;
 	}
 	else
 	{
-		return false;
+		cout<<"ERROR - Invalid operation, key not present in the binary tree .....";
+
+		return nullptr;
 	}
 }
 
@@ -91,7 +97,7 @@ int main()
 
 	handle_create_binary_tree(&T, new int[4] {1, 2, 3, 4}, 4);
 
-	cout<<"handle_search_binary_tree(T, 4): "<<handle_search_binary_tree(&T, 4)<<"\n";
+	cout<<"handle_search_binary_tree(T, 4): "<<handle_search_binary_tree(&T, 4)->data<<"\n";
 
 	return 0;
 }

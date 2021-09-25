@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 23, September, 2021
-Description : This program searches for an element recursively in a binary search tree.
+Date		: 25, September, 2021
+Description : This program finds the inorder predecessor of a node in a binary search tree.
 */
 
 #include<iostream>
@@ -66,6 +66,7 @@ void insert_binary_search_tree(Binary_Search_Tree *T, int value)
 	}
 }
 
+
 void create_binary_search_tree(Binary_Search_Tree *T, int *A, int size)
 {
 	for(int i {0}; i < size; i++)
@@ -111,7 +112,19 @@ Node* search_binary_search_tree(Node *node, int key)
 	}
 }
 
-Node* handle_search_binary_search_tree(Binary_Search_Tree *T, int key)
+Node* inorder_predecessor_binary_search_tree(Node *node)
+{
+	Node *inorder_predecessor {node->left_child};
+
+	while(inorder_predecessor->right_child != nullptr)
+	{
+		inorder_predecessor = inorder_predecessor->right_child;
+	}
+
+	return inorder_predecessor;
+}
+
+Node* handle_inorder_predecessor_binary_search_tree(Binary_Search_Tree *T, int node)
 {
 	if(T == nullptr)
 	{
@@ -126,32 +139,38 @@ Node* handle_search_binary_search_tree(Binary_Search_Tree *T, int key)
 		return nullptr;
 	}
 
-	Node *target {search_binary_search_tree(T->root, key)};
+	Node *node_ptr {search_binary_search_tree(T->root, node)};
 
-	if(target == nullptr)
+	if(node_ptr == nullptr)
 	{
-		cout<<"ERROR - Invalid operation, key not present in the binary search tree .....";
+		cout<<"ERROR - Invalid operation, node is not present in the binary search tree .....";
 
 		return nullptr;
 	}
-	else
+
+	if(node_ptr->left_child == nullptr)
 	{
-		return target;
+		cout<<"ERROR - Invalid operation, given binary search tree node does not contain inorder predecessor .....";
+
+		return nullptr;
 	}
+
+	Node *inorder_predecessor {inorder_predecessor_binary_search_tree(node_ptr)};
+
+	return inorder_predecessor;
 }
 
 int main()
 {
 	Binary_Search_Tree T {};
 
-	create_binary_search_tree(&T, new int[6] {7, 4, 6, 8, 9, 2}, 6);
+	// create_binary_search_tree(&T, new int[1] {1}, 1);
 
-	cout<<"handle_search_binary_search_tree(&T, 7): "<<handle_search_binary_search_tree(&T, 7)->data<<"\n";
-	cout<<"handle_search_binary_search_tree(&T, 4): "<<handle_search_binary_search_tree(&T, 4)->data<<"\n";
-	cout<<"handle_search_binary_search_tree(&T, 2): "<<handle_search_binary_search_tree(&T, 2)->data<<"\n";
-	cout<<"handle_search_binary_search_tree(&T, 9): "<<handle_search_binary_search_tree(&T, 9)->data<<"\n";
+	create_binary_search_tree(&T, new int [2] {5, 2}, 2);
 
-	cout<<"handle_search_binary_search_tree(&T, 10): "<<handle_search_binary_search_tree(&T, 10)<<"\n";
+	// create_binary_search_tree(&T, new int[6] {10, 5, 6, 15, 20, 12}, 6);
+
+	cout<<"handle_inorder_predecessor_binary_tree(&T, 1): "<<handle_inorder_predecessor_binary_search_tree(&T, 5)->data<<"\n";
 
 	return 0;
 }
