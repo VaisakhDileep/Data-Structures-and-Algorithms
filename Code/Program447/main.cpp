@@ -132,10 +132,45 @@ Node* handle_inorder_successor_binary_search_tree(Binary_Search_Tree *T, int nod
 
 		return nullptr;
 	}
-	
+	else if(T->root == nullptr)
+	{
+		cout<<"ERROR - Invalid operation, binary search tree is empty .....";
+
+		return nullptr;
+	}
+
+	Node *node_ptr {search_binary_search_tree(T->root, node)};
+
+	if(node_ptr == nullptr)
+	{
+		cout<<"ERROR - Invalid operation, node is not present in the binary search tree .....";
+
+		return nullptr;
+	}
+
+	if(node_ptr->right_child == nullptr)
+	{
+		cout<<"ERROR - Invalid operation, given binary search tree node does not contain inorder successor .....";
+
+		return nullptr;
+	}
+
+	Node *inorder_successor {inorder_successor_binary_search_tree(node_ptr)};
+
+	return inorder_successor;
 }
 
 int main()
 {
+	Binary_Search_Tree T {};
+
+	// create_binary_search_tree(&T, new int[1] {1}, 1);
+
+	create_binary_search_tree(&T, new int[2] {10, 20}, 2);
+
+	// create_binary_search_tree(&T, new int[6] {10, 5, 15, 12, 20}, 6);
+
+	cout<<"handle_inorder_successor_binary_tree(&T, 10): "<<handle_inorder_successor_binary_search_tree(&T, 10)->data<<"\n";
+
 	return 0;
 }

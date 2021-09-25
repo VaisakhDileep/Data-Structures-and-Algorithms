@@ -166,11 +166,11 @@ int main()
 
 	// create_binary_search_tree(&T, new int[1] {1}, 1);
 
-	create_binary_search_tree(&T, new int [2] {5, 2}, 2);
+	// create_binary_search_tree(&T, new int [2] {5, 2}, 2);
 
-	// create_binary_search_tree(&T, new int[6] {10, 5, 6, 15, 20, 12}, 6);
+	create_binary_search_tree(&T, new int[6] {10, 5, 6, 15, 20, 12}, 6);
 
-	cout<<"handle_inorder_predecessor_binary_tree(&T, 1): "<<handle_inorder_predecessor_binary_search_tree(&T, 5)->data<<"\n";
+	cout<<"handle_inorder_predecessor_binary_tree(&T, 10): "<<handle_inorder_predecessor_binary_search_tree(&T, 10)->data<<"\n";
 
 	return 0;
 }
