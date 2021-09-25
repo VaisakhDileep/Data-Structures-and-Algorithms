@@ -111,6 +111,10 @@ Program098:[c++] [This program checks if two strings are anagrams.](../Program09
 Program099:[c++] [This program finds all the permutations of a string(using brute-force).](../Program099/main.cpp)<br>
 Program100:[c++] [This program finds all the permutations of a string(using swap function).](../Program100/main.cpp)<br>
 
+# Palindromic Sub-String:
+
+Program448:[c++] [This program finds the longest palindromic sub-string in a string(using brute-force approach).](../Program448/main.cpp)<br>
+
 # Matrices(N X M):
 
 Program101:[c++] [This program creates a matrix.](../Program101/main.cpp)<br>
