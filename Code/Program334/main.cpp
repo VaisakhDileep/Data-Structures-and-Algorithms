@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 14, July, 2021
+Date        : 14, July, 2021
 Description : This program implements can_construct(target, word_bank) using memoization.
 */
 
@@ -16,48 +16,48 @@ using namespace std;
 
 bool can_construct(string target, vector<string> *word_bank, unordered_map<string, bool> &memo)
 {
-	if(memo.find(target) != memo.end())
-	{
-		return memo[target];
-	}
+    if(memo.find(target) != memo.end())
+    {
+        return memo[target];
+    }
 
-	if(target == "")
-	{
-		return true;
-	}
+    if(target == "")
+    {
+        return true;
+    }
 
-	for(string word : *word_bank)
-	{
-		string suffix_word {target.substr(0, word.length())};
+    for(string word : *word_bank)
+    {
+        string suffix_word {target.substr(0, word.length())};
 
-		if(suffix_word == word)
-		{
-			if(can_construct(target.substr(word.length(), target.length()), word_bank, memo))
-			{
-				memo[target] = true;
+        if(suffix_word == word)
+        {
+            if(can_construct(target.substr(word.length(), target.length()), word_bank, memo))
+            {
+                memo[target] = true;
 
-				return true;
-			}
-		}
-	}
+                return true;
+            }
+        }
+    }
 
-	memo[target] = false; // If the for loop fails(all the branches result in "false").
+    memo[target] = false; // If the for loop fails(all the branches result in "false").
 
-	return false;
+    return false;
 }
 
 bool handle_can_construct(string target, vector<string> *word_bank)
 {
-	unordered_map<string, bool> memo {};
+    unordered_map<string, bool> memo {};
 
-	return can_construct(target, word_bank, memo);
+    return can_construct(target, word_bank, memo);
 }
 
 int main()
 {
-	cout<<"can_construct(\"abcdef\", [\"a\", \"bcd\", \"ee\", \"e\", \"f\"]): "<<handle_can_construct("abcdef", new vector<string> {"a", "bcd", "ee", "e", "f"})<<"\n";
+    cout<<"can_construct(\"abcdef\", [\"a\", \"bcd\", \"ee\", \"e\", \"f\"]): "<<handle_can_construct("abcdef", new vector<string> {"a", "bcd", "ee", "e", "f"})<<"\n";
 
-	cout<<"can_construct(\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab\", [\"a\", \"aa\", \"aaa\", \"aaaa\", \"aaaaa\"]): "<<handle_can_construct("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab", new vector<string> {"a", "aa", "aaa", "aaaa", "aaaaa"})<<"\n"; // Notice here we get the result without any delay.
+    cout<<"can_construct(\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab\", [\"a\", \"aa\", \"aaa\", \"aaaa\", \"aaaaa\"]): "<<handle_can_construct("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab", new vector<string> {"a", "aa", "aaa", "aaaa", "aaaaa"})<<"\n"; // Notice here we get the result without any delay.
 
-	return 0;
+    return 0;
 }

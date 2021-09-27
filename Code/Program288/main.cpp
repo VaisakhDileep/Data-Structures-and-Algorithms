@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 30, June, 2021
+Date        : 30, June, 2021
 Description : This program creates a weighed directed graph.
 */
 
@@ -12,34 +12,34 @@ using namespace std;
 
 struct Node
 {
-	int vertex;
+    int vertex;
 
-	int weight;
+    int weight;
 
-	Node *next;
+    Node *next;
 };
 
 struct Linked_list
 {
-	Node *head;
+    Node *head;
 };
 
 struct Weighed_Directed_Graph // Using adjacency list.
 {
-	Linked_list **A; // array of linked lists.
+    Linked_list **A; // array of linked lists.
 
-	int n; // number of rows.
+    int n; // number of rows.
 };
 
 int main()
 {
-	Weighed_Directed_Graph wd_graph {new Linked_list*[5] {}, 5};
+    Weighed_Directed_Graph wd_graph {new Linked_list*[5] {}, 5};
 
-	wd_graph.A[0] = new Linked_list {new Node {2, 10, nullptr}};
+    wd_graph.A[0] = new Linked_list {new Node {2, 10, nullptr}};
 
-	wd_graph.A[2] = new Linked_list {new Node {4, 15, nullptr}};
+    wd_graph.A[2] = new Linked_list {new Node {4, 15, nullptr}};
 
-	wd_graph.A[0]->head->next = new Node {7, 45, nullptr};
+    wd_graph.A[0]->head->next = new Node {7, 45, nullptr};
 
-	return 0;
+    return 0;
 }

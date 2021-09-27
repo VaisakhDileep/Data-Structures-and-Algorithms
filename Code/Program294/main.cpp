@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 1, July, 2021
+Date        : 1, July, 2021
 Description : This program creates a weighed directed graph from user.
 */
 
@@ -12,195 +12,195 @@ using namespace std;
 
 struct Node
 {
-	int vertex;
+    int vertex;
 
-	int weight;
+    int weight;
 
-	Node *next;
+    Node *next;
 };
 
 struct Linked_list
 {
-	Node *head;
+    Node *head;
 };
 
 struct Weighed_Directed_Graph
 {
-	Linked_list **A;
+    Linked_list **A;
 
-	int n;
+    int n;
 };
 
 struct Weighed_Edge
 {
-	int vertex_1;
+    int vertex_1;
 
-	int vertex_2;
+    int vertex_2;
 
-	int weight;
+    int weight;
 };
 
 void display_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
 {
-	if(wd_graph == nullptr)
-	{
-		return ;
-	}
+    if(wd_graph == nullptr)
+    {
+        return ;
+    }
 
-	for(int i {0}; i < wd_graph->n; i++)
-	{
-		if(wd_graph->A[i] == nullptr)
-		{
-			continue;
-		}
-		else
-		{
-			cout<<setw(3)<<left<<i;
+    for(int i {0}; i < wd_graph->n; i++)
+    {
+        if(wd_graph->A[i] == nullptr)
+        {
+            continue;
+        }
+        else
+        {
+            cout<<setw(3)<<left<<i;
 
-			Node *last {wd_graph->A[i]->head};
+            Node *last {wd_graph->A[i]->head};
 
-			while(last != nullptr)
-			{
-				cout<<" -["<<setw(3)<<last->weight<<"]-> "<<setw(3)<<last->vertex;
+            while(last != nullptr)
+            {
+                cout<<" -["<<setw(3)<<last->weight<<"]-> "<<setw(3)<<last->vertex;
 
-				last = last->next;
-			}
-			cout<<"\n";
-		}
-	}
+                last = last->next;
+            }
+            cout<<"\n";
+        }
+    }
 }
 
 void add_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edge edge)
 {
-	if(wd_graph == nullptr)
-	{
-		throw string {"ERROR - Invalid operation, graph is not valid ....."};
-	}
+    if(wd_graph == nullptr)
+    {
+        throw string {"ERROR - Invalid operation, graph is not valid ....."};
+    }
 
-	if((edge.vertex_1 < 0) or (edge.vertex_2 < 0))
-	{
-		throw string {"ERROR - Invalid operation, given edge contains negative vertex ....."};
-	}
+    if((edge.vertex_1 < 0) or (edge.vertex_2 < 0))
+    {
+        throw string {"ERROR - Invalid operation, given edge contains negative vertex ....."};
+    }
 
-	if(edge.vertex_1 < wd_graph->n)
-	{
-		if(wd_graph->A[edge.vertex_1] == nullptr)
-		{
-			wd_graph->A[edge.vertex_1] = new Linked_list {new Node {edge.vertex_2, edge.weight, nullptr}};
-		}
-		else
-		{
-			Node *last {wd_graph->A[edge.vertex_1]->head}, *previous_node {};
+    if(edge.vertex_1 < wd_graph->n)
+    {
+        if(wd_graph->A[edge.vertex_1] == nullptr)
+        {
+            wd_graph->A[edge.vertex_1] = new Linked_list {new Node {edge.vertex_2, edge.weight, nullptr}};
+        }
+        else
+        {
+            Node *last {wd_graph->A[edge.vertex_1]->head}, *previous_node {};
 
-			while(last != nullptr)
-			{
-				previous_node = last;
+            while(last != nullptr)
+            {
+                previous_node = last;
 
-				if(last->vertex == edge.vertex_2)
-				{
-					throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
-				}
+                if(last->vertex == edge.vertex_2)
+                {
+                    throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
+                }
 
-				last = last->next;
-			}
+                last = last->next;
+            }
 
-			previous_node->next = new Node {edge.vertex_2, edge.weight, nullptr};
-		}
-	}
-	else
-	{
-		int new_n {edge.vertex_1 + 1};
+            previous_node->next = new Node {edge.vertex_2, edge.weight, nullptr};
+        }
+    }
+    else
+    {
+        int new_n {edge.vertex_1 + 1};
 
-		Weighed_Directed_Graph temp {new Linked_list*[new_n] {}, new_n};
+        Weighed_Directed_Graph temp {new Linked_list*[new_n] {}, new_n};
 
-		for(int i {0}; i < wd_graph->n; i++)
-		{
-			temp.A[i] = wd_graph->A[i];
-		}
+        for(int i {0}; i < wd_graph->n; i++)
+        {
+            temp.A[i] = wd_graph->A[i];
+        }
 
-		temp.A[edge.vertex_1] = new Linked_list {new Node {edge.vertex_2, edge.weight, nullptr}};
+        temp.A[edge.vertex_1] = new Linked_list {new Node {edge.vertex_2, edge.weight, nullptr}};
 
-		wd_graph->A = temp.A;
+        wd_graph->A = temp.A;
 
-		temp.A = nullptr;
+        temp.A = nullptr;
 
-		wd_graph->n = temp.n;
-	}
+        wd_graph->n = temp.n;
+    }
 }
 
 void create_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
 {
-	if(wd_graph == nullptr)
-	{
-		throw string {"ERROR - Invalid operation, graph is not valid ....."};
-	}
+    if(wd_graph == nullptr)
+    {
+        throw string {"ERROR - Invalid operation, graph is not valid ....."};
+    }
 
-	int num_edges {};
+    int num_edges {};
 
-	cout<<"Enter the number of edges present in the graph: ";
+    cout<<"Enter the number of edges present in the graph: ";
 
-	cin>>num_edges;
-	cin.ignore();
+    cin>>num_edges;
+    cin.ignore();
 
-	cout<<"\nStart entering the edges in the format \"{vertex_1, vertex_2, weight}\": \n";
+    cout<<"\nStart entering the edges in the format \"{vertex_1, vertex_2, weight}\": \n";
 
-	for(int i {0}; i < num_edges; i++)
-	{
-		int vertex_1 {}, vertex_2 {}, weight {};
+    for(int i {0}; i < num_edges; i++)
+    {
+        int vertex_1 {}, vertex_2 {}, weight {};
 
-		string user_input {};
+        string user_input {};
 
-		cout<<"> ";
+        cout<<"> ";
 
-		getline(cin, user_input);
+        getline(cin, user_input);
 
-		istringstream iss {user_input};
+        istringstream iss {user_input};
 
-		iss.ignore(); // This will ignore "{".
+        iss.ignore(); // This will ignore "{".
 
-		iss>>vertex_1;
+        iss>>vertex_1;
 
-		iss.ignore(); // This will ignore ",".
+        iss.ignore(); // This will ignore ",".
 
-		iss>>vertex_2;
+        iss>>vertex_2;
 
-		iss.ignore(); // This will ignore ",".
+        iss.ignore(); // This will ignore ",".
 
-		iss>>weight;
+        iss>>weight;
 
-		try
-		{
-			add_edge_weighed_directed_graph(wd_graph, Weighed_Edge {vertex_1, vertex_2, weight});
-		}
-		catch(string &ex)
-		{
-			throw string {"ERROR - Invalid operation, given edge is not valid ....."};
-		}
-	}
+        try
+        {
+            add_edge_weighed_directed_graph(wd_graph, Weighed_Edge {vertex_1, vertex_2, weight});
+        }
+        catch(string &ex)
+        {
+            throw string {"ERROR - Invalid operation, given edge is not valid ....."};
+        }
+    }
 }
 
 void handle_create_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
 {
-	try
-	{
-		create_weighed_directed_graph(wd_graph);
-	}
-	catch(string &ex)
-	{
-		cout<<ex;
-	}
+    try
+    {
+        create_weighed_directed_graph(wd_graph);
+    }
+    catch(string &ex)
+    {
+        cout<<ex;
+    }
 }
 
 int main()
 {
-	Weighed_Directed_Graph wd_graph {};
+    Weighed_Directed_Graph wd_graph {};
 
-	handle_create_weighed_directed_graph(&wd_graph);
-	cout<<"\n";
+    handle_create_weighed_directed_graph(&wd_graph);
+    cout<<"\n";
 
-	cout<<"wd_graph: \n";
-	display_weighed_directed_graph(&wd_graph);
-	cout<<"\n";
+    cout<<"wd_graph: \n";
+    display_weighed_directed_graph(&wd_graph);
+    cout<<"\n";
 
-	return 0;
+    return 0;
 }

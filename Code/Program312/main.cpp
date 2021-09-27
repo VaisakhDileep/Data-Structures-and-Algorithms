@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 9, July, 2021
+Date        : 9, July, 2021
 Description : This program demonstrates breadth first search for a weighed undirected graph represented using adjacency list.
 */
 
@@ -14,318 +14,318 @@ using namespace std;
 
 namespace Weighed_Undirected_Graph_Using_Adjacency_List // Weighed Undirected Graph is designed using Adjacency List representation.
 {
-	struct Node
-	{
-		int vertex;
+    struct Node
+    {
+        int vertex;
 
-		int weight;
+        int weight;
 
-		Node *next;
-	};
+        Node *next;
+    };
 
-	struct Linked_list
-	{
-		Node *head;
-	};
+    struct Linked_list
+    {
+        Node *head;
+    };
 
-	struct Weighed_Undirected_Graph
-	{
-		Linked_list **A;
+    struct Weighed_Undirected_Graph
+    {
+        Linked_list **A;
 
-		int n;
-	};
+        int n;
+    };
 
-	struct Weighed_Edge
-	{
-		int vertex_1;
+    struct Weighed_Edge
+    {
+        int vertex_1;
 
-		int vertex_2;
+        int vertex_2;
 
-		int weight;
-	};
+        int weight;
+    };
 
-	void display_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph)
-	{
-		if(wu_graph == nullptr)
-		{
-			return ;
-		}
+    void display_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph)
+    {
+        if(wu_graph == nullptr)
+        {
+            return ;
+        }
 
-		for(int i {0}; i < wu_graph->n; i++)
-		{
-			if(wu_graph->A[i] == nullptr)
-			{
-				continue;
-			}
-			else
-			{
-				cout<<setw(3)<<left<<i;
+        for(int i {0}; i < wu_graph->n; i++)
+        {
+            if(wu_graph->A[i] == nullptr)
+            {
+                continue;
+            }
+            else
+            {
+                cout<<setw(3)<<left<<i;
 
-				Node *last {wu_graph->A[i]->head};
+                Node *last {wu_graph->A[i]->head};
 
-				while(last != nullptr)
-				{
-					cout<<" -["<<setw(3)<<last->weight<<"]-> "<<setw(3)<<last->vertex;
+                while(last != nullptr)
+                {
+                    cout<<" -["<<setw(3)<<last->weight<<"]-> "<<setw(3)<<last->vertex;
 
-					last = last->next;
-				}
-				cout<<"\n";
-			}
-		}
-	}
+                    last = last->next;
+                }
+                cout<<"\n";
+            }
+        }
+    }
 
-	void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge edge)
-	{
-		if(wu_graph == nullptr)
-		{
-			throw string {"ERROR - Invalid operation, graph is not valid ....."};
-		}
+    void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge edge)
+    {
+        if(wu_graph == nullptr)
+        {
+            throw string {"ERROR - Invalid operation, graph is not valid ....."};
+        }
 
-		if((edge.vertex_1 < 0) or (edge.vertex_2 < 0))
-		{
-			throw string {"ERROR - Invalid operation, given edge contains negative vertex ....."};
-		}
+        if((edge.vertex_1 < 0) or (edge.vertex_2 < 0))
+        {
+            throw string {"ERROR - Invalid operation, given edge contains negative vertex ....."};
+        }
 
-		if((edge.vertex_1 < wu_graph->n) and (edge.vertex_2 < wu_graph->n))
-		{
-			if(wu_graph->A[edge.vertex_1] == nullptr)
-			{
-				wu_graph->A[edge.vertex_1] = new Linked_list {new Node {edge.vertex_2, edge.weight, nullptr}};
-			}
-			else
-			{
-				Node *last {wu_graph->A[edge.vertex_1]->head}, *previous_node {};
+        if((edge.vertex_1 < wu_graph->n) and (edge.vertex_2 < wu_graph->n))
+        {
+            if(wu_graph->A[edge.vertex_1] == nullptr)
+            {
+                wu_graph->A[edge.vertex_1] = new Linked_list {new Node {edge.vertex_2, edge.weight, nullptr}};
+            }
+            else
+            {
+                Node *last {wu_graph->A[edge.vertex_1]->head}, *previous_node {};
 
-				while(last != nullptr)
-				{
-					previous_node = last;
+                while(last != nullptr)
+                {
+                    previous_node = last;
 
-					if(last->vertex == edge.vertex_2)
-					{
-						throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
-					}
+                    if(last->vertex == edge.vertex_2)
+                    {
+                        throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
+                    }
 
-					last = last->next;
-				}
+                    last = last->next;
+                }
 
-				previous_node->next = new Node {edge.vertex_2, edge.weight, nullptr};
-			}
+                previous_node->next = new Node {edge.vertex_2, edge.weight, nullptr};
+            }
 
-			if(edge.vertex_1 == edge.vertex_2)
-			{
-				return ;
-			}
+            if(edge.vertex_1 == edge.vertex_2)
+            {
+                return ;
+            }
 
-			if(wu_graph->A[edge.vertex_2] == nullptr)
-			{
-				wu_graph->A[edge.vertex_2] = new Linked_list {new Node {edge.vertex_1, edge.weight, nullptr}};
-			}
-			else
-			{
-				Node *last {wu_graph->A[edge.vertex_2]->head}, *previous_node {};
+            if(wu_graph->A[edge.vertex_2] == nullptr)
+            {
+                wu_graph->A[edge.vertex_2] = new Linked_list {new Node {edge.vertex_1, edge.weight, nullptr}};
+            }
+            else
+            {
+                Node *last {wu_graph->A[edge.vertex_2]->head}, *previous_node {};
 
-				while(last != nullptr)
-				{
-					previous_node = last;
+                while(last != nullptr)
+                {
+                    previous_node = last;
 
-					if(last->vertex == edge.vertex_1)
-					{
-						throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
-					}
+                    if(last->vertex == edge.vertex_1)
+                    {
+                        throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
+                    }
 
-					last = last->next;
-				}
+                    last = last->next;
+                }
 
-				previous_node->next = new Node {edge.vertex_1, edge.weight, nullptr};
-			}
-		}
-		else
-		{
-			int new_n {edge.vertex_1 > edge.vertex_2 ? edge.vertex_1 + 1 : edge.vertex_2 + 1};
+                previous_node->next = new Node {edge.vertex_1, edge.weight, nullptr};
+            }
+        }
+        else
+        {
+            int new_n {edge.vertex_1 > edge.vertex_2 ? edge.vertex_1 + 1 : edge.vertex_2 + 1};
 
-			Weighed_Undirected_Graph temp {new Linked_list*[new_n] {}, new_n};
+            Weighed_Undirected_Graph temp {new Linked_list*[new_n] {}, new_n};
 
-			for(int i {0}; i < wu_graph->n; i++)
-			{
-				temp.A[i] = wu_graph->A[i];
-			}
+            for(int i {0}; i < wu_graph->n; i++)
+            {
+                temp.A[i] = wu_graph->A[i];
+            }
 
-			if(temp.A[edge.vertex_1] == nullptr)
-			{
-				temp.A[edge.vertex_1] = new Linked_list {new Node {edge.vertex_2, edge.weight, nullptr}};
-			}
-			else
-			{
-				Node *last {temp.A[edge.vertex_1]->head}, *previous_node {};
+            if(temp.A[edge.vertex_1] == nullptr)
+            {
+                temp.A[edge.vertex_1] = new Linked_list {new Node {edge.vertex_2, edge.weight, nullptr}};
+            }
+            else
+            {
+                Node *last {temp.A[edge.vertex_1]->head}, *previous_node {};
 
-				while(last != nullptr)
-				{
-					previous_node = last;
+                while(last != nullptr)
+                {
+                    previous_node = last;
 
-					if(last->vertex == edge.vertex_2)
-					{
-						throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
-					}
+                    if(last->vertex == edge.vertex_2)
+                    {
+                        throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
+                    }
 
-					last = last->next;
-				}
+                    last = last->next;
+                }
 
-				previous_node->next = new Node {edge.vertex_2, edge.weight, nullptr};
-			}
+                previous_node->next = new Node {edge.vertex_2, edge.weight, nullptr};
+            }
 
-			if(edge.vertex_1 == edge.vertex_2)
-			{
-				wu_graph->A = temp.A;
+            if(edge.vertex_1 == edge.vertex_2)
+            {
+                wu_graph->A = temp.A;
 
-				temp.A = nullptr;
+                temp.A = nullptr;
 
-				wu_graph->n = temp.n;
+                wu_graph->n = temp.n;
 
-				return ;
-			}
+                return ;
+            }
 
-			if(temp.A[edge.vertex_2] == nullptr)
-			{
-				temp.A[edge.vertex_2] = new Linked_list {new Node {edge.vertex_1, edge.weight, nullptr}};
-			}
-			else
-			{
-				Node *last {temp.A[edge.vertex_2]->head}, *previous_node {};
+            if(temp.A[edge.vertex_2] == nullptr)
+            {
+                temp.A[edge.vertex_2] = new Linked_list {new Node {edge.vertex_1, edge.weight, nullptr}};
+            }
+            else
+            {
+                Node *last {temp.A[edge.vertex_2]->head}, *previous_node {};
 
-				while(last != nullptr)
-				{
-					previous_node = last;
+                while(last != nullptr)
+                {
+                    previous_node = last;
 
-					if(last->vertex == edge.vertex_1)
-					{
-						throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
-					}
+                    if(last->vertex == edge.vertex_1)
+                    {
+                        throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
+                    }
 
-					last = last->next;
-				}
+                    last = last->next;
+                }
 
-				previous_node->next = new Node {edge.vertex_1, edge.weight, nullptr};
-			}
+                previous_node->next = new Node {edge.vertex_1, edge.weight, nullptr};
+            }
 
-			wu_graph->A = temp.A;
+            wu_graph->A = temp.A;
 
-			temp.A = nullptr;
+            temp.A = nullptr;
 
-			wu_graph->n = temp.n;
-		}
-	}
+            wu_graph->n = temp.n;
+        }
+    }
 
-	void create_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge *w_edges, int num_edges)
-	{
-		if(wu_graph == nullptr)
-		{
-			throw string {"ERROR - Invalid operation, graph is not valid ....."};
-		}
+    void create_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge *w_edges, int num_edges)
+    {
+        if(wu_graph == nullptr)
+        {
+            throw string {"ERROR - Invalid operation, graph is not valid ....."};
+        }
 
-		for(int i {0}; i < num_edges; i++)
-		{
-			try
-			{
-				add_edge_weighed_undirected_graph(wu_graph, w_edges[i]);
-			}
-			catch(string &ex)
-			{
-				throw string {"ERROR - Invalid operation, given set of edges is not valid ....."};
-			}
-		}
-	}
+        for(int i {0}; i < num_edges; i++)
+        {
+            try
+            {
+                add_edge_weighed_undirected_graph(wu_graph, w_edges[i]);
+            }
+            catch(string &ex)
+            {
+                throw string {"ERROR - Invalid operation, given set of edges is not valid ....."};
+            }
+        }
+    }
 
-	void handle_create_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge *w_edges, int num_edges)
-	{
-		try
-		{
-			create_weighed_undirected_graph(wu_graph, w_edges, num_edges);
-		}
-		catch(string &ex)
-		{
-			cout<<ex;
-		}
-	}
+    void handle_create_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge *w_edges, int num_edges)
+    {
+        try
+        {
+            create_weighed_undirected_graph(wu_graph, w_edges, num_edges);
+        }
+        catch(string &ex)
+        {
+            cout<<ex;
+        }
+    }
 }
 
 using namespace Weighed_Undirected_Graph_Using_Adjacency_List;
 
 void breadth_first_search(Weighed_Undirected_Graph *wu_graph, int root)
 {
-	if(wu_graph == nullptr)
-	{
-		throw string {"ERROR - Invalid operation, graph is not valid ....."};
-	}
+    if(wu_graph == nullptr)
+    {
+        throw string {"ERROR - Invalid operation, graph is not valid ....."};
+    }
 
-	if(root < 0)
-	{
-		throw string {"ERROR - Invalid root vertex, vertex cannot be negative ....."};
-	}
+    if(root < 0)
+    {
+        throw string {"ERROR - Invalid root vertex, vertex cannot be negative ....."};
+    }
 
-	cout<<root<<" ";
+    cout<<root<<" ";
 
-	int *visited = new int[wu_graph->n] {0};
+    int *visited = new int[wu_graph->n] {0};
 
-	visited[root] = 1;
+    visited[root] = 1;
 
-	queue<int> Q {};
+    queue<int> Q {};
 
-	Q.push(root);
+    Q.push(root);
 
-	while(!Q.empty())
-	{
-		int node {Q.front()};
+    while(!Q.empty())
+    {
+        int node {Q.front()};
 
-		Q.pop();
+        Q.pop();
 
-		Weighed_Undirected_Graph_Using_Adjacency_List::Node *last {wu_graph->A[node]->head};
+        Weighed_Undirected_Graph_Using_Adjacency_List::Node *last {wu_graph->A[node]->head};
 
-		while(last != nullptr)
-		{
-			if(visited[last->vertex] == 0)
-			{
-				cout<<last->vertex<<" ";
+        while(last != nullptr)
+        {
+            if(visited[last->vertex] == 0)
+            {
+                cout<<last->vertex<<" ";
 
-				visited[last->vertex] = 1;
+                visited[last->vertex] = 1;
 
-				Q.push(last->vertex);
-			}
+                Q.push(last->vertex);
+            }
 
-			last = last->next;
-		}
-	}
+            last = last->next;
+        }
+    }
 }
 
 void handle_breadth_first_search(Weighed_Undirected_Graph *wu_graph, int root = 0)
 {
-	try
-	{
-		breadth_first_search(wu_graph, root);
-	}
-	catch(string &ex)
-	{
-		cout<<ex;
-	}
+    try
+    {
+        breadth_first_search(wu_graph, root);
+    }
+    catch(string &ex)
+    {
+        cout<<ex;
+    }
 }
 
 int main()
 {
-	Weighed_Undirected_Graph wu_graph {};
+    Weighed_Undirected_Graph wu_graph {};
 
-	Weighed_Edge w_edges[9] {Weighed_Edge {0, 1, 10}, Weighed_Edge {0, 2, 20}, Weighed_Edge {0, 3, 30}, Weighed_Edge {1, 2, 40}, Weighed_Edge {3, 4, 50}, Weighed_Edge {2, 4, 60}, Weighed_Edge {4, 5, 70}, Weighed_Edge {4, 6, 80}, Weighed_Edge {3, 2, 90}};
+    Weighed_Edge w_edges[9] {Weighed_Edge {0, 1, 10}, Weighed_Edge {0, 2, 20}, Weighed_Edge {0, 3, 30}, Weighed_Edge {1, 2, 40}, Weighed_Edge {3, 4, 50}, Weighed_Edge {2, 4, 60}, Weighed_Edge {4, 5, 70}, Weighed_Edge {4, 6, 80}, Weighed_Edge {3, 2, 90}};
 
-	handle_create_weighed_undirected_graph(&wu_graph, w_edges, 9);
+    handle_create_weighed_undirected_graph(&wu_graph, w_edges, 9);
 
-	cout<<"wu_graph: \n";
-	display_weighed_undirected_graph(&wu_graph);
-	cout<<"\n";
+    cout<<"wu_graph: \n";
+    display_weighed_undirected_graph(&wu_graph);
+    cout<<"\n";
 
-	cout<<"BFS(wu_graph): ";
-	handle_breadth_first_search(&wu_graph);
-	cout<<"\n";
+    cout<<"BFS(wu_graph): ";
+    handle_breadth_first_search(&wu_graph);
+    cout<<"\n";
 
-	handle_breadth_first_search(&wu_graph, -1);
-	cout<<"\n";
+    handle_breadth_first_search(&wu_graph, -1);
+    cout<<"\n";
 
-	return 0;
+    return 0;
 }

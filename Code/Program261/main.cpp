@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 23, June, 2021
+Date        : 23, June, 2021
 Description : This program inserts an edge to a weighed undirected graph.
 */
 
@@ -12,257 +12,257 @@ using namespace std;
 
 struct Node
 {
-	int vertex;
+    int vertex;
 
-	int weight;
+    int weight;
 
-	Node *next;
+    Node *next;
 };
 
 struct Linked_list
 {
-	Node *head;
+    Node *head;
 };
 
 struct Weighed_Undirected_Graph
 {
-	Linked_list **A;
+    Linked_list **A;
 
-	int n;
+    int n;
 };
 
 struct Weighed_Edge
 {
-	int vertex_1;
+    int vertex_1;
 
-	int vertex_2;
+    int vertex_2;
 
-	int weight;
+    int weight;
 };
 
 void display_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph)
 {
-	if(wu_graph == nullptr)
-	{
-		return ;
-	}
+    if(wu_graph == nullptr)
+    {
+        return ;
+    }
 
-	for(int i {0}; i < wu_graph->n; i++)
-	{
-		if(wu_graph->A[i] == nullptr)
-		{
-			continue;
-		}
-		else
-		{
-			cout<<setw(3)<<left<<i;
+    for(int i {0}; i < wu_graph->n; i++)
+    {
+        if(wu_graph->A[i] == nullptr)
+        {
+            continue;
+        }
+        else
+        {
+            cout<<setw(3)<<left<<i;
 
-			Node *last {wu_graph->A[i]->head};
+            Node *last {wu_graph->A[i]->head};
 
-			while(last != nullptr)
-			{
-				cout<<" -["<<setw(3)<<last->weight<<"]-> "<<setw(3)<<last->vertex;
+            while(last != nullptr)
+            {
+                cout<<" -["<<setw(3)<<last->weight<<"]-> "<<setw(3)<<last->vertex;
 
-				last = last->next;
-			}
-			cout<<"\n";
-		}
-	}
+                last = last->next;
+            }
+            cout<<"\n";
+        }
+    }
 }
 
 void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge edge)
 {
-	if(wu_graph == nullptr)
-	{
-		throw string {"ERROR - Invalid operation, graph is not valid ....."};
-	}
+    if(wu_graph == nullptr)
+    {
+        throw string {"ERROR - Invalid operation, graph is not valid ....."};
+    }
 
-	if((edge.vertex_1 < 0) or (edge.vertex_2 < 0))
-	{
-		throw string {"ERROR - Invalid operation, given edge contains negative vertex ....."};
-	}
+    if((edge.vertex_1 < 0) or (edge.vertex_2 < 0))
+    {
+        throw string {"ERROR - Invalid operation, given edge contains negative vertex ....."};
+    }
 
-	if((edge.vertex_1 < wu_graph->n) and (edge.vertex_2 < wu_graph->n))
-	{
-		if(wu_graph->A[edge.vertex_1] == nullptr)
-		{
-			wu_graph->A[edge.vertex_1] = new Linked_list {new Node {edge.vertex_2, edge.weight, nullptr}};
-		}
-		else
-		{
-			Node *last {wu_graph->A[edge.vertex_1]->head}, *previous_node {};
+    if((edge.vertex_1 < wu_graph->n) and (edge.vertex_2 < wu_graph->n))
+    {
+        if(wu_graph->A[edge.vertex_1] == nullptr)
+        {
+            wu_graph->A[edge.vertex_1] = new Linked_list {new Node {edge.vertex_2, edge.weight, nullptr}};
+        }
+        else
+        {
+            Node *last {wu_graph->A[edge.vertex_1]->head}, *previous_node {};
 
-			while(last != nullptr)
-			{
-				previous_node = last;
+            while(last != nullptr)
+            {
+                previous_node = last;
 
-				if(last->vertex == edge.vertex_2)
-				{
-					throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
-				}
+                if(last->vertex == edge.vertex_2)
+                {
+                    throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
+                }
 
-				last = last->next;
-			}
+                last = last->next;
+            }
 
-			previous_node->next = new Node {edge.vertex_2, edge.weight, nullptr};
-		}
+            previous_node->next = new Node {edge.vertex_2, edge.weight, nullptr};
+        }
 
-		if(edge.vertex_1 == edge.vertex_2)
-		{
-			return ;
-		}
+        if(edge.vertex_1 == edge.vertex_2)
+        {
+            return ;
+        }
 
-		if(wu_graph->A[edge.vertex_2] == nullptr)
-		{
-			wu_graph->A[edge.vertex_2] = new Linked_list {new Node {edge.vertex_1, edge.weight, nullptr}};
-		}
-		else
-		{
-			Node *last {wu_graph->A[edge.vertex_2]->head}, *previous_node {};
+        if(wu_graph->A[edge.vertex_2] == nullptr)
+        {
+            wu_graph->A[edge.vertex_2] = new Linked_list {new Node {edge.vertex_1, edge.weight, nullptr}};
+        }
+        else
+        {
+            Node *last {wu_graph->A[edge.vertex_2]->head}, *previous_node {};
 
-			while(last != nullptr)
-			{
-				previous_node = last;
+            while(last != nullptr)
+            {
+                previous_node = last;
 
-				if(last->vertex == edge.vertex_1)
-				{
-					throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
-				}
+                if(last->vertex == edge.vertex_1)
+                {
+                    throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
+                }
 
-				last = last->next;
-			}
+                last = last->next;
+            }
 
-			previous_node->next = new Node {edge.vertex_1, edge.weight, nullptr};
-		}
-	}
-	else
-	{
-		int new_n {edge.vertex_1 > edge.vertex_2 ? edge.vertex_1 + 1 : edge.vertex_2 + 1};
+            previous_node->next = new Node {edge.vertex_1, edge.weight, nullptr};
+        }
+    }
+    else
+    {
+        int new_n {edge.vertex_1 > edge.vertex_2 ? edge.vertex_1 + 1 : edge.vertex_2 + 1};
 
-		Weighed_Undirected_Graph temp {new Linked_list*[new_n] {}, new_n};
+        Weighed_Undirected_Graph temp {new Linked_list*[new_n] {}, new_n};
 
-		for(int i {0}; i < wu_graph->n; i++)
-		{
-			temp.A[i] = wu_graph->A[i];
-		}
+        for(int i {0}; i < wu_graph->n; i++)
+        {
+            temp.A[i] = wu_graph->A[i];
+        }
 
-		if(temp.A[edge.vertex_1] == nullptr)
-		{
-			temp.A[edge.vertex_1] = new Linked_list {new Node {edge.vertex_2, edge.weight, nullptr}};
-		}
-		else
-		{
-			Node *last {temp.A[edge.vertex_1]->head}, *previous_node {};
+        if(temp.A[edge.vertex_1] == nullptr)
+        {
+            temp.A[edge.vertex_1] = new Linked_list {new Node {edge.vertex_2, edge.weight, nullptr}};
+        }
+        else
+        {
+            Node *last {temp.A[edge.vertex_1]->head}, *previous_node {};
 
-			while(last != nullptr)
-			{
-				previous_node = last;
+            while(last != nullptr)
+            {
+                previous_node = last;
 
-				if(last->vertex == edge.vertex_2)
-				{
-					throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
-				}
+                if(last->vertex == edge.vertex_2)
+                {
+                    throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
+                }
 
-				last = last->next;
-			}
+                last = last->next;
+            }
 
-			previous_node->next = new Node {edge.vertex_2, edge.weight, nullptr};
-		}
+            previous_node->next = new Node {edge.vertex_2, edge.weight, nullptr};
+        }
 
-		if(edge.vertex_1 == edge.vertex_2)
-		{
-			wu_graph->A = temp.A;
+        if(edge.vertex_1 == edge.vertex_2)
+        {
+            wu_graph->A = temp.A;
 
-			temp.A = nullptr;
+            temp.A = nullptr;
 
-			wu_graph->n = temp.n;
+            wu_graph->n = temp.n;
 
-			return ;
-		}
+            return ;
+        }
 
-		if(temp.A[edge.vertex_2] == nullptr)
-		{
-			temp.A[edge.vertex_2] = new Linked_list {new Node {edge.vertex_1, edge.weight, nullptr}};
-		}
-		else
-		{
-			Node *last {temp.A[edge.vertex_2]->head}, *previous_node {};
+        if(temp.A[edge.vertex_2] == nullptr)
+        {
+            temp.A[edge.vertex_2] = new Linked_list {new Node {edge.vertex_1, edge.weight, nullptr}};
+        }
+        else
+        {
+            Node *last {temp.A[edge.vertex_2]->head}, *previous_node {};
 
-			while(last != nullptr)
-			{
-				previous_node = last;
+            while(last != nullptr)
+            {
+                previous_node = last;
 
-				if(last->vertex == edge.vertex_1)
-				{
-					throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
-				}
+                if(last->vertex == edge.vertex_1)
+                {
+                    throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
+                }
 
-				last = last->next;
-			}
+                last = last->next;
+            }
 
-			previous_node->next = new Node {edge.vertex_1, edge.weight, nullptr};
-		}
+            previous_node->next = new Node {edge.vertex_1, edge.weight, nullptr};
+        }
 
-		wu_graph->A = temp.A;
+        wu_graph->A = temp.A;
 
-		temp.A = nullptr;
+        temp.A = nullptr;
 
-		wu_graph->n = temp.n;
-	}
+        wu_graph->n = temp.n;
+    }
 }
 
 void handle_add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge edge)
 {
-	try
-	{
-		add_edge_weighed_undirected_graph(wu_graph, edge);
-	}
-	catch(string &ex)
-	{
-		cout<<ex;
-	}
+    try
+    {
+        add_edge_weighed_undirected_graph(wu_graph, edge);
+    }
+    catch(string &ex)
+    {
+        cout<<ex;
+    }
 }
 
 int main()
 {
-	Weighed_Undirected_Graph wu_graph {new Linked_list*[10] {}, 10};
+    Weighed_Undirected_Graph wu_graph {new Linked_list*[10] {}, 10};
 
-	wu_graph.A[0] = new Linked_list {new Node {9, 15, nullptr}};
-	wu_graph.A[9] = new Linked_list {new Node {0, 15, nullptr}};
+    wu_graph.A[0] = new Linked_list {new Node {9, 15, nullptr}};
+    wu_graph.A[9] = new Linked_list {new Node {0, 15, nullptr}};
 
-	wu_graph.A[1] = new Linked_list {new Node {3, 200, nullptr}};
-	wu_graph.A[3] = new Linked_list {new Node {1, 200, nullptr}};
+    wu_graph.A[1] = new Linked_list {new Node {3, 200, nullptr}};
+    wu_graph.A[3] = new Linked_list {new Node {1, 200, nullptr}};
 
-	wu_graph.A[0]->head->next = new Node {2, 35, nullptr};
-	wu_graph.A[2] = new Linked_list {new Node {0, 35, nullptr}};
+    wu_graph.A[0]->head->next = new Node {2, 35, nullptr};
+    wu_graph.A[2] = new Linked_list {new Node {0, 35, nullptr}};
 
-	cout<<"wu_graph: \n";
-	display_weighed_undirected_graph(&wu_graph);
-	cout<<"\n";
+    cout<<"wu_graph: \n";
+    display_weighed_undirected_graph(&wu_graph);
+    cout<<"\n";
 
-	handle_add_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {7, 5, 500});
+    handle_add_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {7, 5, 500});
 
-	cout<<"wu_graph [after adding {7, 5, 500}]: \n";
-	display_weighed_undirected_graph(&wu_graph);
-	cout<<"\n";
+    cout<<"wu_graph [after adding {7, 5, 500}]: \n";
+    display_weighed_undirected_graph(&wu_graph);
+    cout<<"\n";
 
-	handle_add_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {11, 8, 450});
+    handle_add_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {11, 8, 450});
 
-	cout<<"wu_graph [after adding {11, 8, 450}]: \n";
-	display_weighed_undirected_graph(&wu_graph);
-	cout<<"\n";
+    cout<<"wu_graph [after adding {11, 8, 450}]: \n";
+    display_weighed_undirected_graph(&wu_graph);
+    cout<<"\n";
 
-	handle_add_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {3, 3, 75});
+    handle_add_edge_weighed_undirected_graph(&wu_graph, Weighed_Edge {3, 3, 75});
 
-	cout<<"wu_graph [after adding {3, 3, 75}]: \n";
-	display_weighed_undirected_graph(&wu_graph);
-	cout<<"\n";
+    cout<<"wu_graph [after adding {3, 3, 75}]: \n";
+    display_weighed_undirected_graph(&wu_graph);
+    cout<<"\n";
 
-	handle_add_edge_weighed_undirected_graph(&wu_graph, {11, 8, 100});
-	cout<<"\n";
+    handle_add_edge_weighed_undirected_graph(&wu_graph, {11, 8, 100});
+    cout<<"\n";
 
-	handle_add_edge_weighed_undirected_graph(&wu_graph, {-1, 4, 40});
-	cout<<"\n";
+    handle_add_edge_weighed_undirected_graph(&wu_graph, {-1, 4, 40});
+    cout<<"\n";
 
-	return 0;
+    return 0;
 }

@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 13, July, 2021
+Date        : 13, July, 2021
 Description : This program implements how_sum(target_sum, array) using recursion.
 */
 
@@ -16,67 +16,67 @@ using namespace std;
 
 void display_vector(vector<long long> *vec)
 {
-	if(vec == nullptr)
-	{
-		cout<<"[ ]";
+    if(vec == nullptr)
+    {
+        cout<<"[ ]";
 
-		return ;
-	}
+        return ;
+    }
 
-	cout<<"[ ";
-	for(unsigned long long i {0}; i < vec->size(); i++)
-	{
-		cout<<vec->at(i)<<" ";
-	}
-	cout<<"]";
+    cout<<"[ ";
+    for(unsigned long long i {0}; i < vec->size(); i++)
+    {
+        cout<<vec->at(i)<<" ";
+    }
+    cout<<"]";
 }
 
 vector<long long>* how_sum(long long target_sum, long long *A, long long size)
 {
-	if(target_sum == 0) // Create an empty vector, elements will be added at the return phase.
-	{
-		return new vector<long long> {};
-	}
+    if(target_sum == 0) // Create an empty vector, elements will be added at the return phase.
+    {
+        return new vector<long long> {};
+    }
 
-	if(target_sum < 0) // Retrun "nullptr" to denote that we cannot create any combinations for the array of numbers.
-	{
-		return nullptr;
-	}
+    if(target_sum < 0) // Retrun "nullptr" to denote that we cannot create any combinations for the array of numbers.
+    {
+        return nullptr;
+    }
 
-	for(long long i {0}; i < size; i++)
-	{
-		long long remainder {target_sum - A[i]};
+    for(long long i {0}; i < size; i++)
+    {
+        long long remainder {target_sum - A[i]};
 
-		vector<long long> *result {how_sum(remainder, A, size)};
+        vector<long long> *result {how_sum(remainder, A, size)};
 
-		if(result != nullptr)
-		{
-			result->push_back(A[i]);
+        if(result != nullptr)
+        {
+            result->push_back(A[i]);
 
-			return result;
-		}
-	}
+            return result;
+        }
+    }
 
-	return nullptr; // If the for loop fails(all the branches result in "nullptr").
+    return nullptr; // If the for loop fails(all the branches result in "nullptr").
 }
 
 int main()
 {
-	vector<long long> *result {};
+    vector<long long> *result {};
 
-	cout<<"how_sum(30, new long long[4] {8, 4, 2, 1}, 4): ";
+    cout<<"how_sum(30, new long long[4] {8, 4, 2, 1}, 4): ";
 
-	result = how_sum(30, new long long[4] {8, 4, 2, 1}, 4);
+    result = how_sum(30, new long long[4] {8, 4, 2, 1}, 4);
 
-	display_vector(result);
-	cout<<"\n";
+    display_vector(result);
+    cout<<"\n";
 
-	cout<<"how_sum(1000, new long long[2] {7, 14}, 2): ";
+    cout<<"how_sum(1000, new long long[2] {7, 14}, 2): ";
 
-	result = how_sum(1000, new long long[2] {7, 14}, 2); // This will take forever.
+    result = how_sum(1000, new long long[2] {7, 14}, 2); // This will take forever.
 
-	display_vector(result);
-	cout<<"\n";
+    display_vector(result);
+    cout<<"\n";
 
-	return 0;
+    return 0;
 }

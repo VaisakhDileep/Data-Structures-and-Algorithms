@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 15, July, 2021
+Date        : 15, July, 2021
 Description : This program implements can_sum(target_sum, array) using tabulation.
 */
 
@@ -16,36 +16,36 @@ using namespace std;
 
 bool can_sum(long long target_sum, long long *A, long long size)
 {
-	vector<bool> table(target_sum + 1, false);
+    vector<bool> table(target_sum + 1, false);
 
-	table.at(0) = true;
+    table.at(0) = true;
 
-	for(unsigned long long i {0}; i < table.size(); i++)
-	{
-		if(table.at(i) == true)
-		{
-			for(long long j {0}; j < size; j++)
-			{
-				unsigned long long propogate_index {i + A[j]};
+    for(unsigned long long i {0}; i < table.size(); i++)
+    {
+        if(table.at(i) == true)
+        {
+            for(long long j {0}; j < size; j++)
+            {
+                unsigned long long propogate_index {i + A[j]};
 
-				if(propogate_index < table.size())
-				{
-					table.at(propogate_index) = true;
-				}
-			}
-		}
-	}
+                if(propogate_index < table.size())
+                {
+                    table.at(propogate_index) = true;
+                }
+            }
+        }
+    }
 
-	return table.at(target_sum);
+    return table.at(target_sum);
 }
 
 int main()
 {
-	cout<<"can_sum(10, new long long[2] {7, 14}, 2): "<<can_sum(10, new long long[2] {7, 14}, 2)<<"\n";
+    cout<<"can_sum(10, new long long[2] {7, 14}, 2): "<<can_sum(10, new long long[2] {7, 14}, 2)<<"\n";
 
-	cout<<"can_sum(100, new long long[2] {7, 14}, 2): "<<can_sum(100, new long long[2] {7, 14}, 2)<<"\n";
+    cout<<"can_sum(100, new long long[2] {7, 14}, 2): "<<can_sum(100, new long long[2] {7, 14}, 2)<<"\n";
 
-	cout<<"can_sum(1000, new long long[2] {7, 14}, 2): "<<can_sum(1001, new long long[2] {7, 14}, 2)<<"\n"; // Notice here we get the result without any delay.
+    cout<<"can_sum(1000, new long long[2] {7, 14}, 2): "<<can_sum(1001, new long long[2] {7, 14}, 2)<<"\n"; // Notice here we get the result without any delay.
 
-	return 0;
+    return 0;
 }

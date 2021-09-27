@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 5, August, 2021
+Date        : 5, August, 2021
 Description : This program creates a trie.
 */
 
@@ -12,21 +12,21 @@ using namespace std;
 
 struct Trie_Node
 {
-	char data {}; // "data" could be anything.
+    char data {}; // "data" could be anything.
 
-	Trie_Node *children[26] {}; // At most it will have 26 child nodes, since there are 26 english alphabets. All are initialized to "nullptr".
+    Trie_Node *children[26] {}; // At most it will have 26 child nodes, since there are 26 english alphabets. All are initialized to "nullptr".
 
-	bool end_of_word {false}; // This flag checks if we have reached the end of the word. It is initialized to "false". If we consider duplicate elements, then make it a counter variable initialized to 0.
+    bool end_of_word {false}; // This flag checks if we have reached the end of the word. It is initialized to "false". If we consider duplicate elements, then make it a counter variable initialized to 0.
 };
 
 struct Trie
 {
-	Trie_Node *root {}; // The "root" node doesn't hold any value.
+    Trie_Node *root {}; // The "root" node doesn't hold any value.
 };
 
 int main()
 {
-	Trie dictionary_1 {new Trie_Node {}};
+    Trie dictionary_1 {new Trie_Node {}};
 
-	return 0;
+    return 0;
 }

@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 12, July, 2021
+Date        : 12, July, 2021
 Description : This program implements grid_traveller(row, column) using recursion.
 */
 
@@ -16,24 +16,24 @@ using namespace std;
 
 long long grid_traveller(long long row, long long column)
 {
-	if((row == 0) and (column == 0))
-	{
-		return 1;
-	}
+    if((row == 0) and (column == 0))
+    {
+        return 1;
+    }
 
-	if((row == -1) or (column == -1))
-	{
-		return 0;
-	}
+    if((row == -1) or (column == -1))
+    {
+        return 0;
+    }
 
-	return grid_traveller(row - 1, column) + grid_traveller(row, column - 1);
+    return grid_traveller(row - 1, column) + grid_traveller(row, column - 1);
 }
 
 int main()
 {
-	cout<<"grid_traveller(10, 10): "<<grid_traveller(10, 10)<<"\n";
+    cout<<"grid_traveller(10, 10): "<<grid_traveller(10, 10)<<"\n";
 
-	cout<<"gird_traveller(100, 100): "<<grid_traveller(100, 100)<<"\n"; // This will take forever.
+    cout<<"gird_traveller(100, 100): "<<grid_traveller(100, 100)<<"\n"; // This will take forever.
 
-	return 0;
+    return 0;
 }

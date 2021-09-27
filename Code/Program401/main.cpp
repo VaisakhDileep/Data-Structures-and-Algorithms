@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 28, August, 2021
+Date        : 28, August, 2021
 Description : This program demonstrates Boyer-Moore majority voting algorithm.
 */
 
@@ -14,78 +14,78 @@ using namespace std;
 
 int boyer_moore_majority_voting_algorithm(vector<int> *input_array)
 {
-	if(input_array == nullptr)
-	{
-		throw string {"ERROR - Invalid operation, input array is not valid ....."};
-	}
+    if(input_array == nullptr)
+    {
+        throw string {"ERROR - Invalid operation, input array is not valid ....."};
+    }
 
-	if(input_array->size() == 0)
-	{
-		throw string {"ERROR - Invalid operation, input array is empty ....."};
-	}
+    if(input_array->size() == 0)
+    {
+        throw string {"ERROR - Invalid operation, input array is empty ....."};
+    }
 
-	int counter {1}, majority_element {input_array->at(0)};
+    int counter {1}, majority_element {input_array->at(0)};
 
-	for(int i {0}; i < input_array->size(); i++)
-	{
-		if(counter == 0)
-		{
-			majority_element = input_array->at(i);
+    for(int i {0}; i < input_array->size(); i++)
+    {
+        if(counter == 0)
+        {
+            majority_element = input_array->at(i);
 
-			counter++;
-		}
-		else
-		{
-			if(majority_element == input_array->at(i))
-			{
-				counter++;
-			}
-			else
-			{
-				counter--;
-			}
-		}
-	}
+            counter++;
+        }
+        else
+        {
+            if(majority_element == input_array->at(i))
+            {
+                counter++;
+            }
+            else
+            {
+                counter--;
+            }
+        }
+    }
 
-	counter = 0;
+    counter = 0;
 
-	for(int i {0}; i < input_array->size(); i++)
-	{
-		if(majority_element == input_array->at(i))
-		{
-			counter++;
-		}
-	}
+    for(int i {0}; i < input_array->size(); i++)
+    {
+        if(majority_element == input_array->at(i))
+        {
+            counter++;
+        }
+    }
 
-	if(counter > input_array->size() / 2)
-	{
-		return majority_element;
-	}
-	else
-	{
-		throw string {"ERROR - Invalid operation, majority element is not present in the array ....."};
-	}
+    if(counter > input_array->size() / 2)
+    {
+        return majority_element;
+    }
+    else
+    {
+        throw string {"ERROR - Invalid operation, majority element is not present in the array ....."};
+    }
 }
 
 int handle_boyer_moore_majority_voting_algorithm(vector<int>*input_array)
 {
-	try
-	{
-		return boyer_moore_majority_voting_algorithm(input_array);
-	}
-	catch(string &ex)
-	{
-		cout<<ex;
+    try
+    {
+        return boyer_moore_majority_voting_algorithm(input_array);
+    }
+    catch(string &ex)
+    {
+        cout<<ex;
 
-		return 0;
-	}
+        return 0;
+    }
 }
 
 int main()
 {
-	vector<int> vec {2, 1, 2, 2};
+    vector<int> vec {2, 1, 2, 2};
 
-	cout<<"handle_boyer_moore_majority_voting_algorithm(vec): "<<handle_boyer_moore_majority_voting_algorithm(&vec)<<"\n";
+    cout<<"handle_boyer_moore_majority_voting_algorithm(vec): "<<handle_boyer_moore_majority_voting_algorithm(&vec)<<"\n";
 
-	return 0;
+    return 0;
 }
