@@ -24,7 +24,7 @@ int main()
 {
     Linked_list L {nullptr};
 
-// The give below piece of code demonstrates some of the procedures to check if a Linked List is empty or not.
+// The below piece of code demonstrates some of the procedures to check if a Linked List is empty or not.
     if(L.head == nullptr) // Procedure 1
     {
         cout<<"The Linked List is empty.\n";

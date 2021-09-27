@@ -103,7 +103,7 @@ int main()
 
     cout<<"M:\n";
     display_matrix(&M);
-    cout<<"\n";
+    cout<<"\n\n";
 
     Matrix *T {handle_transpose_matrix(&M)};
 

@@ -295,22 +295,22 @@ int main()
 
     cout<<"M1: \n";
     display_matrix(&M1);
-    cout<<"\n";
+    cout<<"\n\n";
 
     Sparse_Coordinate_List X1 {handle_create_sparse_coordinate_list(&M1)};
     Sparse_Coordinate_List X2 {handle_create_sparse_coordinate_list(&M2)};
 
     cout<<"X1[Coordinate List]: \n";
     display_sparse_coordinate_list(&X1);
-    cout<<"\n";
+    cout<<"\n\n";
 
     cout<<"X2[Coordinate List]: \n";
     display_sparse_coordinate_list(&X2);
-    cout<<"\n";
+    cout<<"\n\n";
 
     cout<<"X1: ";
     display_optimized_sparse_matrix(&X1);
-    cout<<"\n";
+    cout<<"\n\n";
 
     cout<<"X2: ";
     display_optimized_sparse_matrix(&X2);
@@ -322,7 +322,7 @@ int main()
 
     cout<<"SX[Coordinate List]: \n";
     display_sparse_coordinate_list(&SX);
-    cout<<"\n";
+    cout<<"\n\n";
 
     cout<<"SX: \n";
     display_optimized_sparse_matrix(&SX);

@@ -220,13 +220,13 @@ int main()
 
     cout<<"M: \n";
     display_matrix(&M);
-    cout<<"\n";
+    cout<<"\n\n";
 
     Sparse_Coordinate_List X {handle_create_sparse_coordinate_list(&M)};
 
     cout<<"X[Coordinate List]: \n";
     display_sparse_coordinate_list(&X);
-    cout<<"\n";
+    cout<<"\n\n";
 
     cout<<"X: \n";
     display_optimized_sparse_matrix(&X);

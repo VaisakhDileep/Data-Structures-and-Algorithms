@@ -67,13 +67,13 @@ int main()
 
     cout<<"M1: \n";
     display_square_matrix(&M1);
-    cout<<"\n";
+    cout<<"\n\n";
 
     Square_Matrix M2 {new int*[2] {new int[2] {1, 2}, new int[2] {3, 4}}, 2 * 2, 2};
 
     cout<<"M2: \n";
     display_square_matrix(&M2);
-    cout<<"\n";
+    cout<<"\n\n";
 
     Square_Matrix M3 {created_dynamic_square_matrix(2), 2 * 2, 2};
 

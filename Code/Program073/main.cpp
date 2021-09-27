@@ -172,18 +172,21 @@ int main()
 {
     Array A {nullptr, 0, 0};
 
+    cout<<"sum_pair_sorted_array(&A, 2): ";
     handle_sum_pair_sorted_array(&A, 2);
     cout<<"\n";
 
     Array B {new int[5] {1, 2, 3, 4, 5}, 5, 5};
 
+    cout<<"sum_pair_sorted_array(&B, 2): ";
     handle_sum_pair_sorted_array(&B, 2);
     cout<<"\n";
 
     Array C {new int[10] {0, 1, 1, 2, 2, 3, 3, 3, 4}, 10, 10};
 
+    cout<<"sum_pair_sorted_array(&C, 3): \n";
     handle_sum_pair_sorted_array(&C, 3);
     cout<<"\n";
-    
+
     return 0;
 }

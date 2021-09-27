@@ -43,7 +43,7 @@ bool is_empty_stack(Stack *stk)
     }
 }
 
-int& top_stack(Stack *stk)
+int& top_stack(Stack *stk) // This function returns by reference, so we can change the top value.
 {
     if(stk == nullptr)
     {

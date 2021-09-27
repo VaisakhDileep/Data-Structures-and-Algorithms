@@ -35,7 +35,7 @@ namespace prototype_2
         {
             static_x++;
 
-            return static_x + recursive_function_using_static_variable(n - 1); // Behaves like Descending phase.
+            return static_x + recursive_function_using_static_variable(n - 1); // Behaves like Descending phase too.
         }
 
         return 0;

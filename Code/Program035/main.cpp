@@ -53,12 +53,15 @@ int main()
 {
     Array A {new int[10] {4, 1, 3, 2, 0, 6, 5, 7, 9, 8}, 10, 10};
 
+    cout<<"linear_search_array(&A, 8): ";
     handle_linear_search_array(&A, 8);
-    cout<<"\n\n";
+    cout<<"\n";
 
+    cout<<"linear_search_array(&A, 4): ";
     handle_linear_search_array(&A, 4);
-    cout<<"\n\n";
-    
+    cout<<"\n";
+
+    cout<<"linear_search_array(&A, 32): ";
     handle_linear_search_array(&A, 32);
     cout<<"\n";
 

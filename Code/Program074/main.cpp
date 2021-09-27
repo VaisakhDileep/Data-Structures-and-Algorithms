@@ -65,9 +65,11 @@ int main()
 
     Array B {new int[5] {-5, -4, -3, -2, -1}, 5, 5};
 
+    cout<<"min_max_array(&A): ";
     handle_min_max_array(&A);
-    cout<<"\n";
+    cout<<"\n\n";
 
+    cout<<"min_max_array(&B): \n";
     handle_min_max_array(&B);
 
     return 0;

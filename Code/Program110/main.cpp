@@ -215,17 +215,17 @@ int main()
 
     cout<<"M: \n";
     display_square_matrix(&M);
-    cout<<"\n";
+    cout<<"\n\n";
 
     Array_with_dimension A {handle_create_row_major_optimized_upper_triangular_matrix(&M)};
 
     cout<<"A: ";
     display_array_with_dimension(&A);
-    cout<<"\n";
+    cout<<"\n\n";
 
     cout<<"A: \n";
     display_row_major_optimized_upper_triangular_matrix(&A);
-    cout<<"\n";
+    cout<<"\n\n";
 
     cout<<"handle_get_row_major_optimized_upper_triangular_matrix(&A, 0, 1): "<<handle_get_row_major_optimized_upper_triangular_matrix(&A, 0, 1)<<"\n";
     cout<<"handle_get_row_major_optimized_upper_triangular_matrix(&A, 5, 0): "<<handle_get_row_major_optimized_upper_triangular_matrix(&A, 5, 0)<<"\n\n";

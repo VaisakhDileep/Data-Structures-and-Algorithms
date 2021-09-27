@@ -158,16 +158,19 @@ int main()
 {
     Array A {nullptr, 0, 0};
 
+    cout<<"sum_pair_array(&A, 2): ";
     handle_sum_pair_array(&A, 2);
     cout<<"\n";
 
     Array B {new int[5] {2, 3, 4, 5, 6}, 5, 5};
 
+    cout<<"sum_pair_array(&B, 2): ";
     handle_sum_pair_array(&B, 2);
     cout<<"\n";
 
     Array C {new int[10] {1, 2, 3, 0, 0, 3, 0, 3, 2, 1}, 10, 10};
 
+    cout<<"sum_pair_array(&C, 3): \n";
     handle_sum_pair_array(&C, 3);
     cout<<"\n";
 

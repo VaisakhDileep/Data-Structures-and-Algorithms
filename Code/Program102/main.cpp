@@ -69,13 +69,13 @@ int main()
 
     cout<<"M1: \n";
     display_matrix(&M1);
-    cout<<"\n";
+    cout<<"\n\n";
 
     Matrix M2 {new int*[2] {new int[3] {1, 2, 3}, new int[3] {4, 5, 6}}, 2 * 3, 2, 3};
 
     cout<<"M2: \n";
     display_matrix(&M2);
-    cout<<"\n";
+    cout<<"\n\n";
 
     Matrix M3 {created_dynamic_matrix(2, 3), 2 * 3, 2, 3};
 

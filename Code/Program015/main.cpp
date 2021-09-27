@@ -24,6 +24,6 @@ int main()
     cout<<"tree_recursive_function(3): ";
     tree_recursive_function(3);
     cout<<"\n";
-    
+
     return 0;
 }

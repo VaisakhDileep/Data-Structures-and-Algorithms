@@ -120,13 +120,13 @@ int main()
 {
     Array A {new int[10] {-1, 2, 3, 4, 5, 6, 10, 12, 15, 19}, 10, 10};
 
-    cout<<"binary_search_array(-1) [recursion]: "<<recursion::handle_binary_search_array(&A, -1)<<"\n";
-    cout<<"binary_search_array(12) [recursion]: "<<recursion::handle_binary_search_array(&A, 12)<<"\n";
-    cout<<"binary_search_array(99) [recursion]: "<<recursion::handle_binary_search_array(&A, 99)<<"\n";
+    cout<<"binary_search_array(&A, -1) [recursion]: "<<recursion::handle_binary_search_array(&A, -1)<<"\n";
+    cout<<"binary_search_array(&A, 12) [recursion]: "<<recursion::handle_binary_search_array(&A, 12)<<"\n";
+    cout<<"binary_search_array(&A, 99) [recursion]: "<<recursion::handle_binary_search_array(&A, 99)<<"\n";
 
-    cout<<"binary_search_array(-1) [iteration]: "<<iteration::handle_binary_search_array(&A, -1)<<"\n";
-    cout<<"binary_search_array(12) [iteration]: "<<iteration::handle_binary_search_array(&A, 12)<<"\n";
-    cout<<"binary_search_array(99) [iteration]: "<<iteration::handle_binary_search_array(&A, 99)<<"\n";
+    cout<<"binary_search_array(&A, -1) [iteration]: "<<iteration::handle_binary_search_array(&A, -1)<<"\n";
+    cout<<"binary_search_array(&A, 12) [iteration]: "<<iteration::handle_binary_search_array(&A, 12)<<"\n";
+    cout<<"binary_search_array(&A, 99) [iteration]: "<<iteration::handle_binary_search_array(&A, 99)<<"\n";
 
     return 0;
 }

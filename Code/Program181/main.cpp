@@ -113,7 +113,7 @@ int main()
 
     cout<<"M:\n";
     display_square_matrix(&M);
-    cout<<"\n";
+    cout<<"\n\n";
 
     Square_Matrix *T {handle_transpose_square_matrix(&M)};
 

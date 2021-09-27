@@ -215,17 +215,17 @@ int main()
 
     cout<<"M: \n";
     display_square_matrix(&M);
-    cout<<"\n";
+    cout<<"\n\n";
 
     Array_with_dimension A {handle_create_optimized_diagonal_matrix(&M)};
 
     cout<<"A: ";
     display_array_with_dimension(&A);
-    cout<<"\n";
+    cout<<"\n\n";
 
     cout<<"A: \n";
     display_optimized_diagonal_matrix(&A);
-    cout<<"\n";
+    cout<<"\n\n";
 
     cout<<"handle_get_optimized_diagonal_matrix(&A, 0, 1): "<<handle_get_optimized_diagonal_matrix(&A, 0, 1)<<"\n";
     cout<<"handle_get_optimized_diagonal_matrix(&A, 3, 3): "<<handle_get_optimized_diagonal_matrix(&A, 3, 3)<<"\n\n";
