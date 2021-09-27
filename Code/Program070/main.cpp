@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 3, May, 2021
+Date        : 3, May, 2021
 Description : This program copies an array.
 */
 
@@ -10,87 +10,87 @@ using namespace std;
 
 struct Array
 {
-	int *A;
+    int *A;
 
-	int size;
+    int size;
 
-	int length;
+    int length;
 };
 
 int* create_dynamic_array(int size, int initial_value = 0)
 {
-	int *p;
+    int *p;
 
-	p = new int[size];
+    p = new int[size];
 
-	for(int i {0}; i < size; i++)
-	{
-		p[i] = initial_value;
-	}
+    for(int i {0}; i < size; i++)
+    {
+        p[i] = initial_value;
+    }
 
-	return p;
+    return p;
 }
 
 void display_array(const Array *A)
 {
-	if(A->A == nullptr)
-	{
-		cout<<"[ ]";
+    if(A->A == nullptr)
+    {
+        cout<<"[ ]";
 
-		return ;
-	}
+        return ;
+    }
 
-	cout<<"[ ";
-	for(int i {0}; i < A->length; i++)
-	{
-		cout<<A->A[i]<<" ";
-	}
-	cout<<"]";
+    cout<<"[ ";
+    for(int i {0}; i < A->length; i++)
+    {
+        cout<<A->A[i]<<" ";
+    }
+    cout<<"]";
 }
 
 Array copy_array(Array *A) // Returns a copy of 'A'.
 {
-	if((A->length == 0) or (A->A == nullptr))
-	{
-		throw string {"ERROR - Invalid operation, array is empty ....."};
-	}
+    if((A->length == 0) or (A->A == nullptr))
+    {
+        throw string {"ERROR - Invalid operation, array is empty ....."};
+    }
 
-	Array copied_array {create_dynamic_array(A->size), A->size, A->length};
+    Array copied_array {create_dynamic_array(A->size), A->size, A->length};
 
-	for(int i {0}; i < A->length; i++)
-	{
-		copied_array.A[i] = A->A[i];
-	}
+    for(int i {0}; i < A->length; i++)
+    {
+        copied_array.A[i] = A->A[i];
+    }
 
-	return copied_array;
+    return copied_array;
 }
 
 Array handle_copy_array(Array *A)
 {
-	try
-	{
-		return copy_array(A);
-	}
-	catch(string &ex)
-	{
-		cout<<ex;
+    try
+    {
+        return copy_array(A);
+    }
+    catch(string &ex)
+    {
+        cout<<ex;
 
-		return Array {};
-	}
+        return Array {};
+    }
 }
 
 int main()
 {
-	Array A {nullptr, 0, 0};
+    Array A {nullptr, 0, 0};
 
-	Array B {new int[5] {1, 2, 3, 4, 5}, 5, 5};
+    Array B {new int[5] {1, 2, 3, 4, 5}, 5, 5};
 
-	handle_copy_array(&A);
-	cout<<"\n";
+    handle_copy_array(&A);
+    cout<<"\n";
 
-	Array B_copy {handle_copy_array(&B)};
+    Array B_copy {handle_copy_array(&B)};
 
-	cout<<"B_copy: ";
-	display_array(&B_copy);
-	cout<<"\n";
+    cout<<"B_copy: ";
+    display_array(&B_copy);
+    cout<<"\n";
 }

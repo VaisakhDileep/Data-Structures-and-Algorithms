@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 28, April, 2021
+Date        : 28, April, 2021
 Description : This program displays an array.
 */
 
@@ -10,51 +10,51 @@ using namespace std;
 
 struct Array
 {
-	int *A;
+    int *A;
 
-	int size;
+    int size;
 
-	int length;
+    int length;
 };
 
 int* create_dynamic_array(int size, int initial_value = 0)
 {
-	int *p;
+    int *p;
 
-	p = new int[size];
+    p = new int[size];
 
-	for(int i {0}; i < size; i++)
-	{
-		p[i] = initial_value;
-	}
+    for(int i {0}; i < size; i++)
+    {
+        p[i] = initial_value;
+    }
 
-	return p;
+    return p;
 }
 
 void display_array(const Array *A)
 {
-	if(A->A == nullptr)
-	{
-		cout<<"[ ]";
+    if(A->A == nullptr)
+    {
+        cout<<"[ ]";
 
-		return ;
-	}
+        return ;
+    }
 
-	cout<<"[ ";
-	for(int i {0}; i < A->length; i++)
-	{
-		cout<<A->A[i]<<" ";
-	}
-	cout<<"]";
+    cout<<"[ ";
+    for(int i {0}; i < A->length; i++)
+    {
+        cout<<A->A[i]<<" ";
+    }
+    cout<<"]";
 }
 
 int main()
 {
-	Array A {create_dynamic_array(10), 10, 0};
+    Array A {create_dynamic_array(10), 10, 0};
 
-	cout<<"A: ";
-	display_array(&A);
-	cout<<"\n";
+    cout<<"A: ";
+    display_array(&A);
+    cout<<"\n";
 
-	return 0;
+    return 0;
 }

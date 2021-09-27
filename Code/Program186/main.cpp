@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 1, June, 2021
+Date        : 1, June, 2021
 Description : This program displays a queue.
 */
 
@@ -10,59 +10,59 @@ using namespace std;
 
 struct Node
 {
-	int data;
+    int data;
 
-	Node *next;
+    Node *next;
 };
 
 struct Queue
 {
-	Node *front {nullptr};
+    Node *front {nullptr};
 
-	Node *rear {nullptr};
+    Node *rear {nullptr};
 };
 
 void create_queue(Queue *Q, int *A, int size)
 {
-	if(size == 0)
-	{
-		return ;
-	}
+    if(size == 0)
+    {
+        return ;
+    }
 
-	Q->front = Q->rear = new Node {A[0], nullptr};
+    Q->front = Q->rear = new Node {A[0], nullptr};
 
-	for(int i {1}; i < size; i++)
-	{
-		Q->rear = Q->rear->next = new Node {A[i], nullptr};
-	}
+    for(int i {1}; i < size; i++)
+    {
+        Q->rear = Q->rear->next = new Node {A[i], nullptr};
+    }
 }
 
 void display_queue(Queue *Q)
 {
-	if(Q == nullptr)
-	{
-		return ;
-	}
+    if(Q == nullptr)
+    {
+        return ;
+    }
 
-	Node *last {Q->front};
+    Node *last {Q->front};
 
-	while(last != nullptr)
-	{
-		cout<<last->data<<" ";
+    while(last != nullptr)
+    {
+        cout<<last->data<<" ";
 
-		last = last->next;
-	}
+        last = last->next;
+    }
 }
 
 int main()
 {
-	Queue Q {};
+    Queue Q {};
 
-	create_queue(&Q, new int[4] {1, 2, 3, 4}, 4);
+    create_queue(&Q, new int[4] {1, 2, 3, 4}, 4);
 
-	cout<<"Q: ";
-	display_queue(&Q);
-	cout<<"\n";
+    cout<<"Q: ";
+    display_queue(&Q);
+    cout<<"\n";
 
-	return 0;
+    return 0;
 }

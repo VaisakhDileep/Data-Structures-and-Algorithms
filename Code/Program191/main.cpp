@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 2, June, 2021
+Date        : 2, June, 2021
 Description : This program checks if a stack is empty.
 */
 
@@ -10,56 +10,56 @@ using namespace std;
 
 struct Node
 {
-	int data;
+    int data;
 
-	Node *next;
+    Node *next;
 };
 
 struct Stack
 {
-	Node *top;
+    Node *top;
 };
 
 bool is_empty_stack(Stack *stk)
 {
-	if(stk == nullptr)
-	{
-		throw string {"ERROR - Invalid operation, stack is not valid ....."};
-	}
+    if(stk == nullptr)
+    {
+        throw string {"ERROR - Invalid operation, stack is not valid ....."};
+    }
 
-	if(stk->top == nullptr)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+    if(stk->top == nullptr)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 bool handle_is_empty_stack(Stack *stk)
 {
-	try
-	{
-		is_empty_stack(stk);
-	}
-	catch(string &ex)
-	{
-		cout<<ex;
+    try
+    {
+        is_empty_stack(stk);
+    }
+    catch(string &ex)
+    {
+        cout<<ex;
 
-		return false;
-	}
+        return false;
+    }
 }
 
 int main()
 {
-	Stack S {};
+    Stack S {};
 
-	cout<<"handle_is_empty_stack(S): "<<handle_is_empty_stack(&S)<<"\n";
+    cout<<"handle_is_empty_stack(S): "<<handle_is_empty_stack(&S)<<"\n";
 
-	S.top = new Node {1, nullptr};
+    S.top = new Node {1, nullptr};
 
-	cout<<"handle_is_empty_stack(S): "<<handle_is_empty_stack(&S)<<"\n";
+    cout<<"handle_is_empty_stack(S): "<<handle_is_empty_stack(&S)<<"\n";
 
-	return 0;
+    return 0;
 }

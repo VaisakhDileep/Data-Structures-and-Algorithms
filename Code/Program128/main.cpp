@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 22, May, 2021
+Date        : 22, May, 2021
 Description : This program finds the max element in a linked list.
 */
 
@@ -12,109 +12,109 @@ using namespace std;
 
 struct Node
 {
-	int data;
+    int data;
 
-	Node *next;
+    Node *next;
 };
 
 struct Linked_list
 {
-	Node *head;
+    Node *head;
 };
 
 void create_linked_list(Linked_list *L, int *A, int size)
 {
-	if(size == 0)
-	{
-		return ;
-	}
+    if(size == 0)
+    {
+        return ;
+    }
 
-	L->head = new Node {A[0], nullptr};
+    L->head = new Node {A[0], nullptr};
 
-	Node *last {L->head};
+    Node *last {L->head};
 
-	for(int i {1}; i < size; i++)
-	{
-		last->next = new Node {A[i], nullptr};
+    for(int i {1}; i < size; i++)
+    {
+        last->next = new Node {A[i], nullptr};
 
-		last = last->next;
-	}
+        last = last->next;
+    }
 }
 
 namespace iteration
 {
-	int max_linked_list(Linked_list *L)
-	{
-		if((L == nullptr) or (L->head == nullptr)) // Short circuting works here.
-		{
-			throw string {"ERROR - Invalid operation, linked list is empty ....."};
-		}
+    int max_linked_list(Linked_list *L)
+    {
+        if((L == nullptr) or (L->head == nullptr)) // Short circuting works here.
+        {
+            throw string {"ERROR - Invalid operation, linked list is empty ....."};
+        }
 
-		Node *last = L->head;
+        Node *last = L->head;
 
-		int max_element {last->data};
+        int max_element {last->data};
 
-		last = last->next;
+        last = last->next;
 
-		while(last != nullptr)
-		{
-			max_element = max(max_element, last->data);
+        while(last != nullptr)
+        {
+            max_element = max(max_element, last->data);
 
-			last = last->next;
-		}
+            last = last->next;
+        }
 
-		return max_element;
-	}
+        return max_element;
+    }
 
-	int handle_max_linked_list(Linked_list *L)
-	{
-		try
-		{
-			return max_linked_list(L);
-		}
-		catch(string &ex)
-		{
-			cout<<ex;
+    int handle_max_linked_list(Linked_list *L)
+    {
+        try
+        {
+            return max_linked_list(L);
+        }
+        catch(string &ex)
+        {
+            cout<<ex;
 
-			return -1;
-		}
-	}
+            return -1;
+        }
+    }
 }
 
 namespace recursion
 {
-	int max_linked_list(Node *node)
-	{
-		if(node == nullptr)
-		{
-			return INT_MIN;
-		}
+    int max_linked_list(Node *node)
+    {
+        if(node == nullptr)
+        {
+            return INT_MIN;
+        }
 
-		return (max_linked_list(node->next) > node->data) ? max_linked_list(node->next) : node->data;
-	}
+        return (max_linked_list(node->next) > node->data) ? max_linked_list(node->next) : node->data;
+    }
 
-	int handle_max_linked_list(Linked_list *L)
-	{
-		if((L == nullptr) or (max_linked_list(L->head) == INT_MIN)) // Short circuiting works here.
-		{
-			cout<<"ERROR - Invalid operation, linked list is empty .....";
-		}
-		else
-		{
-			return max_linked_list(L->head);
-		}
-	}
+    int handle_max_linked_list(Linked_list *L)
+    {
+        if((L == nullptr) or (max_linked_list(L->head) == INT_MIN)) // Short circuiting works here.
+        {
+            cout<<"ERROR - Invalid operation, linked list is empty .....";
+        }
+        else
+        {
+            return max_linked_list(L->head);
+        }
+    }
 }
 
 int main()
 {
-	Linked_list L1 {};
+    Linked_list L1 {};
 
-	create_linked_list(&L1, new int[6] {1, 2, 9, 4, 5, 6}, 6);
+    create_linked_list(&L1, new int[6] {1, 2, 9, 4, 5, 6}, 6);
 
-	cout<<"max_linked_list(L1) [iteration]: "<<iteration::handle_max_linked_list(&L1)<<"\n";
+    cout<<"max_linked_list(L1) [iteration]: "<<iteration::handle_max_linked_list(&L1)<<"\n";
 
-	cout<<"handle_max_linked_list(L1) [recursion]: "<<recursion::handle_max_linked_list(&L1)<<"\n";
+    cout<<"handle_max_linked_list(L1) [recursion]: "<<recursion::handle_max_linked_list(&L1)<<"\n";
 
-	return 0;
+    return 0;
 }

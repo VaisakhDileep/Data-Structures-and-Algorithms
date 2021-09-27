@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 6, May, 2021
+Date        : 6, May, 2021
 Description : This program validates a string with only numbers.
 */
 
@@ -12,27 +12,27 @@ using namespace std;
 
 bool validate_string(char S[])
 {
-	while(*S)
-	{
-		if(not((*S >= '0') and (*S <= '9')))
-		{
-			return false;
-		}
-		S++;
-	}
+    while(*S)
+    {
+        if(not((*S >= '0') and (*S <= '9')))
+        {
+            return false;
+        }
+        S++;
+    }
 
-	return true;
+    return true;
 }
 
 int main()
 {
-	char S1[MAX_SIZE] {"1234567"};
+    char S1[MAX_SIZE] {"1234567"};
 
-	cout<<"validate_string(\"1234567\"): "<<validate_string(S1)<<"\n";
+    cout<<"validate_string(\"1234567\"): "<<validate_string(S1)<<"\n";
 
-	char S2[MAX_SIZE] {"!@#$%^&*(K"};
+    char S2[MAX_SIZE] {"!@#$%^&*(K"};
 
-	cout<<"validate_string(\"!@#$%^&*(K\"): "<<validate_string(S2)<<"\n";
+    cout<<"validate_string(\"!@#$%^&*(K\"): "<<validate_string(S2)<<"\n";
 
-	return 0;
+    return 0;
 }

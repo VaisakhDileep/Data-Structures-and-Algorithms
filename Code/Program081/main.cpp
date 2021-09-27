@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 5, May, 2021
+Date        : 5, May, 2021
 Description : This program counts the number of vowels in a string.
 */
 
@@ -12,26 +12,26 @@ using namespace std;
 
 int count_vowels_string(char S[])
 {
-	int count {0};
+    int count {0};
 
-	while(*S)
-	{
-		if((*S == 'a') or (*S == 'e') or (*S == 'i') or (*S == 'o') or (*S == 'u') or (*S == 'A') or (*S == 'E') or (*S == 'I') or (*S == 'O') or (*S == 'U'))
-		{
-			count++;
-		}
+    while(*S)
+    {
+        if((*S == 'a') or (*S == 'e') or (*S == 'i') or (*S == 'o') or (*S == 'u') or (*S == 'A') or (*S == 'E') or (*S == 'I') or (*S == 'O') or (*S == 'U'))
+        {
+            count++;
+        }
 
-		S++;
-	}
+        S++;
+    }
 
-	return count;
+    return count;
 }
 
 int main()
 {
-	char S1[MAX_SIZE] {"Vaisakh Dileep"};
+    char S1[MAX_SIZE] {"Vaisakh Dileep"};
 
-	cout<<"count_vowels_string(\"Vaisakh Dileep\"): "<<count_vowels_string(S1)<<"\n";
+    cout<<"count_vowels_string(\"Vaisakh Dileep\"): "<<count_vowels_string(S1)<<"\n";
 
-	return 0;
+    return 0;
 }

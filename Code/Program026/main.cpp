@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 28, April, 2021
+Date        : 28, April, 2021
 Description : This program finds the number of combinations for 'n'.
 */
 
@@ -10,30 +10,30 @@ using namespace std;
 
 int factorial(int n)
 {
-	if(n == 0)
-	{
-		return 1;
-	}
-	else
-	{
-		return factorial(n - 1) * n;
-	}
+    if(n == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return factorial(n - 1) * n;
+    }
 }
 
 int combination(int n, int r) // nCr = n! / (r! * (n - r)!)
 {
-	int numerator {0}, denominator {0};
+    int numerator {0}, denominator {0};
 
-	numerator = factorial(n);
+    numerator = factorial(n);
 
-	denominator = factorial(r) * factorial(n - r);
+    denominator = factorial(r) * factorial(n - r);
 
-	return numerator / denominator;
+    return numerator / denominator;
 }
 
 int main()
 {
-	cout<<"combination(5, 2): "<<combination(5, 2)<<"\n";
+    cout<<"combination(5, 2): "<<combination(5, 2)<<"\n";
 
-	return 0;
+    return 0;
 }

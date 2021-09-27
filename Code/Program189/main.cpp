@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 1, June, 2021
+Date        : 1, June, 2021
 Description : This program creates a stack.
 */
 
@@ -8,24 +8,24 @@ Description : This program creates a stack.
 
 struct Node
 {
-	int data;
+    int data;
 
-	Node *next;
+    Node *next;
 };
 
 struct Stack
 {
-	Node *top; // "top" is the head of the linked list, since insertion and deletion at the head takes O(1) time.
+    Node *top; // "top" is the head of the linked list, since insertion and deletion at the head takes O(1) time.
 };
 
 int main()
 {
-	Stack S {};
+    Stack S {};
 
-	S.top = new Node {1, nullptr};
+    S.top = new Node {1, nullptr};
 
-	S.top = new Node {2, S.top};
-	S.top = new Node {3, S.top};
+    S.top = new Node {2, S.top};
+    S.top = new Node {3, S.top};
 
-	return 0;
+    return 0;
 }

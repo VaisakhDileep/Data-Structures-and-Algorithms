@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 4, May, 2021
+Date        : 4, May, 2021
 Description : This program finds the length of a string.
 */
 
@@ -12,25 +12,25 @@ using namespace std;
 
 int length_string(char S[])
 {
-	int i {0};
+    int i {0};
 
-	while(S[i] != '\0')
-	{
-		i++;
-	}
+    while(S[i] != '\0')
+    {
+        i++;
+    }
 
-	return i;
+    return i;
 }
 
 int main()
 {
-	char S1[MAX_SIZE] {"Vaisakh Dileep"};
+    char S1[MAX_SIZE] {"Vaisakh Dileep"};
 
-	cout<<"length_string("<<S1<<"): "<<length_string(S1)<<"\n";
+    cout<<"length_string("<<S1<<"): "<<length_string(S1)<<"\n";
 
-	char *S2 {"Prison Mike"};
+    char *S2 {"Prison Mike"};
 
-	cout<<"length_string("<<S2<<"): "<<length_string(S2)<<"\n";
+    cout<<"length_string("<<S2<<"): "<<length_string(S2)<<"\n";
 
-	return 0;
+    return 0;
 }

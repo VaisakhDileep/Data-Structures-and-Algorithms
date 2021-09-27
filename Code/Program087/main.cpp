@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 6, May, 2021
+Date        : 6, May, 2021
 Description : This program reverses a string.
 */
 
@@ -12,49 +12,49 @@ using namespace std;
 
 int length_string(char S[])
 {
-	int i {0};
+    int i {0};
 
-	while(S[i] != '\0')
-	{
-		i++;
-	}
+    while(S[i] != '\0')
+    {
+        i++;
+    }
 
-	return i;
+    return i;
 }
 
 void copy_string(char original[], char duplicate[]) // Make sure that "duplicate" should be modifiable.
 {
-	while(*original)
-	{
-		*duplicate = *(original++);
+    while(*original)
+    {
+        *duplicate = *(original++);
 
-		duplicate++;
-	}
+        duplicate++;
+    }
 
-	*duplicate = '\0';
+    *duplicate = '\0';
 }
 
 void reverse_string(char S[]) // Make sure that "S" should be modifiable.
 {
-	char temp[MAX_SIZE] {};
+    char temp[MAX_SIZE] {};
 
-	copy_string(S, temp);
+    copy_string(S, temp);
 
-	for(int i {length_string(S) - 1}, j {0}; i >= 0; i--, j++)
-	{
-		S[j] = temp[i];
-	}
+    for(int i {length_string(S) - 1}, j {0}; i >= 0; i--, j++)
+    {
+        S[j] = temp[i];
+    }
 }
 
 int main()
 {
-	char S1[MAX_SIZE] {"Vaisakh"};
+    char S1[MAX_SIZE] {"Vaisakh"};
 
-	cout<<"S1: "<<S1<<"\n";
+    cout<<"S1: "<<S1<<"\n";
 
-	reverse_string(S1);
+    reverse_string(S1);
 
-	cout<<"S1: "<<S1<<"\n";
+    cout<<"S1: "<<S1<<"\n";
 
-	return 0;
+    return 0;
 }

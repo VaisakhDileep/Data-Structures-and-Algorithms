@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 26, April, 2021
+Date        : 26, April, 2021
 Description : This program helps to understand how to declare a pointer.
 */
 
@@ -10,17 +10,17 @@ using namespace std;
 
 int main()
 {
-	int ten {10};
+    int ten {10};
 
-	int *p1; // Declaration
+    int *p1; // Declaration
 
-	p1 = &ten; // Assigning
+    p1 = &ten; // Assigning
 
-	cout<<"*p1: "<<*p1<<"\n";
+    cout<<"*p1: "<<*p1<<"\n";
 
-	int *p2 {&ten}; // Declaration + Initialization
+    int *p2 {&ten}; // Declaration + Initialization
 
-	cout<<"*p2: "<<*p2<<"\n";
+    cout<<"*p2: "<<*p2<<"\n";
 
-	return 0;
+    return 0;
 }

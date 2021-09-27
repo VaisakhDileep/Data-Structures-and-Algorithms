@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 29, April, 2021
+Date        : 29, April, 2021
 Description : This program left rotates an array.
 */
 
@@ -10,95 +10,95 @@ using namespace std;
 
 struct Array
 {
-	int *A;
+    int *A;
 
-	int size;
+    int size;
 
-	int length;
+    int length;
 };
 
 void display_array(const Array *A)
 {
-	if(A->A == nullptr)
-	{
-		cout<<"[ ]";
+    if(A->A == nullptr)
+    {
+        cout<<"[ ]";
 
-		return ;
-	}
+        return ;
+    }
 
-	cout<<"[ ";
-	for(int i {0}; i < A->length; i++)
-	{
-		cout<<A->A[i]<<" ";
-	}
-	cout<<"]";
+    cout<<"[ ";
+    for(int i {0}; i < A->length; i++)
+    {
+        cout<<A->A[i]<<" ";
+    }
+    cout<<"]";
 }
 
 void left_rotate_array(Array *A)
 {
-	if((A->length == 0) or (A->A == nullptr))
-	{
-		throw string {"ERROR - Invalid operation, array is empty ....."};
-	}
-	else
-	{
-		int temp {A->A[0]};
+    if((A->length == 0) or (A->A == nullptr))
+    {
+        throw string {"ERROR - Invalid operation, array is empty ....."};
+    }
+    else
+    {
+        int temp {A->A[0]};
 
-		for(int i {1}; i < A->length; i++)
-		{
-			A->A[i - 1] = A->A[i];
-		}
+        for(int i {1}; i < A->length; i++)
+        {
+            A->A[i - 1] = A->A[i];
+        }
 
-		A->A[A->length - 1] = temp;
-	}
+        A->A[A->length - 1] = temp;
+    }
 }
 
 void handle_left_rotate_array(Array *A)
 {
-	try
-	{
-		left_rotate_array(A);
-	}
-	catch(string &ex)
-	{
-		cout<<ex;
-	}
+    try
+    {
+        left_rotate_array(A);
+    }
+    catch(string &ex)
+    {
+        cout<<ex;
+    }
 }
 
 int main()
 {
-	Array A {nullptr, 0, 0};
+    Array A {nullptr, 0, 0};
 
-	Array B {new int[1] {3}, 1, 1};
+    Array B {new int[1] {3}, 1, 1};
 
-	Array C {new int[10] {-1, 2, 3, 4, 5, 6, 10, -12, 15, 19}, 10, 10};
+    Array C {new int[10] {-1, 2, 3, 4, 5, 6, 10, -12, 15, 19}, 10, 10};
 
-	cout<<"A: ";
-	display_array(&A);
-	cout<<"\n";
+    cout<<"A: ";
+    display_array(&A);
+    cout<<"\n";
 
-	handle_left_rotate_array(&A);
-	cout<<"\n";
+    handle_left_rotate_array(&A);
+    cout<<"\n";
 
-	cout<<"B: ";
-	display_array(&B);
-	cout<<"\n";
+    cout<<"B: ";
+    display_array(&B);
+    cout<<"\n";
 
-	handle_left_rotate_array(&B);
+    handle_left_rotate_array(&B);
 
-	cout<<"B: ";
-	display_array(&B);
-	cout<<"\n";
+    cout<<"B: ";
+    display_array(&B);
+    cout<<"\n";
 
-	cout<<"C: ";
-	display_array(&C);
-	cout<<"\n";
+    cout<<"C: ";
+    display_array(&C);
+    cout<<"\n";
 
-	handle_left_rotate_array(&C);
+    handle_left_rotate_array(&C);
 
-	cout<<"C: ";
-	display_array(&C);
-	cout<<"\n";
+    cout<<"C: ";
+    display_array(&C);
+    cout<<"\n";
 
-	return 0;
+    return 0;
 }

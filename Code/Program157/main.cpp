@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 29, May, 2021
+Date        : 29, May, 2021
 Description : This program creates a circular doubly linked list.
 */
 
@@ -10,35 +10,35 @@ using namespace std;
 
 struct Node
 {
-	Node *previous;
+    Node *previous;
 
-	int data;
+    int data;
 
-	Node *next;
+    Node *next;
 };
 
 struct Linked_list
 {
-	Node *head;
+    Node *head;
 };
 
 int main()
 {
-	Linked_list L {};
+    Linked_list L {};
 
-	L.head = new Node {nullptr, 0, nullptr};
+    L.head = new Node {nullptr, 0, nullptr};
 
-	L.head->previous = L.head;
+    L.head->previous = L.head;
 
-	L.head->next = L.head;
+    L.head->next = L.head;
 
-	L.head->next = new Node {L.head, 1, L.head};
+    L.head->next = new Node {L.head, 1, L.head};
 
-	L.head->previous = L.head->next;
+    L.head->previous = L.head->next;
 
-	L.head->next->next = new Node {L.head->next, 2, L.head};
+    L.head->next->next = new Node {L.head->next, 2, L.head};
 
-	L.head->previous = L.head->next->next;
+    L.head->previous = L.head->next->next;
 
-	return 0;
+    return 0;
 }

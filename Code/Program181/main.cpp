@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 31, May, 2021
+Date        : 31, May, 2021
 Description : This program finds the transpose of a square matrix.
 */
 
@@ -10,116 +10,116 @@ using namespace std;
 
 struct Square_Matrix
 {
-	int **M;
+    int **M;
 
-	int size;
+    int size;
 
-	int n;
+    int n;
 };
 
 int ** created_dynamic_square_matrix(int n, int initial_value = 0)
 {
-	int **p;
+    int **p;
 
-	p = new int*[n];
+    p = new int*[n];
 
-	for(int i {0}; i < n; i++)
-	{
-		p[i] = new int[n];
-	}
+    for(int i {0}; i < n; i++)
+    {
+        p[i] = new int[n];
+    }
 
-	for(int i {0}; i < n; i++)
-	{
-		for(int j {0}; j < n; j++)
-		{
-			p[i][j] = initial_value;
-		}
-	}
+    for(int i {0}; i < n; i++)
+    {
+        for(int j {0}; j < n; j++)
+        {
+            p[i][j] = initial_value;
+        }
+    }
 
-	return p;
+    return p;
 }
 
 void display_square_matrix(Square_Matrix *M)
 {
-	if(M->M == nullptr)
-	{
-		cout<<"[\n]";
+    if(M->M == nullptr)
+    {
+        cout<<"[\n]";
 
-		return ;
-	}
+        return ;
+    }
 
-	cout<<"[\n";
-	for(int i {0}; i < M->n; i++)
-	{
-		cout<<" [ ";
-		for(int j {0}; j < M->n; j++)
-		{
-			cout<<M->M[i][j]<<" ";
-		}
-		cout<<"]\n";
-	}
-	cout<<"]";
+    cout<<"[\n";
+    for(int i {0}; i < M->n; i++)
+    {
+        cout<<" [ ";
+        for(int j {0}; j < M->n; j++)
+        {
+            cout<<M->M[i][j]<<" ";
+        }
+        cout<<"]\n";
+    }
+    cout<<"]";
 }
 
 Square_Matrix* transpose_square_matrix(Square_Matrix *M)
 {
-	if(M == nullptr)
-	{
-		throw string {"ERROR - Invalid operation, matrix is empty ....."};
-	}
+    if(M == nullptr)
+    {
+        throw string {"ERROR - Invalid operation, matrix is empty ....."};
+    }
 
-	Square_Matrix *T {new Square_Matrix {created_dynamic_square_matrix(M->n), (M->n * M->n), M->n}};
+    Square_Matrix *T {new Square_Matrix {created_dynamic_square_matrix(M->n), (M->n * M->n), M->n}};
 
-	for(int i {0}; i < M->n; i++)
-	{
-		for(int j {0}; j < M->n; j++)
-		{
-			T->M[i][j] = M->M[i][j];
-		}
-	}
+    for(int i {0}; i < M->n; i++)
+    {
+        for(int j {0}; j < M->n; j++)
+        {
+            T->M[i][j] = M->M[i][j];
+        }
+    }
 
-	for(int i {0}; i < M->n; i++)
-	{
-		for(int j {i}; j < M->n; j++)
-		{
-			int temp {T->M[i][j]};
+    for(int i {0}; i < M->n; i++)
+    {
+        for(int j {i}; j < M->n; j++)
+        {
+            int temp {T->M[i][j]};
 
-			T->M[i][j] = T->M[j][i];
+            T->M[i][j] = T->M[j][i];
 
-			T->M[j][i] = temp;
-		}
-	}
+            T->M[j][i] = temp;
+        }
+    }
 
-	return T;
+    return T;
 }
 
 Square_Matrix* handle_transpose_square_matrix(Square_Matrix *M)
 {
-	try
-	{
-		return transpose_square_matrix(M);
-	}
-	catch(string &ex)
-	{
-		cout<<ex;
+    try
+    {
+        return transpose_square_matrix(M);
+    }
+    catch(string &ex)
+    {
+        cout<<ex;
 
-		return nullptr;
-	}
+        return nullptr;
+    }
 }
 
 int main()
 {
-	Square_Matrix M {new int*[3] {new int[3] {1, 2, 3}, new int[3] {4, 5, 6}, new int[3] {7, 8, 9}}, 3 * 3, 3};
+    Square_Matrix M {new int*[3] {new int[3] {1, 2, 3}, new int[3] {4, 5, 6}, new int[3] {7, 8, 9}}, 3 * 3, 3};
 
-	cout<<"M:\n";
-	display_square_matrix(&M);
-	cout<<"\n";
+    cout<<"M:\n";
+    display_square_matrix(&M);
+    cout<<"\n";
 
-	Square_Matrix *T {handle_transpose_square_matrix(&M)};
+    Square_Matrix *T {handle_transpose_square_matrix(&M)};
 
-	cout<<"T:\n";
-	display_square_matrix(T);
-	cout<<"\n";
+    cout<<"T:\n";
+    display_square_matrix(T);
+    cout<<"\n";
 
-	return 0;
+    return 0;
 }

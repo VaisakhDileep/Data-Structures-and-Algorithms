@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 12, May, 2021
+Date        : 12, May, 2021
 Description : This program displays a matrix.
 */
 
@@ -10,78 +10,78 @@ using namespace std;
 
 struct Matrix
 {
-	int **M;
+    int **M;
 
-	int size;
+    int size;
 
-	int rows;
+    int rows;
 
-	int columns;
+    int columns;
 };
 
 int ** created_dynamic_matrix(int rows, int columns, int initial_value = 0)
 {
-	int **p;
+    int **p;
 
-	p = new int*[rows];
+    p = new int*[rows];
 
-	for(int i {0}; i < rows; i++)
-	{
-		p[i] = new int[columns];
-	}
+    for(int i {0}; i < rows; i++)
+    {
+        p[i] = new int[columns];
+    }
 
-	for(int i {0}; i < rows; i++)
-	{
-		for(int j {0}; j < columns; j++)
-		{
-			p[i][j] = initial_value;
-		}
-	}
+    for(int i {0}; i < rows; i++)
+    {
+        for(int j {0}; j < columns; j++)
+        {
+            p[i][j] = initial_value;
+        }
+    }
 
-	return p;
+    return p;
 }
 
 void display_matrix(Matrix *M)
 {
-	if(M->M == nullptr)
-	{
-		cout<<"[\n]";
+    if(M->M == nullptr)
+    {
+        cout<<"[\n]";
 
-		return ;
-	}
+        return ;
+    }
 
-	cout<<"[\n";
-	for(int i {0}; i < M->rows; i++)
-	{
-		cout<<" [ ";
-		for(int j {0}; j < M->columns; j++)
-		{
-			cout<<M->M[i][j]<<" ";
-		}
-		cout<<"]\n";
-	}
-	cout<<"]";
+    cout<<"[\n";
+    for(int i {0}; i < M->rows; i++)
+    {
+        cout<<" [ ";
+        for(int j {0}; j < M->columns; j++)
+        {
+            cout<<M->M[i][j]<<" ";
+        }
+        cout<<"]\n";
+    }
+    cout<<"]";
 }
 
 int main()
 {
-	Matrix M1 {nullptr, 0, 0, 0};
+    Matrix M1 {nullptr, 0, 0, 0};
 
-	cout<<"M1: \n";
-	display_matrix(&M1);
-	cout<<"\n";
+    cout<<"M1: \n";
+    display_matrix(&M1);
+    cout<<"\n";
 
-	Matrix M2 {new int*[2] {new int[3] {1, 2, 3}, new int[3] {4, 5, 6}}, 2 * 3, 2, 3};
+    Matrix M2 {new int*[2] {new int[3] {1, 2, 3}, new int[3] {4, 5, 6}}, 2 * 3, 2, 3};
 
-	cout<<"M2: \n";
-	display_matrix(&M2);
-	cout<<"\n";
+    cout<<"M2: \n";
+    display_matrix(&M2);
+    cout<<"\n";
 
-	Matrix M3 {created_dynamic_matrix(2, 3), 2 * 3, 2, 3};
+    Matrix M3 {created_dynamic_matrix(2, 3), 2 * 3, 2, 3};
 
-	cout<<"M3: \n";
-	display_matrix(&M3);
-	cout<<"\n";
+    cout<<"M3: \n";
+    display_matrix(&M3);
+    cout<<"\n";
 
-	return 0;
+    return 0;
 }

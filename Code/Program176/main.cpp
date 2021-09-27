@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 31, May, 2021
+Date        : 31, May, 2021
 Description : This program displays a queue.
 */
 
@@ -10,35 +10,35 @@ using namespace std;
 
 struct Queue
 {
-	int *A {nullptr};
+    int *A {nullptr};
 
-	int front {-1};
+    int front {-1};
 
-	int rear {-1};
+    int rear {-1};
 
-	int size {0};
+    int size {0};
 };
 
 void display_queue(Queue *Q)
 {
-	if(Q == nullptr)
-	{
-		return ;
-	}
+    if(Q == nullptr)
+    {
+        return ;
+    }
 
-	for(int i {Q->front + 1}; i <= Q->rear; i++)
-	{
-		cout<<Q->A[i]<<" ";
-	}
+    for(int i {Q->front + 1}; i <= Q->rear; i++)
+    {
+        cout<<Q->A[i]<<" ";
+    }
 }
 
 int main()
 {
-	Queue Q {new int[4] {0, 2, 3, 4}, 0, 3, 4};
+    Queue Q {new int[4] {0, 2, 3, 4}, 0, 3, 4};
 
-	cout<<"Q: ";
-	display_queue(&Q);
-	cout<<"\n";
+    cout<<"Q: ";
+    display_queue(&Q);
+    cout<<"\n";
 
-	return 0;
+    return 0;
 }

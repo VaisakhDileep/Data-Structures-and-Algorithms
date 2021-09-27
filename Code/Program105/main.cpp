@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 12, May, 2021
+Date        : 12, May, 2021
 Description : This program creates a square matrix.
 */
 
@@ -10,38 +10,38 @@ using namespace std;
 
 struct Square_Matrix
 {
-	int **M; // pointer to a dynamically created matrix.
+    int **M; // pointer to a dynamically created matrix.
 
-	int size; // maximum number of elements supported by the matrix.
+    int size; // maximum number of elements supported by the matrix.
 
-	int n; // number of rows or columns.
+    int n; // number of rows or columns.
 };
 
 int ** created_dynamic_square_matrix(int n, int initial_value = 0)
 {
-	int **p;
+    int **p;
 
-	p = new int*[n];
+    p = new int*[n];
 
-	for(int i {0}; i < n; i++)
-	{
-		p[i] = new int[n];
-	}
+    for(int i {0}; i < n; i++)
+    {
+        p[i] = new int[n];
+    }
 
-	for(int i {0}; i < n; i++)
-	{
-		for(int j {0}; j < n; j++)
-		{
-			p[i][j] = initial_value;
-		}
-	}
+    for(int i {0}; i < n; i++)
+    {
+        for(int j {0}; j < n; j++)
+        {
+            p[i][j] = initial_value;
+        }
+    }
 
-	return p;
+    return p;
 }
 
 int main()
 {
-	Square_Matrix M {created_dynamic_square_matrix(2, 3), 3 * 3, 3};
+    Square_Matrix M {created_dynamic_square_matrix(2, 3), 3 * 3, 3};
 
-	return 0;
+    return 0;
 }

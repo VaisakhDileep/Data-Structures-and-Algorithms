@@ -1,6 +1,6 @@
 /*
 Created by  : Vaisakh Dileep
-Date		: 6, May, 2021
+Date        : 6, May, 2021
 Description : This program validates a string with only alphabets and numbers.
 */
 
@@ -12,28 +12,28 @@ using namespace std;
 
 bool validate_string(char S[])
 {
-	while(*S)
-	{
-		if((not((*S >= '0') and (*S <= '9'))) and (not(((*S >= 'A') and (*S <= 'Z')) or ((*S >= 'a') and (*S <= 'z')))))
-		{
-			return false;
-		}
+    while(*S)
+    {
+        if((not((*S >= '0') and (*S <= '9'))) and (not(((*S >= 'A') and (*S <= 'Z')) or ((*S >= 'a') and (*S <= 'z')))))
+        {
+            return false;
+        }
 
-		S++;
-	}
+        S++;
+    }
 
-	return true;
+    return true;
 }
 
 int main()
 {
-	char S1[MAX_SIZE] {"123abcd"};
+    char S1[MAX_SIZE] {"123abcd"};
 
-	cout<<"validate_string(\"123abcd\"): "<<validate_string(S1)<<"\n";
+    cout<<"validate_string(\"123abcd\"): "<<validate_string(S1)<<"\n";
 
-	char S2[MAX_SIZE] {"!@#$%^&*9K"};
+    char S2[MAX_SIZE] {"!@#$%^&*9K"};
 
-	cout<<"validate_string(\"!@#$%^&*9K\"): "<<validate_string(S2)<<"\n";
+    cout<<"validate_string(\"!@#$%^&*9K\"): "<<validate_string(S2)<<"\n";
 
-	return 0;
+    return 0;
 }
