@@ -41,7 +41,7 @@ void display_matrix(Matrix *M)
     cout<<"]";
 }
 
-int ** created_dynamic_matrix(int rows, int columns, int initial_value = 0)
+int** create_dynamic_matrix(int rows, int columns, int initial_value = 0)
 {
     int **p;
 
@@ -70,7 +70,7 @@ Matrix* transpose_matrix(Matrix *M)
         throw string {"ERROR - Invalid operation, matrix is empty ....."};
     }
 
-    Matrix *T {new Matrix {created_dynamic_matrix(M->columns, M->rows), (M->rows * M->columns), M->columns, M->rows}};
+    Matrix *T {new Matrix {create_dynamic_matrix(M->columns, M->rows), (M->rows * M->columns), M->columns, M->rows}};
 
     for(int i {0}; i < M->rows; i++)
     {

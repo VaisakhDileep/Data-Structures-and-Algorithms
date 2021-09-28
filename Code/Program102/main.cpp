@@ -19,7 +19,7 @@ struct Matrix
     int columns;
 };
 
-int ** created_dynamic_matrix(int rows, int columns, int initial_value = 0)
+int** create_dynamic_matrix(int rows, int columns, int initial_value = 0)
 {
     int **p;
 
@@ -77,7 +77,7 @@ int main()
     display_matrix(&M2);
     cout<<"\n\n";
 
-    Matrix M3 {created_dynamic_matrix(2, 3), 2 * 3, 2, 3};
+    Matrix M3 {create_dynamic_matrix(2, 3), 2 * 3, 2, 3};
 
     cout<<"M3: \n";
     display_matrix(&M3);

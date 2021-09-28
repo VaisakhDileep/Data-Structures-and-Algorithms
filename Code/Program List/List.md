@@ -141,6 +141,10 @@ Program112:[c++] [This program optimizes a symmetric matrix.](../Program112/main
 Program113:[c++] [This program optimizes a tridiagonal matrix.](../Program113/main.cpp)<br>
 Program114:[c++] [This program optimizes a toeplitz matrix.](../Program114/main.cpp)<br>
 
+# Determinant of a Square Matrix(N X N):
+Program450:[c++] [This program finds the determinant of a 2*2 matrix.](../Program450/main.cpp)<br>
+Program451:[c++] [This program finds the determinant of a n*n matrix.](../Program451/main.cpp)<br>
+
 # Sparse Matrix:
 
 Program115:[c++] [This program optimizes a sparse matrix using 3-column representation.](../Program115/main.cpp)<br>

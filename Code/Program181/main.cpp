@@ -17,7 +17,7 @@ struct Square_Matrix
     int n;
 };
 
-int ** created_dynamic_square_matrix(int n, int initial_value = 0)
+int** create_dynamic_square_matrix(int n, int initial_value = 0)
 {
     int **p;
 
@@ -68,7 +68,7 @@ Square_Matrix* transpose_square_matrix(Square_Matrix *M)
         throw string {"ERROR - Invalid operation, matrix is empty ....."};
     }
 
-    Square_Matrix *T {new Square_Matrix {created_dynamic_square_matrix(M->n), (M->n * M->n), M->n}};
+    Square_Matrix *T {new Square_Matrix {create_dynamic_square_matrix(M->n), (M->n * M->n), M->n}};
 
     for(int i {0}; i < M->n; i++)
     {

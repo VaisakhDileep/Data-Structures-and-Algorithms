@@ -17,7 +17,7 @@ struct Square_Matrix
     int n; // number of rows or columns.
 };
 
-int ** created_dynamic_square_matrix(int n, int initial_value = 0)
+int** create_dynamic_square_matrix(int n, int initial_value = 0)
 {
     int **p;
 
@@ -41,7 +41,7 @@ int ** created_dynamic_square_matrix(int n, int initial_value = 0)
 
 int main()
 {
-    Square_Matrix M {created_dynamic_square_matrix(2, 3), 3 * 3, 3};
+    Square_Matrix M {create_dynamic_square_matrix(2, 3), 3 * 3, 3};
 
     return 0;
 }

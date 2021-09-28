@@ -17,7 +17,7 @@ struct Square_Matrix
     int n;
 };
 
-int ** created_dynamic_square_matrix(int n, int initial_value = 0)
+int** create_dynamic_square_matrix(int n, int initial_value = 0)
 {
     int **p;
 
@@ -75,7 +75,7 @@ int main()
     display_square_matrix(&M2);
     cout<<"\n\n";
 
-    Square_Matrix M3 {created_dynamic_square_matrix(2), 2 * 2, 2};
+    Square_Matrix M3 {create_dynamic_square_matrix(2), 2 * 2, 2};
 
     cout<<"M3: \n";
     display_square_matrix(&M3);

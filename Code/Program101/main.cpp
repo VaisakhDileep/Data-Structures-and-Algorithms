@@ -19,7 +19,7 @@ struct Matrix
     int columns; // number of columns.
 };
 
-int ** created_dynamic_matrix(int rows, int columns, int initial_value = 0)
+int** create_dynamic_matrix(int rows, int columns, int initial_value = 0)
 {
     int **p;
 
@@ -43,7 +43,7 @@ int ** created_dynamic_matrix(int rows, int columns, int initial_value = 0)
 
 int main()
 {
-    Matrix M {created_dynamic_matrix(2, 3), 2 * 3, 2, 3};
+    Matrix M {create_dynamic_matrix(2, 3), 2 * 3, 2, 3};
 
     return 0;
 }
