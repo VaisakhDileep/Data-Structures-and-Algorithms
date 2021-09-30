@@ -163,7 +163,7 @@ namespace Undirected_Graph_Using_Adjacency_Matrix // Undirected Graph is designe
 
 using namespace Undirected_Graph_Using_Adjacency_Matrix;
 
-bool is_valid(Undirected_Graph *u_graph, map<int, string> *vertex_to_colour)
+bool is_valid(Undirected_Graph *u_graph, map<int, string> *vertex_to_colour) // Here we check the entire graph.
 {
     for(int i {0}; i < u_graph->A->size(); i++)
     {
@@ -191,9 +191,9 @@ bool can_colour_graph(Undirected_Graph *u_graph, vector<string> *colours, map<in
         return false;
     }
 
-    for(int j {0}; j < colours->size(); j++)
+    for(int i {0}; i < colours->size(); i++)
     {
-        (*vertex_to_colour)[vertices->at(vertex_index)] = colours->at(j);
+        (*vertex_to_colour)[vertices->at(vertex_index)] = colours->at(i);
 
         if(can_colour_graph(u_graph, colours, vertex_to_colour, vertices, vertex_index + 1) == true)
         {
