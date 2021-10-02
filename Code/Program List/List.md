@@ -130,6 +130,10 @@ Program105:[c++] [This program creates a square matrix.](../Program105/main.cpp)
 Program106:[c++] [This program displays a square matrix.](../Program106/main.cpp)<br>
 Program181:[c++] [This program finds the transpose of a square matrix.](../Program181/main.cpp)<br>
 
+# Determinant of a Square Matrix(N X N):
+Program450:[c++] [This program finds the determinant of a 2*2 matrix.](../Program450/main.cpp)<br>
+Program451:[c++] [This program finds the determinant of a n*n matrix.](../Program451/main.cpp)<br>
+
 # Special Square Matrices:
 
 Program107:[c++] [This program optimizes a diagonal matrix.](../Program107/main.cpp)<br>
@@ -140,10 +144,6 @@ Program111:[c++] [This program optimizes a upper-triangular matrix in column-maj
 Program112:[c++] [This program optimizes a symmetric matrix.](../Program112/main.cpp)<br>
 Program113:[c++] [This program optimizes a tridiagonal matrix.](../Program113/main.cpp)<br>
 Program114:[c++] [This program optimizes a toeplitz matrix.](../Program114/main.cpp)<br>
-
-# Determinant of a Square Matrix(N X N):
-Program450:[c++] [This program finds the determinant of a 2*2 matrix.](../Program450/main.cpp)<br>
-Program451:[c++] [This program finds the determinant of a n*n matrix.](../Program451/main.cpp)<br>
 
 # Sparse Matrix:
 
