@@ -4,6 +4,9 @@ Date        : 30, September, 2021
 Description : This program checks if the graph can be coloured with at most 'n' colours(backtracking approach).
 */
 
+// Note: The graph is an undirected graph represented using adjacency matrix.
+// Note: This algorithm will work only if the graph is connected.
+
 #include<iostream>
 
 #include<vector>
@@ -290,7 +293,7 @@ int main()
 
     map<int, string> vertex_to_colour {};
 
-    cout<<"can_colour_graph(u_graph, colours): "<<handle_can_colour_graph(&u_graph, &colours, &vertex_to_colour)<<"\n";
+    cout<<"can_colour_graph(u_graph, colours, vertex_to_colour): "<<handle_can_colour_graph(&u_graph, &colours, &vertex_to_colour)<<"\n";
 
     cout<<"vertex_colour: \n";
     display_vertex_colour(&vertex_to_colour);

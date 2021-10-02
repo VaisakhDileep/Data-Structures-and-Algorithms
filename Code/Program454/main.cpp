@@ -1,19 +1,16 @@
 /*
 Created by  : Vaisakh Dileep
-Date        : 29, September, 2021
-Description : This program checks if the graph can be coloured with at most 'n' colours(brute force approach).
+Date        : 1, October, 2021
+Description : This program checks if a hamiltonian cycle exists in the undirected graph.
 */
 
-// Note: The graph is an undirected graph represented using adjacency matrix.
-// Note: This algorithm will work only if the graph is connected.
+// This algorithm will work only if the graph is connected.
 
 #include<iostream>
 
-#include<iomanip>
-
 #include<vector>
 
-#include<map>
+#include<iomanip>
 
 #include<unordered_set>
 
@@ -164,61 +161,74 @@ namespace Undirected_Graph_Using_Adjacency_Matrix // Undirected Graph is designe
 
 using namespace Undirected_Graph_Using_Adjacency_Matrix;
 
-bool is_valid(Undirected_Graph *u_graph, map<int, string> *vertex_to_colour) // Here we check the entire graph.
+bool is_valid(Undirected_Graph *u_graph, vector<int> *cycle, int vertex, int cycle_index)
 {
-    for(int i {0}; i < u_graph->A->size(); i++)
+    if(u_graph->A->at(cycle->at(cycle_index - 1))->at(vertex) == 0)
     {
-        for(int j {i + 1}; j < u_graph->A->size(); j++)
+        return false;
+    }
+
+    for(int i {0}; i < cycle_index; i++)
+    {
+        if(cycle->at(i) == vertex)
         {
-            if((u_graph->A->at(i)->at(j) == 1) and ((*vertex_to_colour)[i] == (*vertex_to_colour)[j]))
-            {
-                return false;
-            }
+            return false;
         }
     }
 
     return true;
 }
 
-bool can_colour_graph(Undirected_Graph *u_graph, vector<string> *colours, map<int, string> *vertex_to_colour, vector<int> *vertices, int vertex_index)
+bool check_hamiltonian_cycle(Undirected_Graph *u_graph, vector<int> *vertices, vector<int> *cycle, int cycle_index, int source)
 {
-    if(vertex_index == vertices->size())
+    if(cycle_index == vertices->size())
     {
-        if(is_valid(u_graph, vertex_to_colour))
+        cycle->at(cycle_index) = source;
+
+        if(u_graph->A->at(cycle->at(cycle_index - 1))->at(source) == 1)
         {
             return true;
         }
+
+        cycle->at(cycle_index) = -1;
 
         return false;
     }
 
-    for(int i {0}; i < colours->size(); i++)
+    for(int i {0}; i < vertices->size(); i++)
     {
-        (*vertex_to_colour)[vertices->at(vertex_index)] = colours->at(i);
-
-        if(can_colour_graph(u_graph, colours, vertex_to_colour, vertices, vertex_index + 1) == true)
+        if(vertices->at(i) == source)
         {
-            return true;
+            continue;
         }
 
-        (*vertex_to_colour).erase(vertices->at(vertex_index));
+        if(is_valid(u_graph, cycle, vertices->at(i), cycle_index) == true)
+        {
+            cycle->at(cycle_index) = vertices->at(i);
+
+            for(int i {0}; i < cycle->size(); i++)
+            {
+                cout<<cycle->at(i)<<" ";
+            }
+            cout<<"\n";
+
+            if(check_hamiltonian_cycle(u_graph, vertices, cycle, cycle_index + 1, source) == true)
+            {
+                return true;
+            }
+
+            cycle->at(cycle_index) = -1;
+        }
     }
 
     return false;
 }
 
-bool handle_can_colour_graph(Undirected_Graph *u_graph, vector<string> *colours, map<int, string> *vertex_to_colour)
+bool handle_check_hamiltonian_cycle(Undirected_Graph *u_graph, vector<int> *cycle)
 {
     if(u_graph == nullptr)
     {
         cout<<"ERROR - Invalid operation, given graph is not valid .....";
-
-        return false;
-    }
-
-    if(colours == nullptr)
-    {
-        cout<<"ERROR - Invalid operation, colours array is not valid .....";
 
         return false;
     }
@@ -230,18 +240,11 @@ bool handle_can_colour_graph(Undirected_Graph *u_graph, vector<string> *colours,
         return false;
     }
 
-    if(colours->size() == 0)
-    {
-        cout<<"ERROR - Invalid operation, colours array is empty .....";
-
-        return false;
-    }
-
     unordered_set<int> vertices_set {};
 
     for(int i {0}; i < u_graph->A->size(); i++)
     {
-        for(int j {i}; j < u_graph->A->size(); j++)
+        for(int j {0}; j < u_graph->A->size(); j++)
         {
             if(u_graph->A->at(i)->at(j) == 1)
             {
@@ -258,19 +261,40 @@ bool handle_can_colour_graph(Undirected_Graph *u_graph, vector<string> *colours,
         vertices_vector.push_back(*itr);
     }
 
-    return can_colour_graph(u_graph, colours, vertex_to_colour, &vertices_vector, 0);
+    cycle->resize(vertices_vector.size() + 1);
+
+    for(int i {0}; i < cycle->size(); i++)
+    {
+        cycle->at(i) = -1;
+    }
+
+    int source {vertices_vector[0]};
+
+    cycle->at(0) = source;
+
+    return check_hamiltonian_cycle(u_graph, &vertices_vector, cycle, 1, source);
 }
 
-void display_vertex_colour(map<int, string> *vertex_to_colour)
+void display_hamiltonian_cycle(vector<int> *cycle)
 {
-    if(vertex_to_colour == nullptr)
+    if(cycle == nullptr)
     {
         return ;
     }
 
-    for(auto itr {vertex_to_colour->begin()}; itr != vertex_to_colour->end(); itr++)
+    for(int i {0}; i < cycle->size(); i++)
     {
-        cout<<(itr->first)<<" : "<<(itr->second)<<"\n";
+        if(cycle->at(i) == -1)
+        {
+            cout<<"Hamiltonian path does not exist.";
+
+            return ;
+        }
+    }
+
+    for(int i {0}; i < cycle->size(); i++)
+    {
+        cout<<cycle->at(i)<<" ";
     }
 }
 
@@ -278,22 +302,24 @@ int main()
 {
     Undirected_Graph u_graph {new vector<vector<int>*> {}};
 
-    Edge edges[5] {Edge {0, 1}, Edge {0, 2}, Edge {1, 3}, Edge {2, 3}, Edge {0, 3}};
+    // Edge edges[5] {Edge {0, 1}, Edge {1, 2}, Edge {2, 3}, Edge {2, 0}, Edge {3, 0}}; // This graph contains a hamiltonian cycle.
 
-    handle_create_undirected_graph(&u_graph, edges, 5);
+    // Edge edges[7] {Edge {0, 1}, Edge {0, 2}, Edge {1, 2}, Edge {1, 4}, Edge {4, 3}, Edge {2, 3}, Edge {3, 5}}; // This graph does not contain a hamiltonian cycle.
+
+    Edge edges[8] {Edge {0, 1}, Edge {0, 2}, Edge {1, 2}, Edge {1, 4}, Edge {4, 3}, Edge {2, 3}, Edge {3, 5}, Edge {5, 2}}; // This graph contains a hamiltonian cycle.
+
+    handle_create_undirected_graph(&u_graph, edges, 8);
 
     cout<<"u_graph: \n";
     display_undirected_graph(&u_graph);
     cout<<"\n";
 
-    vector<string> colours {"red", "green", "blue"};
+    vector<int> cycle {};
 
-    map<int, string> vertex_to_colour {};
+    cout<<"check_hamiltonian_cycle(u_graph, cycle): "<<handle_check_hamiltonian_cycle(&u_graph, &cycle)<<"\n";
 
-    cout<<"can_colour_graph(u_graph, colours): "<<handle_can_colour_graph(&u_graph, &colours, &vertex_to_colour)<<"\n";
-
-    cout<<"vertex_colour: \n";
-    display_vertex_colour(&vertex_to_colour);
+    cout<<"cycle: ";
+    display_hamiltonian_cycle(&cycle);
     cout<<"\n";
 
     return 0;

@@ -571,10 +571,14 @@ Program427:[c++] [This program finds the minimum spanning tree of a weighed undi
 
 Program428:[c++] [This program finds the minimum spanning tree of a weighed undirected graph represented using adjacency list.(Prim's algorithm)](../Program428/main.cpp)<br>
 
-# Graph Colouring Problem:
+# Graph Colouring Decision Problem:
 
 Program452:[c++] [This program checks if the graph can be coloured with at most 'n' colours(brute force approach).](../Program452/main.cpp)<br>
 Program453:[c++] [This program checks if the graph can be coloured with at most 'n' colours(backtracking approach).](../Program453/main.cpp)<br>
+
+# Hamiltonian Cycle in Undirected Graph:
+
+Program454:[c++] [This program checks if a hamiltonian cycle exists in the undirected graph.](../Program454/main.cpp)<br>
 
 # Union-Find Algorithm:
 
