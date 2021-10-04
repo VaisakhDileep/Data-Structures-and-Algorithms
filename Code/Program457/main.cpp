@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 4, October, 2021
-Description : This program rotates a square matrix 90 deg clockwise(O(n*n) space solution).
+Description : This program rotates a square matrix 90 deg anti-clockwise(O(n*n) space solution).
 */
 
 #include<iostream>
@@ -17,7 +17,7 @@ struct Square_Matrix
     int n;
 };
 
-void rotate_matrix_90_deg_clockwise(Square_Matrix *M)
+void rotate_matrix_90_deg_anti_clockwise(Square_Matrix *M)
 {
     if(M == nullptr)
     {
@@ -38,11 +38,11 @@ void rotate_matrix_90_deg_clockwise(Square_Matrix *M)
 
     int column_itr {0};
 
-    for(int i {M->n - 1}; i >= 0 ; i--)
+    for(int i {0}; i < M->n; i++)
     {
-        for(int j {0}; j < M->n; j++)
+        for(int j {M->n - 1}; j >= 0; j--)
         {
-            temp.M[j][column_itr] = M->M[i][j];
+            temp.M[M->n -1 - j][column_itr] = M->M[i][j];
         }
 
         column_itr++;
@@ -57,11 +57,11 @@ void rotate_matrix_90_deg_clockwise(Square_Matrix *M)
     }
 }
 
-void handle_rotate_matrix_90_deg_clockwise(Square_Matrix *M)
+void handle_rotate_matrix_90_deg_anti_clockwise(Square_Matrix *M)
 {
     try
     {
-        rotate_matrix_90_deg_clockwise(M);
+        rotate_matrix_90_deg_anti_clockwise(M);
     }
     catch(string &ex)
     {
@@ -99,9 +99,9 @@ int main()
     display_square_matrix(&M1);
     cout<<"\n";
 
-    handle_rotate_matrix_90_deg_clockwise(&M1);
+    handle_rotate_matrix_90_deg_anti_clockwise(&M1);
 
-    cout<<"M1[after rotating 90 deg clockwise]: \n";
+    cout<<"M1[after rotating 90 deg anti-clockwise]: \n";
     display_square_matrix(&M1);
     cout<<"\n";
 
