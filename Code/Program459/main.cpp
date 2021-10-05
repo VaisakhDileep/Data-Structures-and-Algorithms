@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date        : 4, October, 2021
-Description : This program rotates a square matrix 90 deg clockwise(O(1) space solution).
+Date        : 5, October, 2021
+Description : This program rotates a square matrix 90 deg anti-clockwise(O(1) space solution).
 */
 
 #include<iostream>
@@ -24,7 +24,7 @@ struct index
     int c;
 };
 
-void rotate_matrix_90_deg_clockwise(Square_Matrix *M)
+void rotate_matrix_90_deg_anti_clockwise(Square_Matrix *M)
 {
     if(M == nullptr)
     {
@@ -44,22 +44,22 @@ void rotate_matrix_90_deg_clockwise(Square_Matrix *M)
 
             int temp {M->M[row_up.r][row_up.c]};
 
-            M->M[row_up.r][row_up.c] = M->M[column_left.r][column_left.c];
+            M->M[row_up.r][row_up.c] = M->M[column_right.r][column_right.c];
 
-            M->M[column_left.r][column_left.c] = M->M[row_down.r][row_down.c];
+            M->M[column_right.r][column_right.c] = M->M[row_down.r][row_down.c];
 
-            M->M[row_down.r][row_down.c] = M->M[column_right.r][column_right.c];
+            M->M[row_down.r][row_down.c] = M->M[column_left.r][column_left.c];
 
-            M->M[column_right.r][column_right.c] = temp;
+            M->M[column_left.r][column_left.c] = temp;
         }
     }
 }
 
-void handle_rotate_matrix_90_deg_clockwise(Square_Matrix *M)
+void handle_rotate_matrix_90_deg_anti_clockwise(Square_Matrix *M)
 {
     try
     {
-        rotate_matrix_90_deg_clockwise(M);
+        rotate_matrix_90_deg_anti_clockwise(M);
     }
     catch(string &ex)
     {
@@ -99,9 +99,9 @@ int main()
     display_square_matrix(&M1);
     cout<<"\n";
 
-    handle_rotate_matrix_90_deg_clockwise(&M1);
+    handle_rotate_matrix_90_deg_anti_clockwise(&M1);
 
-    cout<<"M1[after rotating 90 deg clockwise]: \n";
+    cout<<"M1[after rotating 90 deg anti-clockwise]: \n";
     display_square_matrix(&M1);
     cout<<"\n";
 
