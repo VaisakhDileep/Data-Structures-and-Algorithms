@@ -60,7 +60,5 @@ int main()
 
     cout<<"is_prime(113): "<<handle_is_prime(113)<<"\n";
 
-    cout<<"is_prime(1000000000000000001): "<<handle_is_prime(1000000000000000001)<<"\n";
-
     return 0;
 }

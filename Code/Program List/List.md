@@ -695,6 +695,10 @@ Program462:[c++] [This program checks if the given number is prime(O(n^1/2) solu
 
 Program415:[c++] [This program demonstrates Sieve of Eratosthenes algorithm.](../Program415/main.cpp)<br>
 
+# Prime Factorization:
+
+Program463:[c++] [This program performs prime factorization on a number(O(n) solution).](../Program463/main.cpp)<br>
+
 # Quick Select Algorithm:
 
 Program417:[c++] [This program finds the n'th smallest element in an array using quick sort algorithm.](../Program417/main.cpp)<br>
