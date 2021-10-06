@@ -686,6 +686,10 @@ Program395:[c++] [This program performs Dutch national flag(DNF) sort.](../Progr
 
 Program401:[c++] [This program demonstrates Boyer-Moore majority voting algorithm.](../Program401/main.cpp)<br>
 
+# Primality Testing:
+
+Program461:[c++] [This program checks if the given number is prime(O(n) solution).](../Program461/main.cpp)<br>
+
 # Sieve of Eratosthenes Algorithm:
 
 Program415:[c++] [This program demonstrates Sieve of Eratosthenes algorithm.](../Program415/main.cpp)<br>
