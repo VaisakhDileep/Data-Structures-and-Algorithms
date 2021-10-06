@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 6, October, 2021
-Description : This program checks if the given number is prime(O(n) solution).
+Description : This program checks if the given number is prime(O(n^1/2) solution).
 */
 
 #include<iostream>
@@ -25,7 +25,7 @@ bool is_prime(long long num)
         return false;
     }
 
-    for(long long i {2}; i < num; i++) // Do not include "num" in the loop.
+    for(long long i {2}; i*i <= num; i++) // Proved by contradiction.
     {
         if((num % i) == 0)
         {

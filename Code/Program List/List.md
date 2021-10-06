@@ -689,6 +689,7 @@ Program401:[c++] [This program demonstrates Boyer-Moore majority voting algorith
 # Primality Testing:
 
 Program461:[c++] [This program checks if the given number is prime(O(n) solution).](../Program461/main.cpp)<br>
+Program462:[c++] [This program checks if the given number is prime(O(n^1/2) solution).](../Program462/main.cpp)<br>
 
 # Sieve of Eratosthenes Algorithm:
 
