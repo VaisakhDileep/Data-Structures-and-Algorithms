@@ -586,6 +586,10 @@ Program453:[c++] [This program checks if the graph can be coloured with at most 
 
 Program454:[c++] [This program checks if a hamiltonian cycle exists in the undirected graph.](../Program454/main.cpp)<br>
 
+# Hamiltonian Path in Undirected Graph:
+
+Program460:[c++] [This program checks if a hamiltonian path exists in the undirected graph.](../Program460/main.cpp)<br>
+
 # Union-Find Algorithm:
 
 Program425:[c++] [This program demonstrates the union-find algorithm.](../Program425/main.cpp)<br>

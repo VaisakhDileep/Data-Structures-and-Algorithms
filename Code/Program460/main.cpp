@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date        : 1, October, 2021
-Description : This program checks if a hamiltonian cycle exists in the undirected graph.
+Date        : 5, October, 2021
+Description : This program checks if a hamiltonian path exists in the undirected graph.
 */
 
 // This algorithm will work only if the graph is connected.
@@ -161,16 +161,21 @@ namespace Undirected_Graph_Using_Adjacency_Matrix // Undirected Graph is designe
 
 using namespace Undirected_Graph_Using_Adjacency_Matrix;
 
-bool is_valid(Undirected_Graph *u_graph, vector<int> *cycle, int vertex, int cycle_index)
+bool is_valid(Undirected_Graph *u_graph, vector<int> *path, int vertex, int path_index)
 {
-    if(u_graph->A->at(cycle->at(cycle_index - 1))->at(vertex) == 0)
+    if(path_index == 0)
+    {
+        return true;
+    }
+
+    if(u_graph->A->at(path->at(path_index - 1))->at(vertex) == 0)
     {
         return false;
     }
 
-    for(int i {0}; i < cycle_index; i++)
+    for(int i {0}; i < path_index; i++)
     {
-        if(cycle->at(i) == vertex)
+        if(path->at(i) == vertex)
         {
             return false;
         }
@@ -179,46 +184,32 @@ bool is_valid(Undirected_Graph *u_graph, vector<int> *cycle, int vertex, int cyc
     return true;
 }
 
-bool check_hamiltonian_cycle_undirected_graph(Undirected_Graph *u_graph, vector<int> *vertices, vector<int> *cycle, int cycle_index, int source)
+bool check_hamiltonian_path_undirected_graph(Undirected_Graph *u_graph, vector<int> *vertices, vector<int> *path, int path_index)
 {
-    if(cycle_index == vertices->size())
+    if(path_index == vertices->size())
     {
-        cycle->at(cycle_index) = source;
-
-        if(u_graph->A->at(cycle->at(cycle_index - 1))->at(source) == 1)
-        {
-            return true;
-        }
-
-        cycle->at(cycle_index) = -1;
-
-        return false;
+        return true;
     }
 
     for(int i {0}; i < vertices->size(); i++)
     {
-        if(vertices->at(i) == source)
+        if(is_valid(u_graph, path, vertices->at(i), path_index) == true)
         {
-            continue;
-        }
+            path->at(path_index) = vertices->at(i);
 
-        if(is_valid(u_graph, cycle, vertices->at(i), cycle_index) == true)
-        {
-            cycle->at(cycle_index) = vertices->at(i);
-
-            if(check_hamiltonian_cycle_undirected_graph(u_graph, vertices, cycle, cycle_index + 1, source) == true)
+            if(check_hamiltonian_path_undirected_graph(u_graph, vertices, path, path_index + 1))
             {
                 return true;
             }
 
-            cycle->at(cycle_index) = -1;
+            path->at(path_index) = -1;
         }
     }
 
     return false;
 }
 
-bool handle_check_hamiltonian_cycle_undirected_graph(Undirected_Graph *u_graph, vector<int> *cycle)
+bool handle_check_hamiltonian_path_undirected_graph(Undirected_Graph *u_graph, vector<int> *path)
 {
     if(u_graph == nullptr)
     {
@@ -255,40 +246,36 @@ bool handle_check_hamiltonian_cycle_undirected_graph(Undirected_Graph *u_graph, 
         vertices_vector.push_back(*itr);
     }
 
-    cycle->resize(vertices_vector.size() + 1);
+    path->resize(vertices_vector.size());
 
-    for(int i {0}; i < cycle->size(); i++)
+    for(int i {0}; i < path->size(); i++)
     {
-        cycle->at(i) = -1;
+        path->at(i) = -1;
     }
 
-    int source {vertices_vector[0]};
-
-    cycle->at(0) = source;
-
-    return check_hamiltonian_cycle_undirected_graph(u_graph, &vertices_vector, cycle, 1, source);
+    return check_hamiltonian_path_undirected_graph(u_graph, &vertices_vector, path, 0);
 }
 
-void display_hamiltonian_cycle(vector<int> *cycle)
+void display_hamiltonian_path(vector<int> *path)
 {
-    if(cycle == nullptr)
+    if(path == nullptr)
     {
         return ;
     }
 
-    for(int i {0}; i < cycle->size(); i++)
+    for(int i {0}; i < path->size(); i++)
     {
-        if(cycle->at(i) == -1)
+        if(path->at(i) == -1)
         {
-            cout<<"Hamiltonian cycle does not exist.";
+            cout<<"Hamiltonian path does not exist .....";
 
             return ;
         }
     }
 
-    for(int i {0}; i < cycle->size(); i++)
+    for(int i {0}; i < path->size(); i++)
     {
-        cout<<cycle->at(i)<<" ";
+        cout<<path->at(i)<<" ";
     }
 }
 
@@ -296,24 +283,22 @@ int main()
 {
     Undirected_Graph u_graph {new vector<vector<int>*> {}};
 
-    // Edge edges[5] {Edge {0, 1}, Edge {1, 2}, Edge {2, 3}, Edge {2, 0}, Edge {3, 0}}; // This graph contains a hamiltonian cycle.
+    // Edge edges[5] {Edge {1, 0}, Edge {0, 4}, Edge {1, 2}, Edge {2, 4}, Edge {4, 3}}; // This graph contains a hamiltonian path.
 
-    // Edge edges[7] {Edge {0, 1}, Edge {0, 2}, Edge {1, 2}, Edge {1, 4}, Edge {4, 3}, Edge {2, 3}, Edge {3, 5}}; // This graph does not contain a hamiltonian cycle.
+    Edge edges[4] {Edge {0, 1}, Edge {1, 4}, Edge {1, 2}, Edge {2, 3}}; // This graph does not contain a hamiltonian path.
 
-    Edge edges[8] {Edge {0, 1}, Edge {0, 2}, Edge {1, 2}, Edge {1, 4}, Edge {4, 3}, Edge {2, 3}, Edge {3, 5}, Edge {5, 2}}; // This graph contains a hamiltonian cycle.
-
-    handle_create_undirected_graph(&u_graph, edges, 8);
+    handle_create_undirected_graph(&u_graph, edges, 4);
 
     cout<<"u_graph: \n";
     display_undirected_graph(&u_graph);
     cout<<"\n";
 
-    vector<int> cycle {};
+    vector<int> path {};
 
-    cout<<"check_hamiltonian_cycle(u_graph, cycle): "<<handle_check_hamiltonian_cycle_undirected_graph(&u_graph, &cycle)<<"\n";
+    cout<<"check_hamiltonian_path(u_graph, path): "<<handle_check_hamiltonian_path_undirected_graph(&u_graph, &path)<<"\n";
 
-    cout<<"cycle: ";
-    display_hamiltonian_cycle(&cycle);
+    cout<<"path: ";
+    display_hamiltonian_path(&path);
     cout<<"\n";
 
     return 0;
