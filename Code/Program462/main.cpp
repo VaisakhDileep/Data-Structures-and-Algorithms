@@ -25,6 +25,8 @@ bool is_prime(long long num)
         return false;
     }
 
+// Building principle: If "n = a * b" then 'a' or 'b' should be <= sqrt('n').
+
     for(long long i {2}; i*i <= num; i++) // Proved by contradiction.
     {
         if((num % i) == 0)

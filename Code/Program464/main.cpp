@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date        : 6, October, 2021
-Description : This program performs prime factorization on a number(O(n) solution).
+Date        : 7, October, 2021
+Description : This program performs prime factorization on a number(O(sqrt(n)) solution).
 */
 
 #include<iostream>
@@ -29,7 +29,9 @@ unordered_map<int, int>* prime_factorization(long long num)
 
     unordered_map<int, int> *prime_factorization {new unordered_map<int, int> {}};
 
-    for(long long i {2}; i <= num; i++) // Worst case happens when "num" is prime(O(n)).
+// Building principle: If 'n' is a composite number, then there is at least one prime divisor of 'n' that is <= sqrt('n').
+
+    for(long long i {2}; i * i <= num; i++) // Worst case happens when "num" is prime(O(sqrt(n))).
     {
         if((num % i) == 0)
         {
@@ -42,6 +44,11 @@ unordered_map<int, int>* prime_factorization(long long num)
                 num /= i;
             }
         }
+    }
+
+    if(num > 1)
+    {
+        (*prime_factorization)[num] = 1;
     }
 
     return prime_factorization;
