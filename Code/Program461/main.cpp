@@ -45,6 +45,8 @@ bool handle_is_prime(long long num)
     catch(string &ex)
     {
         cout<<ex;
+
+        return false;
     }
 }
 

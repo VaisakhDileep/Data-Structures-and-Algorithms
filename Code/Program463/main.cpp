@@ -10,7 +10,7 @@ Description : This program performs prime factorization on a number(O(n) solutio
 
 using namespace std;
 
-unordered_map<int, int>* prime_factorization(long long num)
+unordered_map<long long, long long>* prime_factorization(long long num)
 {
     if(num < 0)
     {
@@ -27,7 +27,7 @@ unordered_map<int, int>* prime_factorization(long long num)
         throw string {"ERROR - Invalid operation, prime factorization cannot be performed for 1 ....."};
     }
 
-    unordered_map<int, int> *prime_factorization {new unordered_map<int, int> {}};
+    unordered_map<long long, long long> *prime_factorization {new unordered_map<long long, long long> {}};
 
     for(long long i {2}; i <= num; i++) // Worst case happens when "num" is prime(O(n)).
     {
@@ -47,7 +47,7 @@ unordered_map<int, int>* prime_factorization(long long num)
     return prime_factorization;
 }
 
-unordered_map<int, int>* handle_prime_factorization(long long num)
+unordered_map<long long, long long>* handle_prime_factorization(long long num)
 {
     try
     {
@@ -61,7 +61,7 @@ unordered_map<int, int>* handle_prime_factorization(long long num)
     }
 }
 
-void display_prime_factorization(unordered_map<int, int> *prime_factorization)
+void display_prime_factorization(unordered_map<long long, long long> *prime_factorization)
 {
     if(prime_factorization == nullptr)
     {
@@ -85,7 +85,7 @@ void display_prime_factorization(unordered_map<int, int> *prime_factorization)
 
 int main()
 {
-    unordered_map<int, int> *prime_factorization {};
+    unordered_map<long long, long long> *prime_factorization {};
 
     prime_factorization = handle_prime_factorization(1234);
 

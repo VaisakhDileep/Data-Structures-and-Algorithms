@@ -700,6 +700,9 @@ Program415:[c++] [This program demonstrates Sieve of Eratosthenes algorithm.](..
 Program463:[c++] [This program performs prime factorization on a number(O(n) solution).](../Program463/main.cpp)<br>
 Program464:[c++] [This program performs prime factorization on a number(O(sqrt(n)) solution).](../Program464/main.cpp)<br>
 
+# Binary Exponentiation:
+Program465:[c++] [This program performs binary exponentiation on a number.](../Program465/main.cpp)<br>
+
 # Quick Select Algorithm:
 
 Program417:[c++] [This program finds the n'th smallest element in an array using quick sort algorithm.](../Program417/main.cpp)<br>
