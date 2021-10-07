@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 7, October, 2021
-Description : This program rotates a square matrix by 180 deg(O(n*n) space solution).
+Description : This program rotates a square matrix by 180 deg(O(1) space solution).
 */
 
 #include<iostream>
@@ -17,6 +17,13 @@ struct Square_Matrix
     int n;
 };
 
+struct index
+{
+    int r;
+
+    int c;
+};
+
 void rotate_matrix_180_deg(Square_Matrix *M)
 {
     if(M == nullptr)
@@ -29,26 +36,15 @@ void rotate_matrix_180_deg(Square_Matrix *M)
         throw string {"ERROR - Invalid operation, square matrix is empty ....."};
     }
 
-    Square_Matrix temp {new int*[M->n] {}, M->n * M->n, M->n};
-
-    for(int i {0}; i < M->n; i++)
+    for(int i {0}; i < M->n / 2; i++)
     {
-        temp.M[i] = new int[M->n] {};
-    }
-
-    for(int i {M->n - 1}; i >= 0; i--)
-    {
-        for(int j {M->n - 1}; j >= 0; j--)
+        for(int j {0}; j < M->n - 1 - (2 * i); j++)
         {
-            temp.M[M->n - 1 - i][M->n - 1 - j] = M->M[i][j];
-        }
-    }
+            index row_up {i, j + i}, column_right {j + i, M->n - 1 - i}, row_down {M->n - 1 - i, M->n - 1 - i - j}, column_left {M->n - 1 - i - j, i};
 
-    for(int i {0}; i < M->n; i++)
-    {
-        for(int j {0}; j < M->n; j++)
-        {
-            M->M[i][j] = temp.M[i][j];
+            swap(M->M[row_up.r][row_up.c], M->M[row_down.r][row_down.c]);
+
+            swap(M->M[column_right.r][column_right.c], M->M[column_left.r][column_left.c]);
         }
     }
 }

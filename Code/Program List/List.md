@@ -139,7 +139,8 @@ Program456:[c++] [This program rotates a square matrix 90 deg clockwise(O(n*n) s
 Program458:[c++] [This program rotates a square matrix 90 deg clockwise(O(1) space solution).](../Program458/main.cpp)<br>
 Program457:[c++] [This program rotates a square matrix 90 deg anti-clockwise(O(n*n) space solution).](../Program457/main.cpp)<br>
 Program459:[c++] [This program rotates a square matrix 90 deg anti-clockwise(O(1) space solution).](../Program459/main.cpp)<br>
-Program466:[c++] [This program rotates a square matrix by 180 deg(O(n*n) space).](../Program466/main.cpp)<br>
+Program466:[c++] [This program rotates a square matrix by 180 deg(O(n*n) space solution).](../Program466/main.cpp)<br>
+Program467:[c++] [This program rotates a square matrix by 180 deg(O(1) space solution).](../Program467/main.cpp)<br>
 
 # Special Square Matrices:
 
