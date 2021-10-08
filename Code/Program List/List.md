@@ -701,6 +701,7 @@ Program415:[c++] [This program demonstrates Sieve of Eratosthenes algorithm.](..
 
 Program463:[c++] [This program performs prime factorization on a number(O(n) solution).](../Program463/main.cpp)<br>
 Program464:[c++] [This program performs prime factorization on a number(O(sqrt(n)) solution).](../Program464/main.cpp)<br>
+Program468:[c++] [This program performs prime factorization on a number(O(log(n)) solution).](../Program468/main.cpp)<br>
 
 # Binary Exponentiation:
 Program465:[c++] [This program performs binary exponentiation on a number.](../Program465/main.cpp)<br>

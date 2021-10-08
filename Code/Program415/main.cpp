@@ -12,7 +12,7 @@ Description : This program demonstrates Sieve of Eratosthenes algorithm.
 
 using namespace std;
 
-vector<int>* sieve_of_eratosthenes_algorithm(int num)
+vector<int>* sieve_of_eratosthenes(int num)
 {
     if(num < 0)
     {
@@ -48,11 +48,11 @@ vector<int>* sieve_of_eratosthenes_algorithm(int num)
     return result;
 }
 
-vector<int>* handle_sieve_of_eratosthenes_algorithm(int num)
+vector<int>* handle_sieve_of_eratosthenes(int num)
 {
     try
     {
-        return sieve_of_eratosthenes_algorithm(num);
+        return sieve_of_eratosthenes(num);
     }
     catch(string &ex)
     {
@@ -64,9 +64,9 @@ vector<int>* handle_sieve_of_eratosthenes_algorithm(int num)
 
 int main()
 {
-    vector<int> *result {handle_sieve_of_eratosthenes_algorithm(10)};
+    vector<int> *result {handle_sieve_of_eratosthenes(10)};
 
-    cout<<"handle_sieve_of_eratosthenes_algorithm(10): ";
+    cout<<"handle_sieve_of_eratosthenes(10): ";
     for(int i {0}; i < result->size(); i++)
     {
         cout<<result->at(i)<<" ";
