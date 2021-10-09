@@ -1,10 +1,8 @@
 /*
 Created by  : Vaisakh Dileep
-Date        : 9, October, 2021
-Description : This program performs matrix exponentiation(brute force approach).
+Date        : 10, October, 2021
+Description : This program performs matrix exponentiation(binary exponentiation).
 */
-
-// matrix exponentiation will work only if the input matrix is a square matrix.
 
 #include<iostream>
 
@@ -83,7 +81,7 @@ void matrix_exponentiation(Square_Matrix *base, int power)
         throw string {"ERROR - Invalid operation, power should be greater than 0 ....."};
     }
 
-    Square_Matrix* result {new Square_Matrix {new int*[base->n] {}, base->n * base->n, base->n}}; // Result matrix(initialized with identity matrix)
+    Square_Matrix *result {new Square_Matrix {new int*[base->n] {}, base->n * base->n, base->n}}; // Result matrix(initialized with identity matrix)
 
     for(int i {0}; i < base->n; i++)
     {
@@ -95,9 +93,22 @@ void matrix_exponentiation(Square_Matrix *base, int power)
         result->M[i][i] = 1;
     }
 
-    for(int i {0}; i < power; i++)
+    Square_Matrix *temp_base {base};
+
+    while(power)
     {
-        result = multiply_square_matrices(result, base);
+        if((power % 2) == 1)
+        {
+            result = multiply_square_matrices(result, temp_base);
+
+            power--;
+        }
+        else
+        {
+            temp_base = multiply_square_matrices(temp_base, temp_base);
+
+            power /= 2;
+        }
     }
 
     for(int i {0}; i < base->n; i++)

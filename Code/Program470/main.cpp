@@ -36,12 +36,12 @@ Square_Matrix* multiply_square_matrices(Square_Matrix *A, Square_Matrix *B)
 
     if(B->M == nullptr)
     {
-        throw string {"ERROR - Invalid operatoin, matrix 'B' is empty ....."};
+        throw string {"ERROR - Invalid operation, matrix 'B' is empty ....."};
     }
 
     if(A->n != B->n)
     {
-        throw string {"ERROR - Invalid operaion, matrices should have the same dimension ....."};
+        throw string {"ERROR - Invalid operation, matrices should have the same dimension ....."};
     }
 
     Square_Matrix *product {new Square_Matrix {new int*[A->n] {}, A->n * A->n, A->n}};

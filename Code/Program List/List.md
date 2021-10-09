@@ -720,6 +720,7 @@ Program465:[c++] [This program performs binary exponentiation on a number.](../P
 # Matrix Exponentiation:
 
 Program472:[c++] [This program performs matrix exponentiation(brute force approach).](../Program472/main.cpp)<br>
+Program473:[c++] [This program performs matrix exponentiation(binary exponentiation).](../Program473/main.cpp)<br>
 
 # Quick Select Algorithm:
 
