@@ -71,7 +71,7 @@ Square_Matrix* multiply_square_matrices(Square_Matrix *A, Square_Matrix *B)
     return product;
 }
 
-Square_Matrix* matrix_exponentiation(Square_Matrix *base, int power)
+void matrix_exponentiation(Square_Matrix *base, int power)
 {
     if(base == nullptr)
     {
@@ -100,20 +100,24 @@ Square_Matrix* matrix_exponentiation(Square_Matrix *base, int power)
         result = multiply_square_matrices(result, base);
     }
 
-    return result;
+    for(int i {0}; i < base->n; i++)
+    {
+        for(int j {0}; j < base->n; j++)
+        {
+            base->M[i][j] = result->M[i][j];
+        }
+    }
 }
 
-Square_Matrix* handle_matrix_exponentiation(Square_Matrix *base, int power)
+void handle_matrix_exponentiation(Square_Matrix *base, int power)
 {
     try
     {
-        return matrix_exponentiation(base, power);
+        matrix_exponentiation(base, power);
     }
     catch(string &ex)
     {
         cout<<ex;
-
-        return nullptr;
     }
 }
 
@@ -147,10 +151,10 @@ int main()
     display_square_matrix(&M1);
     cout<<"\n\n";
 
-    Square_Matrix *result {matrix_exponentiation(&M1, 4)};
+    matrix_exponentiation(&M1, 4);
 
     cout<<"matrix_exponentiation(M1, 4): \n";
-    display_square_matrix(result);
+    display_square_matrix(&M1);
     cout<<"\n";
 
     return 0;
