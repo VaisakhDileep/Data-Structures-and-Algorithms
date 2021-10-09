@@ -83,22 +83,16 @@ Square_Matrix* matrix_exponentiation(Square_Matrix *base, int power)
         throw string {"ERROR - Invalid operation, power should be greater than 0 ....."};
     }
 
-    Square_Matrix* I {new Square_Matrix {new int*[base->n] {}, base->n * base->n, base->n}}; // Identity matrix
-
     Square_Matrix* result {new Square_Matrix {new int*[base->n] {}, base->n * base->n, base->n}}; // Result matrix(initialized with identity matrix)
 
     for(int i {0}; i < base->n; i++)
     {
         result->M[i] = new int[base->n] {};
-
-        I->M[i] = new int[base->n] {};
     }
 
     for(int i {0}; i < base->n; i++)
     {
         result->M[i][i] = 1;
-
-        I->M[i][i] = 1;
     }
 
     for(int i {0}; i < base->n; i++)
