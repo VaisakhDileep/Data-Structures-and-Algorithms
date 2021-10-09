@@ -135,9 +135,9 @@ int main()
 {
     vector<vector<int>*> *chess_board {};
 
-    cout<<"handle_can_place_n_queens(chess_board, 4): "<<handle_can_place_n_queens(&chess_board, 4)<<"\n";
+    cout<<"handle_can_place_n_queens(chess_board, 4): "<<handle_can_place_n_queens(&chess_board, 4)<<"\n\n";
 
-    cout<<"chess_board(chess_board):\n";
+    cout<<"chess_board:\n";
     display_chess_board(chess_board);
     cout<<"\n";
 

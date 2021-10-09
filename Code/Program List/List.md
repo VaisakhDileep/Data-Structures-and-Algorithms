@@ -704,6 +704,7 @@ Program464:[c++] [This program performs prime factorization on a number(O(sqrt(n
 Program468:[c++] [This program performs prime factorization on a number(O(log(n)) solution).](../Program468/main.cpp)<br>
 
 # Binary Exponentiation:
+
 Program465:[c++] [This program performs binary exponentiation on a number.](../Program465/main.cpp)<br>
 
 # Quick Select Algorithm:
@@ -728,3 +729,7 @@ Program435:[c++] [This program swaps two numbers without using a temporary varia
 # N-Queens Problem:
 
 Program455:[c++] [This program arranges 'n' queens in a (n X n) chess board in a way such that they won't attack each other.](../Program455/main.cpp)<br>
+
+# Knight's Tour:
+
+Program469:[c++] [This program checks if the knight situated at the top left corner of the chess board(8x8) can visit all the positions at most once.](../Program469/main.cpp)<br>
