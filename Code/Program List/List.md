@@ -124,11 +124,19 @@ Program103:[c++] [This program represents a matrix in row-major form.](../Progra
 Program104:[c++] [This program represents a matrix in column-major form.](../Program104/main.cpp)<br>
 Program180:[c++] [This program finds the transpose of a matrix.](../Program180/main.cpp)<br>
 
+# Multiplication of two matrices:
+
+Program471:[c++] [This program multiplies two matrices(brute force approach).](../Program471/main.cpp)<br>
+
 # Square Matrices(N X N):
 
 Program105:[c++] [This program creates a square matrix.](../Program105/main.cpp)<br>
 Program106:[c++] [This program displays a square matrix.](../Program106/main.cpp)<br>
 Program181:[c++] [This program finds the transpose of a square matrix.](../Program181/main.cpp)<br>
+
+# Multiplication of two square matrices:
+
+Program470:[c++] [This program multiplies two square matrices(brute force approach).](../Program470/main.cpp)<br>
 
 # Determinant of a Square Matrix:
 Program450:[c++] [This program finds the determinant of a 2*2 matrix.](../Program450/main.cpp)<br>
