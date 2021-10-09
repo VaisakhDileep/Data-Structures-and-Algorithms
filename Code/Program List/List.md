@@ -139,10 +139,12 @@ Program181:[c++] [This program finds the transpose of a square matrix.](../Progr
 Program470:[c++] [This program multiplies two square matrices(brute force approach).](../Program470/main.cpp)<br>
 
 # Determinant of a Square Matrix:
+
 Program450:[c++] [This program finds the determinant of a 2*2 matrix.](../Program450/main.cpp)<br>
 Program451:[c++] [This program finds the determinant of a n*n matrix.](../Program451/main.cpp)<br>
 
 # Rotate Square Matrix:
+
 Program456:[c++] [This program rotates a square matrix 90 deg clockwise(O(n*n) space solution).](../Program456/main.cpp)<br>
 Program458:[c++] [This program rotates a square matrix 90 deg clockwise(O(1) space solution).](../Program458/main.cpp)<br>
 Program457:[c++] [This program rotates a square matrix 90 deg anti-clockwise(O(n*n) space solution).](../Program457/main.cpp)<br>
@@ -715,6 +717,10 @@ Program468:[c++] [This program performs prime factorization on a number(O(log(n)
 
 Program465:[c++] [This program performs binary exponentiation on a number.](../Program465/main.cpp)<br>
 
+# Matrix Exponentiation:
+
+Program472:[c++] [This program performs matrix exponentiation(brute force approach).](../Program472/main.cpp)<br>
+
 # Quick Select Algorithm:
 
 Program417:[c++] [This program finds the n'th smallest element in an array using quick sort algorithm.](../Program417/main.cpp)<br>
@@ -726,6 +732,7 @@ Program422:[c++] [This program checks if the given pattern exists in a string us
 Program424:[c++] [This program finds all the matching pattern in a string using Knuth Morris Pratt algorithm.](../Program424/main.cpp)<br>
 
 # Swapping:
+
 Program429:[c++] [This program swaps two numbers using a temporary variable.](../Program429/main.cpp)<br>
 Program430:[c++] [This program swaps two numbers without using a temporary variable(using +, - operator).](../Program430/main.cpp)<br>
 Program431:[c++] [This program swaps two numbers without using a temporary variable(using *, / operator).](../Program431/main.cpp)<br>

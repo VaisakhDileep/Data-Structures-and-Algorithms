@@ -65,6 +65,11 @@ Square_Matrix* transpose_square_matrix(Square_Matrix *M)
 {
     if(M == nullptr)
     {
+        throw string {"ERROR - Invalid operation, matrix is not valid ....."};
+    }
+
+    if(M->M == nullptr)
+    {
         throw string {"ERROR - Invalid operation, matrix is empty ....."};
     }
 
