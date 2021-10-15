@@ -152,6 +152,9 @@ Program459:[c++] [This program rotates a square matrix 90 deg anti-clockwise(O(1
 Program466:[c++] [This program rotates a square matrix by 180 deg(O(n*n) space solution).](../Program466/main.cpp)<br>
 Program467:[c++] [This program rotates a square matrix by 180 deg(O(1) space solution).](../Program467/main.cpp)<br>
 
+# Convert Square Matrix Representation to Matrix Representation:
+Program475:[c++] [This program converts a square matrix representation to a matrix representation.](../Program475/main.cpp)<br>
+
 # Special Square Matrices:
 
 Program107:[c++] [This program optimizes a diagonal matrix.](../Program107/main.cpp)<br>
@@ -721,6 +724,10 @@ Program465:[c++] [This program performs binary exponentiation on a number.](../P
 
 Program472:[c++] [This program performs matrix exponentiation(brute force approach).](../Program472/main.cpp)<br>
 Program473:[c++] [This program performs matrix exponentiation(binary exponentiation).](../Program473/main.cpp)<br>
+
+# Fibonacci Series Using Binary Matrix Exponentiation:
+
+Program474:[c++] [This program finds the n'th element in the fibonacci series(binary matrix exponentiation).](../Program474/main.cpp)<br>
 
 # Quick Select Algorithm:
 
