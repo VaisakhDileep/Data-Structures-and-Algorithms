@@ -4,7 +4,7 @@ Date        : 15, October, 2021
 Description : This program converts a square matrix representation to a matrix representation.
 */
 
-// Since I have different representations for Matrix and Square Matrix, when performing some operations it is required to convert from one form to another(Square Matrix can always be converted to Matrix but not vice-versa).
+// Since I have different representation for Matrix and Square Matrix, when performing some operations it is required to convert from one form to another(Square Matrix can always be converted to Matrix but not vice-versa).
 
 #include<iostream>
 

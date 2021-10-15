@@ -6,6 +6,8 @@ Description : This program finds the n'th element in the fibonacci series(binary
 
 // For proof check "Program474/whiteboard_1.pdf".
 
+// Note: Indexing of the fibonacci series starts from 1.
+
 #include<iostream>
 
 using namespace std;

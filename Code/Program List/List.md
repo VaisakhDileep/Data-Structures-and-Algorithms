@@ -153,6 +153,7 @@ Program466:[c++] [This program rotates a square matrix by 180 deg(O(n*n) space s
 Program467:[c++] [This program rotates a square matrix by 180 deg(O(1) space solution).](../Program467/main.cpp)<br>
 
 # Convert Square Matrix Representation to Matrix Representation:
+
 Program475:[c++] [This program converts a square matrix representation to a matrix representation.](../Program475/main.cpp)<br>
 
 # Special Square Matrices:
@@ -715,6 +716,10 @@ Program415:[c++] [This program demonstrates Sieve of Eratosthenes algorithm.](..
 Program463:[c++] [This program performs prime factorization on a number(O(n) solution).](../Program463/main.cpp)<br>
 Program464:[c++] [This program performs prime factorization on a number(O(sqrt(n)) solution).](../Program464/main.cpp)<br>
 Program468:[c++] [This program performs prime factorization on a number(O(log(n)) solution).](../Program468/main.cpp)<br>
+
+# Euclid Division Algorithm:
+
+Program476:[c++] [This program implements euclid division algorithm for finding HCF recursively.](../Program476/main.cpp)<br>
 
 # Binary Exponentiation:
 
