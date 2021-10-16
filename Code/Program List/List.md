@@ -720,6 +720,7 @@ Program468:[c++] [This program performs prime factorization on a number(O(log(n)
 # Euclid Division Algorithm:
 
 Program476:[c++] [This program implements euclid division algorithm for finding HCF recursively.](../Program476/main.cpp)<br>
+Program477:[c++] [This program implements euclid division algorithm for finding HCF iteratively.](../Program477/main.cpp)<br>
 
 # Binary Exponentiation:
 
