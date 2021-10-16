@@ -665,22 +665,22 @@ Program377:[c++] [This program creates the huffman table for the given message.]
 Program378:[c++] [This program performs huffman encoding for the given message.](../Program378/main.cpp)<br>
 Program380:[c++] [This program performs huffman decoding for the given message.](../Program380/main.cpp)
 
-# Segment Tree For Range Minimum Query:
+# Segment Tree for Range Minimum Query:
 
 Program381:[c++] [This program constructs a segment tree for range minimum query.](../Program381/main.cpp)<br>
 Program382:[c++] [This program performs the range minimum query operation on the segment tree.](../Program382/main.cpp)<br>
 
-# Prefix Sum Array For Static 1-D Array:
+# Prefix Sum Array for Static 1-D Array:
 
 Program386:[c++] [This program creates a prefix sum array for range sum query(1-D array).](../Program386/main.cpp)<br>
 Program387:[c++] [This program performs the range sum query operation on a prefix sum array(1-D array).](../Program387/main.cpp)<br>
 
-# Prefix Sum Array For Static 2-D Array:
+# Prefix Sum Array for Static 2-D Array:
 
 Program388:[c++] [This program creates a prefix sum matrix for range sum query(2-D array).](../Program388/main.cpp)<br>
 Program389:[c++] [This program performs the range sum query operation on a prefix sum matrix(2-D array).](../Program389/main.cpp)<br>
 
-# Klee's Algorithm to Find the Length of The Union of Line Segments:
+# Klee's Algorithm to Find The Length of The Union of Line Segments:
 
 Program392:[c++] [This program finds the length of the union of line segments(Klee's algorithm).](../Program392/main.cpp)<br>
 
@@ -719,8 +719,8 @@ Program468:[c++] [This program performs prime factorization on a number(O(log(n)
 
 # Euclid Division Algorithm:
 
-Program476:[c++] [This program implements euclid division algorithm for finding HCF recursively.](../Program476/main.cpp)<br>
-Program477:[c++] [This program implements euclid division algorithm for finding HCF iteratively.](../Program477/main.cpp)<br>
+Program476:[c++] [This program implements euclid division algorithm for finding GCD recursively.](../Program476/main.cpp)<br>
+Program477:[c++] [This program implements euclid division algorithm for finding GCD iteratively.](../Program477/main.cpp)<br>
 
 # Binary Exponentiation:
 
