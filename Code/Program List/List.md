@@ -766,3 +766,4 @@ Program469:[c++] [This program checks if the knight situated at the top left cor
 # Minimax Algorithm:
 
 Program478:[c++] [This program demonstrates minimax algorithm without constructing the minimax tree.](../Program478/main.cpp)<br>
+Program479:[c++] [This program demonstrates constructs the minimax tree.](../Program479/main.cpp)<br>
