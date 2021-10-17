@@ -762,3 +762,7 @@ Program455:[c++] [This program arranges 'n' queens in a (n X n) chess board in a
 # Knight's Tour:
 
 Program469:[c++] [This program checks if the knight situated at the top left corner of the chess board(8x8) can visit all the positions at most once.](../Program469/main.cpp)<br>
+
+# Minimax Algorithm:
+
+Program478:[c++] [This program demonstrates minimax algorithm without constructing the minimax tree.](../Program478/main.cpp)<br>
