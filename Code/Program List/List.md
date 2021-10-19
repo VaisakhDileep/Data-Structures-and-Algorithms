@@ -366,6 +366,10 @@ Program447:[c++] [This program finds the inorder successor of a node in a binary
 Program437:[c++] [This program checks if the given binary search tree is height balanced(O(n*n) solution).](../Program437/main.cpp)<br>
 Program439:[c++] [This program checks if the given binary search tree is height balanced(O(n) solution).](../Program439/main.cpp)<br>
 
+# AVL Tree:
+
+Program480:[c++] [This program creates an AVL tree.](../Program480/main.cpp)<br>
+
 # Sorting Techniques:
 
 Program229:[c++] [This program demonstrates bubble sort.](../Program229/main.cpp)<br>
