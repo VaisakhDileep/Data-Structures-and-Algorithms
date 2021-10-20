@@ -366,9 +366,12 @@ Program447:[c++] [This program finds the inorder successor of a node in a binary
 Program437:[c++] [This program checks if the given binary search tree is height balanced(O(n*n) solution).](../Program437/main.cpp)<br>
 Program439:[c++] [This program checks if the given binary search tree is height balanced(O(n) solution).](../Program439/main.cpp)<br>
 
+# Branch rotations in a binary tree:
+Program481:[c++] [This program performs LL rotation in a binary tree.](../Program481/main.cpp)<br>
+Program482:[c++] [This program performs RR rotation in a binary tree.](../Program482/main.cpp)<br>
+
 # AVL Tree:
 
-Program481:[c++] [This program performs LL rotation in a binary tree.](../Program481/main.cpp)<br>
 Program480:[c++] [This program creates an AVL tree.](../Program480/main.cpp)<br>
 
 # Sorting Techniques:
