@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 20, October, 2021
-Description : This program performs LL rotation in a binary tree.
+Description : This program performs LR rotation in a binary tree.
 */
 
 #include<iostream>
@@ -22,9 +22,9 @@ struct Binary_Tree
     Node *root;
 };
 
-// Inorder to understand how LL rotation works check "Program481/whiteboard_4.pdf".
+// Inorder to understand how LR rotation works check "Program483/whiteboard_6.pdf".
 
-Node* LL_rotation(Node *root, Node *p)
+Node* LR_rotation(Node *root, Node *p)
 {
     if(root == nullptr)
     {
@@ -38,30 +38,39 @@ Node* LL_rotation(Node *root, Node *p)
 
     if(p->left_child == nullptr)
     {
-        throw string {"ERROR - Invalid operation, 'p' node should have a left child ....."};
+        throw string {"ERROR - Invalid operation, 'p' should have a left child ....."};
+    }
+
+    if(p->left_child->right_child == nullptr)
+    {
+        throw string {"ERROR - Invalid opeartion, left child of 'p' should have a right child ....."};
     }
 
     Node *p_left {p->left_child};
 
     Node *p_left_right {p_left->right_child};
 
-    p_left->right_child = p;
+    p_left->right_child = p_left_right->left_child;
 
-    p->left_child = p_left_right;
+    p->left_child = p_left_right->right_child;
+
+    p_left_right->left_child = p_left;
+
+    p_left_right->right_child = p;
 
     if(root == p)
     {
-        root = p_left;
+        root = p_left_right;
     }
 
-    return p_left; // We will return the new root of the subtree.
+    return p_left_right;
 }
 
-Node* handle_LL_rotation(Node *root, Node *p)
+Node* handle_LR_rotation(Node *root, Node *p)
 {
     try
     {
-        return LL_rotation(root, p);
+        return LR_rotation(root, p);
     }
     catch(string &ex)
     {
@@ -81,25 +90,25 @@ T[before rotation]:
         /
        /
      '2'
-     /
-    /
-  '3'
+       \
+        \
+        '3'
 */
 
     T.root = new Node {nullptr, 1, nullptr};
 
     T.root->left_child = new Node {nullptr, 2, nullptr};
 
-    T.root->left_child->left_child = new Node {nullptr, 3, nullptr};
+    T.root->left_child->right_child = new Node {nullptr, 3, nullptr};
 
-    T.root = handle_LL_rotation(T.root, T.root);
+    T.root = handle_LR_rotation(T.root, T.root);
 
 /*
 T[after rotation]:
-        '2'
+        '3'
         / \
        /   \
-     '3'   '1'
+     '2'   '1'
 */
 
     return 0;

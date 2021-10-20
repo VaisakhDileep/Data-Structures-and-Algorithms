@@ -22,7 +22,7 @@ struct Binary_Tree
     Node *root;
 };
 
-// Inorder to understand RR rotation works check "Program482/whiteboard_5.pdf"
+// Inorder to understand RR rotation works check "Program482/whiteboard_5.pdf".
 
 Node* RR_rotation(Node *root, Node *p)
 {
