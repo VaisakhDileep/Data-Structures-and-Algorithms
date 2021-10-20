@@ -250,11 +250,7 @@ int main()
 {
     AVL_Tree *AVL_tree {};
 
-    // AVL_tree = create_AVL_tree(new int[10] {7, 9, 10, 12, 43, 2, 1, 5, 9, 43}, 10);
-
-    AVL_tree = create_AVL_tree(new int[3] {7, 6, 5}, 3);
-
-    cout<<AVL_tree->root->data<<" "<<
+    AVL_tree = create_AVL_tree(new int[10] {7, 9, 10, 12, 43, 2, 1, 5, 9, 43}, 10);
 
     cout<<"display_AVL_tree(AVL_tree): ";
     handle_display_AVL_tree(AVL_tree);
