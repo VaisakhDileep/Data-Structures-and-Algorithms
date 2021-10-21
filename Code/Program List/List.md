@@ -391,6 +391,7 @@ Program397:[c++] [This program demonstrates count sort.](../Program397/main.cpp)
 Program398:[c++] [This program demonstrates bin(bucket) sort.](../Program398/main.cpp)<br>
 Program399:[c++] [This program demonstrates radix sort.](../Program399/main.cpp)<br>
 Program400:[c++] [This program demonstrates merge sort on an array.](../Program400/main.cpp)<br>
+Program485:[c++] [This program demonstrates shell sort on an array.](../Program485/main.cpp)<br>
 
 # Undirected Graph Representation Using Adjacency Matrix:
 
