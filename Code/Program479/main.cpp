@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 17, October, 2021
-Description : This program demonstrates constructs the minimax tree.
+Description : This program constructs the minimax tree.
 */
 
 #include<iostream>
