@@ -371,6 +371,7 @@ Program439:[c++] [This program checks if the given binary search tree is height 
 Program481:[c++] [This program performs LL rotation in a binary tree.](../Program481/main.cpp)<br>
 Program482:[c++] [This program performs RR rotation in a binary tree.](../Program482/main.cpp)<br>
 Program483:[c++] [This program performs LR rotation in a binary tree.](../Program483/main.cpp)<br>
+Program484:[c++] [This program performs RL rotation in a binary tree.](../Program484/main.cpp)<br>
 
 # AVL Tree:
 

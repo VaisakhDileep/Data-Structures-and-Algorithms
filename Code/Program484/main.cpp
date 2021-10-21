@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date        : 20, October, 2021
-Description : This program performs RR rotation in a binary tree.
+Date        : 21, October, 2021
+Description : This program performs RL rotation in a binary tree.
 */
 
 // Note: All rotations are designed to work with binary-search tree as well, I used binary tree only to demonstrate.
@@ -24,9 +24,9 @@ struct Binary_Tree
     Node *root;
 };
 
-// Inorder to understand RR rotation works check "Program482/whiteboard_5.pdf".
+// Inorder to understand how RL rotation works check "Program484/whiteboard_7.pdf".
 
-Node* RR_rotation(Node *root, Node *p)
+Node* RL_rotation(Node *root, Node *p)
 {
     if(root == nullptr)
     {
@@ -40,30 +40,39 @@ Node* RR_rotation(Node *root, Node *p)
 
     if(p->right_child == nullptr)
     {
-        throw string {"ERROR - Invalid operation, 'p' node should have a left child ....."};
+        throw string {"ERROR - Invalid operation, 'p' should have a right child ....."};
+    }
+
+    if(p->right_child->left_child == nullptr)
+    {
+        throw string {"ERROR - Invalid operation, right child of 'p' should have a left child ....."};
     }
 
     Node *p_right {p->right_child};
 
     Node *p_right_left {p_right->left_child};
 
-    p_right->left_child = p;
+    p_right->left_child = p_right_left->right_child;
 
-    p->right_child = p_right_left;
+    p->right_child = p_right_left->left_child;
+
+    p_right_left->left_child = p;
+
+    p_right_left->right_child = p_right;
 
     if(root == p)
     {
-        root = p_right;
+        root = p_right_left;
     }
 
-    return p_right; // We will return the new root of the subtree.
+    return p_right_left; // We will return the new root of the subtree.
 }
 
-Node* handle_RR_rotation(Node *root, Node *p)
+Node* handle_RL_rotation(Node *root, Node *p)
 {
     try
     {
-        return RR_rotation(root, p);
+        return RL_rotation(root, p);
     }
     catch(string &ex)
     {
@@ -83,25 +92,25 @@ T[before rotation]:
     \
      \
      '2'
-       \
-        \
-        '3'
+     /
+    /
+  '3'
 */
 
     T.root = new Node {nullptr, 1, nullptr};
 
     T.root->right_child = new Node {nullptr, 2, nullptr};
 
-    T.root->right_child->right_child = new Node {nullptr, 3, nullptr};
+    T.root->right_child->left_child = new Node {nullptr,3, nullptr};
 
-    T.root = handle_RR_rotation(T.root, T.root);
+    T.root = handle_RL_rotation(T.root, T.root);
 
 /*
 T[after rotation]:
-        '2'
+        '3'
         / \
        /   \
-      '1'  '3'
+     '1'   '2'
 */
 
     return 0;

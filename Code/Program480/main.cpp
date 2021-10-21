@@ -152,9 +152,9 @@ AVL_Tree_Node* RL_rotation(AVL_Tree_Node *root, AVL_Tree_Node *p)
 
     AVL_Tree_Node *p_right_left {p_right->left_child};
 
-    p_right->left_child = p_right_left->left_child;
+    p_right->left_child = p_right_left->right_child;
 
-    p->right_child = p_right_left->right_child;
+    p->right_child = p_right_left->left_child;
 
     p_right_left->left_child = p;
 

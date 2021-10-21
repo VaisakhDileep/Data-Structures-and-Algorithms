@@ -4,6 +4,8 @@ Date        : 20, October, 2021
 Description : This program performs LL rotation in a binary tree.
 */
 
+// Note: All rotations are designed to work with binary-search tree as well, I used binary tree only to demonstrate.
+
 #include<iostream>
 
 using namespace std;

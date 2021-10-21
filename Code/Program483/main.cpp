@@ -4,6 +4,8 @@ Date        : 20, October, 2021
 Description : This program performs LR rotation in a binary tree.
 */
 
+// Note: All rotations are designed to work with binary-search tree as well, I used binary tree only to demonstrate.
+
 #include<iostream>
 
 using namespace std;
@@ -63,7 +65,7 @@ Node* LR_rotation(Node *root, Node *p)
         root = p_left_right;
     }
 
-    return p_left_right;
+    return p_left_right; // We will return the new root of the subtree.
 }
 
 Node* handle_LR_rotation(Node *root, Node *p)
