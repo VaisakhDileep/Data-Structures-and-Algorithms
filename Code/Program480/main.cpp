@@ -26,7 +26,7 @@ struct AVL_Tree
 
 int AVL_tree_node_height(AVL_Tree_Node *p) // For AVL tree height is found by counting the number of nodes.
 {
-    int height_left {}, height_right {};
+    int height_left {0}, height_right {0};
 
     if((p != nullptr) and (p->left_child != nullptr))
     {
@@ -51,7 +51,7 @@ int AVL_tree_node_height(AVL_Tree_Node *p) // For AVL tree height is found by co
 
 int AVL_tree_balance_factor(AVL_Tree_Node *p)
 {
-    int height_left {}, height_right {};
+    int height_left {0}, height_right {0};
 
     if((p != nullptr) and (p->left_child != nullptr))
     {
@@ -191,6 +191,10 @@ AVL_Tree_Node* insert_node_AVL_tree(AVL_Tree *AVL_tree, AVL_Tree_Node *p, int ke
     {
         p->right_child = insert_node_AVL_tree(AVL_tree, p->right_child, key);
     }
+    if(key == p->data)
+    {
+        throw string {"ERROR - Invalid operation, " + to_string(key) + " is already present in the AVL tree ....."};
+    }
 
     p->height = AVL_tree_node_height(p);
 
@@ -223,7 +227,16 @@ AVL_Tree* create_AVL_tree(int *A, int size)
 
     for(int i {0}; i < size; i++)
     {
-        AVL_tree->root = insert_node_AVL_tree(AVL_tree, AVL_tree->root, A[i]); // Make sure to update the root of AVL_tree 
+        try
+        {
+            AVL_tree->root = insert_node_AVL_tree(AVL_tree, AVL_tree->root, A[i]); // Make sure to update the root of AVL_tree.
+        }
+        catch(string &ex)
+        {
+            cout<<ex;
+
+            return nullptr;
+        }
     }
 
     return AVL_tree;
@@ -250,7 +263,7 @@ int main()
 {
     AVL_Tree *AVL_tree {};
 
-    AVL_tree = create_AVL_tree(new int[10] {7, 9, 10, 12, 43, 2, 1, 5, 9, 43}, 10);
+    AVL_tree = create_AVL_tree(new int[10] {7, 9, 10, 12, 43, 2, 1, 5, 8, 44}, 10);
 
     cout<<"display_AVL_tree(AVL_tree): ";
     handle_display_AVL_tree(AVL_tree);
