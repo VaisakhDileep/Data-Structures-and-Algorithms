@@ -5,4 +5,4 @@
 
 **Every function has an associated handler-function that can be manipulated depending upon the use-case, make sure to make changes in the handler-function as needed.**
 
-**Keep in mind that some functions do not work without the handler function.**
+**Keep in mind that some functions do not work without the handler-function.**
