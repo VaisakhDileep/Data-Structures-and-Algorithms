@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 25, October, 2021
-Description : This program creates a xor linked list from an array.
+Description : This program displays(traverses) the xor linked list in the forward direction.
 */
 
 #include<iostream>
@@ -87,11 +87,39 @@ XOR_Linked_List* handle_create_xor_linked_list(int *A, int size)
     }
 }
 
+void display_xor_linked_list_forward_direction(XOR_Linked_List *xor_linked_list)
+{
+    if(xor_linked_list == nullptr)
+    {
+        return ;
+    }
+
+    Node *previous_node {nullptr};
+
+    Node *current_node {xor_linked_list->head};
+
+    Node *next_node {nullptr};
+
+    while(current_node != nullptr)
+    {
+        cout<<current_node->data<<" ";
+
+        next_node = xor_node_ptrs(current_node->xor_link, previous_node);
+
+        previous_node = current_node;
+
+        current_node = next_node;
+    }
+}
+
 int main()
 {
     XOR_Linked_List *xor_linked_list {};
 
-    xor_linked_list = handle_create_xor_linked_list(new int[4] {1, 2, 3, 4}, 4);
+    xor_linked_list = handle_create_xor_linked_list(new int[6] {1, 2, 3, 4, 5, 6}, 6);
+
+    cout<<"xor_linked_list: ";
+    display_xor_linked_list_forward_direction(xor_linked_list);
 
     return 0;
 }
