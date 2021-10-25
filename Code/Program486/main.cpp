@@ -49,11 +49,11 @@ void insert_node_xor_linked_list(XOR_Linked_List *xor_linked_list, int data)
 
     Node *new_node = new Node {data, nullptr}; // We are going to insert this node before the head and make this the new head.
 
-    new_node->xor_link = xor_node_ptrs(xor_linked_list->head, nullptr); // Since there are no previous nodes, we have to xor with nullptr(0). The node after the new_node is the current head node.
+    new_node->xor_link = xor_node_ptrs(xor_linked_list->head, nullptr); // Since there are no previous nodes, we have to xor with nullptr(0). The node after "new_node" is the current head node.
 
-    xor_linked_list->head->xor_link = xor_node_ptrs(xor_linked_list->head, new_node); // Since current head now has a previous node(new_node), we have to xor it with the current head node.
+    xor_linked_list->head->xor_link = xor_node_ptrs(xor_linked_list->head, new_node); // Since current head now has a previous node("new_node"), we have to xor it with the current head node.
 
-    xor_linked_list->head = new_node; // Update the head node to the "new_node".
+    xor_linked_list->head = new_node; // Update the head node to "new_node".
 }
 
 void handle_insert_node_xor_linked_list(XOR_Linked_List *xor_linked_list, int data)
