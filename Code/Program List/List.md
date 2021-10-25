@@ -234,7 +234,7 @@ Program162:[c++] [This program deletes an element in a circular doubly linked li
 # XOR Linked List:
 
 Program486:[c++] [This program inserts an element to a xor linked list.](../Program486/main.cpp)<br>
-Program487:[c++] []()<br>
+Program487:[c++] [This program creates a xor linked list from an array.](../Program487/main.cpp)<br>
 
 # Bit Manipulation:
 
