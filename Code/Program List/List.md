@@ -133,6 +133,7 @@ Program471:[c++] [This program multiplies two matrices(brute force approach).](.
 Program105:[c++] [This program creates a square matrix.](../Program105/main.cpp)<br>
 Program106:[c++] [This program displays a square matrix.](../Program106/main.cpp)<br>
 Program181:[c++] [This program finds the transpose of a square matrix.](../Program181/main.cpp)<br>
+Program475:[c++] [This program converts a square matrix representation to a matrix representation.](../Program475/main.cpp)<br>
 
 # Multiplication of two square matrices:
 
@@ -151,10 +152,6 @@ Program457:[c++] [This program rotates a square matrix 90 deg anti-clockwise(O(n
 Program459:[c++] [This program rotates a square matrix 90 deg anti-clockwise(O(1) space solution).](../Program459/main.cpp)<br>
 Program466:[c++] [This program rotates a square matrix by 180 deg(O(n*n) space solution).](../Program466/main.cpp)<br>
 Program467:[c++] [This program rotates a square matrix by 180 deg(O(1) space solution).](../Program467/main.cpp)<br>
-
-# Convert Square Matrix Representation to Matrix Representation:
-
-Program475:[c++] [This program converts a square matrix representation to a matrix representation.](../Program475/main.cpp)<br>
 
 # Special Square Matrices:
 
@@ -233,6 +230,9 @@ Program159:[c++] [This program counts the number of nodes in a circular doubly l
 Program160:[c++] [This program displays a circular doubly linked list.](../Program160/main.cpp)<br>
 Program161:[c++] [This program inserts an element to a circular doubly linked list.](../Program161/main.cpp)<br>
 Program162:[c++] [This program deletes an element in a circular doubly linked list.](../Program162/main.cpp)<br>
+
+# XOR Linked List:
+Program486:[c++] [This program helps to understand ]()<br>
 
 # Bit Manipulation:
 
