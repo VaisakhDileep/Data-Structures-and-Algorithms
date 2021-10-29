@@ -236,6 +236,7 @@ Program162:[c++] [This program deletes an element in a circular doubly linked li
 Program486:[c++] [This program inserts an element to a xor linked list.](../Program486/main.cpp)<br>
 Program487:[c++] [This program creates a xor linked list from an array.](../Program487/main.cpp)<br>
 Program488:[c++] [This program displays(traverses) the xor linked list in the forward direction.](../Program488/main.cpp)<br>
+Program489:[c++] [This program displays(traverses) the xor linked list in the backward direction.](../Program489/main.cpp)<br>
 
 # Bit Manipulation:
 

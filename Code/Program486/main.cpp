@@ -20,6 +20,8 @@ struct XOR_Linked_List
     Node *head;
 };
 
+// Inorder to understand how XOR linked lists word check "Program486/whiteboard_8.pdf".
+
 Node* xor_node_ptrs(Node *node_1, Node *node_2)
 {
     uintptr_t node_1_memory_address {reinterpret_cast<uintptr_t>(node_1)}; // "uintptr_t" will safely hold the memory address.
