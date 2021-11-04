@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 4, November, 2021
-Description : This program inserts an element into an indexed min heap.
+Description : This program inserts an element into an indexed binary min heap.
 */
 
 #include<iostream>
@@ -30,6 +30,19 @@ struct Indexed_Binary_Min_Heap
 
     int alloted_size {0};
 };
+
+void display_binary_min_heap(map<int, string> *key_member, Indexed_Binary_Min_Heap *heap)
+{
+    if(heap == nullptr)
+    {
+        return ;
+    }
+
+    for(int i {0}; i < heap->size; i++)
+    {
+        cout<<"{"<<(*key_member)[heap->inverse_map->at(i)]<<":"<<heap->values->at(heap->inverse_map->at(i))<<"} ";
+    }
+}
 
 int height_indexed_binary_min_heap(Indexed_Binary_Min_Heap *heap)
 {
@@ -215,6 +228,10 @@ int main()
     handle_insert_indexed_binary_min_heap(idx_bin_min_heap, 5, key_value[5]);
     handle_insert_indexed_binary_min_heap(idx_bin_min_heap, 9, key_value[9]);
     handle_insert_indexed_binary_min_heap(idx_bin_min_heap, 8, key_value[8]);
+
+    cout<<"idx_bin_min_heap: ";
+    display_binary_min_heap(&key_member, idx_bin_min_heap);
+    cout<<"\n";
 
     return 0;
 }

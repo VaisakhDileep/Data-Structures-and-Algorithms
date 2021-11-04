@@ -14,7 +14,7 @@ using namespace std;
 
 struct Indexed_Binary_Min_Heap // binary indexed min heap should be a perfect tree.
 {
-    vector<int> *values; // stores the value of the key element.
+    vector<int> *values; // stores the value of the key element(not for the index of the node).
 
     vector<int> *position_map; // stores the node index in the heap for the give key value.
 
