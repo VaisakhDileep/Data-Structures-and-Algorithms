@@ -357,6 +357,12 @@ Program308:[c++] [This program creates a binary min heap from an array.](../Prog
 Program309:[c++] [This program removes an element from a binary min heap.](../Program309/main.cpp)<br>
 Program310:[c++] [This program converts a binary tree into a binary min heap(heapify algorithm).](../Program310/main.cpp)<br>
 
+# Indexed Binary Min Heap:
+
+Program490:[c++] [This program creates a indexed binary min heap.](../Program490/main.cpp)<br>
+Program491:[c++] [This program finds the height of the indexed binary min heap.](../Program491/main.cpp)<br>
+Program492:[c++] [This program inserts an element into an indexed min heap.](../Program492/main.cpp)<br>
+
 # Binary Search Tree:
 
 Program226:[c++] [This program inserts an element iteratively to a binary search tree.](../Program226/main.cpp)<br>
