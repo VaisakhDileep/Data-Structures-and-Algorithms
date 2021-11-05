@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date        : 4, November, 2021
-Description : This program inserts an element into an indexed binary min heap.
+Date        : 5, November, 2021
+Description : This program deletes an element from the indexed binary min heap.
 */
 
 #include<iostream>
@@ -161,6 +161,55 @@ void swim(Indexed_Binary_Min_Heap *heap, int index) // target node will move up 
     }
 }
 
+int select_min_child_index(Indexed_Binary_Min_Heap *heap, int parent)
+{
+    int child_index_left {heap->left_most_child_index->at(parent)}, child_index_right {child_index_left + 1};
+
+    if(child_index_left >= heap->size) // No left child means no right child.
+    {
+        return INT_MIN; // Behaves like a flag denoting that there are no valid children.
+    }
+
+    if(child_index_right >= heap->size) // No right child does'nt necessary means there is no left child.
+    {
+        return child_index_left;
+    }
+
+    if(heap->values->at(heap->inverse_map->at(child_index_left)) <= heap->values->at(heap->inverse_map->at(child_index_right)))
+    {
+        return child_index_left;
+    }
+
+    if(heap->values->at(heap->inverse_map->at(child_index_right)) < heap->values->at(heap->inverse_map->at(child_index_left)))
+    {
+        return child_index_right;
+    }
+}
+
+void sink(Indexed_Binary_Min_Heap *heap, int index) // target node will move down the indexed binary min heap till the heap condition is maintained.
+{
+    int child_index {select_min_child_index(heap, index)};
+
+    while(true)
+    {
+        if(child_index == INT_MIN)
+        {
+            break;
+        }
+
+        if(heap->values->at(heap->inverse_map->at(index)) <= heap->values->at(heap->inverse_map->at(child_index)))
+        {
+            break;
+        }
+
+        swap_node(heap, index, child_index);
+
+        index = child_index;
+
+        child_index = select_min_child_index(heap, index);
+    }
+}
+
 void insert_indexed_binary_min_heap(Indexed_Binary_Min_Heap *heap, int key, int value)
 {
     if(heap == nullptr)
@@ -206,11 +255,67 @@ void handle_insert_indexed_binary_min_heap(Indexed_Binary_Min_Heap *heap, int ke
     }
 }
 
+int delete_indexed_binary_min_heap(Indexed_Binary_Min_Heap *heap, int key)
+{
+    if(heap == nullptr)
+    {
+        throw string {"ERROR - Invalid operation, indexed binary min heap is not valid ....."};
+    }
+
+    if(key < 0)
+    {
+        throw string {"ERROR - Invalid operation, key cannot be a negative value ....."};
+    }
+
+    if(key >= heap->alloted_size)
+    {
+        throw string {"ERROR - Invalid operation, key value exceeds the alloted size of the indexed binary min heap ....."};
+    }
+
+    if(heap->position_map->at(key) == INT_MIN)
+    {
+        throw string {"ERROR - Invalid operation, key is not present in the indexed binary min heap ....."};
+    }
+
+    int deleted_value {heap->values->at(key)};
+
+    heap->size--;
+
+    int target_index {heap->position_map->at(key)};
+
+    swap_node(heap, target_index, heap->size);
+
+    sink(heap, target_index);
+
+    swim(heap, target_index);
+
+    heap->values->at(key) = INT_MIN; // resetting the value of the deleted key.
+
+    heap->position_map->at(key) = INT_MIN; // resetting the position map of the deleted key.
+
+    heap->inverse_map->at(heap->size) = INT_MIN; // resetting the last index of the indexed binary min heap.
+
+    return deleted_value;
+}
+
+int handle_delete_indexed_binary_min_heap(Indexed_Binary_Min_Heap *heap, int key)
+{
+    try
+    {
+        return delete_indexed_binary_min_heap(heap, key);
+    }
+    catch(string &ex)
+    {
+        cout<<ex;
+    }
+}
+
 int main()
 {
-    map<int, string> key_member {}; // key value is usually given to identify the different members uniquely. Priorities of these members can improve or worsen depending on various circumstances.
+    map<int, string> key_member {};
 
     key_member[1] = "vaisakh_01";
+    key_member[2] = "vaisakh_02";
     key_member[5] = "vaisakh_05";
     key_member[9] = "vaisakh_09";
     key_member[8] = "vaisakh_08";
@@ -218,6 +323,7 @@ int main()
     map<int, int> key_value {};
 
     key_value[1] = 20;
+    key_value[2] = -2;
     key_value[5] = 89;
     key_value[9] = 6;
     key_value[8] = 1;
@@ -228,6 +334,9 @@ int main()
     handle_insert_indexed_binary_min_heap(idx_bin_min_heap, 5, key_value[5]);
     handle_insert_indexed_binary_min_heap(idx_bin_min_heap, 9, key_value[9]);
     handle_insert_indexed_binary_min_heap(idx_bin_min_heap, 8, key_value[8]);
+    handle_insert_indexed_binary_min_heap(idx_bin_min_heap, 2, key_value[2]);
+
+    handle_delete_indexed_binary_min_heap(idx_bin_min_heap, 2);
 
     cout<<"idx_bin_min_heap: ";
     display_binary_min_heap(&key_member, idx_bin_min_heap);

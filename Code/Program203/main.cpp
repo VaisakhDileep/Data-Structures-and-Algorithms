@@ -61,7 +61,7 @@ int handle_height_binary_tree(Binary_Tree *T)
 
 int main()
 {
-    Binary_Tree T {new int[6] {1, 2, 3, INT_MIN, INT_MIN, 4}, 6, 7};
+    Binary_Tree T {new int[7] {1, 2, 3, INT_MIN, INT_MIN, 4, 5}, 7, 7};
 
     cout<<"handle_height_binary_tree(T): "<<handle_height_binary_tree(&T)<<"\n";
 
