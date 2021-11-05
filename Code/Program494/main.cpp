@@ -319,6 +319,7 @@ int main()
     key_member[5] = "vaisakh_05";
     key_member[9] = "vaisakh_09";
     key_member[8] = "vaisakh_08";
+    key_member[3] = "vaisakh_03";
 
     map<int, int> key_value {};
 
@@ -327,6 +328,7 @@ int main()
     key_value[5] = 89;
     key_value[9] = 6;
     key_value[8] = 1;
+    key_value[3] = -100;
 
     Indexed_Binary_Min_Heap *idx_bin_min_heap {create_indexed_binary_min_heap()};
 
@@ -335,8 +337,9 @@ int main()
     handle_insert_indexed_binary_min_heap(idx_bin_min_heap, 9, key_value[9]);
     handle_insert_indexed_binary_min_heap(idx_bin_min_heap, 8, key_value[8]);
     handle_insert_indexed_binary_min_heap(idx_bin_min_heap, 2, key_value[2]);
+    handle_insert_indexed_binary_min_heap(idx_bin_min_heap, 3, key_value[3]);
 
-    handle_delete_indexed_binary_min_heap(idx_bin_min_heap, 2);
+    cout<<"handle_delete_indexed_binary_min_heap(idx_bin_min_heap, 2): "<<handle_delete_indexed_binary_min_heap(idx_bin_min_heap, 2)<<"\n";
 
     cout<<"idx_bin_min_heap: ";
     display_binary_min_heap(&key_member, idx_bin_min_heap);
