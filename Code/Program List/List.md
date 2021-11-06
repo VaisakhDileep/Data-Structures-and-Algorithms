@@ -366,6 +366,7 @@ Program493:[c++] [This program displays an indexed binary min heap.](../Program4
 Program494:[c++] [This program deletes an element from the indexed binary min heap.](../Program494/main.cpp)<br>
 Program495:[c++] [This program updates an element inside the indexed binary min heap.](../Program495/main.cpp)<br>
 Program496:[c++] [This program returns the smallest element in the indexed binary min heap.](../Program496/main.cpp)<br>
+Program497:[c++] [This program pops the smallest element from the indexed binary min heap.](../Program497/main.cpp)<br>
 
 # Binary Search Tree:
 
