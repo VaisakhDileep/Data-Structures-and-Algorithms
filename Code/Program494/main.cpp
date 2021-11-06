@@ -222,6 +222,11 @@ void insert_indexed_binary_min_heap(Indexed_Binary_Min_Heap *heap, int key, int 
         throw string {"ERROR - Invalid operation, overflow detected ....."};
     }
 
+    if(key < 0)
+    {
+        throw string {"ERROR - Invalid key value, key value cannot be a negative value ....."};
+    }
+
     if(key >= heap->alloted_size)
     {
         throw string {"ERROR - Invalid key value, key value should be lesser than the alloted size of the indexed binary min heap ....."};
@@ -264,12 +269,12 @@ int delete_indexed_binary_min_heap(Indexed_Binary_Min_Heap *heap, int key)
 
     if(key < 0)
     {
-        throw string {"ERROR - Invalid operation, key cannot be a negative value ....."};
+        throw string {"ERROR - Invalid key value, key cannot be a negative value ....."};
     }
 
     if(key >= heap->alloted_size)
     {
-        throw string {"ERROR - Invalid operation, key value exceeds the alloted size of the indexed binary min heap ....."};
+        throw string {"ERROR - Invalid key value, key value exceeds the alloted size of the indexed binary min heap ....."};
     }
 
     if(heap->position_map->at(key) == INT_MIN)

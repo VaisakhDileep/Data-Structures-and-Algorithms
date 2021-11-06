@@ -364,6 +364,8 @@ Program491:[c++] [This program finds the height of the indexed binary min heap.]
 Program492:[c++] [This program inserts an element into an indexed binary min heap.](../Program492/main.cpp)<br>
 Program493:[c++] [This program displays an indexed binary min heap.](../Program493/main.cpp)<br>
 Program494:[c++] [This program deletes an element from the indexed binary min heap.](../Program494/main.cpp)<br>
+Program495:[c++] [This program updates an element inside the indexed binary min heap.](../Program495/main.cpp)<br>
+Program496:[c++] [This program returns the smallest element in the indexed binary min heap.](../Program496/main.cpp)<br>
 
 # Binary Search Tree:
 
