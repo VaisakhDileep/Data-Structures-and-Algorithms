@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 2, November, 2021
-Description : This program creates a indexed binary min heap.
+Description : This program creates an indexed binary min heap.
 */
 
 #include<iostream>

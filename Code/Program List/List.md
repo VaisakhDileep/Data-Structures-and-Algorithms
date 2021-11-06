@@ -359,7 +359,7 @@ Program310:[c++] [This program converts a binary tree into a binary min heap(hea
 
 # Indexed Binary Min Heap:
 
-Program490:[c++] [This program creates a indexed binary min heap.](../Program490/main.cpp)<br>
+Program490:[c++] [This program creates an indexed binary min heap.](../Program490/main.cpp)<br>
 Program491:[c++] [This program finds the height of the indexed binary min heap.](../Program491/main.cpp)<br>
 Program492:[c++] [This program inserts an element into an indexed binary min heap.](../Program492/main.cpp)<br>
 Program493:[c++] [This program displays an indexed binary min heap.](../Program493/main.cpp)<br>
@@ -367,6 +367,11 @@ Program494:[c++] [This program deletes an element from the indexed binary min he
 Program495:[c++] [This program updates an element inside the indexed binary min heap.](../Program495/main.cpp)<br>
 Program496:[c++] [This program returns the smallest element in the indexed binary min heap.](../Program496/main.cpp)<br>
 Program497:[c++] [This program pops the smallest element from the indexed binary min heap.](../Program497/main.cpp)<br>
+
+# Indexed Binary Max Heap:
+
+Program498:[c++] [This program creates an indexed binary max heap.](../Program498/main.cpp)<br>
+Program499:[c++] [This program finds the height of the indexed binary max heap.](../Program499/main.cpp)<br>
 
 # Binary Search Tree:
 
