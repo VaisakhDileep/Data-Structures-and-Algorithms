@@ -372,6 +372,7 @@ Program497:[c++] [This program pops the smallest element from the indexed binary
 
 Program498:[c++] [This program creates an indexed binary max heap.](../Program498/main.cpp)<br>
 Program499:[c++] [This program finds the height of the indexed binary max heap.](../Program499/main.cpp)<br>
+Program500:[c++] [This program inserts an element into an indexed binary max heap.](../Program500/main.cpp)<br>
 
 # Binary Search Tree:
 

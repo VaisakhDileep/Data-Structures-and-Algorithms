@@ -108,9 +108,23 @@ Indexed_Binary_Min_Heap* create_indexed_binary_min_heap(int size = 10'000) // Ma
     return idx_bin_min_heap;
 }
 
+Indexed_Binary_Min_Heap* handle_create_indexed_binary_min_heap(int size = 10'000)
+{
+    try
+    {
+        return create_indexed_binary_min_heap(size);
+    }
+    catch(string &ex)
+    {
+        cout<<ex;
+
+        return nullptr;
+    }
+}
+
 int main()
 {
-    Indexed_Binary_Min_Heap *idx_bin_min_heap {create_indexed_binary_min_heap(100)};
+    Indexed_Binary_Min_Heap *idx_bin_min_heap {handle_create_indexed_binary_min_heap(100)};
 
     return 0;
 }

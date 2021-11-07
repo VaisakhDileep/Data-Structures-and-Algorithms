@@ -108,9 +108,23 @@ Indexed_Binary_Max_Heap* create_indexed_binary_max_heap(int size = 10'000) // Ma
     return idx_bin_max_heap;
 }
 
+Indexed_Binary_Max_Heap* handle_create_indexed_binary_max_heap(int size = 10'000)
+{
+    try
+    {
+        return create_indexed_binary_max_heap(size);
+    }
+    catch(string &ex)
+    {
+        cout<<ex;
+
+        return nullptr;
+    }
+}
+
 int main()
 {
-    Indexed_Binary_Max_Heap *idx_bin_max_heap {create_indexed_binary_max_heap(100)};
+    Indexed_Binary_Max_Heap *idx_bin_max_heap {handle_create_indexed_binary_max_heap(100)};
 
     return 0;
 }

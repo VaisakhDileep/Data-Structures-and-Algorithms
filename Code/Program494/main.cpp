@@ -123,6 +123,20 @@ Indexed_Binary_Min_Heap* create_indexed_binary_min_heap(int size = 10'000)
     return idx_bin_min_heap;
 }
 
+Indexed_Binary_Min_Heap* handle_create_indexed_binary_min_heap(int size = 10'000)
+{
+    try
+    {
+        return create_indexed_binary_min_heap(size);
+    }
+    catch(string &ex)
+    {
+        cout<<ex;
+
+        return nullptr;
+    }
+}
+
 void swap_node(Indexed_Binary_Min_Heap *heap, int index_1, int index_2)
 {
     heap->position_map->at(heap->inverse_map->at(index_1)) = index_2;
@@ -335,7 +349,7 @@ int main()
     key_value[8] = 1;
     key_value[3] = -100;
 
-    Indexed_Binary_Min_Heap *idx_bin_min_heap {create_indexed_binary_min_heap()};
+    Indexed_Binary_Min_Heap *idx_bin_min_heap {handle_create_indexed_binary_min_heap()};
 
     handle_insert_indexed_binary_min_heap(idx_bin_min_heap, 1, key_value[1]);
     handle_insert_indexed_binary_min_heap(idx_bin_min_heap, 5, key_value[5]);
