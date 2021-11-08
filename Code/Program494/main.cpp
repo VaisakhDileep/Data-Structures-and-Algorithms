@@ -184,7 +184,7 @@ int select_min_child_index(Indexed_Binary_Min_Heap *heap, int parent)
         return INT_MIN; // Behaves like a flag denoting that there are no valid children.
     }
 
-    if(child_index_right >= heap->size) // No right child does'nt necessary means there is no left child.
+    if(child_index_right >= heap->size) // No right child doesn't necessary mean there is no left child.
     {
         return child_index_left;
     }
@@ -193,8 +193,7 @@ int select_min_child_index(Indexed_Binary_Min_Heap *heap, int parent)
     {
         return child_index_left;
     }
-
-    if(heap->values->at(heap->inverse_map->at(child_index_right)) < heap->values->at(heap->inverse_map->at(child_index_left)))
+    else
     {
         return child_index_right;
     }
@@ -326,6 +325,8 @@ int handle_delete_indexed_binary_min_heap(Indexed_Binary_Min_Heap *heap, int key
     catch(string &ex)
     {
         cout<<ex;
+
+        return INT_MIN;
     }
 }
 

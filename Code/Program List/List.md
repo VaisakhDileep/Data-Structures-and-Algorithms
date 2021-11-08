@@ -374,6 +374,7 @@ Program498:[c++] [This program creates an indexed binary max heap.](../Program49
 Program499:[c++] [This program finds the height of the indexed binary max heap.](../Program499/main.cpp)<br>
 Program500:[c++] [This program inserts an element into an indexed binary max heap.](../Program500/main.cpp)<br>
 Program501:[c++] [This program displays an indexed binary max heap.](../Program501/main.cpp)<br>
+Program502:[c++] [This program deletes an element from the indexed binary max heap.](../Program502/main.cpp)<br>
 
 # Binary Search Tree:
 
