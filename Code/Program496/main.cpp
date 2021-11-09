@@ -175,54 +175,6 @@ void swim(Indexed_Binary_Min_Heap *heap, int index) // target node will move up 
     }
 }
 
-int select_min_child_index(Indexed_Binary_Min_Heap *heap, int parent)
-{
-    int child_index_left {heap->left_most_child_index->at(parent)}, child_index_right {child_index_left + 1};
-
-    if(child_index_left >= heap->size) // No left child means no right child.
-    {
-        return INT_MIN; // Behaves like a flag denoting that there are no valid children.
-    }
-
-    if(child_index_right >= heap->size) // No right child doesn't necessary mean there is no left child.
-    {
-        return child_index_left;
-    }
-
-    if(heap->values->at(heap->inverse_map->at(child_index_left)) <= heap->values->at(heap->inverse_map->at(child_index_right)))
-    {
-        return child_index_left;
-    }
-    else
-    {
-        return child_index_right;
-    }
-}
-
-void sink(Indexed_Binary_Min_Heap *heap, int index) // target node will move down the indexed binary min heap till the heap condition is maintained.
-{
-    int child_index {select_min_child_index(heap, index)};
-
-    while(true)
-    {
-        if(child_index == INT_MIN)
-        {
-            break;
-        }
-
-        if(heap->values->at(heap->inverse_map->at(index)) <= heap->values->at(heap->inverse_map->at(child_index)))
-        {
-            break;
-        }
-
-        swap_node(heap, index, child_index);
-
-        index = child_index;
-
-        child_index = select_min_child_index(heap, index);
-    }
-}
-
 void insert_indexed_binary_min_heap(Indexed_Binary_Min_Heap *heap, int key, int value)
 {
     if(heap == nullptr)

@@ -377,7 +377,7 @@ Program501:[c++] [This program displays an indexed binary max heap.](../Program5
 Program502:[c++] [This program deletes an element from the indexed binary max heap.](../Program502/main.cpp)<br>
 Program503:[c++] [This program updates an element inside the indexed binary max heap.](../Program503/main.cpp)<br>
 Program504:[c++] [This program returns the smallest element in the indexed binary max heap.](../Program504/main.cpp)<br>
-Program505:[c++] [This program pops the smallest element from the indexed binary max heap.]()<br>
+Program505:[c++] [This program pops the smallest element from the indexed binary max heap.](../Program505/main.cpp)<br>
 
 # Binary Search Tree:
 

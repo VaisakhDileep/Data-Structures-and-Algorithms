@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date        : 8, November, 2021
-Description : This program returns the smallest element in the indexed binary max heap.
+Date        : 9, November, 2021
+Description : This program pops the smallest element from the indexed binary max heap.
 */
 
 #include<iostream>
@@ -175,6 +175,54 @@ void swim(Indexed_Binary_Max_Heap *heap, int index) // target node will move up 
     }
 }
 
+int select_max_child_index(Indexed_Binary_Max_Heap *heap, int parent)
+{
+    int child_index_left {heap->left_most_child_index->at(parent)}, child_index_right {child_index_left + 1};
+
+    if(child_index_left >= heap->size) // No left child means no right child.
+    {
+        return INT_MIN; // Behaves like a flag denoting that there are no valid children.
+    }
+
+    if(child_index_right >= heap->size) // No right child doesn't necessary mean there is no left child.
+    {
+        return child_index_left;
+    }
+
+    if(heap->values->at(heap->inverse_map->at(child_index_left)) >= heap->values->at(heap->inverse_map->at(child_index_right)))
+    {
+        return child_index_left;
+    }
+    else
+    {
+        return child_index_right;
+    }
+}
+
+void sink(Indexed_Binary_Max_Heap *heap, int index) // target node will move down the indexed binary max heap till the heap condition is maintained.
+{
+    int child_index {select_max_child_index(heap, index)};
+
+    while(true)
+    {
+        if(child_index == INT_MIN)
+        {
+            break;
+        }
+
+        if(heap->values->at(heap->inverse_map->at(index)) >= heap->values->at(heap->inverse_map->at(child_index)))
+        {
+            break;
+        }
+
+        swap_node(heap, index, child_index);
+
+        index = child_index;
+
+        child_index = select_max_child_index(heap, index);
+    }
+}
+
 void insert_indexed_binary_max_heap(Indexed_Binary_Max_Heap *heap, int key, int value)
 {
     if(heap == nullptr)
@@ -225,7 +273,50 @@ void handle_insert_indexed_binary_max_heap(Indexed_Binary_Max_Heap *heap, int ke
     }
 }
 
-pair<string, int> peek_indexed_binary_max_heap(map<int, string> *key_member, Indexed_Binary_Max_Heap *heap)
+int delete_indexed_binary_max_heap(Indexed_Binary_Max_Heap *heap, int key)
+{
+    if(heap == nullptr)
+    {
+        throw string {"ERROR - Invalid operation, indexed binary max heap is not valid ....."};
+    }
+
+    if(key < 0)
+    {
+        throw string {"ERROR - Invalid key value, key value cannot be a negative value ....."};
+    }
+
+    if(key >= heap->alloted_size)
+    {
+        throw string {"ERROR - Invalid key value, key value exceeds the alloted size of the indexed binary max heap ....."};
+    }
+
+    if(heap->position_map->at(key) == INT_MIN)
+    {
+        throw string {"ERROR - Invalid operation, key is not present in the indexed binary max heap ....."};
+    }
+
+    int deleted_value {heap->values->at(key)};
+
+    heap->size--;
+
+    int target_index {heap->position_map->at(key)};
+
+    swap_node(heap, target_index, heap->size);
+
+    sink(heap, target_index);
+
+    swim(heap, target_index);
+
+    heap->values->at(key) = INT_MIN; // resetting the value of the deleted key.
+
+    heap->position_map->at(key) = INT_MIN; // resetting the position map of the deleted key.
+
+    heap->inverse_map->at(heap->size) = INT_MIN; // resetting the last index of the indexed binary max heap.
+
+    return deleted_value;
+}
+
+pair<string, int> pop_indexed_binary_max_heap(map<int, string> *key_member, Indexed_Binary_Max_Heap *heap)
 {
     if(heap == nullptr)
     {
@@ -234,23 +325,25 @@ pair<string, int> peek_indexed_binary_max_heap(map<int, string> *key_member, Ind
 
     if(heap->size == 0)
     {
-        throw string {"ERROR - Invalid operation, indexed binary max heap is empty ....."};
+        throw string {"ERROR - Invalid operation, indexed binary max heap is not valid ....."};
     }
 
-    pair<string, int> result {};
+    pair<string, int> popped_element {};
 
-    result.first = (*key_member)[heap->inverse_map->at(0)];
+    popped_element.first = (*key_member)[heap->inverse_map->at(0)];
 
-    result.second = heap->values->at(heap->inverse_map->at(0));
+    popped_element.second = heap->values->at(heap->inverse_map->at(0));
 
-    return result;
+    delete_indexed_binary_max_heap(heap, heap->inverse_map->at(0));
+
+    return popped_element;
 }
 
-pair<string, int> handle_peek_indexed_binary_max_heap(map<int, string> *key_member, Indexed_Binary_Max_Heap *heap)
+pair<string, int> handle_pop_indexed_binary_max_heap(map<int, string> *key_member, Indexed_Binary_Max_Heap *heap)
 {
     try
     {
-        return peek_indexed_binary_max_heap(key_member, heap);
+        return pop_indexed_binary_max_heap(key_member, heap);
     }
     catch(string &ex)
     {
@@ -289,9 +382,13 @@ int main()
     handle_insert_indexed_binary_max_heap(idx_bin_max_heap, 2, key_value[2]);
     handle_insert_indexed_binary_max_heap(idx_bin_max_heap, 3, key_value[3]);
 
-    pair<string, int> result {handle_peek_indexed_binary_max_heap(&key_member, idx_bin_max_heap)};
+    pair<string, int> result {handle_pop_indexed_binary_max_heap(&key_member, idx_bin_max_heap)};
 
     cout<<"result: {"<<result.first<<", "<<result.second<<"}\n";
+
+    cout<<"idx_bin_max_heap: ";
+    display_binary_max_heap(&key_member, idx_bin_max_heap);
+    cout<<"\n";
 
     return 0;
 }
