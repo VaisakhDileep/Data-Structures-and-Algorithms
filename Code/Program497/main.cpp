@@ -348,6 +348,8 @@ pair<string, int> handle_pop_indexed_binary_min_heap(map<int, string> *key_membe
     catch(string &ex)
     {
         cout<<ex;
+
+        return make_pair("", INT_MIN);
     }
 }
 

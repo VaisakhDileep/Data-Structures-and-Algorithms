@@ -304,7 +304,7 @@ pair<string, int> handle_peek_indexed_binary_min_heap(map<int, string> *key_memb
     {
         cout<<ex;
 
-        return {make_pair("", INT_MIN)};
+        return make_pair("", INT_MIN);
     }
 }
 
