@@ -24,7 +24,7 @@ struct Binary_Tree
     Node *root;
 };
 
-// Inorder to understand RR rotation works check "Program482/whiteboard_5.pdf".
+// Inorder to understand RR rotation works refer "Data Structures and Algorithms Manual 1" pg no:4.
 
 Node* RR_rotation(Node *root, Node *p)
 {

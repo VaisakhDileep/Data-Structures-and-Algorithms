@@ -4,7 +4,7 @@ Date        : 16, October, 2021
 Description : This program implements euclid division algorithm for finding GCD recursively.
 */
 
-// For proof check "Program476/whiteboard_2.pdf".
+// For proof refer "Data Structures and Algorithms Manual 1" pg no:2.
 
 // Note: Highest Common Factor(HCF) is also known as Greatest Common Divisor(GCD).
 

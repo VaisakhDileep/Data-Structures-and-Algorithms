@@ -24,7 +24,7 @@ struct Binary_Tree
     Node *root;
 };
 
-// Inorder to understand how LR rotation works check "Program483/whiteboard_6.pdf".
+// Inorder to understand how LR rotation works refer "Data Structures and Algorithms Manual 1" pg no:5.
 
 Node* LR_rotation(Node *root, Node *p)
 {

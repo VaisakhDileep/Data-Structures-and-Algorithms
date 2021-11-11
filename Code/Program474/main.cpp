@@ -4,7 +4,7 @@ Date        : 15, October, 2021
 Description : This program finds the n'th element in the fibonacci series(binary matrix exponentiation).
 */
 
-// For proof check "Program474/whiteboard_1.pdf".
+// For proof refer "Data Structures and Algorithms Manual 1" pg no:1.
 
 // Note: Indexing of the fibonacci series starts from 1.
 

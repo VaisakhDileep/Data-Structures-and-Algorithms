@@ -24,7 +24,7 @@ bool is_power_of_2(int num)
     return (ceil(log2(num))) == (floor(log2(num)));
 }
 
-// In order to get an understanding on how indexing gets propagated to the leaf node level check "Program478/whiteboard_3.pdf".
+// In order to get an understanding on how indexing gets propagated to the leaf node level refer "Data Structures and Algorithms Manual 1" pg no:3.
 
 int minimax_calculator(vector<int> *leaf_nodes, int leaf_node_index, bool max_level, int tree_level, const int depth)
 {

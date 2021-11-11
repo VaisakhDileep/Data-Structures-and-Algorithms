@@ -20,7 +20,7 @@ struct XOR_Linked_List
     Node *head;
 };
 
-// Inorder to understand how XOR linked lists word check "Program486/whiteboard_8.pdf".
+// Inorder to understand how XOR linked lists work refer "Data Structures and Algorithms Manual 1" pg no:7.
 
 Node* xor_node_ptrs(Node *node_1, Node *node_2)
 {
