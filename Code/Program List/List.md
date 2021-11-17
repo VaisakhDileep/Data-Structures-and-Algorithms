@@ -199,6 +199,7 @@ Program138:[c++] [This program reverses a linked list by reversing the data elem
 Program139:[c++] [This program reverses a linked list by reversing the links.](../Program139/main.cpp)<br>
 Program140:[c++] [This program concatenates two linked lists.](../Program140/main.cpp)<br>
 Program141:[c++] [This program merges two sorted linked lists.](../Program141/main.cpp)<br>
+Program507:[c++] [This program merges two sorted linked lists(in-place).](../Program507/main.cpp)<br>
 Program142:[c++] [This program checks if a linked list contains loops.](../Program142/main.cpp)<br>
 Program143:[c++] [This program finds the middle node in a linked list.](../Program143/main.cpp)<br>
 Program235:[c++] [This program deletes a linked list.](../Program235/main.cpp)<br>
@@ -417,6 +418,7 @@ Program397:[c++] [This program demonstrates count sort.](../Program397/main.cpp)
 Program398:[c++] [This program demonstrates bin(bucket) sort.](../Program398/main.cpp)<br>
 Program399:[c++] [This program demonstrates radix sort.](../Program399/main.cpp)<br>
 Program400:[c++] [This program demonstrates merge sort on an array.](../Program400/main.cpp)<br>
+Program506:[c++] [This program demonstrates merge sort on a linked list.](../Program506/main.cpp)<br>
 Program485:[c++] [This program demonstrates shell sort on an array.](../Program485/main.cpp)<br>
 
 # Undirected Graph Representation Using Adjacency Matrix:

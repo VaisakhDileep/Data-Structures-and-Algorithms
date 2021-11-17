@@ -1,10 +1,8 @@
 /*
 Created by  : Vaisakh Dileep
-Date        : 26, May, 2021
-Description : This program merges two sorted linked lists.
+Date        : 17, November, 2021
+Description : This program merges two sorted linked lists(in-place).
 */
-
-// sorted here means ascending order.
 
 #include<iostream>
 
@@ -53,7 +51,7 @@ void display_linked_list(Linked_list *L)
     }
 }
 
-Linked_list *merge_sorted_linked_list(Linked_list *L1, Linked_list *L2)
+Linked_list *merge_sorted_linked_list(Linked_list *L1, Linked_list *L2) // in-place merging.
 {
     if((L1 == nullptr) or (L2 == nullptr))
     {
@@ -64,17 +62,13 @@ Linked_list *merge_sorted_linked_list(Linked_list *L1, Linked_list *L2)
 
     Node *result_previous {result->head};
 
-    Node *temp {};
-
     Node *first {L1->head}, *second {L2->head};
 
     while((first != nullptr) and (second != nullptr))
     {
         if(first->data < second->data)
         {
-            temp = new Node {first->data, nullptr};
-
-            result_previous->next = temp;
+            result_previous->next = first;
 
             result_previous = result_previous->next;
 
@@ -82,9 +76,7 @@ Linked_list *merge_sorted_linked_list(Linked_list *L1, Linked_list *L2)
         }
         else if(second->data < first->data)
         {
-            temp = new Node {second->data, nullptr};
-
-            result_previous->next = temp;
+            result_previous->next = second;
 
             result_previous = result_previous->next;
 
@@ -92,29 +84,23 @@ Linked_list *merge_sorted_linked_list(Linked_list *L1, Linked_list *L2)
         }
         else
         {
-            temp = new Node {first->data, nullptr};
-
-            result_previous->next = temp;
+            result_previous->next = first;
 
             result_previous = result_previous->next;
 
-            temp = new Node {first->data, nullptr};
+            first = first->next;
 
-            result_previous->next = temp;
+            result_previous->next = second;
 
             result_previous = result_previous->next;
 
             second = second->next;
-
-            first = first->next;
         }
     }
 
     while(first != nullptr)
     {
-        temp = new Node {first->data, nullptr};
-
-        result_previous->next = temp;
+        result_previous->next = first;
 
         result_previous = result_previous->next;
 
@@ -122,15 +108,17 @@ Linked_list *merge_sorted_linked_list(Linked_list *L1, Linked_list *L2)
     }
     while(second != nullptr)
     {
-        temp = new Node {second->data, nullptr};
-
-        result_previous->next = temp;
+        result_previous->next = second;
 
         result_previous = result_previous->next;
 
         second = second->next;
     }
 
+    L1->head = nullptr;
+
+    L2->head = nullptr; // 'L1' and 'L2' are obsolete now.
+ 
     result->head = result->head->next;
 
     return result;
@@ -158,25 +146,7 @@ int main()
 
     create_linked_list(&L2, new int[6] {1, 2, 11, 23, 25, 35}, 6);
 
-    Linked_list *result {handle_merge_sorted_linked_list(&L1, &L2)};
-
-    cout<<"result: ";
-    display_linked_list(result);
-    cout<<"\n";
-
-    result = handle_merge_sorted_linked_list(&L1, &L3);
-
-    cout<<"result: ";
-    display_linked_list(result);
-    cout<<"\n";
-
-    result = handle_merge_sorted_linked_list(&L3, &L1);
-
-    cout<<"result: ";
-    display_linked_list(result);
-    cout<<"\n";
-
-    result = handle_merge_sorted_linked_list(&L3, &L3);
+    Linked_list *result {handle_merge_sorted_linked_list(&L1, &L2)}; // 'L1' and 'L2' are null after merging.
 
     cout<<"result: ";
     display_linked_list(result);
