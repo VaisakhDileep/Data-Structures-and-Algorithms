@@ -116,7 +116,7 @@ Linked_list *merge_sorted_linked_list(Linked_list *L1, Linked_list *L2) // in-pl
 
             result_previous = result_previous->next;
 
-            first = first->next;
+            first = first->next; // Make sure to update "first" before updating "result_previous".
 
             result_previous->next = second;
 
