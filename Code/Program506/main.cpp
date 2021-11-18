@@ -178,7 +178,18 @@ Linked_list* handle_merge_sort(Linked_list *L)
     if(L == nullptr)
     {
         cout<<"ERROR - Invalid operation, linked list is not valid .....";
+
+        return nullptr;
     }
+
+    if(L->head == nullptr)
+    {
+        cout<<"ERROR - Invalid operation, linked list is empty .....";
+
+        return nullptr;
+    }
+
+    L->head = nullptr; // The original linked list is obsolete after performing merge sort.
 
     return new Linked_list {merge_sort(L->head)};
 }
@@ -189,11 +200,11 @@ int main()
 
     create_linked_list(&L, new int[10] {1, -1, 7, 19, 8, 1, 2, 8, 0, -4}, 10);
 
-    Linked_list *result {handle_merge_sort(&L)};
-
     cout<<"L [before sorting]:";
     display_linked_list(&L);
     cout<<"\n";
+
+    Linked_list *result {handle_merge_sort(&L)};
 
     cout<<"L [after sorting]:";
     display_linked_list(result);
