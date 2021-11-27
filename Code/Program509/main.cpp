@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date        : 18, November, 2021
-Description : This program creates a multi-level linked list.
+Date        : 27, November, 2021
+Description : This program flattens a multi-level linked list depth-wise(using recursion).
 */
 
 #include<iostream>
@@ -102,13 +102,78 @@ void handle_insert_linked_list_down(Node *head, int *A, int size)
     }
 }
 
+Node* flatten_multi_level_linked_list(Node *head)
+{
+    static Node *last_visited_node; // "last_visited_node" is the last visited node in the recursive call stack.
+
+    last_visited_node = head;
+
+    Node *right_node {head->right};
+
+    if(head->down != nullptr)
+    {
+        head->right = flatten_multi_level_linked_list(head->down);
+    }
+
+    if(right_node != nullptr)
+    {
+        last_visited_node->right = flatten_multi_level_linked_list(right_node);
+    }
+
+    return head;
+}
+
+void handle_flatten_multi_level_linked_list(Multi_Level_Linked_list *L)
+{
+    if(L == nullptr)
+    {
+        cout<<"ERROR - Invalid operation, multi level linked list is not valid .....";
+
+        return ;
+    }
+
+    if(L->head == nullptr)
+    {
+        cout<<"ERROR - Invalid operation, multi level linked list is empty .....";
+
+        return ;
+    }
+
+    flatten_multi_level_linked_list(L->head);
+}
+
+void display_flattened_multi_level_linked_list(Multi_Level_Linked_list *L)
+{
+    if(L == nullptr)
+    {
+        return ;
+    }
+
+    Node *current_node {L->head};
+
+    while(current_node != nullptr)
+    {
+        cout<<current_node->data<<" ";
+
+        current_node = current_node->right;
+    }
+}
+
 int main()
 {
     Multi_Level_Linked_list L {new Node {0, nullptr, nullptr}};
 
     handle_insert_linked_list_right(L.head, new int[4] {1, 2, 3, 4}, 4);
 
-    handle_insert_linked_list_down(L.head->right->right, new int[4] {9, 8, 7, 6}, 4);
+    handle_insert_linked_list_down(L.head->right, new int[4] {5, 6, 7, 8}, 4);
+
+    handle_insert_linked_list_right(L.head->right->down->down, new int[5] {9, 10, 11, 12, 13}, 5);
+
+    handle_flatten_multi_level_linked_list(&L);
+
+    cout<<"L(flattened depth-wise): ";
+    display_flattened_multi_level_linked_list(&L);
+    cout<<"\n";
 
     return 0;
 }
