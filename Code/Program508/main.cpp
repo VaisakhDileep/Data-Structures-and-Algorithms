@@ -22,13 +22,13 @@ struct Multi_Level_Linked_list
     Node *head;
 };
 
-// Note: The head of each of the linked lists should be contained in any other linked list within the multi-level linked list(except the head of the multi-level linked list).
+// Note: The head of each of the linked lists should be contained in any other linked list within the multi-level linked list(except the head of the first linked list in the multi-level linked list).
 
 void insert_linked_list_right(Node *head, int *A, int size)
 {
     if(head == nullptr)
     {
-        throw string {"ERROR - Invalid operation, head of the linked list is not valid ....."};
+        throw string {"ERROR - Invalid operation, head of the multi-level linked list is not valid ....."};
     }
 
     if(head->right != nullptr)
@@ -67,7 +67,7 @@ void insert_linked_list_down(Node *head, int *A, int size)
 {
     if(head == nullptr)
     {
-        throw string {"ERROR - Invalid operation, head of the linked list is not valid ....."};
+        throw string {"ERROR - Invalid operation, head of the multi-level linked list is not valid ....."};
     }
 
     if(head->down != nullptr)

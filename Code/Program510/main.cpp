@@ -1,10 +1,12 @@
 /*
 Created by  : Vaisakh Dileep
-Date        : 27, November, 2021
-Description : This program flattens a multi-level linked list depth-wise(using recursion).
+Date        : 28, November, 2021
+Description : This program flattens a multi-level linked list depth-wise(using stack).
 */
 
 #include<iostream>
+
+#include<stack>
 
 using namespace std;
 
@@ -28,7 +30,7 @@ void insert_linked_list_right(Node *head, int *A, int size)
 {
     if(head == nullptr)
     {
-        throw string {"ERROR - Invalid operation, head of the multi-level linked list is not valid ....."};
+        throw string {"ERROR - Invalid operation, head of the linked list is not valid ....."};
     }
 
     if(head->right != nullptr)
@@ -67,7 +69,7 @@ void insert_linked_list_down(Node *head, int *A, int size)
 {
     if(head == nullptr)
     {
-        throw string {"ERROR - Invalid operation, head of the multi-level linked list is not valid ....."};
+        throw string {"ERROR - Invalid operation, head of the linked list is not valid ....."};
     }
 
     if(head->down != nullptr)
@@ -102,44 +104,59 @@ void handle_insert_linked_list_down(Node *head, int *A, int size)
     }
 }
 
-Node* flatten_multi_level_linked_list(Node *head)
-{
-    static Node *last_visited_node; // "last_visited_node" is the last visited node in the recursive call stack.
-
-    last_visited_node = head;
-
-    Node *right_node {head->right};
-
-    if(head->down != nullptr)
-    {
-        head->right = flatten_multi_level_linked_list(head->down);
-    }
-
-    if(right_node != nullptr)
-    {
-        last_visited_node->right = flatten_multi_level_linked_list(right_node);
-    }
-
-    return head;
-}
-
-void handle_flatten_multi_level_linked_list(Multi_Level_Linked_list *L)
+void flatten_multi_level_linked_list(Multi_Level_Linked_list *L)
 {
     if(L == nullptr)
     {
-        cout<<"ERROR - Invalid operation, multi-level linked list is not valid .....";
-
-        return ;
+        throw string {"ERROR - Invalid operation, multi-level linked list is not valid ....."};
     }
 
     if(L->head == nullptr)
     {
-        cout<<"ERROR - Invalid operation, multi-level linked list is empty .....";
-
-        return ;
+        throw string {"ERROR - Invalid operation, multi-level linked list is empty ....."};
     }
 
-    flatten_multi_level_linked_list(L->head);
+    stack<Node *> next_node_to_process {};
+
+    next_node_to_process.push(L->head);
+
+    Node *previous_node {};
+
+    while(next_node_to_process.empty() == false)
+    {
+        Node *temp {next_node_to_process.top()};
+
+        next_node_to_process.pop();
+
+        if(temp->right != nullptr)
+        {
+            next_node_to_process.push(temp->right);
+        }
+
+        if(temp->down != nullptr)
+        {
+            next_node_to_process.push(temp->down);
+        }
+
+        if(previous_node != nullptr)
+        {
+            previous_node->right = temp;
+        }
+
+        previous_node = temp;
+    }
+}
+
+void handle_flatten_multi_level_linked_list(Multi_Level_Linked_list *L)
+{
+    try
+    {
+        flatten_multi_level_linked_list(L);
+    }
+    catch(string &ex)
+    {
+        cout<<ex;
+    }
 }
 
 void display_flattened_multi_level_linked_list(Multi_Level_Linked_list *L)

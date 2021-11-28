@@ -208,6 +208,7 @@ Program235:[c++] [This program deletes a linked list.](../Program235/main.cpp)<b
 
 Program508:[c++] [This program creates a multi-level linked list.](../Program508/main.cpp)<br>
 Program509:[c++] [This program flattens a multi-level linked list depth-wise(using recursion).](../Program509/main.cpp)<br>
+Program510:[c++] [This program flattens a multi-level linked list depth-wise(using stack).](../Program510/main.cpp)<br>
 
 # Circular Linked List:
 
