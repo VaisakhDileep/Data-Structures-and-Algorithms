@@ -4,8 +4,8 @@ Date        : 29, November, 2021
 Description : Declaration file for undirected_graph_using_adjacency_list.
 */
 
-#ifndef UNDIRECTED_GRAPH_USING_ADJACENCY_LIST_HPP
-#define UNDIRECTED_GRAPH_USING_ADJACENCY_LIST_HPP
+#ifndef _UNDIRECTED_GRAPH_USING_ADJACENCY_LIST_HPP_
+#define _UNDIRECTED_GRAPH_USING_ADJACENCY_LIST_HPP_
 
 namespace undirected_graph_using_adjacency_list
 {

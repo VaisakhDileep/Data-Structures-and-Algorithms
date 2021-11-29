@@ -6,8 +6,8 @@ Description : Declaration file for undirected_graph_using_adjacency_matrix.
 
 #include<vector>
 
-#ifndef UNDIRECTED_GRAPH_USING_ADJACENCY_MATRIX_HPP
-#define UNDIRECTED_GRAPH_USING_ADJACENCY_MATRIX_HPP
+#ifndef _UNDIRECTED_GRAPH_USING_ADJACENCY_MATRIX_HPP_
+#define _UNDIRECTED_GRAPH_USING_ADJACENCY_MATRIX_HPP_
 
 namespace undirected_graph_using_adjacency_matrix
 {
