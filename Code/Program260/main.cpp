@@ -45,24 +45,24 @@ void delete_linked_list(Linked_list *L)
     L->head = nullptr;
 }
 
-void delete_weighed_undirected_graph(Weighed_Undirected_Graph *u_graph)
+void delete_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph)
 {
-    if(u_graph == nullptr)
+    if(wu_graph == nullptr)
     {
         throw string {"ERROR - Invalid operation, graph is not valid ....."};
     }
 
-    for(int i {0}; i < u_graph->n; i++)
+    for(int i {0}; i < wu_graph->n; i++)
     {
-        if(u_graph->A[i] != nullptr)
+        if(wu_graph->A[i] != nullptr)
         {
-            delete_linked_list(u_graph->A[i]);
+            delete_linked_list(wu_graph->A[i]);
 
-            u_graph->A[i] = nullptr;
+            wu_graph->A[i] = nullptr;
         }
     }
 
-    delete[] u_graph->A;
+    delete[] wu_graph->A;
 }
 
 void handle_delete_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph)

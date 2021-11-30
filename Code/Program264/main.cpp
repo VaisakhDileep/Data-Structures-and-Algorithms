@@ -72,33 +72,33 @@ void display_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph)
     }
 }
 
-void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge edge)
+void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge w_edge)
 {
     if(wu_graph == nullptr)
     {
         throw string {"ERROR - Invalid operation, graph is not valid ....."};
     }
 
-    if((edge.vertex_1 < 0) or (edge.vertex_2 < 0))
+    if((w_edge.vertex_1 < 0) or (w_edge.vertex_2 < 0))
     {
         throw string {"ERROR - Invalid operation, given edge contains negative vertex ....."};
     }
 
-    if((edge.vertex_1 < wu_graph->n) and (edge.vertex_2 < wu_graph->n))
+    if((w_edge.vertex_1 < wu_graph->n) and (w_edge.vertex_2 < wu_graph->n))
     {
-        if(wu_graph->A[edge.vertex_1] == nullptr)
+        if(wu_graph->A[w_edge.vertex_1] == nullptr)
         {
-            wu_graph->A[edge.vertex_1] = new Linked_list {new Node {edge.vertex_2, edge.weight, nullptr}};
+            wu_graph->A[w_edge.vertex_1] = new Linked_list {new Node {w_edge.vertex_2, w_edge.weight, nullptr}};
         }
         else
         {
-            Node *last {wu_graph->A[edge.vertex_1]->head}, *previous_node {};
+            Node *last {wu_graph->A[w_edge.vertex_1]->head}, *previous_node {};
 
             while(last != nullptr)
             {
                 previous_node = last;
 
-                if(last->vertex == edge.vertex_2)
+                if(last->vertex == w_edge.vertex_2)
                 {
                     throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
                 }
@@ -106,27 +106,27 @@ void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weigh
                 last = last->next;
             }
 
-            previous_node->next = new Node {edge.vertex_2, edge.weight, nullptr};
+            previous_node->next = new Node {w_edge.vertex_2, w_edge.weight, nullptr};
         }
 
-        if(edge.vertex_1 == edge.vertex_2)
+        if(w_edge.vertex_1 == w_edge.vertex_2)
         {
             return ;
         }
 
-        if(wu_graph->A[edge.vertex_2] == nullptr)
+        if(wu_graph->A[w_edge.vertex_2] == nullptr)
         {
-            wu_graph->A[edge.vertex_2] = new Linked_list {new Node {edge.vertex_1, edge.weight, nullptr}};
+            wu_graph->A[w_edge.vertex_2] = new Linked_list {new Node {w_edge.vertex_1, w_edge.weight, nullptr}};
         }
         else
         {
-            Node *last {wu_graph->A[edge.vertex_2]->head}, *previous_node {};
+            Node *last {wu_graph->A[w_edge.vertex_2]->head}, *previous_node {};
 
             while(last != nullptr)
             {
                 previous_node = last;
 
-                if(last->vertex == edge.vertex_1)
+                if(last->vertex == w_edge.vertex_1)
                 {
                     throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
                 }
@@ -134,12 +134,12 @@ void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weigh
                 last = last->next;
             }
 
-            previous_node->next = new Node {edge.vertex_1, edge.weight, nullptr};
+            previous_node->next = new Node {w_edge.vertex_1, w_edge.weight, nullptr};
         }
     }
     else
     {
-        int new_n {edge.vertex_1 > edge.vertex_2 ? edge.vertex_1 + 1 : edge.vertex_2 + 1};
+        int new_n {w_edge.vertex_1 > w_edge.vertex_2 ? w_edge.vertex_1 + 1 : w_edge.vertex_2 + 1};
 
         Weighed_Undirected_Graph temp {new Linked_list*[new_n] {}, new_n};
 
@@ -148,19 +148,19 @@ void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weigh
             temp.A[i] = wu_graph->A[i];
         }
 
-        if(temp.A[edge.vertex_1] == nullptr)
+        if(temp.A[w_edge.vertex_1] == nullptr)
         {
-            temp.A[edge.vertex_1] = new Linked_list {new Node {edge.vertex_2, edge.weight, nullptr}};
+            temp.A[w_edge.vertex_1] = new Linked_list {new Node {w_edge.vertex_2, w_edge.weight, nullptr}};
         }
         else
         {
-            Node *last {temp.A[edge.vertex_1]->head}, *previous_node {};
+            Node *last {temp.A[w_edge.vertex_1]->head}, *previous_node {};
 
             while(last != nullptr)
             {
                 previous_node = last;
 
-                if(last->vertex == edge.vertex_2)
+                if(last->vertex == w_edge.vertex_2)
                 {
                     throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
                 }
@@ -168,10 +168,10 @@ void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weigh
                 last = last->next;
             }
 
-            previous_node->next = new Node {edge.vertex_2, edge.weight, nullptr};
+            previous_node->next = new Node {w_edge.vertex_2, w_edge.weight, nullptr};
         }
 
-        if(edge.vertex_1 == edge.vertex_2)
+        if(w_edge.vertex_1 == w_edge.vertex_2)
         {
             wu_graph->A = temp.A;
 
@@ -182,19 +182,19 @@ void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weigh
             return ;
         }
 
-        if(temp.A[edge.vertex_2] == nullptr)
+        if(temp.A[w_edge.vertex_2] == nullptr)
         {
-            temp.A[edge.vertex_2] = new Linked_list {new Node {edge.vertex_1, edge.weight, nullptr}};
+            temp.A[w_edge.vertex_2] = new Linked_list {new Node {w_edge.vertex_1, w_edge.weight, nullptr}};
         }
         else
         {
-            Node *last {temp.A[edge.vertex_2]->head}, *previous_node {};
+            Node *last {temp.A[w_edge.vertex_2]->head}, *previous_node {};
 
             while(last != nullptr)
             {
                 previous_node = last;
 
-                if(last->vertex == edge.vertex_1)
+                if(last->vertex == w_edge.vertex_1)
                 {
                     throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
                 }
@@ -202,7 +202,7 @@ void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weigh
                 last = last->next;
             }
 
-            previous_node->next = new Node {edge.vertex_1, edge.weight, nullptr};
+            previous_node->next = new Node {w_edge.vertex_1, w_edge.weight, nullptr};
         }
 
         wu_graph->A = temp.A;

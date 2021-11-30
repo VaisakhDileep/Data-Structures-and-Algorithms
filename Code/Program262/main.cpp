@@ -70,34 +70,34 @@ void display_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph)
     }
 }
 
-void remove_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge edge)
+void remove_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge w_edge)
 {
     if(wu_graph == nullptr)
     {
         throw string {"ERROR - Invalid operation, graph is not valid ....."};
     }
 
-    if((edge.vertex_1 < 0) or (edge.vertex_2 < 0))
+    if((w_edge.vertex_1 < 0) or (w_edge.vertex_2 < 0))
     {
         throw string {"ERROR - Invalid operation, given edge contains negative index ....."};
     }
 
-    if((edge.vertex_1 >= wu_graph->n) or (edge.vertex_2 >= wu_graph->n))
+    if((w_edge.vertex_1 >= wu_graph->n) or (w_edge.vertex_2 >= wu_graph->n))
     {
         throw string {"ERROR - Invalid operation, given edge is not present in the graph ....."};
     }
 
-    if(wu_graph->A[edge.vertex_1] == nullptr)
+    if(wu_graph->A[w_edge.vertex_1] == nullptr)
     {
         throw string {"ERROR - Invalid operation, given edge is not present in the graph ....."};
     }
     else
     {
-        Node *last {wu_graph->A[edge.vertex_1]->head}, *previous_node {};
+        Node *last {wu_graph->A[w_edge.vertex_1]->head}, *previous_node {};
 
         while(last != nullptr)
         {
-            if(last->vertex == edge.vertex_2)
+            if(last->vertex == w_edge.vertex_2)
             {
                 break;
             }
@@ -109,15 +109,15 @@ void remove_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, We
 
         if(previous_node == nullptr)
         {
-            wu_graph->A[edge.vertex_1]->head = last->next;
+            wu_graph->A[w_edge.vertex_1]->head = last->next;
 
             delete last;
 
-            if(wu_graph->A[edge.vertex_1]->head == nullptr)
+            if(wu_graph->A[w_edge.vertex_1]->head == nullptr)
             {
-                delete wu_graph->A[edge.vertex_1];
+                delete wu_graph->A[w_edge.vertex_1];
 
-                wu_graph->A[edge.vertex_1] = nullptr;
+                wu_graph->A[w_edge.vertex_1] = nullptr;
             }
         }
         else if(last == nullptr)
@@ -132,22 +132,22 @@ void remove_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, We
         }
     }
 
-    if(edge.vertex_1 == edge.vertex_2)
+    if(w_edge.vertex_1 == w_edge.vertex_2)
     {
         return ;
     }
 
-    if(wu_graph->A[edge.vertex_2] == nullptr)
+    if(wu_graph->A[w_edge.vertex_2] == nullptr)
     {
         throw string {"ERROR - Invalid operation, given edge is not present in the graph ....."};
     }
     else
     {
-        Node *last {wu_graph->A[edge.vertex_2]->head}, *previous_node {};
+        Node *last {wu_graph->A[w_edge.vertex_2]->head}, *previous_node {};
 
         while(last != nullptr)
         {
-            if(last->vertex == edge.vertex_1)
+            if(last->vertex == w_edge.vertex_1)
             {
                 break;
             }
@@ -159,15 +159,15 @@ void remove_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, We
 
         if(previous_node == nullptr)
         {
-            wu_graph->A[edge.vertex_2]->head = last->next;
+            wu_graph->A[w_edge.vertex_2]->head = last->next;
 
             delete last;
 
-            if(wu_graph->A[edge.vertex_2]->head == nullptr)
+            if(wu_graph->A[w_edge.vertex_2]->head == nullptr)
             {
-                delete wu_graph->A[edge.vertex_2];
+                delete wu_graph->A[w_edge.vertex_2];
 
-                wu_graph->A[edge.vertex_2] = nullptr;
+                wu_graph->A[w_edge.vertex_2] = nullptr;
             }
         }
         else if(last == nullptr)
@@ -183,11 +183,11 @@ void remove_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, We
     }
 }
 
-void handle_remove_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge edge)
+void handle_remove_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge w_edge)
 {
     try
     {
-        remove_edge_weighed_undirected_graph(wu_graph, edge);
+        remove_edge_weighed_undirected_graph(wu_graph, w_edge);
     }
     catch(string &ex)
     {
