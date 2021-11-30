@@ -42,6 +42,54 @@ void UGAL::display_undirected_graph(Undirected_Graph *u_graph)
     }
 }
 
+void UGAL::delete_linked_list(Linked_list *L)
+{
+    Node *last {L->head};
+
+    while(last != nullptr)
+    {
+        Node *temp {last->next};
+
+        delete last;
+
+        last = temp;
+    }
+
+    L->head = nullptr;
+}
+
+void UGAL::delete_undirected_graph(Undirected_Graph *u_graph)
+{
+    if(u_graph == nullptr)
+    {
+        throw string {"ERROR - Invalid operation, graph is not valid ....."};
+    }
+
+    for(int i {0}; i < u_graph->n; i++)
+    {
+        if(u_graph->A[i] != nullptr)
+        {
+            delete_linked_list(u_graph->A[i]);
+
+            u_graph->A[i] = nullptr;
+        }
+    }
+
+    delete[] u_graph->A;
+}
+
+void UGAL::handle_delete_undirected_graph(Undirected_Graph *u_graph)
+{
+    try
+    {
+        delete_undirected_graph(u_graph);
+    }
+    catch(string &ex)
+    {
+        cout<<ex;
+    }
+}
+
 void UGAL::add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge)
 {
     if(u_graph == nullptr)
@@ -188,54 +236,6 @@ void UGAL::handle_add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge
     try
     {
         add_edge_undirected_graph(u_graph, edge);
-    }
-    catch(string &ex)
-    {
-        cout<<ex;
-    }
-}
-
-void UGAL::delete_linked_list(Linked_list *L)
-{
-    Node *last {L->head};
-
-    while(last != nullptr)
-    {
-        Node *temp {last->next};
-
-        delete last;
-
-        last = temp;
-    }
-
-    L->head = nullptr;
-}
-
-void UGAL::delete_undirected_graph(Undirected_Graph *u_graph)
-{
-    if(u_graph == nullptr)
-    {
-        throw string {"ERROR - Invalid operation, graph is not valid ....."};
-    }
-
-    for(int i {0}; i < u_graph->n; i++)
-    {
-        if(u_graph->A[i] != nullptr)
-        {
-            delete_linked_list(u_graph->A[i]);
-
-            u_graph->A[i] = nullptr;
-        }
-    }
-
-    delete[] u_graph->A;
-}
-
-void UGAL::handle_delete_undirected_graph(Undirected_Graph *u_graph)
-{
-    try
-    {
-        delete_undirected_graph(u_graph);
     }
     catch(string &ex)
     {

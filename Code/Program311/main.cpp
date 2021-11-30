@@ -63,24 +63,24 @@ namespace Weighed_Undirected_Graph_Using_Adjacency_Matrix // Weighed Undirected 
         cout<<"]";
     }
 
-    void delete_weighed_undirected_graph(Weighed_Undirected_Graph *u_graph)
+    void delete_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph)
     {
-        if(u_graph == nullptr)
+        if(wu_graph == nullptr)
         {
             throw string {"ERROR - Invalid operation, graph is not valid ....."};
         }
 
-        if((u_graph->A == nullptr) or (u_graph->A->size() == 0))
+        if((wu_graph->A == nullptr) or (wu_graph->A->size() == 0))
         {
             return ;
         }
 
-        for(int i {0}; i < u_graph->A->size(); i++)
+        for(int i {0}; i < wu_graph->A->size(); i++)
         {
-            delete u_graph->A->at(i);
+            delete wu_graph->A->at(i);
         }
 
-        delete u_graph->A;
+        delete wu_graph->A;
     }
 
     void add_edge_weighed_undirected_graph(Weighed_Undirected_Graph *wu_graph, Weighed_Edge w_edge)

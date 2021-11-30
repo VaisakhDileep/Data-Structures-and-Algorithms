@@ -37,15 +37,15 @@ namespace undirected_graph_using_adjacency_list
 
     void display_undirected_graph(Undirected_Graph *u_graph);
 
-    void add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge);
-
-    void handle_add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge);
-
     void delete_linked_list(Linked_list *L);
 
     void delete_undirected_graph(Undirected_Graph *u_graph);
 
     void handle_delete_undirected_graph(Undirected_Graph *u_graph);
+
+    void add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge);
+
+    void handle_add_edge_undirected_graph(Undirected_Graph *u_graph, Edge edge);
 
     void create_undirected_graph(Undirected_Graph *u_graph, Edge *edges, int num_edges);
 
