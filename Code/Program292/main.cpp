@@ -70,34 +70,34 @@ void display_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
     }
 }
 
-void remove_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edge edge)
+void remove_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edge w_edge)
 {
     if(wd_graph == nullptr)
     {
         throw string {"ERROR - Invalid operation, graph is not valid ....."};
     }
 
-    if((edge.vertex_1 < 0) or (edge.vertex_2 < 0))
+    if((w_edge.vertex_1 < 0) or (w_edge.vertex_2 < 0))
     {
         throw string {"ERROR - Invalid operation, given edge contains negative vertex ....."};
     }
 
-    if(edge.vertex_1 >= wd_graph->n)
+    if(w_edge.vertex_1 >= wd_graph->n)
     {
         throw string {"ERROR - Invalid operation, given edge is not present in the graph ....."};
     }
 
-    if(wd_graph->A[edge.vertex_1] == nullptr)
+    if(wd_graph->A[w_edge.vertex_1] == nullptr)
     {
         throw string {"ERROR - Invalid operation, given edge is not present in the graph ....."};
     }
     else
     {
-        Node *last {wd_graph->A[edge.vertex_1]->head}, *previous_node {};
+        Node *last {wd_graph->A[w_edge.vertex_1]->head}, *previous_node {};
 
         while(last != nullptr)
         {
-            if(last->vertex == edge.vertex_2)
+            if(last->vertex == w_edge.vertex_2)
             {
                 break;
             }
@@ -109,15 +109,15 @@ void remove_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighe
 
         if(previous_node == nullptr)
         {
-            wd_graph->A[edge.vertex_1]->head = last->next;
+            wd_graph->A[w_edge.vertex_1]->head = last->next;
 
             delete last;
 
-            if(wd_graph->A[edge.vertex_1]->head == nullptr)
+            if(wd_graph->A[w_edge.vertex_1]->head == nullptr)
             {
-                delete wd_graph->A[edge.vertex_1];
+                delete wd_graph->A[w_edge.vertex_1];
 
-                wd_graph->A[edge.vertex_1] = nullptr;
+                wd_graph->A[w_edge.vertex_1] = nullptr;
             }
         }
         else if(last == nullptr)
@@ -133,11 +133,11 @@ void remove_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighe
     }
 }
 
-void handle_remove_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edge edge)
+void handle_remove_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edge w_edge)
 {
     try
     {
-        remove_edge_weighed_directed_graph(wd_graph, edge);
+        remove_edge_weighed_directed_graph(wd_graph, w_edge);
     }
     catch(string &ex)
     {

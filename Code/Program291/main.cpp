@@ -70,33 +70,33 @@ void display_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
     }
 }
 
-void add_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edge edge)
+void add_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edge w_edge)
 {
     if(wd_graph == nullptr)
     {
         throw string {"ERROR - Invalid operation, graph is not valid ....."};
     }
 
-    if((edge.vertex_1 < 0) or (edge.vertex_2 < 0))
+    if((w_edge.vertex_1 < 0) or (w_edge.vertex_2 < 0))
     {
         throw string {"ERROR - Invalid operation, given edge contains negative vertex ....."};
     }
 
-    if(edge.vertex_1 < wd_graph->n)
+    if(w_edge.vertex_1 < wd_graph->n)
     {
-        if(wd_graph->A[edge.vertex_1] == nullptr)
+        if(wd_graph->A[w_edge.vertex_1] == nullptr)
         {
-            wd_graph->A[edge.vertex_1] = new Linked_list {new Node {edge.vertex_2, edge.weight, nullptr}};
+            wd_graph->A[w_edge.vertex_1] = new Linked_list {new Node {w_edge.vertex_2, w_edge.weight, nullptr}};
         }
         else
         {
-            Node *last {wd_graph->A[edge.vertex_1]->head}, *previous_node {};
+            Node *last {wd_graph->A[w_edge.vertex_1]->head}, *previous_node {};
 
             while(last != nullptr)
             {
                 previous_node = last;
 
-                if(last->vertex == edge.vertex_2)
+                if(last->vertex == w_edge.vertex_2)
                 {
                     throw string {"ERROR - Invalid operation, edge is already present in the graph ....."};
                 }
@@ -104,12 +104,12 @@ void add_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_E
                 last = last->next;
             }
 
-            previous_node->next = new Node {edge.vertex_2, edge.weight, nullptr};
+            previous_node->next = new Node {w_edge.vertex_2, w_edge.weight, nullptr};
         }
     }
     else
     {
-        int new_n {edge.vertex_1 + 1};
+        int new_n {w_edge.vertex_1 + 1};
 
         Weighed_Directed_Graph temp {new Linked_list*[new_n] {}, new_n};
 
@@ -118,7 +118,7 @@ void add_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_E
             temp.A[i] = wd_graph->A[i];
         }
 
-        temp.A[edge.vertex_1] = new Linked_list {new Node {edge.vertex_2, edge.weight, nullptr}};
+        temp.A[w_edge.vertex_1] = new Linked_list {new Node {w_edge.vertex_2, w_edge.weight, nullptr}};
 
         wd_graph->A = temp.A;
 
@@ -128,11 +128,11 @@ void add_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_E
     }
 }
 
-void handle_add_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edge edge)
+void handle_add_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edge w_edge)
 {
     try
     {
-        add_edge_weighed_directed_graph(wd_graph, edge);
+        add_edge_weighed_directed_graph(wd_graph, w_edge);
     }
     catch(string &ex)
     {

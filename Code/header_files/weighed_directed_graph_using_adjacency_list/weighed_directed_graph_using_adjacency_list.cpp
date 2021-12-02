@@ -1,8 +1,10 @@
 /*
 Created by  : Vaisakh Dileep
-Date        : 1, July, 2021
-Description : This program creates a weighed directed graph from an array of edges.
+Date        : 2, December, 2021
+Description : Declaration file for weighed_directed_graph_using_adjacency_list.
 */
+
+#include "weighed_directed_graph_using_adjacency_list.hpp"
 
 #include<iostream>
 
@@ -10,37 +12,7 @@ Description : This program creates a weighed directed graph from an array of edg
 
 using namespace std;
 
-struct Node
-{
-    int vertex;
-
-    int weight;
-
-    Node *next;
-};
-
-struct Linked_list
-{
-    Node *head;
-};
-
-struct Weighed_Directed_Graph
-{
-    Linked_list **A;
-
-    int n;
-};
-
-struct Weighed_Edge
-{
-    int vertex_1;
-
-    int vertex_2;
-
-    int weight;
-};
-
-void display_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
+void WDGAL::display_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
 {
     if(wd_graph == nullptr)
     {
@@ -70,7 +42,55 @@ void display_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
     }
 }
 
-void add_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edge w_edge)
+void WDGAL::delete_linked_list(Linked_list *L)
+{
+    Node *last {L->head};
+
+    while(last != nullptr)
+    {
+        Node *temp {last->next};
+
+        delete last;
+
+        last = temp;
+    }
+
+    L->head = nullptr;
+}
+
+void WDGAL::delete_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
+{
+    if(wd_graph == nullptr)
+    {
+        throw string {"ERROR - Invalid operation, graph is not valid ....."};
+    }
+
+    for(int i {0}; i < wd_graph->n; i++)
+    {
+        if(wd_graph->A[i] != nullptr)
+        {
+            delete_linked_list(wd_graph->A[i]);
+
+            wd_graph->A[i] = nullptr;
+        }
+    }
+
+    delete[] wd_graph->A;
+}
+
+void WDGAL::handle_delete_weighed_directed_graph(Weighed_Directed_Graph *wd_graph)
+{
+    try
+    {
+        delete_weighed_directed_graph(wd_graph);
+    }
+    catch(string &ex)
+    {
+        cout<<ex;
+    }
+}
+
+void WDGAL::add_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edge w_edge)
 {
     if(wd_graph == nullptr)
     {
@@ -128,7 +148,19 @@ void add_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_E
     }
 }
 
-void create_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edge *w_edges, int num_edges)
+void WDGAL::handle_add_edge_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edge w_edge)
+{
+    try
+    {
+        add_edge_weighed_directed_graph(wd_graph, w_edge);
+    }
+    catch(string &ex)
+    {
+        cout<<ex;
+    }
+}
+
+void WDGAL::create_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edge *w_edges, int num_edges)
 {
     if(wd_graph == nullptr)
     {
@@ -148,7 +180,7 @@ void create_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edg
     }
 }
 
-void handle_create_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edge *w_edges, int num_edges)
+void WDGAL::handle_create_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weighed_Edge *w_edges, int num_edges)
 {
     try
     {
@@ -158,19 +190,4 @@ void handle_create_weighed_directed_graph(Weighed_Directed_Graph *wd_graph, Weig
     {
         cout<<ex;
     }
-}
-
-int main()
-{
-    Weighed_Directed_Graph wd_graph {};
-
-    Weighed_Edge w_edges[10] {Weighed_Edge {0, 1, 10}, Weighed_Edge {0, 8, 20}, Weighed_Edge {0, 10, 30}, Weighed_Edge {1, 3, 40}, Weighed_Edge {10, 4, 50}, Weighed_Edge {10, 11, 60}, Weighed_Edge {7, 9, 70}, Weighed_Edge {7, 11, 80}, Weighed_Edge {15, 12, 90}, Weighed_Edge {15, 0, 100}};
-
-    handle_create_weighed_directed_graph(&wd_graph, w_edges, 10);
-
-    cout<<"wd_graph: \n";
-    display_weighed_directed_graph(&wd_graph);
-    cout<<"\n";
-
-    return 0;
 }
