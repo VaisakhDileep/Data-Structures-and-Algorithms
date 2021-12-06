@@ -12,7 +12,7 @@ Description : This program implements euclid division algorithm for finding GCD 
 
 using namespace std;
 
-int GCD(int a, int b) // Using Euclid Division algorithm.
+long long GCD(long long a, long long b) // Using Euclid Division algorithm.
 {
     if(b == 0)
     {
@@ -22,20 +22,20 @@ int GCD(int a, int b) // Using Euclid Division algorithm.
     return GCD(b, a % b);
 }
 
-int handle_GCD(int a, int b)
+long long handle_GCD(long long a, long long b)
 {
     if((a == 0) and (b == 0))
     {
         cout<<"ERROR - Invalid operation, GCD(0, 0) is not defined .....";
 
-        return INT_MIN;
+        return LLONG_MIN;
     }
 
     if((a < 0) or (b < 0))
     {
         cout<<"ERROR - Invalid operation, arguments provided to GCD() should be non-negative .....";
 
-        return INT_MIN;
+        return LLONG_MIN;
     }
 
     return GCD(a, b);

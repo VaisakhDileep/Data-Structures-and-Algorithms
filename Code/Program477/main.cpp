@@ -10,7 +10,7 @@ Description : This program implements euclid division algorithm for finding GCD 
 
 using namespace std;
 
-int GCD(int a, int b) // Using Euclid Division algorithm.
+long long GCD(long long a, long long b) // Using Euclid Division algorithm.
 {
     if((a == 0) and (b == 0))
     {
@@ -24,7 +24,7 @@ int GCD(int a, int b) // Using Euclid Division algorithm.
 
     while(b != 0)
     {
-        int temp {b};
+        long long temp {b};
 
         b = a % b;
 
@@ -34,7 +34,7 @@ int GCD(int a, int b) // Using Euclid Division algorithm.
     return a;
 }
 
-int handle_GCD(int a, int b)
+long long handle_GCD(long long a, long long b)
 {
     try
     {
@@ -44,7 +44,7 @@ int handle_GCD(int a, int b)
     {
         cout<<ex;
 
-        return INT_MIN;
+        return LLONG_MIN;
     }
 }
 

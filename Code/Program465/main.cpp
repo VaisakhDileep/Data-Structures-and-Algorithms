@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 7, October, 2021
-Description : This program performs binary exponentiation on a number.
+Description : This program performs binary exponentiation on a number iteratively.
 */
 
 #include<iostream>
@@ -19,7 +19,7 @@ long long binary_exponentiation(long long num, long long exponent)
 
     while(exponent)
     {
-        if((num % 2) == 1)
+        if((exponent % 2) == 1)
         {
             result *= num;
 
@@ -46,13 +46,14 @@ long long handle_binary_exponentiation(long long num, long long exponent)
     {
         cout<<ex;
 
-        return INT_MIN;
+        return LLONG_MIN;
     }
 }
 
 int main()
 {
     cout<<"binary_exponentiation(13, 10): "<<handle_binary_exponentiation(13, 10)<<"\n";
+    cout<<"binary_exponentiation(13, 17): "<<handle_binary_exponentiation(13, 17)<<"\n";
 
     return 0;
 }

@@ -46,7 +46,7 @@ unordered_map<long long, long long>* prime_factorization(long long num)
         }
     }
 
-    if(num > 1)
+    if(num > 1) // If it's a prime number.
     {
         (*prime_factorization)[num] = 1;
     }

@@ -769,9 +769,17 @@ Program468:[c++] [This program performs prime factorization on a number(O(log(n)
 Program476:[c++] [This program implements euclid division algorithm for finding GCD recursively.](../Program476/main.cpp)<br>
 Program477:[c++] [This program implements euclid division algorithm for finding GCD iteratively.](../Program477/main.cpp)<br>
 
+# Modulo Multiplicative Inverse:
+
+Program512:[c++] [This program finds the modulo multiplicative inverse(brute force approach).](../Program512/main.cpp)<br>
+Program513:[c++] [This program finds the modulo multiplicative inverse(Fermat's little theorem).](../Program513/main.cpp)<br>
+
 # Binary Exponentiation:
 
-Program465:[c++] [This program performs binary exponentiation on a number.](../Program465/main.cpp)<br>
+Program514:[c++] [This program performs binary exponentiation on a number recursively.](../Program514/main.cpp)<br>
+Program465:[c++] [This program performs binary exponentiation on a number iteratively.](../Program465/main.cpp)<br>
+Program515:[c++] [This program performs modded binary exponentiation on a number recursively.](../Program515/main.cpp)<br>
+Program516:[c++] [This program performs modded binary exponentiation on a number iteratively.](../Program516/main.cpp)<br>
 
 # Matrix Exponentiation:
 
