@@ -90,6 +90,8 @@ long long modded_binary_exponentiation(long long num, long long exponent, long l
     return result;
 }
 
+// Inorder to understand Fermat's little theorem refer "Data Structures and Algorithms Manual 1" pg no:11.
+
 long long modulo_multiplicative_inverse(long long a, long long p)
 {
     if((a == 0) or (p == 0))
