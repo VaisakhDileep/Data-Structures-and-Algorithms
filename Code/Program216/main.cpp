@@ -6,104 +6,9 @@ Description : This program displays a binary tree using post-order traversal usi
 
 #include<iostream>
 
+#include<stack>
+
 using namespace std;
-
-struct Node;
-
-namespace stack
-{
-    struct Node
-    {
-        ::Node *data;
-
-        Node *next;
-    };
-
-    struct Stack
-    {
-        Node *top;
-    };
-
-    bool is_full_stack(Stack *stk)
-    {
-        Node *temp {new Node {nullptr, nullptr}};
-
-        if(temp == nullptr)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    bool is_empty_stack(Stack *stk)
-    {
-        if(stk == nullptr)
-        {
-            throw string {"ERROR - Invalid operation, stack is not valid ....."};
-        }
-
-        if(stk->top == nullptr)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    void push_stack(Stack *stk, ::Node *value)
-    {
-        if(stk == nullptr)
-        {
-            throw string {"ERROR - Invalid operation, stack is not valid ....."};
-        }
-
-        if(is_full_stack(stk))
-        {
-            throw string {"ERROR - Invalid operation, stack if full ....."};
-        }
-
-        if(stk->top == nullptr)
-        {
-            stk->top = new Node {value, nullptr};
-        }
-        else
-        {
-            Node *temp {new Node {value, nullptr}};
-
-            temp->next = stk->top;
-
-            stk->top = temp;
-        }
-    }
-
-    ::Node* pop_stack(Stack *stk)
-    {
-        if(stk == nullptr)
-        {
-            throw string {"ERROR - Invalid operation, stack is not valid ....."};
-        }
-
-        if(stk->top == nullptr)
-        {
-            throw string {"ERROR - Invalid operation, stack is empty ....."};
-        }
-
-        ::Node* deleted_value {stk->top->data};
-
-        Node *temp {stk->top};
-
-        stk->top = stk->top->next;
-
-        delete temp;
-
-        return deleted_value;
-    }
-}
 
 struct Node
 {
@@ -111,7 +16,7 @@ struct Node
 
     int data;
 
-    int count {0};
+    int count {0}; // This will check if the node is visited or not.
 
     Node *right_child;
 };
@@ -145,31 +50,33 @@ void display_binary_tree(Binary_Tree *T) // post-order traversal
         return ;
     }
 
-    stack::Stack stk {};
+    stack<Node *> stk {};
 
     Node *node {T->root};
 
-    while((node != nullptr) or (!stack::is_empty_stack(&stk)))
+    while((node != nullptr) or (!stk.empty()))
     {
         if(node != nullptr)
         {
-            stack::push_stack(&stk, node);
+            stk.push(node); // 1st time in stack(for checking left sub-tree).
 
             node = node->left_child;
         }
         else
         {
-            Node *temp {stack::pop_stack(&stk)};
+            Node *temp {stk.top()};
 
-            if(temp->count == 0)
+            stk.pop();
+
+            if(temp->count == 0) // if the node is unvisited(2nd time in stack(for checking right sub-tree)), then we will push it into the stack and mark it as visited.
             {
                 temp->count++;
 
-                stack::push_stack(&stk, temp);
+                stk.push(temp);
 
                 node = temp->right_child;
             }
-            else
+            else // if the node is already visited(finished checking left sub-tree and right sub-tree), then we print it.
             {
                 cout<<temp->data<<" ";
 

@@ -6,104 +6,9 @@ Description : This program displays a binary tree using pre-order traversal usin
 
 #include<iostream>
 
+#include<stack>
+
 using namespace std;
-
-struct Node;
-
-namespace stack
-{
-    struct Node
-    {
-        ::Node *data;
-
-        Node *next;
-    };
-
-    struct Stack
-    {
-        Node *top;
-    };
-
-    bool is_full_stack(Stack *stk)
-    {
-        Node *temp {new Node {nullptr, nullptr}};
-
-        if(temp == nullptr)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    bool is_empty_stack(Stack *stk)
-    {
-        if(stk == nullptr)
-        {
-            throw string {"ERROR - Invalid operation, stack is not valid ....."};
-        }
-
-        if(stk->top == nullptr)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    void push_stack(Stack *stk, ::Node *value)
-    {
-        if(stk == nullptr)
-        {
-            throw string {"ERROR - Invalid operation, stack is not valid ....."};
-        }
-
-        if(is_full_stack(stk))
-        {
-            throw string {"ERROR - Invalid operation, stack if full ....."};
-        }
-
-        if(stk->top == nullptr)
-        {
-            stk->top = new Node {value, nullptr};
-        }
-        else
-        {
-            Node *temp {new Node {value, nullptr}};
-
-            temp->next = stk->top;
-
-            stk->top = temp;
-        }
-    }
-
-    ::Node* pop_stack(Stack *stk)
-    {
-        if(stk == nullptr)
-        {
-            throw string {"ERROR - Invalid operation, stack is not valid ....."};
-        }
-
-        if(stk->top == nullptr)
-        {
-            throw string {"ERROR - Invalid operation, stack is empty ....."};
-        }
-
-        ::Node* deleted_value {stk->top->data};
-
-        Node *temp {stk->top};
-
-        stk->top = stk->top->next;
-
-        delete temp;
-
-        return deleted_value;
-    }
-}
 
 struct Node
 {
@@ -143,23 +48,25 @@ void display_binary_tree(Binary_Tree *T) // pre-order traversal
         return ;
     }
 
-    stack::Stack stk {};
+    stack<Node*> stk {};
 
     Node *node {T->root};
 
-    while((node != nullptr) or (!stack::is_empty_stack(&stk)))
+    while((node != nullptr) or (!stk.empty()))
     {
         if(node != nullptr)
         {
             cout<<node->data<<" ";
 
-            stack::push_stack(&stk, node);
+            stk.push(node);
 
             node = node->left_child;
         }
         else
         {
-            node = stack::pop_stack(&stk);
+            node = stk.top();
+
+            stk.pop();
 
             node = node->right_child;
         }

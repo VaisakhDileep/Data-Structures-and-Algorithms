@@ -22,7 +22,7 @@ struct Binary_Tree
     Node *root;
 };
 
-void create_binary_tree(Node **node, int i, int *A, int size) // This method will only work for complete trees.
+void create_binary_tree(Node **node, int i, int *A, int size)
 {
     if((i < size) and (A[i] != INT_MIN))
     {

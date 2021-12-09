@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 7, June, 2021
-Description : This program creates a binary tree(complete) from an array.
+Description : This program creates a binary tree from an array.
 */
 
 #include<iostream>
@@ -24,7 +24,7 @@ struct Binary_Tree
     Node *root;
 };
 
-void create_binary_tree(Node **node, int i, int *A, int size) // This method will only work for complete trees.
+void create_binary_tree(Node **node, int i, int *A, int size)
 {
     if((i < size) and (A[i] != INT_MIN))
     {

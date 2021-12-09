@@ -42,6 +42,11 @@ namespace Binary_Tree_In_Order_Display
 
     void handle_display_binary_tree(Binary_Tree *T)
     {
+        if(T == nullptr)
+        {
+            return ;
+        }
+
         display_binary_tree(T->root);
     }
 }
@@ -62,6 +67,11 @@ namespace Binary_Tree_Pre_Order_Display
 
     void handle_display_binary_tree(Binary_Tree *T)
     {
+        if(T == nullptr)
+        {
+            return ;
+        }
+
         display_binary_tree(T->root);
     }
 }

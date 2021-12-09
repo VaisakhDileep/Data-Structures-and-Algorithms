@@ -55,6 +55,11 @@ void display_binary_tree(Node *node) // pre-order traversal
 
 void handle_display_binary_tree(Binary_Tree *T)
 {
+    if(T == nullptr)
+    {
+        return ;
+    }
+
     display_binary_tree(T->root);
 }
 
