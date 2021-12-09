@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date        : 7, December, 2021
-Description : This program displays a binary tree using Morris in-order traversal.
+Date        : 9, December, 2021
+Description : This program displays a binary tree using Morris pre-order traversal.
 */
 
 #include<iostream>
@@ -39,9 +39,9 @@ void handle_create_binary_tree(Binary_Tree *T, int *A, int size)
     create_binary_tree(&(T->root), 0, A, size);
 }
 
-void display_binary_tree(Binary_Tree *T) // Morris in-order traversal
+void display_binary_tree(Binary_Tree *T) // Morris pre-order traversal
 {
-// Morris in-order traversal will allow us to traverse the binary tree without using stack or recursion(recursion internally uses stack).
+// Morris pre-order traversal will allow use to traverse the binary tree without using stack or recursion(recursion internally uses stack).
 
     if(T == nullptr)
     {
@@ -67,17 +67,17 @@ void display_binary_tree(Binary_Tree *T) // Morris in-order traversal
                 inorder_predecessor = inorder_predecessor->right_child;
             }
 
-            if(inorder_predecessor->right_child == nullptr) // "inorder_predecessor" is valid.
+            if(inorder_predecessor->right_child == nullptr) // "inorder_predecessor" is valid. We print the current_node's value and proceed exploring it's left sub-tree.
             {
+                cout<<current_node->data<<" ";
+
                 inorder_predecessor->right_child = current_node; // This way we can come back to "current_node" later to explore it's right sub-tree.
 
                 current_node = current_node->left_child;
             }
-            else // "inorder_predecessor" is not valid, left sub-tree of the "current_node" has already been explored, so we can print the current_node's value and proceed exploring it's right sub-tree.
+            else // "inorder_predecessor" is not valid.
             {
                 inorder_predecessor->right_child = nullptr; // This will remove the thread that was assigned earlier.
-
-                cout<<current_node->data<<" ";
 
                 current_node = current_node->right_child;
             }
@@ -91,7 +91,7 @@ int main()
 
     handle_create_binary_tree(&T, new int[6] {1, 2, 3, INT_MIN, 4, 5}, 6);
 
-    cout<<"T[in-order]: ";
+    cout<<"T[pre-order]: ";
     display_binary_tree(&T);
     cout<<"\n";
 
