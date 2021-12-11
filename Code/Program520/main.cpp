@@ -56,7 +56,7 @@ int main()
 {
     string str {"franklinclinton"};
 
-    cout<<"str[before]: "<<str<<"\n\n";
+    cout<<"str[before]: "<<str<<"\n";
 
     handle_sort_string(&str);
 
