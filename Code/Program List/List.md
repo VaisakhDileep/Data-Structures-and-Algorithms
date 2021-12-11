@@ -425,6 +425,7 @@ Program234:[c++] [This program demonstrates selection sort.](../Program234/main.
 Program236:[c++] [This program finds the first 'n' smallest elements in an array using selection sort.](../Program236/main.cpp)<br>
 Program396:[c++] [This program demonstrates quick sort.](../Program396/main.cpp)<br>
 Program397:[c++] [This program demonstrates count sort.](../Program397/main.cpp)<br>
+Program520:[c++] [This program sorts a string using count sort.](../Program520/main.cpp)<br>
 Program398:[c++] [This program demonstrates bin(bucket) sort.](../Program398/main.cpp)<br>
 Program399:[c++] [This program demonstrates radix sort.](../Program399/main.cpp)<br>
 Program400:[c++] [This program demonstrates merge sort on an array.](../Program400/main.cpp)<br>
