@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 6, October, 2021
-Description : This program checks if the given number is prime(O(n^1/2) solution).
+Description : This program checks if the given number is prime(O(sqrt(n) solution).
 */
 
 #include<iostream>

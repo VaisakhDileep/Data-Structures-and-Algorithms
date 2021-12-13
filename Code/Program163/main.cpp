@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 29, May, 2021
-Description : This program finds the index of the first set bit of a number.
+Description : This program finds the index of the first set bit from the right of a number.
 */
 
 // Indexing starts from the right hand side.

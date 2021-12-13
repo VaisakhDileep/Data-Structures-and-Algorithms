@@ -250,7 +250,7 @@ Program489:[c++] [This program displays(traverses) the xor linked list in the ba
 
 Program094:[c++] [This program helps to understand masking.](../Program094/main.cpp)<br>
 Program095:[c++] [This program helps to understand merging.](../Program095/main.cpp)<br>
-Program163:[c++] [This program finds the index of the first set bit of a number.](../Program163/main.cpp)<br>
+Program163:[c++] [This program finds the index of the first set bit from the right of a number.](../Program163/main.cpp)<br>
 Program164:[c++] [This program finds the index of the first different bit of two numbers.](../Program164/main.cpp)<br>
 Program411:[c++] [This program finds the number of set bits in a number.](../Program411/main.cpp)<br>
 Program412:[c++] [This program finds implements Brian Kernighan's algorithm to find the number of set bits in a number.](../Program412/main.cpp)<br>
@@ -756,7 +756,7 @@ Program401:[c++] [This program demonstrates Boyer-Moore majority voting algorith
 # Primality Testing:
 
 Program461:[c++] [This program checks if the given number is prime(O(n) solution).](../Program461/main.cpp)<br>
-Program462:[c++] [This program checks if the given number is prime(O(n^1/2) solution).](../Program462/main.cpp)<br>
+Program462:[c++] [This program checks if the given number is prime(O(sqrt(n)) solution).](../Program462/main.cpp)<br>
 
 # Sieve of Eratosthenes Algorithm:
 
@@ -767,6 +767,11 @@ Program415:[c++] [This program demonstrates Sieve of Eratosthenes algorithm.](..
 Program463:[c++] [This program performs prime factorization on a number(O(n) solution).](../Program463/main.cpp)<br>
 Program464:[c++] [This program performs prime factorization on a number(O(sqrt(n)) solution).](../Program464/main.cpp)<br>
 Program468:[c++] [This program performs prime factorization on a number(O(log(n)) solution).](../Program468/main.cpp)<br>
+
+# Divisors of a Number:
+
+Program521:[c++] [This program finds all the divisors of a number(O(n) solution).](../Program521/main.cpp)<br>
+Program522:[c++] [This program finds all the divisors of a number(O(sqrt(n)) solution).](../Program522/main.cpp)<br>
 
 # Euclid Division Algorithm:
 
