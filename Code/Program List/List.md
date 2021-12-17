@@ -772,6 +772,7 @@ Program468:[c++] [This program performs prime factorization on a number(O(log(n)
 
 Program521:[c++] [This program finds all the divisors of a number(O(n) solution).](../Program521/main.cpp)<br>
 Program522:[c++] [This program finds all the divisors of a number(O(sqrt(n)) solution).](../Program522/main.cpp)<br>
+Program523:[c++] [This program counts the number of divisors of a number using prime factorization.](../Program523/main.cpp)<br>
 
 # Euclid Division Algorithm:
 
