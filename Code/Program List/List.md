@@ -791,6 +791,12 @@ Program465:[c++] [This program performs binary exponentiation on a number iterat
 Program515:[c++] [This program performs modded binary exponentiation on a number recursively.](../Program515/main.cpp)<br>
 Program516:[c++] [This program performs modded binary exponentiation on a number iteratively.](../Program516/main.cpp)<br>
 
+# Factorial:
+
+Program524:[c++] [This program finds the factorial of a number recursively.](../Program524/main.cpp)<br>
+Program525:[c++] [This program finds the factorial of a number iteratively.](../Program525/main.cpp)<br>
+Program526:[c++] [This program finds the modded factorial of a number recursively.](../Program526/main.cpp)<br>
+
 # Matrix Exponentiation:
 
 Program472:[c++] [This program performs matrix exponentiation(brute force approach).](../Program472/main.cpp)<br>
