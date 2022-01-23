@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 9, June, 2021
-Description : This program displays a binary tree using level-order traversal using queue.
+Description : This program displays a binary tree using level-order traversal.
 */
 
 #include<iostream>
@@ -9,8 +9,6 @@ Description : This program displays a binary tree using level-order traversal us
 #include<queue>
 
 using namespace std;
-
-struct Node;
 
 struct Node
 {
