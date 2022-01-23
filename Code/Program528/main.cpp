@@ -106,11 +106,9 @@ void display_binary_tree(Binary_Tree *T) // level-order traversal maintaining th
         if(current_node == nullptr)
         {
             Q.push(nullptr);
-
-            nodes_in_current_level.push_back(nullptr);
-
             Q.push(nullptr);
 
+            nodes_in_current_level.push_back(nullptr);
             nodes_in_current_level.push_back(nullptr);
         }
         else
