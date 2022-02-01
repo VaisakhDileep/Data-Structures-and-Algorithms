@@ -801,7 +801,8 @@ Program527:[c++] [This program finds the modded factorial of a number iterativel
 
 # Binomial Coefficient:
 
-Program529:[c++] [This program finds the binomial coefficient recursively using Pascal's triangle.](../Program529/main.cpp)<br>
+Program529:[c++] [This program finds the binomial coefficient recursively(Pascal's triangle).](../Program529/main.cpp)<br>
+Program530:[c++] [This program finds the binomial coefficient using memoization(Pascals' triangle).](../Program530/main.cpp)<br>
 
 # Matrix Exponentiation:
 
