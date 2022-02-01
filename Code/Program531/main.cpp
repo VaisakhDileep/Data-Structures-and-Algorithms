@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 1, February, 2022
-Description : This program finds the binomial coefficient using memoization(Pascal's triangle).
+Description : This program finds the binomial coefficient using tabulation(Pascal's triangle).
 */
 
 #include<iostream>
@@ -10,23 +10,26 @@ Description : This program finds the binomial coefficient using memoization(Pasc
 
 using namespace std;
 
-long long binomial_coefficient(long long n, long long r, vector<vector<int>> &memo)
+long long binomial_coefficient(long long n, long long r) // Note this approach uses "O(n * r)" space.
 {
-    if(memo[n][r] == 1)
+    vector<vector<int>> table(n + 1, vector<int>(r + 1, 0));
+
+    for(long long i {0}; i <= n; i++)
     {
-        return memo[n][r];
+        for(long long j {0}; j <= min(i, r); j++)
+        {
+            if((i == j) or (j == 0))
+            {
+                table[i][j] = 1;
+            }
+            else
+            {
+                table[i][j] = table[i - 1][j - 1] + table[i - 1][j];
+            }
+        }
     }
 
-    if((r == 0) or (r == n)) // Base condition
-    {
-        memo[n][r] = 1;
-
-        return memo[n][r];
-    }
-
-    memo[n][r] = binomial_coefficient(n - 1, r - 1, memo) + binomial_coefficient(n - 1, r, memo);
-
-    return memo[n][r];
+    return table[n][r];
 }
 
 long long handle_binomial_coefficient(long long n, long long r)
@@ -38,16 +41,14 @@ long long handle_binomial_coefficient(long long n, long long r)
         return INT_MIN;
     }
 
-    if(r > n)
+    if(r > n) 
     {
         cout<<"ERROR - Invalid operation, 'r' cannot exceed 'n' .....";
 
         return INT_MIN;
     }
 
-    vector<vector<int>> memo(n + 1, vector<int>(r + 1, 0));
-
-    return binomial_coefficient(n, r, memo);
+    return binomial_coefficient(n, r);
 }
 
 int main()
