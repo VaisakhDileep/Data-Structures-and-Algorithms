@@ -348,6 +348,10 @@ Program528:[c++] [This program displays a binary tree using level-order traversa
 Program413:[c++] [This program constructs a binary tree from the in-order + pre-order traversals.](../Program413/main.cpp)<br>
 Program414:[c++] [This program constructs a binary tree from the in-order + post-order traversals.](../Program414/main.cpp)<br>
 
+# N-ary Tree:
+
+Program532:[c++] [This program helps to understand how to represent an n-ary tree.](../Program532/main.cpp)<br>
+
 # Binary Max Heap:
 
 Program297:[c++] [This program creates a binary max heap.](../Program297/main.cpp)<br>
@@ -804,6 +808,7 @@ Program527:[c++] [This program finds the modded factorial of a number iterativel
 Program529:[c++] [This program finds the binomial coefficient recursively(Pascal's triangle).](../Program529/main.cpp)<br>
 Program530:[c++] [This program finds the binomial coefficient using memoization(Pascal's triangle).](../Program530/main.cpp)<br>
 Program531:[c++] [This program finds the binomial coefficient using tabulation(Pascal's triangle).](../Program531/main.cpp)<br>
+Program532:[c++] []()<br>
 
 # Matrix Exponentiation:
 
