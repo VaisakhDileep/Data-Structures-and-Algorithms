@@ -351,6 +351,7 @@ Program414:[c++] [This program constructs a binary tree from the in-order + post
 # N-ary Tree:
 
 Program532:[c++] [This program helps to understand how to represent an n-ary tree.](../Program532/main.cpp)<br>
+Program533:[c++] [This program creates an n-ary tree from an array.](../Program533/main.cpp)<br>
 
 # Binary Max Heap:
 
