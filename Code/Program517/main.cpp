@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 6, December, 2021
-Description : This program checks if the given binary tree is a binary search tree.
+Description : This program checks if the given binary tree is a binary search tree(optimal approach).
 */
 
 #include<iostream>
@@ -68,7 +68,7 @@ bool handle_is_binary_search_tree(Binary_Tree *T)
 
 int main()
 {
-    Binary_Tree T1 {}, T2 {};
+    Binary_Tree T1 {}, T2 {}, T3 {};
 
     handle_create_binary_tree(&T1, new int[7] {5, 3, 7, 2, 4, 6, 8}, 7);
 
@@ -77,6 +77,10 @@ int main()
     handle_create_binary_tree(&T2, new int[7] {15, 3, 7, 2, 4, 6, 8}, 7);
 
     cout<<"is_binary_search_tree(T2): "<<handle_is_binary_search_tree(&T2)<<"\n";
+
+    handle_create_binary_tree(&T3, new int[7] {5, 3, 7, 2, 4, 6, 7}, 7);
+
+    cout<<"is_binary_search_tree(T3): "<<handle_is_binary_search_tree(&T3)<<"\n";
 
     return 0;
 }
