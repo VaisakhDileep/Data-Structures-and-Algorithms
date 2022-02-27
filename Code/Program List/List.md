@@ -338,6 +338,7 @@ Program445:[c++] [This program finds the inorder successor of a node in a binary
 Program211:[c++] [This program displays a binary tree using pre-order traversal.](../Program211/main.cpp)<br>
 Program212:[c++] [This program displays a binary tree using in-order traversal.](../Program212/main.cpp)<br>
 Program213:[c++] [This program displays a binary tree using post-order traversal.](../Program213/main.cpp)<br>
+Program535:[c++] [This program displays a binary tree using vertical order traversal.](../Program535/main.cpp)<br>
 Program214:[c++] [This program displays a binary tree using pre-order traversal using stack.](../Program214/main.cpp)<br>
 Program215:[c++] [This program displays a binary tree using in-order traversal using stack.](../Program215/main.cpp)<br>
 Program216:[c++] [This program displays a binary tree using post-order traversal using stack.](../Program216/main.cpp)<br>
