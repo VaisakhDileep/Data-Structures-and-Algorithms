@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 27, February, 2022
-Description : This program displays a binary tree using vertical order traversal.
+Description : This program displays a binary tree using vertical order traversal(brute-force approach).
 */
 
 #include<iostream>
