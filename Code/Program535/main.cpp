@@ -81,8 +81,10 @@ void display_vertical_nodes(Node *node, int target_width, int current_width)
 
 void display_binary_tree(Binary_Tree *T) // vertical-order traversal
 {
-    if(T == nullptr)
+    if((T == nullptr) or (T->root == nullptr))
     {
+        cout<<"[ ]";
+
         return ;
     }
 
@@ -97,7 +99,7 @@ void display_binary_tree(Binary_Tree *T) // vertical-order traversal
 
         display_vertical_nodes(T->root, i, 0);
 
-        cout<<"]";
+        cout<<"] ";
     }
     cout<<"]";
 }
