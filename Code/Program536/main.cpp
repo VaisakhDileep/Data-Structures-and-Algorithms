@@ -45,7 +45,7 @@ void handle_create_binary_tree(Binary_Tree *T, int *A, int size)
     create_binary_tree(&(T->root), 0, A, size);
 }
 
-// In order to get an understanding on how vertical-order traversal works refer "" pg no:15.
+// In order to get an understanding on how vertical-order traversal works refer "Data Structures and Algorithms Manual 1" pg no:15.
 
 void display_binary_tree(Binary_Tree *T) // vertical-order traversal
 {

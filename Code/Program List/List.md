@@ -116,6 +116,10 @@ Program100:[c++] [This program finds all the permutations of a string(using swap
 Program448:[c++] [This program finds the longest palindromic sub-string in a string(using brute-force approach).](../Program448/main.cpp)<br>
 Program449:[c++] [This program finds the longest palindromic sub-string in a string(using dynamic programming).](../Program449/main.cpp)<br>
 
+# Palindromic Sub-Sequence:
+
+Program538:[c++] [This program finds the length of the longest palindromic sub-sequence in a string(using brute-force approach).](../Program538/main.cpp)<br>
+
 # Matrices(N X M):
 
 Program101:[c++] [This program creates a matrix.](../Program101/main.cpp)<br>

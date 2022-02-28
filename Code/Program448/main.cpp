@@ -61,7 +61,7 @@ string handle_longest_palindromic_substring(string str)
 
 int main()
 {
-    cout<<"handle_longest_palindromic_substring(\"aaabbbba\"): "<<handle_longest_palindromic_substring("aaabbbba")<<"\n";
+    cout<<"longest_palindromic_substring(\"aaabbbba\"): "<<handle_longest_palindromic_substring("aaabbbba")<<"\n";
 
     return 0;
 }

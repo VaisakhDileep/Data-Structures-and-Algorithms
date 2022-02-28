@@ -43,6 +43,8 @@ void handle_create_binary_tree(Binary_Tree *T, int *A, int size)
     create_binary_tree(&(T->root), 0, A, size);
 }
 
+// In order to get an understanding on how top-view of a tree is calculated refer "Data Structures and Algorithms Manual 1" pg no:15
+
 void display_top_view_binary_tree(Binary_Tree *T)
 {
     if((T == nullptr) or (T->root == nullptr))
