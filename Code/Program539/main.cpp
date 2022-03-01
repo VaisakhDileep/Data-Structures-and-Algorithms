@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 28, February, 2022
-Description : This program finds the length of the largest palindromic sub-sequence in a string(using dynamic programming).
+Description : This program finds the length of the largest palindromic sub-sequence in a string(using tabulation).
 */
 
 #include<iostream>

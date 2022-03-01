@@ -10,7 +10,12 @@ using namespace std;
 
 int longest_palindromic_subsequence_length(string str, int left, int right)
 {
-    if(left == right) // If there is only one character.
+    if(left > right) // Base condition
+    {
+        return 0;
+    }
+
+    if(left == right) // If there is only one character
     {
         return 1;
     }
@@ -40,6 +45,8 @@ int handle_longest_palindromic_subsequence_length(string str)
 int main()
 {
     cout<<"longest_palindromic_subsequence_length(\"abxcbaz\"): "<<handle_longest_palindromic_subsequence_length("abxcbaz")<<"\n";
+
+    cout<<"longest_palindromic_subsequence_length(\"aa\"): "<<handle_longest_palindromic_subsequence_length("aa");
 
     return 0;
 }

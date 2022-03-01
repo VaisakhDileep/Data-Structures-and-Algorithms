@@ -119,7 +119,8 @@ Program449:[c++] [This program finds the longest palindromic sub-string in a str
 # Palindromic Sub-Sequence:
 
 Program538:[c++] [This program finds the length of the longest palindromic sub-sequence in a string(using brute-force approach).](../Program538/main.cpp)<br>
-Program539:[c++] [This program finds the length of the largest palindromic sub-sequence in a string(using dynamic programming).](../Program539/main.cpp)<br>
+Program540:[c++] [This program finds the length of the largest palindromic sub-sequence in a string(using memoization).](../Program540/main.cpp)<br>
+Program539:[c++] [This program finds the length of the largest palindromic sub-sequence in a string(using tabulation).](../Program539/main.cpp)<br>
 
 # Matrices(N X M):
 
