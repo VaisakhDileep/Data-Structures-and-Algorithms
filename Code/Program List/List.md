@@ -115,6 +115,7 @@ Program100:[c++] [This program finds all the permutations of a string(using swap
 
 Program541:[c++] [This program finds the length of the longest common sub-string between two strings(using brute-force approach).](../Program541/main.cpp)<br>
 Program542:[c++] [This program finds the length of the longest common sub-string between two strings(using dynamic programming).](../Program542/main.cpp)<br>
+Program543:[c++] [This program finds the longest common sub-string between two strings(using dynamic programming).](../Program543/main.cpp)<br>
 
 # Palindromic Sub-String:
 
