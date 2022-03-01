@@ -55,5 +55,7 @@ int main()
 {
     cout<<"longest_common_substring_length(\"temperature\", \"temper\"): "<<handle_longest_common_substring_length("temperature", "temper")<<'\n';
 
+    cout<<"longest_common_substring_length(\"red\", \"black\"): "<<handle_longest_common_substring_length("red", "black");
+
     return 0;
 }
