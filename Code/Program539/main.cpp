@@ -17,11 +17,11 @@ int longest_palindromic_subsequence_length(string str)
         throw string {"ERROR - Invalid operation, string is empty ....."};
     }
 
-    vector<vector<int>> LPSS_length_table(str.size(), vector<int>(str.size(), 0)); // "LPSS" stands for "Longest Palindrome Sub-Sequence"
+    vector<vector<int>> LPSSeq_length_table(str.size(), vector<int>(str.size(), 0)); // "LPSS" stands for "Longest Palindrome Sub-Sequence"
 
     for(int i {0}; i < str.size(); i++)
     {
-        LPSS_length_table[i][i] = 1;
+        LPSSeq_length_table[i][i] = 1;
     }
 
     for(int i {2}; i <= str.size(); i++) // Length of the substring.
@@ -34,21 +34,21 @@ int longest_palindromic_subsequence_length(string str)
             {
                 if(i == 2)
                 {
-                    LPSS_length_table[left][right] = 2;
+                    LPSSeq_length_table[left][right] = 2;
                 }
                 else
                 {
-                    LPSS_length_table[left][right] = 2 + LPSS_length_table[left + 1][right - 1];
+                    LPSSeq_length_table[left][right] = 2 + LPSSeq_length_table[left + 1][right - 1];
                 }
             }
             else
             {
-                LPSS_length_table[left][right] = max(LPSS_length_table[left + 1][right], LPSS_length_table[left][right - 1]);
+                LPSSeq_length_table[left][right] = max(LPSSeq_length_table[left + 1][right], LPSSeq_length_table[left][right - 1]);
             }
         }
     }
 
-    return LPSS_length_table[0][str.size() - 1];
+    return LPSSeq_length_table[0][str.size() - 1];
 }
 
 int handle_longest_palindromic_subsequence_length(string str)
