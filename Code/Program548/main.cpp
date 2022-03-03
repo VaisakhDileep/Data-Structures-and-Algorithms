@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 3, March, 2022
-Description : This program find the lowest common ancestor of two nodes in a binary tree(brute force approach).
+Description : This program finds the lowest common ancestor of two nodes in a binary tree(brute force approach).
 */
 
 #include<iostream>
