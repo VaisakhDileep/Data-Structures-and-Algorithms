@@ -356,6 +356,7 @@ Program547:[c++] [This program finds the path of a node if it exists in a binary
 
 Program211:[c++] [This program displays a binary tree using pre-order traversal.](../Program211/main.cpp)<br>
 Program212:[c++] [This program displays a binary tree using in-order traversal.](../Program212/main.cpp)<br>
+Program550:[c++] [This program displays a binary tree using reversed in-order traversal.](../Program550/main.cpp)<br>
 Program213:[c++] [This program displays a binary tree using post-order traversal.](../Program213/main.cpp)<br>
 Program535:[c++] [This program displays a binary tree using vertical order traversal(brute-force approach).](../Program535/main.cpp)<br>
 Program536:[c++] [This program displays a binary tree using vertical order traversal(level-order traversal + map approach).](../Program536/main.cpp)<br>
