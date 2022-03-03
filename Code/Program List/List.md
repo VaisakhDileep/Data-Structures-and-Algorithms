@@ -350,6 +350,7 @@ Program223:[c++] [This program counts the number of leaf nodes in a binary tree.
 Program224:[c++] [This program counts the number of non-leaf nodes in a binary tree.](../Program224/main.cpp)<br>
 Program443:[c++] [This program finds the inorder predecessor of a node in a binary tree.](../Program443/main.cpp)<br>
 Program445:[c++] [This program finds the inorder successor of a node in a binary tree.](../Program445/main.cpp)<br>
+Program547:[c++] [This program finds the path of a node if it exists in a binary tree.](../Program547/main.cpp)<br>
 
 # Traversal in a Binary Tree:
 
@@ -441,6 +442,10 @@ Program484:[c++] [This program performs RL rotation in a binary tree.](../Progra
 # AVL Tree:
 
 Program480:[c++] [This program creates an AVL tree.](../Program480/main.cpp)<br>
+
+# Lowest Common Ancestor in Binary Tree:
+
+Program
 
 # Sorting Techniques:
 
