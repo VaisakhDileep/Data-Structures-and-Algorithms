@@ -433,6 +433,7 @@ Program437:[c++] [This program checks if the given binary search tree is height 
 Program439:[c++] [This program checks if the given binary search tree is height balanced(O(n) solution).](../Program439/main.cpp)<br>
 Program517:[c++] [This program checks if the given binary tree is a binary search tree(optimal approach).](../Program517/main.cpp)<br>
 Program534:[c++] [This program checks if the given binary tree is a binary search tree(in-order traversal).](../Program534/main.cpp)<br>
+Program552:[c++] [This program performs inorder traversal on a binary search tree.](../Program552/main.cpp)<br>
 
 # Branch rotations in a binary tree:
 

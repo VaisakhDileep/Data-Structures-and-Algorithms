@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date        : 25, September, 2021
-Description : This program finds the inorder predecessor of a node in a binary search tree.
+Date        : 4, March, 2022
+Description : This program performs inorder traversal on a binary search tree.
 */
 
 #include<iostream>
@@ -91,86 +91,37 @@ void create_binary_search_tree(Binary_Search_Tree *T, int *A, int size)
     }
 }
 
-Node* search_binary_search_tree(Node *node, int key)
+void display_binary_search_tree(Node *node) // in-order traversal
 {
-    if(node == nullptr)
+    if(node != nullptr)
     {
-        return nullptr;
-    }
+        display_binary_search_tree(node->left_child);
 
-    if(key == node->data)
-    {
-        return node;
-    }
-    else if(key < node->data)
-    {
-        return search_binary_search_tree(node->left_child, key);
-    }
-    else if(key > node->data)
-    {
-        return search_binary_search_tree(node->right_child, key);
+        cout<<node->data<<" ";
+
+        display_binary_search_tree(node->right_child);
     }
 }
 
-Node* inorder_predecessor_binary_search_tree(Node *node)
-{
-    Node *inorder_predecessor {node->left_child};
-
-    while(inorder_predecessor->right_child != nullptr)
-    {
-        inorder_predecessor = inorder_predecessor->right_child;
-    }
-
-    return inorder_predecessor;
-}
-
-Node* handle_inorder_predecessor_binary_search_tree(Binary_Search_Tree *T, int node)
+void handle_display_binary_search_tree(Binary_Search_Tree *T)
 {
     if(T == nullptr)
     {
-        cout<<"ERROR - Invalid operation, binary search tree is not valid .....";
-
-        return nullptr;
-    }
-    else if(T->root == nullptr)
-    {
-        cout<<"ERROR - Invalid operation, binary search tree is empty .....";
-
-        return nullptr;
+        return ;
     }
 
-    Node *node_ptr {search_binary_search_tree(T->root, node)};
-
-    if(node_ptr == nullptr)
-    {
-        cout<<"ERROR - Invalid operation, node is not present in the binary search tree .....";
-
-        return nullptr;
-    }
-
-    if(node_ptr->left_child == nullptr)
-    {
-        cout<<"ERROR - Invalid operation, given binary search tree node does not contain inorder predecessor .....";
-
-        return nullptr;
-    }
-
-    Node *inorder_predecessor {inorder_predecessor_binary_search_tree(node_ptr)};
-
-    return inorder_predecessor;
+    display_binary_search_tree(T->root);
 }
 
 int main()
 {
     Binary_Search_Tree T {};
 
-    // create_binary_search_tree(&T, new int[1] {1}, 1);
+    create_binary_search_tree(&T, new int[8] {9, 7, 10, 3, 8, 1, 15, 11}, 8);
 
-    // create_binary_search_tree(&T, new int [2] {5, 2}, 2);
-
-    create_binary_search_tree(&T, new int[6] {10, 5, 6, 15, 20, 12}, 6);
-
-    cout<<"inorder_predecessor_binary_tree(&T, 10): "<<handle_inorder_predecessor_binary_search_tree(&T, 10)->data<<"\n";
+    cout<<"T[in-order traversal]: ";
+    handle_display_binary_search_tree(&T);
+    cout<<"\n";
 
     return 0;
 }

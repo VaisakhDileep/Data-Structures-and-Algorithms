@@ -163,7 +163,7 @@ int main()
 
     handle_create_binary_tree(&T, new int[12] {1, INT_MIN, 2, INT_MIN, INT_MIN, 3, 4, INT_MIN, INT_MIN, INT_MIN, INT_MIN, 5}, 12);
 
-    cout<<"handle_inorder_successor_binary_tree(T, 1): "<<handle_inorder_successor_binary_tree(&T, 1)<<"\n";
+    cout<<"inorder_successor_binary_tree(T, 1): "<<handle_inorder_successor_binary_tree(&T, 1)<<"\n";
 
     return 0;
 }

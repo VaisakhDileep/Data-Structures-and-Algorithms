@@ -121,7 +121,7 @@ int main()
 
     // handle_create_binary_tree(&T, new int[11] {1, 2, 3, 4, 5, INT_MIN, INT_MIN, INT_MIN, INT_MIN, 6, 7}, 11);
 
-    cout<<"handle_inorder_predecessor_binary_tree(&T, 1): "<<handle_inorder_predecessor_binary_tree(&T, 1)->data<<"\n";
+    cout<<"inorder_predecessor_binary_tree(&T, 1): "<<handle_inorder_predecessor_binary_tree(&T, 1)->data<<"\n";
 
     return 0;
 }

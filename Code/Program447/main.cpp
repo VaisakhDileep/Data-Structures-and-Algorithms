@@ -170,7 +170,7 @@ int main()
 
     // create_binary_search_tree(&T, new int[6] {10, 5, 15, 12, 20}, 6);
 
-    cout<<"handle_inorder_successor_binary_tree(&T, 10): "<<handle_inorder_successor_binary_search_tree(&T, 10)->data<<"\n";
+    cout<<"inorder_successor_binary_tree(&T, 10): "<<handle_inorder_successor_binary_search_tree(&T, 10)->data<<"\n";
 
     return 0;
 }
