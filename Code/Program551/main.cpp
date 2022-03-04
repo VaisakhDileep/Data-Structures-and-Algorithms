@@ -1,12 +1,14 @@
 /*
 Created by  : Vaisakh Dileep
-Date        : 9, June, 2021
-Description : This program displays a binary tree using level-order traversal.
+Date        : 4, March, 2022
+Description : This program displays a binary tree using reversed level-order traversal.
 */
 
 #include<iostream>
 
 #include<queue>
+
+#include<stack>
 
 using namespace std;
 
@@ -41,20 +43,24 @@ void handle_create_binary_tree(Binary_Tree *T, int *A, int size)
     create_binary_tree(&(T->root), 0, A, size);
 }
 
-void display_binary_tree(Binary_Tree *T) // level-order traversal
+// Inorder to understand how reversed level-order traversal works refer "Data Structures and Algorithms Manual 1" pg no:15.
+
+void display_binary_tree(Binary_Tree *T) // reversed level-order traversal
 {
     if((T == nullptr) or (T->root == nullptr))
     {
         return ;
     }
 
-    queue<Node*> Q {};
+    queue<Node *> Q {};
 
-    Node *node {T->root};
+    stack<int> stk {};
 
-    cout<<node->data<<" ";
+    stk.push(T->root->data);
 
-    Q.push(node);
+    Q.push(T->root);
+
+    Node *node {};
 
     while(Q.empty() == false)
     {
@@ -62,19 +68,26 @@ void display_binary_tree(Binary_Tree *T) // level-order traversal
 
         Q.pop();
 
-        if(node->left_child != nullptr)
+        if(node->right_child != nullptr) // Inorder to preserve the ordering from left to right in each level, we input the right child first in the stack.
         {
-            cout<<node->left_child->data<<" ";
-
-            Q.push(node->left_child);
-        }
-
-        if(node->right_child != nullptr)
-        {
-            cout<<node->right_child->data<<" ";
+            stk.push(node->right_child->data);
 
             Q.push(node->right_child);
         }
+
+        if(node->left_child != nullptr)
+        {
+            stk.push(node->left_child->data);
+
+            Q.push(node->left_child);
+        }
+    }
+
+    while(stk.empty() == false)
+    {
+        cout<<stk.top()<<" ";
+
+        stk.pop();
     }
 }
 
