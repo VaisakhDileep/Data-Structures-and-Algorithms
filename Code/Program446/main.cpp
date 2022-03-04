@@ -66,7 +66,6 @@ void insert_binary_search_tree(Binary_Search_Tree *T, int value)
     }
 }
 
-
 void create_binary_search_tree(Binary_Search_Tree *T, int *A, int size)
 {
     for(int i {0}; i < size; i++)

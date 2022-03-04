@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 4, March, 2022
-Description : This program performs inorder traversal on a binary search tree.
+Description : This program finds the k-th smallest element in a binary search tree(O(n) space O(n) time solution).
 */
 
 #include<iostream>
@@ -90,37 +90,7 @@ void create_binary_search_tree(Binary_Search_Tree *T, int *A, int size)
     }
 }
 
-void display_binary_search_tree(Node *node) // in-order traversal
-{
-    if(node != nullptr)
-    {
-        display_binary_search_tree(node->left_child);
-
-        cout<<node->data<<" ";
-
-        display_binary_search_tree(node->right_child);
-    }
-}
-
-void handle_display_binary_search_tree(Binary_Search_Tree *T)
-{
-    if(T == nullptr)
-    {
-        return ;
-    }
-
-    display_binary_search_tree(T->root);
-}
-
 int main()
 {
-    Binary_Search_Tree T {};
-
-    create_binary_search_tree(&T, new int[8] {9, 7, 10, 3, 8, 1, 15, 11}, 8);
-
-    cout<<"T[in-order traversal]: ";
-    handle_display_binary_search_tree(&T);
-    cout<<"\n";
-
     return 0;
 }

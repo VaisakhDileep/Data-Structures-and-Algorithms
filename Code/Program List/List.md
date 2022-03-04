@@ -436,6 +436,10 @@ Program534:[c++] [This program checks if the given binary tree is a binary searc
 Program552:[c++] [This program performs in-order traversal on a binary search tree.](../Program552/main.cpp)<br>
 Program553:[c++] [This program performs reversed in-order traversal on a binary search tree.](../Program553/main.cpp)<br>
 
+# K-th Smallest Element in a Binary Search Tree:
+
+Program554:[c++] [This program finds the k-th smallest element in a binary search tree(O(n) space O(n) time solution).](../Program554/main.cpp)<br>
+
 # Branch rotations in a binary tree:
 
 Program481:[c++] [This program performs LL rotation in a binary tree.](../Program481/main.cpp)<br>
