@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 24, September, 2021
-Description : This program finds the inorder predecessor of a node in a binary tree.
+Description : This program finds the in-order predecessor of a node in a binary tree.
 */
 
 #include<iostream>
@@ -118,7 +118,7 @@ int inorder_predecessor_binary_tree(Binary_Tree *T, int node)
 
     if((i >= T->size) or (T->A[i] == INT_MIN))
     {
-        throw string {"ERROR - Invalid operation, given binary tree node does not contain inorder predecessor ....."};
+        throw string {"ERROR - Invalid operation, given binary tree node does not contain in-order predecessor ....."};
     }
 
     int inorder_predecessor {T->A[i]};

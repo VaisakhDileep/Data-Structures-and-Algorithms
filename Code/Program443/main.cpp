@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 24, September, 2021
-Description : This program finds the inorder predecessor of a node in a binary tree.
+Description : This program finds the in-order predecessor of a node in a binary tree.
 */
 
 #include<iostream>
@@ -101,7 +101,7 @@ Node* handle_inorder_predecessor_binary_tree(Binary_Tree *T, int node)
 
     if(node_ptr->left_child == nullptr)
     {
-        cout<<"ERROR - Invalid operation, given binary tree node does not contain inorder predecessor .....";
+        cout<<"ERROR - Invalid operation, given binary tree node does not contain in-order predecessor .....";
 
         return nullptr;
     }

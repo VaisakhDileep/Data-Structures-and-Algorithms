@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 25, September, 2021
-Description : This program finds the inorder successor of a node in a binary search tree.
+Description : This program finds the in-order successor of a node in a binary search tree.
 */
 
 #include<iostream>
@@ -150,7 +150,7 @@ Node* handle_inorder_successor_binary_search_tree(Binary_Search_Tree *T, int nod
 
     if(node_ptr->right_child == nullptr)
     {
-        cout<<"ERROR - Invalid operation, given binary search tree node does not contain inorder successor .....";
+        cout<<"ERROR - Invalid operation, given binary search tree node does not contain in-order successor .....";
 
         return nullptr;
     }
