@@ -119,7 +119,7 @@ int main()
     create_binary_search_tree(&T, new int[8] {9, 7, 10, 3, 8, 1, 15, 11}, 8);
 
     cout<<"T[reversed in-order traversal]: ";
-    handle_display_binary_search_tree(&T);
+    handle_display_binary_search_tree(&T); // Notice here it is in descending order.
     cout<<"\n";
 
     return 0;

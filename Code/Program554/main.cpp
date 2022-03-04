@@ -6,6 +6,8 @@ Description : This program finds the k-th smallest element in a binary search tr
 
 #include<iostream>
 
+#include<vector>
+
 using namespace std;
 
 struct Node
@@ -90,7 +92,73 @@ void create_binary_search_tree(Binary_Search_Tree *T, int *A, int size)
     }
 }
 
+void extract_inorder_traversal_binary_search_tree(Node *root, vector<int> &inorder_traversal)
+{
+    if(root != nullptr)
+    {
+        extract_inorder_traversal_binary_search_tree(root->left_child, inorder_traversal);
+
+        inorder_traversal.push_back(root->data);
+
+        extract_inorder_traversal_binary_search_tree(root->right_child, inorder_traversal);
+    }
+}
+
+int k_th_smallest_element_binary_search_tree(Binary_Search_Tree *T, int k)
+{
+    if(T == nullptr)
+    {
+        throw string {"ERROR - Invalid operation, binary search tree is not valid ....."};
+    }
+
+    if(T->root == nullptr)
+    {
+        throw string {"ERROR - Invalid operation, binary search tree is empty ....."};
+    }
+
+    vector<int> inorder_traversal {};
+
+    extract_inorder_traversal_binary_search_tree(T->root, inorder_traversal);
+
+    if(k < 0)
+    {
+        throw string {"ERROR - Invalid operation, value of 'k' cannot be negative ....."};
+    }
+
+    if(k > inorder_traversal.size())
+    {
+        throw string {"ERROR - Invalid operation, value of 'k' cannot exceed the size of the binary search tree ....."};
+    }
+
+    return inorder_traversal[k - 1];
+}
+
+int handle_k_th_smallest_element_binary_search_tree(Binary_Search_Tree *T, int k)
+{
+    try
+    {
+        return k_th_smallest_element_binary_search_tree(T, k);
+    }
+    catch(string &ex)
+    {
+        cout<<ex;
+
+        return INT_MAX;
+    }
+}
+
 int main()
 {
+    Binary_Search_Tree T {};
+
+    create_binary_search_tree(&T, new int[8] {9, 7, 10, 3, 8, 1, 15, 11}, 8);
+
+    cout<<"k_th_smallest_element_binary_search_tree(&T, 1): "<<handle_k_th_smallest_element_binary_search_tree(&T, 1)<<"\n";
+    cout<<"k_th_smallest_element_binary_search_tree(&T, 3): "<<handle_k_th_smallest_element_binary_search_tree(&T, 3)<<"\n";
+    cout<<"k_th_smallest_element_binary_search_tree(&T, 8): "<<handle_k_th_smallest_element_binary_search_tree(&T, 8)<<"\n\n";
+
+    cout<<"k_th_smallest_element_binary_search_tree(&T, 9): "<<handle_k_th_smallest_element_binary_search_tree(&T, 9)<<"\n";
+    cout<<"k_th_smallest_element_binary_search_tree(&T, -1): "<<handle_k_th_smallest_element_binary_search_tree(&T, -1)<<"\n";
+
     return 0;
 }
