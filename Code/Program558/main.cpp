@@ -39,6 +39,8 @@ void handle_create_binary_tree(Binary_Tree *T, int *A, int size)
     create_binary_tree(&(T->root), 0, A, size);
 }
 
+// Inorder to to understand siblings in binary tree refer "Data Structures and Algorithms Manual 1" pg no:16.
+
 bool check_nodes_are_siblings_in_binary_tree(Node *current_node, Node *node_1, Node *node_2)
 {
     if(current_node == nullptr)
