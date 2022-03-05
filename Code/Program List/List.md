@@ -372,6 +372,10 @@ Program528:[c++] [This program displays a binary tree using level-order traversa
 Program413:[c++] [This program constructs a binary tree from the in-order + pre-order traversals.](../Program413/main.cpp)<br>
 Program414:[c++] [This program constructs a binary tree from the in-order + post-order traversals.](../Program414/main.cpp)<br>
 
+# Sibling Nodes in Binary Tree:
+
+Program558:[c++] [This program checks if two nodes in a binary tree are siblings.](../Program558/main.cpp)<br>
+
 # N-ary Tree:
 
 Program532:[c++] [This program helps to understand how to represent an n-ary tree.](../Program532/main.cpp)<br>
