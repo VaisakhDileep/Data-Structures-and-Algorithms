@@ -439,6 +439,7 @@ Program553:[c++] [This program performs reversed in-order traversal on a binary 
 # K-th Smallest Element in a Binary Search Tree:
 
 Program554:[c++] [This program finds the k-th smallest element in a binary search tree(O(n) space O(n) time solution).](../Program554/main.cpp)<br>
+Program556:[c++] [This program finds the k-th smallest element in a binary search tree(O(k) space O(k) time solution).](../Program556/main.cpp)<br>
 
 # K-th Largest Element in a Binary Search Tree:
 

@@ -1,12 +1,10 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 4, March, 2022
-Description : This program finds the k-th smallest element in a binary search tree(O(n) space O(n) time solution).
+Description : This program finds the k-th smallest element in a binary search tree(O(k) space O(k) time solution).
 */
 
 #include<iostream>
-
-#include<vector>
 
 using namespace std;
 
@@ -92,55 +90,65 @@ void create_binary_search_tree(Binary_Search_Tree *T, int *A, int size)
     }
 }
 
-void extract_inorder_traversal_binary_search_tree(Node *root, vector<int> &inorder_traversal)
+void k_th_smallest_element_binary_search_tree(Node *current_node, int &k, int &current_k, int &result)
 {
-    if(root != nullptr)
+    if(current_node != nullptr)
     {
-        extract_inorder_traversal_binary_search_tree(root->left_child, inorder_traversal);
+        k_th_smallest_element_binary_search_tree(current_node->left_child, k, current_k, result);
 
-        inorder_traversal.push_back(root->data);
+        if(current_k == k)
+        {
+            result = current_node->data;
 
-        extract_inorder_traversal_binary_search_tree(root->right_child, inorder_traversal);
+            throw string {"Done - Successfully found the value ....."};
+        }
+
+        current_k++;
+
+        k_th_smallest_element_binary_search_tree(current_node->right_child, k, current_k, result);
     }
-}
-
-int k_th_smallest_element_binary_search_tree(Binary_Search_Tree *T, int k)
-{
-    if(T == nullptr)
-    {
-        throw string {"ERROR - Invalid operation, binary search tree is not valid ....."};
-    }
-
-    if(T->root == nullptr)
-    {
-        throw string {"ERROR - Invalid operation, binary search tree is empty ....."};
-    }
-
-    vector<int> inorder_traversal {};
-
-    extract_inorder_traversal_binary_search_tree(T->root, inorder_traversal);
-
-    if(k < 0)
-    {
-        throw string {"ERROR - Invalid operation, value of 'k' cannot be negative ....."};
-    }
-
-    if(k > inorder_traversal.size())
-    {
-        throw string {"ERROR - Invalid operation, value of 'k' cannot exceed the size of the binary search tree ....."};
-    }
-
-    return inorder_traversal[k - 1];
 }
 
 int handle_k_th_smallest_element_binary_search_tree(Binary_Search_Tree *T, int k)
 {
+    if(T == nullptr)
+    {
+        cout<<"ERROR - Invalid operation, binary search tree is not valid .....";
+
+        return INT_MAX;
+    }
+
+    if(T->root == nullptr)
+    {
+        cout<<"ERROR - Invalid operation, binary search tree is empty .....";
+
+        return INT_MAX;
+    }
+
+    if(k < 0)
+    {
+        cout<<"ERROR - Invalid operation, value of 'k' cannot be negative .....";
+
+        return INT_MAX;
+    }
+
+    int current_k {1}, result {};
+
     try
     {
-        return k_th_smallest_element_binary_search_tree(T, k);
+        k_th_smallest_element_binary_search_tree(T->root, k, current_k, result);
+
+        cout<<"ERROR - Invalid operation, value of 'k' cannot exceed the size of the binary search tree .....";
+
+        return INT_MAX;
     }
     catch(string &ex)
     {
+        if(ex == "Done - Successfully found the value .....");
+        {
+            return result;
+        }
+
         cout<<ex;
 
         return INT_MAX;
@@ -160,5 +168,5 @@ int main()
     cout<<"k_th_smallest_element_binary_search_tree(&T, 9): "<<handle_k_th_smallest_element_binary_search_tree(&T, 9)<<"\n";
     cout<<"k_th_smallest_element_binary_search_tree(&T, -1): "<<handle_k_th_smallest_element_binary_search_tree(&T, -1)<<"\n";
 
-   return 0;
+    return 0;
 }
