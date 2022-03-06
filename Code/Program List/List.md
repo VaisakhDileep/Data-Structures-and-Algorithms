@@ -378,6 +378,10 @@ Program558:[c++] [This program checks if two nodes in a binary tree are siblings
 Program559:[c++] [This program finds all the nodes in a binary tree that do not have a sibling(solved recursively).](../Program559/main.cpp)<br>
 Program560:[c++] [This program finds all the nodes in a binary tree that do not have a sibling(solved iteratively).](../Program560/main.cpp)<br>
 
+# Cousin Nodes in Binary Tree:
+
+Program561:[c++] [This program checks if two nodes in a binary tree are cousins.](../Program561/main.cpp)<br>
+
 # N-ary Tree:
 
 Program532:[c++] [This program helps to understand how to represent an n-ary tree.](../Program532/main.cpp)<br>

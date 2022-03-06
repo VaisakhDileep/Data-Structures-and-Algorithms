@@ -96,6 +96,13 @@ bool handle_check_nodes_are_siblings_in_binary_tree(Binary_Tree *T, Node *node_1
         return false;
     }
 
+    if((node_1 == nullptr) or (node_2 == nullptr))
+    {
+        cout<<"ERROR - Invalid operation, one of the given nodes is not valid .....";
+
+        return false;
+    }
+
     return check_nodes_are_siblings_in_binary_tree(T->root, node_1, node_2);
 }
 
