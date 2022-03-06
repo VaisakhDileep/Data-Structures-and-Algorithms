@@ -375,7 +375,8 @@ Program414:[c++] [This program constructs a binary tree from the in-order + post
 # Sibling Nodes in Binary Tree:
 
 Program558:[c++] [This program checks if two nodes in a binary tree are siblings.](../Program558/main.cpp)<br>
-Program559:[c++] [This program finds all the nodes in a binary tree that do not have a sibling.](../Program559/main.cpp)<br>
+Program559:[c++] [This program finds all the nodes in a binary tree that do not have a sibling(solved recursively).](../Program559/main.cpp)<br>
+Program560:[c++] [This program finds all the nodes in a binary tree that do not have a sibling(solved iteratively).](../Program560/main.cpp)<br>
 
 # N-ary Tree:
 

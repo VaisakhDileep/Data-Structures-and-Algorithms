@@ -1,10 +1,12 @@
 /*
 Created by  : Vaisakh Dileep
-Date        : 5, March, 2022
-Description : This program finds all the nodes in a binary tree that do not have a sibling(solved recursively).
+Date        : 6, March, 2022
+Description : This program finds all the nodes in a binary tree that do not have a sibling(solved iteratively).
 */
 
 #include<iostream>
+
+#include<queue>
 
 #include<vector>
 
@@ -41,53 +43,67 @@ void handle_create_binary_tree(Binary_Tree *T, int *A, int size)
     create_binary_tree(&(T->root), 0, A, size);
 }
 
-void extract_nodes_without_siblings(Node *current_node, vector<Node *> &nodes_without_siblings)
-{
-    if((current_node->left_child != nullptr) and (current_node->right_child != nullptr))
-    {
-        extract_nodes_without_siblings(current_node->left_child, nodes_without_siblings);
-
-        extract_nodes_without_siblings(current_node->right_child, nodes_without_siblings);
-
-        return ;
-    }
-
-    if(current_node->left_child != nullptr)
-    {
-        nodes_without_siblings.push_back(current_node->left_child);
-
-        extract_nodes_without_siblings(current_node->left_child, nodes_without_siblings);
-    }
-
-    if(current_node->right_child != nullptr)
-    {
-        nodes_without_siblings.push_back(current_node->right_child);
-
-        extract_nodes_without_siblings(current_node->right_child, nodes_without_siblings);
-    }
-}
-
-vector<Node *> handle_extract_nodes_without_siblings(Binary_Tree *T)
+vector<Node *> extract_nodes_without_siblings(Binary_Tree *T)
 {
     if(T == nullptr)
     {
-        cout<<"ERROR - Invalid operation, binary tree is not valid .....";
-
-        return vector<Node *> {};
+        throw string {"ERROR - Invalid operation, binary tree is not valid ....."};
     }
 
     if(T->root == nullptr)
     {
-        cout<<"ERROR - Invalid operation, binary tree is empty .....";
-
-        return vector<Node *> {};
+        throw string {"ERROR - Invalid operation, binary tree is empty ....."};
     }
 
     vector<Node *> nodes_without_siblings {};
 
-    extract_nodes_without_siblings(T->root, nodes_without_siblings);
+    queue<Node *> Q {};
+
+    Node *top {};
+
+    Q.push(T->root);
+
+    while(Q.empty() == false)
+    {
+        top = Q.front();
+
+        Q.pop();
+
+        if((top->left_child != nullptr) and (top->right_child != nullptr))
+        {
+            Q.push(top->left_child);
+
+            Q.push(top->right_child);
+        }
+        else if(top->left_child != nullptr)
+        {
+            nodes_without_siblings.push_back(top->left_child);
+
+            Q.push(top->left_child);
+        }
+        else if(top->right_child != nullptr)
+        {
+            nodes_without_siblings.push_back(top->right_child);
+
+            Q.push(top->right_child);
+        }
+    }
 
     return nodes_without_siblings;
+}
+
+vector<Node *> handle_extract_nodes_without_siblings(Binary_Tree *T)
+{
+    try
+    {
+        return extract_nodes_without_siblings(T);
+    }
+    catch(string &ex)
+    {
+        cout<<ex;
+
+        return vector<Node *> {};
+    }
 }
 
 void display_nodes_without_siblings(vector<Node *> &nodes_without_siblings)
