@@ -381,6 +381,7 @@ Program560:[c++] [This program finds all the nodes in a binary tree that do not 
 # Cousin Nodes in Binary Tree:
 
 Program561:[c++] [This program checks if two nodes in a binary tree are cousins.](../Program561/main.cpp)<br>
+Program562:[c++] [This program finds all the cousins of a given node in a binary tree.](../Program562/main.cpp)<br>
 
 # N-ary Tree:
 

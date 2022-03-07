@@ -107,6 +107,8 @@ bool check_nodes_are_siblings_in_binary_tree(Node *current_node, Node *node_1, N
     return false;
 }
 
+// Inorder to understand cousins in binary tree refer "Data Structures and Algorithms Manual 1" pg no:16.
+
 bool check_nodes_are_cousins_in_binary_tree(Binary_Tree *T, Node *node_1, Node *node_2)
 {
     if(T == nullptr)
@@ -160,6 +162,8 @@ int main()
     Binary_Tree T {};
 
     T.root = new Node {new Node {new Node {nullptr, 4, nullptr}, 2, new Node {nullptr, 5, nullptr}}, 1, new Node {new Node {nullptr, 6, nullptr}, 3, new Node {nullptr, 7, nullptr}}};
+
+    cout<<level_of_node_in_binary_tree(T.root, T.root)<<"\n";
 
     cout<<"check_nodes_are_cousins_in_binary_tree([the test case contains valid cousins]): "<<handle_check_nodes_are_cousins_in_binary_tree(&T, T.root->left_child->left_child, T.root->right_child->left_child)<<"\n";
     cout<<"check_nodes_are_cousins_in_binary_tree([the test case contains valid cousins]): "<<handle_check_nodes_are_cousins_in_binary_tree(&T, T.root->left_child->left_child, T.root->right_child->right_child)<<"\n";
