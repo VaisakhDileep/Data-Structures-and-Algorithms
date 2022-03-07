@@ -351,6 +351,7 @@ Program224:[c++] [This program counts the number of non-leaf nodes in a binary t
 Program443:[c++] [This program finds the in-order predecessor of a node in a binary tree.](../Program443/main.cpp)<br>
 Program445:[c++] [This program finds the in-order successor of a node in a binary tree.](../Program445/main.cpp)<br>
 Program547:[c++] [This program finds the path of a node if it exists in a binary tree.](../Program547/main.cpp)<br>
+Program564:[c++] [This program extracts all the nodes that are at 'k' distance from the root.](../Program564/main.cpp)<br>
 
 # Traversal in a Binary Tree:
 
