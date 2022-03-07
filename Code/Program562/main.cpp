@@ -121,6 +121,11 @@ vector<Node *> extract_cousins_of_given_node_in_binary_tree(Binary_Tree *T, Node
 
     int node_level {level_of_node_in_binary_tree(T->root, node)};
 
+    if(node_level == INT_MIN)
+    {
+        throw string {"ERROR - Invalid operation, given node is not present in the binary tree ....."};
+    }
+
     vector<Node *> cousin_nodes {};
 
     extract_cousins_from_given_level_in_binary_tree(T->root, node, cousin_nodes, node_level);
@@ -174,7 +179,7 @@ int main()
 
     cout<<"extract_cousins_of_given_node_in_binary_tree([the test case node does contain cousins]): ";
     display_cousin_nodes_of_given_node(target_node, cousin_nodes);
-    cout<<"\n";
+    cout<<"\n\n";
 
     target_node = T.root->left_child;
 
@@ -182,6 +187,13 @@ int main()
 
     cout<<"extract_cousins_of_given_node_in_binary_tree([the test case node does not contain cousins]): ";
     display_cousin_nodes_of_given_node(target_node, cousin_nodes);
+    cout<<"\n";
+
+    target_node = new Node {nullptr, 9, nullptr};
+
+    cout<<"extract_cousins_of_given_node_in_binary_tree([the test case node does not contain cousins]): ";
+
+    cousin_nodes = handle_extract_cousins_of_given_node_in_binary_tree(&T, target_node);
     cout<<"\n";
 
     return 0;
