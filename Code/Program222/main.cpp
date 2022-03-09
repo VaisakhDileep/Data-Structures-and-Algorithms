@@ -39,7 +39,7 @@ void handle_create_binary_tree(Binary_Tree *T, int *A, int size)
     create_binary_tree(&(T->root), 0, A, size);
 }
 
-int height_binary_tree(Node *node)
+int height_binary_tree(Node *node) // In this recursive function, height is found by counting the number of nodes.
 {
     int left_height {0}, right_height {0};
 

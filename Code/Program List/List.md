@@ -373,6 +373,11 @@ Program528:[c++] [This program displays a binary tree using level-order traversa
 Program413:[c++] [This program constructs a binary tree from the in-order + pre-order traversals.](../Program413/main.cpp)<br>
 Program414:[c++] [This program constructs a binary tree from the in-order + post-order traversals.](../Program414/main.cpp)<br>
 
+# Diameter of a Binary Tree:
+
+Program565:[c++] [This program finds the diameter of a binary tree(brute-force(O(n*n)) approach).](../Program565/main.cpp)<br>
+Program566:[c++] [This program finds the diameter of a binary tree(optimal approach(O(n)) approach).](../Program566/main.cpp)<br>
+
 # Sibling Nodes in Binary Tree:
 
 Program558:[c++] [This program checks if two nodes in a binary tree are siblings.](../Program558/main.cpp)<br>
