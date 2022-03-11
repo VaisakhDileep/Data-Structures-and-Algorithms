@@ -26,6 +26,11 @@ struct Binary_Tree
 
 void create_binary_tree(Binary_Tree *T)
 {
+    if(T == nullptr)
+    {
+        throw string {"ERROR - Invalid operation, binary tree is not valid ....."};
+    }
+
     int value {};
 
     queue<Node *> Q {};
@@ -76,11 +81,23 @@ void create_binary_tree(Binary_Tree *T)
     }
 }
 
+void handle_create_binary_tree(Binary_Tree *T)
+{
+    try
+    {
+        create_binary_tree(T);
+    }
+    catch(string &ex)
+    {
+        cout<<ex;
+    }
+}
+
 int main()
 {
     Binary_Tree T {};
 
-    create_binary_tree(&T);
+    handle_create_binary_tree(&T);
 
     return 0;
 }

@@ -378,6 +378,10 @@ Program414:[c++] [This program constructs a binary tree from the in-order + post
 Program565:[c++] [This program finds the diameter of a binary tree(brute-force(O(n*n)) approach).](../Program565/main.cpp)<br>
 Program566:[c++] [This program finds the diameter of a binary tree(optimal approach(O(n)) approach).](../Program566/main.cpp)<br>
 
+# Maximum Path Sum in a Binary Tree:
+
+Program567:[c++] [This program finds the maximum path sum in a binary tree.](../Program567/main.cpp)<br>
+
 # Sibling Nodes in Binary Tree:
 
 Program558:[c++] [This program checks if two nodes in a binary tree are siblings.](../Program558/main.cpp)<br>
