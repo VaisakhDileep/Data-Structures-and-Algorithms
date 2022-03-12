@@ -1,8 +1,10 @@
 /*
 Created by  : Vaisakh Dileep
 Date        : 10, March, 2022
-Description : This program finds the maximum path sum in a binary tree.
+Description : This program finds the maximum path sum between any two nodes in a binary tree.
 */
+
+// In my implementation, I assume that there is a path from a node to itself.
 
 #include<iostream>
 
@@ -103,6 +105,12 @@ int main()
     handle_create_binary_tree(&T3, new int[15] {10, -10, 100, -20, -100, -90, -20, 100, 75, 10, 50, 100, -100, 100, 80}, 15);
 
     cout<<"maximum_path_sum_binary_tree(T3): "<<handle_maximum_path_sum_binary_tree(&T3)<<"\n";
+
+    Binary_Tree T4 {};
+
+    T4.root = new Node {nullptr, -10, nullptr};
+
+    cout<<"maximum_path_sum_binary_tree(T4): "<<handle_maximum_path_sum_binary_tree(&T4)<<"\n";
 
     return 0;
 }

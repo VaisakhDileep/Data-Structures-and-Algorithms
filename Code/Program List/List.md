@@ -380,7 +380,8 @@ Program566:[c++] [This program finds the diameter of a binary tree(optimal appro
 
 # Maximum Path Sum in a Binary Tree:
 
-Program567:[c++] [This program finds the maximum path sum in a binary tree.](../Program567/main.cpp)<br>
+Program567:[c++] [This program finds the maximum path sum between any two nodes in a binary tree.](../Program567/main.cpp)<br>
+Program568:[c++] [This program finds the maximum path sum between any two leaf nodes in a binary tree.](../Program568/main.cpp)<br>
 
 # Sibling Nodes in Binary Tree:
 
