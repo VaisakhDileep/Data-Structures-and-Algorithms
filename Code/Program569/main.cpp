@@ -1,7 +1,7 @@
 /*
 Created by  : Vaisakh Dileep
-Date        : 1, February, 2022
-Description : This program finds the binomial coefficient using memoization(Pascal's triangle).
+Date        : 13, March, 2022
+Description : This program finds the binomial coefficient using space-optimized tabulation(Pascal's triangle).
 */
 
 #include<iostream>
@@ -10,23 +10,21 @@ Description : This program finds the binomial coefficient using memoization(Pasc
 
 using namespace std;
 
-long long binomial_coefficient(long long n, long long r, vector<vector<int>> &memo)
+long long binomial_coefficient(long long n, long long r) // Note this approach uses only "O(r)" space.
 {
-    if(memo[n][r] != 0)
+    vector<int> table(r + 1, 0);
+
+    table[0] = 1;
+
+    for(long long i {1}; i <= n; i++)
     {
-        return memo[n][r];
+        for(int j {min(i, r)}; j >= 1; j--)
+        {
+            table[j] = table[j - 1] + table[j];
+        }
     }
 
-    if((r == 0) or (r == n)) // Base condition
-    {
-        memo[n][r] = 1;
-
-        return memo[n][r];
-    }
-
-    memo[n][r] = binomial_coefficient(n - 1, r - 1, memo) + binomial_coefficient(n - 1, r, memo);
-
-    return memo[n][r];
+    return table[r];
 }
 
 long long handle_binomial_coefficient(long long n, long long r)
@@ -45,9 +43,7 @@ long long handle_binomial_coefficient(long long n, long long r)
         return INT_MIN;
     }
 
-    vector<vector<int>> memo(n + 1, vector<int>(r + 1, 0));
-
-    return binomial_coefficient(n, r, memo);
+    return binomial_coefficient(n, r);
 }
 
 int main()
