@@ -4,7 +4,7 @@ Date        : 16, October, 2021
 Description : This program implements euclid division algorithm for finding GCD iteratively.
 */
 
-// For proof check "Program476/whiteboard_2.pdf"
+// For proof refer "Data Strucuters and Algorithms Manual 1" pg no:2.
 
 #include<iostream>
 

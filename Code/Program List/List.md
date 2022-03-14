@@ -855,6 +855,10 @@ Program477:[c++] [This program implements euclid division algorithm for finding 
 Program512:[c++] [This program finds the modulo multiplicative inverse(brute force approach).](../Program512/main.cpp)<br>
 Program513:[c++] [This program finds the modulo multiplicative inverse(Fermat's little theorem).](../Program513/main.cpp)<br>
 
+# Euler's Totient Function:
+
+Program572:[c++] [This program demonstrates the Euler's Totient function(brute force approach).](../Program572/main.cpp)<br>
+
 # Binary Exponentiation:
 
 Program514:[c++] [This program performs binary exponentiation on a number recursively.](../Program514/main.cpp)<br>
