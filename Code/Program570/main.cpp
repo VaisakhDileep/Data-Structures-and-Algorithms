@@ -1,35 +1,35 @@
 /*
 Created by  : Vaisakh Dileep
-Date        : 1, February, 2022
-Description : This program finds the binomial coefficient using tabulation(Pascal's triangle).
+Date        : 13, March, 2022
+Description : This program finds the binomial coefficient(formulae).
 */
 
 #include<iostream>
 
-#include<vector>
-
 using namespace std;
 
-long long binomial_coefficient(long long n, long long r) // Note this approach uses "O(n * r)" space.
+long long factorial(long long num)
 {
-    vector<vector<int>> table(n + 1, vector<int>(r + 1, 0));
-
-    for(long long i {0}; i <= n; i++)
+    if(num < 0)
     {
-        for(long long j {0}; j <= min(i, r); j++)
-        {
-            if((i == j) or (j == 0))
-            {
-                table[i][j] = 1;
-            }
-            else
-            {
-                table[i][j] = table[i - 1][j - 1] + table[i - 1][j];
-            }
-        }
+        throw string {"ERROR - Invalid operation, given number cannot be negative ....."};
     }
 
-    return table[n][r];
+    int factorial {1};
+
+    for(int i {2}; i <= num; i++)
+    {
+        factorial *= i;
+    }
+
+    return factorial;
+}
+
+// C(n, r) = n! / (r! * (n - r)!)
+
+long long binomial_coefficient(long long n, long long r)
+{
+    return factorial(n) / (factorial(r) * factorial(n - r));
 }
 
 long long handle_binomial_coefficient(long long n, long long r)
@@ -41,7 +41,7 @@ long long handle_binomial_coefficient(long long n, long long r)
         return LLONG_MIN;
     }
 
-    if(r > n) 
+    if(r > n)
     {
         cout<<"ERROR - Invalid operation, 'r' cannot exceed 'n' .....";
 

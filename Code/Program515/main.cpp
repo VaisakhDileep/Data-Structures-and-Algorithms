@@ -39,12 +39,20 @@ long long handle_modded_binary_exponentiation(long long num, long long exponent,
         return LLONG_MIN;
     }
 
+    if(mod < 0)
+    {
+        cout<<"ERROR - Invalid operation, 'mod' value cannot be negative .....";
+
+        return LLONG_MIN;
+    }
+
     return  modded_binary_exponentiation(num, exponent, mod);
 }
 
 int main()
 {
     cout<<"modded_binary_exponentiation(12, 4, 7): "<<handle_modded_binary_exponentiation(12, 4, 7)<<"\n";
+
     cout<<"modded_binary_exponentiation(12, 9, 17): "<<handle_modded_binary_exponentiation(12, 9, 17)<<"\n";
 
     return 0;

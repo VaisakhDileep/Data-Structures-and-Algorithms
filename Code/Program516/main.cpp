@@ -15,6 +15,11 @@ long long modded_binary_exponentiation(long long num, long long exponent, long l
         throw string {"ERROR - Invalid operation, exponent cannot be negative ....."};
     }
 
+    if(mod < 0)
+    {
+        throw string {"ERROR - Invalid operation, 'mod' value cannot be negative ....."};
+    }
+
     long long result {1};
 
     while(exponent)

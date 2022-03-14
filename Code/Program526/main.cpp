@@ -8,7 +8,7 @@ Description : This program finds the modded factorial of a number recursively.
 
 using namespace std;
 
-long long factorial(long long num, long long mod)
+long long modded_factorial(long long num, long long mod)
 {
     if(num >= mod) // This is a special case, if "num" is greater than or equal to "mod", then "mod" will be contained inside "num"(1*2*...*mod*...*num).
     {
@@ -20,10 +20,10 @@ long long factorial(long long num, long long mod)
         return 1;
     }
 
-    return ((num % mod) * factorial(num - 1, mod)) % mod; // "factorial(num - 1, mod)" will always be less than 'mod'.
+    return ((num % mod) * modded_factorial(num - 1, mod)) % mod; // "modded_factorial(num - 1, mod)" will always be less than 'mod'.
 }
 
-long long handle_factorial(long long num, long long mod)
+long long handle_modded_factorial(long long num, long long mod)
 {
     if(num < 0)
     {
@@ -32,12 +32,19 @@ long long handle_factorial(long long num, long long mod)
         return LLONG_MIN;
     }
 
-    return factorial(num, mod);
+    if(mod < 0)
+    {
+        cout<<"ERROR - Invalid operation, 'mod' value cannot be negative .....";
+
+        return LLONG_MIN;
+    }
+
+    return modded_factorial(num, mod);
 }
 
 int main()
 {
-    cout<<"factorial(9, 11): "<<handle_factorial(9, 11)<<"\n";
+    cout<<"modded_factorial(9, 11): "<<handle_modded_factorial(9, 11)<<"\n";
 
     return 0;
 }

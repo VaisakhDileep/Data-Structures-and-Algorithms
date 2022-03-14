@@ -26,14 +26,14 @@ long long handle_binomial_coefficient(long long n, long long r)
     {
         cout<<"ERROR - Invalid operation, input values cannot be negative .....";
 
-        return INT_MIN;
+        return LLONG_MIN;
     }
 
     if(r > n)
     {
         cout<<"ERROR - Invalid operation, 'r' cannot exceed 'n' .....";
 
-        return INT_MIN;
+        return LLONG_MIN;
     }
 
     return binomial_coefficient(n, r);
