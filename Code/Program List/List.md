@@ -857,7 +857,8 @@ Program513:[c++] [This program finds the modulo multiplicative inverse(Fermat's 
 
 # Euler's Totient Function:
 
-Program572:[c++] [This program demonstrates the Euler's Totient function(brute force approach).](../Program572/main.cpp)<br>
+Program572:[c++] [This program demonstrates the Euler's Totient function(brute force(O(n*log(n))) approach).](../Program572/main.cpp)<br>
+Program573:[c++] [This program demonstrates the Euler's Totient function(O(sqrt(n) approach)).](../Program573/main.cpp)<br>
 
 # Binary Exponentiation:
 
